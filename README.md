@@ -1,2 +1,2 @@
 # DX27-Trading-Engine
-Rule-based quantitative trading and risk management engine
+DX27 is a modular quantitative decision layer for formalizing, testing and executing discretionary trading knowledge.

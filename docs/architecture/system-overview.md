@@ -6,59 +6,68 @@
 flowchart LR
 
     Client["External Client<br/>CLI · Web UI · WESI"]
-    Market["Market Data"]
-    Broker["Broker API"]
 
-    subgraph DX27["DX27 Trading Engine"]
-        Core["Platform Core"]
-    end
+    DX27["DX27<br/>Decision Layer"]
 
-    Client <-->|Control · Monitoring| Core
-    Market -->|Quotes · Bars| Core
-    Core -->|Orders| Broker
-    Broker -->|Fills · Positions · Account| Core
+    LEAN["LEAN<br/>Trading Infrastructure"]
+
+    Broker["Broker / Paper Account"]
+
+    Client -->|Commands| DX27
+    DX27 -->|Decisions| LEAN
+    LEAN -->|Orders| Broker
+
+    Broker -.->|Fills · Account State| LEAN
+    LEAN -.->|Portfolio · Market State| DX27
+    DX27 -.->|Monitoring · Explanations| Client
 ```
+
 ## Internal Architecture
 
 ```mermaid
 flowchart TB
 
-    Market["Market Data"]
-    Features["Feature Engine"]
+    Coverage["Coverage / Discovery"]
 
-    subgraph Strategies["Strategy Pool"]
+    subgraph Strategies["Strategy Bot Pool"]
         direction LR
-        S1["Bot A"]
-        S2["Bot B"]
-        SN["Bot N"]
+        B1["Bot A"]
+        B2["Bot B"]
+        BN["Bot N"]
     end
 
+    Data["LEAN Market Data"]
+    Features["DX27 Feature Service"]
+    Rules["DX27 Rule Service"]
+
     Coordinator["Strategy Coordinator"]
-    Proposal["Trade Proposal"]
-    Gate["Decision Gate"]
-    Execution["Execution Engine"]
-    Broker["Broker Adapter"]
+    Doctrine["Capital Regime / Doctrine"]
+    Risk["DX27 Risk Policy"]
+    Approval["Approval Mode<br/>Human / Autonomous"]
+
+    LEAN["LEAN Execution Infrastructure"]
     Portfolio["Portfolio State"]
 
-    Rules["Rule Packs"]
-    Risk["Risk Engine"]
-    Approval["Approval Mode<br/>Human / Autonomous"]
-    Supervision["Supervision"]
+    Coverage -->|Assign Universe / Candidates| Strategies
 
-    Market --> Features
-    Features --> Strategies
-    Strategies --> Coordinator
-    Coordinator --> Proposal
-    Proposal --> Gate
-    Gate --> Execution
-    Execution --> Broker
-    Broker --> Portfolio
+    Strategies -->|Request Data| Data
+    Data -->|Market Data| Strategies
 
-    Rules -.-> Strategies
-    Risk -.-> Gate
-    Approval -.-> Gate
-    Supervision -.-> Gate
-    Portfolio -.-> Risk
+    Strategies -->|Request Features| Features
+    Features -->|Feature Results| Strategies
+
+    Strategies -->|Evaluate Rules| Rules
+    Rules -->|Rule Results| Strategies
+
+    Strategies -->|Bot Signals| Coordinator
+    Coordinator -->|Combined Signal| Doctrine
+    Doctrine -->|Target Allocation| Risk
+    Portfolio -.->|Account State| Risk
+
+    Risk -->|Approved Target| Approval
+    Approval -->|Execution Instruction| LEAN
+
+    LEAN -->|Positions / PnL| Portfolio
 ```
 
 ## Bot Contract
@@ -66,21 +75,33 @@ flowchart TB
 ```mermaid
 flowchart LR
 
-    State[Market State]
-    Features[Features]
-    Rules[Rule Packs]
-    Config[Bot Config]
+    Scope["Assigned Scope<br/>Symbol · Sector · Basket"]
+    Config["Bot Configuration"]
 
     subgraph Bot["Strategy Bot"]
-        Logic[Strategy Logic]
+        Logic["Strategy Logic"]
+        Request["Data / Feature / Rule Requests"]
     end
 
-    Signal[Signal]
+    Data["LEAN Market Data"]
+    Features["DX27 Feature Service"]
+    Rules["DX27 Rule Service"]
 
-    State --> Logic
-    Features --> Logic
-    Rules --> Logic
+    Signal["BotSignal"]
+
+    Scope --> Logic
     Config --> Logic
 
-    Logic --> Signal
+    Logic --> Request
+
+    Request -->|Request Market Data| Data
+    Data -->|Market Snapshot| Logic
+
+    Request -->|Request Features| Features
+    Features -->|Feature Results| Logic
+
+    Request -->|Evaluate Rules| Rules
+    Rules -->|Rule Results| Logic
+
+    Logic -->|Standardized Output| Signal
 ```
