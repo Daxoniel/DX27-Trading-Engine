@@ -2,10 +2,16 @@
 
 DX27 is a modular trading decision system.
 
-Its purpose is to separate trading knowledge, portfolio decision logic,
-capital allocation, risk control, and execution infrastructure.
+Its purpose is to separate:
 
-The same strategy logic should be usable across:
+- trading logic
+- portfolio construction
+- risk control
+- execution
+- account state
+- infrastructure integration
+
+The same strategy logic should be reusable across:
 
 - historical backtesting
 - paper trading
@@ -13,7 +19,7 @@ The same strategy logic should be usable across:
 - advisory analysis
 
 Infrastructure such as LEAN, market-data providers, and broker APIs must remain
-outside the DX27 domain logic and connect through adapters.
+outside DX27 domain logic and connect through adapters.
 
 
 # 1. System Context
@@ -62,28 +68,43 @@ flowchart TB
             IFeatures["Technical Features"]
             IRules["Technical Rule Packs"]
             ITrade["Strategy-Specific Trade Management"]
+
+            IFeatures --> IBots
+            IRules --> IBots
+            IBots --> ITrade
         end
 
         subgraph Investment["Investment Domain"]
-            InvBots["Investment Bots"]
             Core27A["DX27 Core 27<br/>18 Veto + 9 Triggers"]
+            InvBots["Investment Bots"]
+
+            Core27A --> InvBots
         end
 
         subgraph Strategic["Strategic Domain"]
             Core27B["DX27 Core 27"]
             Doctrine["Capital Doctrine"]
             Rebalance["Strategic Rebalance"]
+
+            Core27B --> Rebalance
+            Doctrine --> Rebalance
         end
 
     end
 
-    Coordinator["Strategy Coordinator"]
+    Signal["BotSignal"]
 
-    Capital["Capital Allocation"]
+    Construction["Portfolio Construction"]
 
-    Risk["Risk Policy"]
+    Target["PortfolioTarget"]
+
+    Risk["Risk Management"]
 
     Approval["Approval / Control"]
+
+    Planning["Execution Planning"]
+
+    Intent["TradeIntent"]
 
     Core["Core Models + Interfaces"]
 
@@ -97,24 +118,18 @@ flowchart TB
     Application --> Investment
     Application --> Strategic
 
-    IFeatures --> IBots
-    IRules --> IBots
-    IBots --> ITrade
+    Intraday --> Signal
+    Investment --> Signal
+    Strategic --> Signal
 
-    Core27A --> InvBots
-
-    Core27B --> Rebalance
-    Doctrine --> Rebalance
-
-    Intraday --> Coordinator
-    Investment --> Coordinator
-    Strategic --> Coordinator
-
-    Coordinator --> Capital
-    Capital --> Risk
+    Signal --> Construction
+    Construction --> Target
+    Target --> Risk
     Risk --> Approval
+    Approval --> Planning
+    Planning --> Intent
 
-    Approval --> Core
+    Intent --> Core
     Core --> Adapters
     Adapters --> External
 
@@ -122,16 +137,16 @@ flowchart TB
     Core -.-> Application
 ```
 
-The Application Layer orchestrates workflows.
+The Application Layer orchestrates complete workflows.
 
-Runners must not directly coordinate domain logic, account state, strategy
-execution, or infrastructure calls.
+Runners must not directly coordinate strategy logic, account state, portfolio
+construction, risk decisions, or execution.
 
 
 # 3. Decision Domains
 
-DX27 separates trading decisions into three domains because their information
-requirements, time horizons, and decision rules are fundamentally different.
+DX27 separates decision logic into three domains because their time horizons,
+data requirements, and decision rules are fundamentally different.
 
 
 ## 3.1 Intraday Domain
@@ -174,7 +189,7 @@ flowchart LR
         External["External Strategy Adapters"]
     end
 
-    Contract["Intraday Bot Contract"]
+    Contract["IntradayBot Contract"]
 
     Signal["BotSignal"]
 
@@ -190,10 +205,14 @@ flowchart LR
     Contract --> Signal
 ```
 
-Intraday strategies must remain replaceable.
+Intraday strategies must remain replaceable and testable independently.
 
-A strategy should be removable from DX27 and tested independently without
-depending on account execution infrastructure.
+A strategy should not need to know:
+
+- which broker is connected
+- whether it is running in backtest, paper, or live mode
+- how account state is retrieved
+- how orders are transmitted
 
 
 ## 3.2 Investment Domain
@@ -216,17 +235,14 @@ flowchart LR
 
     Bots["Investment Bots"]
 
-    Coordinator["Strategy Coordinator"]
-
-    Output["Investment Advice / Signal"]
+    Signal["BotSignal / Advisory Signal"]
 
     Market --> Core27
     Technical --> Core27
     Fundamental --> Core27
 
     Core27 --> Bots
-    Bots --> Coordinator
-    Coordinator --> Output
+    Bots --> Signal
 ```
 
 The Core 27 is primarily an investment decision framework.
@@ -266,7 +282,7 @@ flowchart LR
 
     Rebalance["Strategic Rebalance Engine"]
 
-    Decision["Strategic Allocation Decision"]
+    Decision["Strategic Allocation Signal"]
 
     Account --> Rebalance
     Portfolio --> Rebalance
@@ -280,7 +296,7 @@ flowchart LR
 
 Capital Doctrine is a long-term allocation philosophy.
 
-It is different from runtime capital allocation.
+It is different from runtime Portfolio Construction.
 
 
 # 4. Application Layer
@@ -295,6 +311,7 @@ Investment Analysis
 Strategic Rebalance
 Historical Backtest
 Paper Trading
+Live Trading
 ```
 
 The Application Layer is responsible for orchestration, not trading logic.
@@ -308,11 +325,19 @@ Application
    ↓
 Domain
    ↓
-Coordinator
+BotSignal
    ↓
-Capital
+Portfolio Construction
+   ↓
+PortfolioTarget
    ↓
 Risk
+   ↓
+Approval
+   ↓
+Execution Planning
+   ↓
+TradeIntent
    ↓
 Execution
 ```
@@ -324,7 +349,8 @@ application/
 ├── intraday.py
 ├── analyze.py
 ├── rebalance.py
-└── backtest.py
+├── backtest.py
+└── paper.py
 ```
 
 
@@ -334,14 +360,14 @@ Market information alone is not enough.
 
 DX27 must also understand the current account and portfolio state.
 
-The shared state layer contains normalized snapshots of external reality.
+The shared state consists of normalized snapshots of external reality.
 
 ```mermaid
 flowchart TB
 
     External["Broker / LEAN / Data Provider"]
 
-    Adapter["Adapter"]
+    Adapter["Infrastructure Adapter"]
 
     Market["Market State"]
 
@@ -351,8 +377,6 @@ flowchart TB
 
     Positions["Position Snapshots"]
 
-    Allocation["AllocationState"]
-
     External --> Adapter
 
     Adapter --> Market
@@ -360,19 +384,17 @@ flowchart TB
     Adapter --> Portfolio
 
     Portfolio --> Positions
-
-    Account --> Allocation
-    Portfolio --> Allocation
 ```
 
-External infrastructure remains the authoritative source of account state.
+External infrastructure remains the authoritative source of account and
+portfolio state.
 
-DX27 maintains normalized representations of that state.
+DX27 operates on normalized representations of that state.
 
 
 # 6. Account Model
 
-`AccountSnapshot` describes the entire trading account.
+`AccountSnapshot` describes the whole trading account.
 
 Typical information includes:
 
@@ -419,42 +441,23 @@ market value
 ```
 
 
-# 8. Capital Allocation
+# 8. Portfolio Construction
 
-Capital Allocation determines how much account capital a strategy or domain
-is allowed to use.
+Portfolio Construction converts strategy opinions into desired portfolio
+positions.
 
-It does not determine whether a market setup is attractive.
+It is responsible for combining:
 
-Example:
+- BotSignal
+- current account state
+- current portfolio state
+- strategy capital budgets
+- strategy weights
+- existing positions
+- multiple strategy signals
+- allocation limits
 
-```text
-Total Equity = €10,000
-
-Intraday allocation       15%
-Investment allocation     60%
-Strategic reserve         25%
-```
-
-Therefore:
-
-```text
-Intraday Budget       €1,500
-Investment Budget     €6,000
-Strategic Reserve     €2,500
-```
-
-If the intraday domain has already used €900:
-
-```text
-Intraday Budget       €1,500
-Used                    €900
-Available               €600
-```
-
-An intraday strategy cannot exceed that remaining budget.
-
-Conceptually:
+It does not execute orders.
 
 ```mermaid
 flowchart LR
@@ -465,66 +468,185 @@ flowchart LR
 
     Portfolio["PortfolioSnapshot"]
 
-    Allocation["Capital Allocator"]
+    Config["Allocation / Strategy Config"]
 
-    Intent["TradeIntent"]
+    Construction["Portfolio Construction"]
 
-    Signal --> Allocation
-    Account --> Allocation
-    Portfolio --> Allocation
+    Target["PortfolioTarget"]
 
-    Allocation --> Intent
+    Signal --> Construction
+    Account --> Construction
+    Portfolio --> Construction
+    Config --> Construction
+
+    Construction --> Target
 ```
 
-Capital allocation answers:
+Example:
 
-> How much capital may this strategy use?
+```text
+Total Equity = €10,000
+
+Intraday allocation = 15%
+→ Maximum intraday budget = €1,500
+
+Current intraday usage = €900
+→ Remaining budget = €600
+```
+
+A strategy may produce a strong signal, but Portfolio Construction determines
+how much capital may actually be allocated.
+
+Portfolio Construction answers:
+
+> What should the target portfolio position be?
 
 
-# 9. Risk Layer
+# 9. PortfolioTarget
 
-Risk is separate from capital allocation.
+`PortfolioTarget` represents the desired resulting position.
 
-Capital allocation answers:
+It is not yet an order.
 
-> How much money is available?
+Example:
+
+```text
+Symbol: AMD
+Target Notional: €700
+Source Strategy: intraday_momentum_v2
+```
+
+If the current AMD position is already worth €200, the target does not mean:
+
+```text
+BUY €700
+```
+
+It means:
+
+```text
+Desired AMD position = €700
+```
+
+Execution Planning may later calculate:
+
+```text
+Current AMD = €200
+Target AMD = €700
+
+Required action:
+BUY €500
+```
+
+
+# 10. Risk Layer
+
+Risk is separate from Portfolio Construction.
+
+Portfolio Construction answers:
+
+> What position does the strategy want?
 
 Risk answers:
 
-> Is this trade allowed?
+> Is that target position acceptable for the account?
 
 Risk policies may eventually include:
 
 ```text
-maximum position exposure
+maximum total exposure
 daily loss limits
+maximum leverage
 portfolio concentration
 correlation limits
-existing position conflicts
 maximum strategy drawdown
-order-size constraints
+restricted symbols
+order-size limits
+account-level kill switch
 ```
 
 Conceptually:
 
 ```text
-BotSignal
-    ↓
-Capital Allocation
-    ↓
-Candidate TradeIntent
-    ↓
+PortfolioTarget
+      ↓
 Risk Policy
-    ↓
-Approved / Rejected TradeIntent
+      ↓
+Approved / Modified / Rejected PortfolioTarget
+```
+
+Risk is account-level protection.
+
+Strategy-specific exits belong to the strategy domain.
+
+
+# 11. Strategy-Specific Trade Management
+
+Some trading rules are part of the strategy itself and should not be moved into
+global account Risk.
+
+Examples include:
+
+```text
+ATR trailing stop
+VWAP exit
+time-based exit
+breakout invalidation
+strategy-specific profit taking
+```
+
+These belong in:
+
+```text
+domains/intraday/trade_management/
+```
+
+Global Risk instead handles account-wide constraints such as:
+
+```text
+daily account loss
+maximum leverage
+maximum exposure
+portfolio concentration
+strategy allocation limits
 ```
 
 
-# 10. Signal and Execution Separation
+# 12. Approval Layer
 
-A market opinion is not an order.
+Approval is a separate control boundary.
 
-DX27 separates several stages.
+It can support different operating modes.
+
+Examples:
+
+```text
+fully automatic
+manual confirmation
+paper-only
+restricted strategy
+restricted symbol
+emergency disable
+```
+
+Conceptually:
+
+```text
+Risk-Approved PortfolioTarget
+        ↓
+Approval
+        ↓
+Approved PortfolioTarget
+```
+
+Approval should not contain strategy logic.
+
+
+# 13. Signal and Execution Separation
+
+A strategy opinion is not an order.
+
+DX27 separates four major stages.
 
 
 ## BotSignal
@@ -541,9 +663,23 @@ Reason: momentum breakout
 ```
 
 
+## PortfolioTarget
+
+Represents the desired resulting position.
+
+Example:
+
+```text
+AMD
+Target Notional: €700
+Source Strategy: intraday_momentum_v2
+```
+
+
 ## TradeIntent
 
-Represents a proposed trading action after coordination and capital allocation.
+Represents the concrete trading action needed to move from current portfolio
+state toward the approved target.
 
 Example:
 
@@ -561,13 +697,13 @@ Represents what actually happened at the broker or execution engine.
 Example:
 
 ```text
-Requested: 5 shares
-Filled:    5 shares
+Requested: 3 shares
+Filled: 3 shares
 Average Fill: $168.42
 Status: Filled
 ```
 
-Therefore:
+The complete separation is:
 
 ```mermaid
 flowchart LR
@@ -576,11 +712,15 @@ flowchart LR
 
     Signal["BotSignal"]
 
-    Coordinator["Coordinator"]
+    Construction["Portfolio Construction"]
 
-    Capital["Capital Allocation"]
+    Target["PortfolioTarget"]
 
     Risk["Risk"]
+
+    Approval["Approval"]
+
+    Planning["Execution Planning"]
 
     Intent["TradeIntent"]
 
@@ -589,18 +729,63 @@ flowchart LR
     Report["ExecutionReport"]
 
     Bot --> Signal
-    Signal --> Coordinator
-    Coordinator --> Capital
-    Capital --> Risk
-    Risk --> Intent
+
+    Signal --> Construction
+    Construction --> Target
+
+    Target --> Risk
+    Risk --> Approval
+
+    Approval --> Planning
+    Planning --> Intent
+
     Intent --> Execution
     Execution --> Report
 ```
 
 
-# 11. Runtime Data Flow
+# 14. Execution Planning
 
-The complete runtime loop includes both market data and account state.
+Execution Planning converts an approved `PortfolioTarget` into one or more
+concrete `TradeIntent` objects.
+
+Example:
+
+```text
+Current AMD position = €200
+Approved target = €700
+```
+
+Execution Planning determines:
+
+```text
+Required delta = +€500
+```
+
+and produces:
+
+```text
+TradeIntent:
+BUY AMD €500
+```
+
+Execution Planning may eventually consider:
+
+- current position
+- target position
+- minimum order size
+- fractional shares
+- order type
+- execution timing
+- available liquidity
+- broker capabilities
+
+It does not determine whether the strategy is correct.
+
+
+# 15. Runtime Data Flow
+
+The complete runtime loop includes both market state and account state.
 
 ```mermaid
 flowchart TB
@@ -619,13 +804,15 @@ flowchart TB
 
     Signal["BotSignal"]
 
-    Coordinator["Coordinator"]
+    Construction["Portfolio Construction"]
 
-    Capital["Capital Allocation"]
+    Target["PortfolioTarget"]
 
-    Risk["Risk Policy"]
+    Risk["Risk Management"]
 
     Approval["Approval / Control"]
+
+    Planning["Execution Planning"]
 
     Intent["TradeIntent"]
 
@@ -649,16 +836,27 @@ flowchart TB
 
     Domain --> Signal
 
-    Signal --> Coordinator
-    Coordinator --> Capital
-    Capital --> Risk
+    Signal --> Construction
+
+    Account --> Construction
+    Portfolio --> Construction
+
+    Construction --> Target
+
+    Target --> Risk
+
     Risk --> Approval
 
-    Approval --> Intent
+    Approval --> Planning
+
+    Portfolio --> Planning
+
+    Planning --> Intent
 
     Intent --> Execution
 
     Execution --> Adapters
+
     Adapters --> External
 
     External --> Report
@@ -666,19 +864,19 @@ flowchart TB
     Report --> Refresh
 
     Refresh --> Adapters
+
     Adapters --> Account
     Adapters --> Portfolio
 ```
 
 The broker or runtime remains the authoritative source of account state.
 
-DX27 should not manually assume that a submitted order changed cash or
-positions.
+DX27 must not manually assume that a submitted order changed cash or positions.
 
 After execution:
 
 ```text
-Order
+TradeIntent
 ↓
 Broker / Engine
 ↓
@@ -688,13 +886,13 @@ ExecutionReport
 ↓
 Refresh Account + Portfolio
 ↓
-New Snapshot
+New Snapshots
 ↓
 Application continues with refreshed state
 ```
 
 
-# 12. Intraday Bot Contract
+# 16. Intraday Bot Contract
 
 An intraday strategy must be isolated from infrastructure.
 
@@ -741,14 +939,15 @@ which broker is connected
 whether execution is backtest/paper/live
 how account state is retrieved
 how orders are transmitted
+how account balances are refreshed
 ```
 
 
-# 13. Rule Architecture
+# 17. Rule Architecture
 
 Rules are reusable decision components.
 
-Bots should not eventually hard-code independent copies of common rules.
+Bots should not contain duplicated implementations of common rules.
 
 The intended architecture is:
 
@@ -776,14 +975,12 @@ flowchart LR
     Evaluation --> Bot
 ```
 
-Different domains may use different rule packs.
+Different domains use different rule packs.
 
 
 ## Intraday
 
-```text
-Technical Rule Packs
-```
+Uses technical rule packs.
 
 Examples:
 
@@ -794,16 +991,19 @@ trend
 volatility
 VWAP
 breakout
+market structure
 ```
 
 
 ## Investment
 
+Uses:
+
 ```text
 DX27 Core 27
 ```
 
-Contains:
+Containing:
 
 ```text
 18 veto / risk rules
@@ -822,7 +1022,7 @@ Capital Doctrine
 ```
 
 
-# 14. Strategy Bot Pool
+# 18. Strategy Bot Pool
 
 DX27 should support multiple strategy implementations.
 
@@ -846,20 +1046,21 @@ DX27-specific technical rules can then be added iteratively and compared
 against that baseline.
 
 
-# 15. LEAN Integration
+# 19. LEAN Integration
 
 LEAN can play two different roles and these must remain separate.
 
 
-## 15.1 LEAN as Runtime Infrastructure
+## 19.1 LEAN as Runtime Infrastructure
 
 DX27 strategy logic remains native.
 
-LEAN provides:
+LEAN may provide:
 
 ```text
 market data
 backtesting
+account state
 portfolio state
 paper trading
 execution
@@ -878,7 +1079,7 @@ LEAN
 ```
 
 
-## 15.2 LEAN as Strategy Source
+## 19.2 LEAN as Strategy Source
 
 Existing LEAN strategies may also be wrapped as DX27-compatible bots.
 
@@ -910,7 +1111,7 @@ adapters/lean/
 ```
 
 
-# 16. Adapter Principle
+# 20. Adapter Principle
 
 DX27 Core must never import LEAN, Yahoo Finance, broker SDKs, or other external
 infrastructure.
@@ -938,7 +1139,7 @@ LEAN
 This allows infrastructure to be replaced without rewriting strategy logic.
 
 
-# 17. Core Ports
+# 21. Core Ports
 
 The planned core interfaces are:
 
@@ -949,10 +1150,9 @@ core/interfaces/
 ├── portfolio.py
 ├── execution.py
 ├── intraday_bot.py
+├── portfolio_constructor.py
 └── strategy.py
 ```
-
-Responsibilities:
 
 
 ## MarketDataPort
@@ -972,37 +1172,55 @@ Provides current holdings and position state.
 
 ## ExecutionPort
 
-Accepts approved trade intents and communicates with external execution
+Accepts concrete trade intents and communicates with external execution
 infrastructure.
+
+
+## PortfolioConstructor
+
+Converts one or more strategy signals into desired portfolio targets.
 
 
 ## IntradayBot
 
-Defines the standard contract for short-term trading bots.
+Defines the standard contract for short-term strategy bots.
 
 
-# 18. Core Models
+## Strategy
 
-The shared model layer should contain normalized objects such as:
+Provides a generic strategy abstraction where useful.
+
+
+# 22. Core Models
+
+The shared model layer contains the common language used across domains and
+infrastructure.
 
 ```text
 core/models/
 ├── market_context.py
 ├── account_snapshot.py
 ├── portfolio_snapshot.py
+├── portfolio_target.py
 ├── position.py
 ├── bot_signal.py
 ├── trade_intent.py
 ├── execution_report.py
 ├── rule_result.py
 ├── feature_snapshot.py
-└── strategy_metadata.py
+└── trade_result.py
 ```
 
-These models form the common language between domains and infrastructure.
+Possible future additions include:
+
+```text
+strategy_metadata.py
+order_state.py
+allocation_state.py
+```
 
 
-# 19. Backtest / Paper / Live Principle
+# 23. Backtest / Paper / Live Principle
 
 Strategy logic must remain identical across execution environments.
 
@@ -1013,14 +1231,20 @@ flowchart TB
 
     Contracts["DX27 Contracts"]
 
-    Contracts --> Backtest["Backtest Adapter"]
-    Contracts --> Paper["Paper Trading Adapter"]
-    Contracts --> Live["Live Trading Adapter"]
+    Backtest["Backtest Infrastructure"]
+
+    Paper["Paper Trading Infrastructure"]
+
+    Live["Live Trading Infrastructure"]
 
     Strategy --> Contracts
+
+    Contracts --> Backtest
+    Contracts --> Paper
+    Contracts --> Live
 ```
 
-Only adapters change.
+Only infrastructure implementations change.
 
 
 ## Backtest
@@ -1062,12 +1286,12 @@ Live Execution
 ```
 
 
-# 20. State Ownership Principle
+# 24. State Ownership Principle
 
 Strategy bots do not own account state.
 
-Bots may create opinions and strategy-specific state, but account truth belongs
-to external infrastructure.
+Bots may hold strategy-specific state, but account truth belongs to external
+infrastructure.
 
 Responsibilities:
 
@@ -1075,27 +1299,30 @@ Responsibilities:
 Bot
     market interpretation
 
-Coordinator
-    combine / route strategy decisions
+Application
+    orchestrate the complete workflow
 
-Capital
-    allocate available money
+Portfolio Construction
+    combine signals, account state, portfolio state, and allocation rules
 
 Risk
-    enforce trade and account constraints
+    enforce account-level constraints
+
+Approval
+    control whether an approved target may proceed
+
+Execution Planning
+    convert target positions into concrete trade actions
 
 Execution
     communicate orders
 
 Broker / LEAN
     authoritative execution and account state
-
-Application
-    orchestrate the complete flow
 ```
 
 
-# 21. Runner Principle
+# 25. Runner Principle
 
 Runners are composition roots.
 
@@ -1126,7 +1353,7 @@ Changing from backtest to paper trading should primarily change configuration
 and adapters, not strategy code.
 
 
-# 22. Target Package Structure
+# 26. Target Package Structure
 
 The intended architecture is:
 
@@ -1154,9 +1381,7 @@ src/dx27/
 │       ├── doctrine/
 │       └── rebalance/
 │
-├── capital/
-│
-├── coordinator/
+├── portfolio_construction/
 │
 ├── coverage/
 │
@@ -1173,7 +1398,7 @@ src/dx27/
 ```
 
 
-# 23. Architectural Boundaries
+# 27. Architectural Boundaries
 
 The following boundaries are fundamental.
 
@@ -1218,18 +1443,25 @@ paper/live environment
 ```
 
 
-## Capital Independence
+## Portfolio Construction Independence
 
-A strategy may propose a trade.
+A strategy may express an opinion.
 
-It does not control how much of the total account it is allowed to use.
+It does not directly control the final account allocation.
+
+
+## Risk Independence
+
+Strategy-specific trade logic and account-level risk must remain separate.
 
 
 ## Execution Independence
 
-A TradeIntent does not imply execution success.
+A `PortfolioTarget` is not an order.
 
-Only an ExecutionReport confirms external execution.
+A `TradeIntent` is a request for execution.
+
+An `ExecutionReport` is the external execution result.
 
 
 ## State Authority
@@ -1240,27 +1472,84 @@ DX27 operates on normalized snapshots and refreshes them after external state
 changes.
 
 
-# 24. Architectural Goal
+# 28. Main Runtime Chain
 
-DX27 should ultimately allow the following workflow:
+The standard DX27 runtime chain is:
+
+```text
+Market / Account / Portfolio State
+                │
+                ▼
+          Application Layer
+                │
+                ▼
+          Strategy Domain
+                │
+                ▼
+             BotSignal
+                │
+                ▼
+      Portfolio Construction
+                │
+                ▼
+          PortfolioTarget
+                │
+                ▼
+               Risk
+                │
+                ▼
+            Approval
+                │
+                ▼
+       Execution Planning
+                │
+                ▼
+           TradeIntent
+                │
+                ▼
+        Execution Adapter
+                │
+                ▼
+          Broker / LEAN
+                │
+                ▼
+        ExecutionReport
+                │
+                ▼
+      Account / Portfolio Refresh
+```
+
+This is the primary architectural flow of DX27.
+
+
+# 29. Architectural Goal
+
+DX27 should ultimately allow the same strategy logic to operate across
+different execution environments.
 
 ```text
                      Same DX27 Strategy
                             │
                             ▼
-                      BotSignal
+                        BotSignal
                             │
                             ▼
-                       Coordinator
+                 Portfolio Construction
                             │
                             ▼
-                    Capital Allocation
+                    PortfolioTarget
                             │
                             ▼
-                          Risk
+                           Risk
                             │
                             ▼
-                       TradeIntent
+                        Approval
+                            │
+                            ▼
+                  Execution Planning
+                            │
+                            ▼
+                      TradeIntent
                             │
              ┌──────────────┼──────────────┐
              ▼              ▼              ▼
@@ -1268,10 +1557,10 @@ DX27 should ultimately allow the following workflow:
              │              │              │
              └──────────────┼──────────────┘
                             ▼
-                     ExecutionReport
+                    ExecutionReport
                             │
                             ▼
-                  Account / Portfolio Refresh
+              Account / Portfolio Refresh
 ```
 
 This separation allows DX27 to evolve trading logic without repeatedly
