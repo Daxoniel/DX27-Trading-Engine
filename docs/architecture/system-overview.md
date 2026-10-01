@@ -5,21 +5,20 @@
 ```mermaid
 flowchart LR
 
-    Client["External Client<br/>CLI · Web UI · WESI"]
+    User["User / External Client"]
 
-    DX27["DX27<br/>Decision Layer"]
+    DX27["DX27 Decision System"]
 
-    LEAN["LEAN<br/>Trading Infrastructure"]
+    Infra["Trading Infrastructure<br/>LEAN · Other Engines · Broker APIs"]
 
-    Broker["Broker / Paper Account"]
+    Market["Markets / Brokers"]
 
-    Client -->|Commands| DX27
-    DX27 -->|Decisions| LEAN
-    LEAN -->|Orders| Broker
-
-    Broker -.->|Fills · Account State| LEAN
-    LEAN -.->|Portfolio · Market State| DX27
-    DX27 -.->|Monitoring · Explanations| Client
+    User -->|Analyze · Configure · Control| DX27
+    DX27 -->|Data Requests · Trade Intents| Infra
+    Infra -->|Market / Portfolio State| DX27
+    Infra -->|Orders| Market
+    Market -->|Quotes · Fills · Account| Infra
+    DX27 -->|Advice · Signals · Status| User
 ```
 
 ## Internal Architecture
@@ -27,47 +26,54 @@ flowchart LR
 ```mermaid
 flowchart TB
 
-    Coverage["Coverage / Discovery"]
-
-    subgraph Strategies["Strategy Bot Pool"]
-        direction LR
-        B1["Bot A"]
-        B2["Bot B"]
-        BN["Bot N"]
+    subgraph Modes["Operating Modes"]
+        Advisory["Advisory Mode"]
+        Auto["Autonomous / Intraday Mode"]
+        Strategic["Strategic / Rebalance Mode"]
     end
 
-    Data["LEAN Market Data"]
-    Features["DX27 Feature Service"]
-    Rules["DX27 Rule Service"]
+    Coverage["Coverage / Discovery"]
+
+    subgraph Bots["Strategy Bot Pool"]
+        Intraday["Intraday Bots"]
+        Swing["Swing Bots"]
+        LongTerm["Long-Term Bots"]
+    end
+
+    Features["Feature Service"]
+    Rules["Rule Engine / Rule Packs"]
 
     Coordinator["Strategy Coordinator"]
-    Doctrine["Capital Regime / Doctrine"]
-    Risk["DX27 Risk Policy"]
-    Approval["Approval Mode<br/>Human / Autonomous"]
+    Doctrine["Capital Doctrine"]
+    Risk["Risk Policy"]
+    Approval["Approval / Control"]
 
-    LEAN["LEAN Execution Infrastructure"]
-    Portfolio["Portfolio State"]
+    Interfaces["Core Interfaces"]
+    Adapters["Infrastructure Adapters"]
+    External["LEAN / Other Engine / Broker"]
 
-    Coverage -->|Assign Universe / Candidates| Strategies
+    Advisory --> Bots
+    Auto --> Coverage
+    Coverage --> Bots
+    Strategic --> Bots
 
-    Strategies -->|Request Data| Data
-    Data -->|Market Data| Strategies
+    Bots -->|Request| Features
+    Bots -->|Evaluate| Rules
 
-    Strategies -->|Request Features| Features
-    Features -->|Feature Results| Strategies
+    Features -->|Results| Bots
+    Rules -->|Results| Bots
 
-    Strategies -->|Evaluate Rules| Rules
-    Rules -->|Rule Results| Strategies
+    Bots -->|BotSignals| Coordinator
 
-    Strategies -->|Bot Signals| Coordinator
-    Coordinator -->|Combined Signal| Doctrine
-    Doctrine -->|Target Allocation| Risk
-    Portfolio -.->|Account State| Risk
+    Coordinator --> Doctrine
+    Doctrine --> Risk
+    Risk --> Approval
 
-    Risk -->|Approved Target| Approval
-    Approval -->|Execution Instruction| LEAN
+    Approval --> Interfaces
+    Interfaces --> Adapters
+    Adapters --> External
 
-    LEAN -->|Positions / PnL| Portfolio
+    External -.->|Market / Portfolio State| Interfaces
 ```
 
 ## Bot Contract
@@ -75,17 +81,17 @@ flowchart TB
 ```mermaid
 flowchart LR
 
-    Scope["Assigned Scope<br/>Symbol · Sector · Basket"]
+    Scope["Scope<br/>Symbol · Sector · Universe"]
     Config["Bot Configuration"]
 
     subgraph Bot["Strategy Bot"]
         Logic["Strategy Logic"]
-        Request["Data / Feature / Rule Requests"]
+        Request["Service Requests"]
     end
 
-    Data["LEAN Market Data"]
-    Features["DX27 Feature Service"]
-    Rules["DX27 Rule Service"]
+    Features["Feature Service"]
+    Rules["Rule Service"]
+    Market["Market Data Interface"]
 
     Signal["BotSignal"]
 
@@ -94,14 +100,14 @@ flowchart LR
 
     Logic --> Request
 
-    Request -->|Request Market Data| Data
-    Data -->|Market Snapshot| Logic
+    Request --> Market
+    Market --> Logic
 
-    Request -->|Request Features| Features
-    Features -->|Feature Results| Logic
+    Request --> Features
+    Features --> Logic
 
-    Request -->|Evaluate Rules| Rules
-    Rules -->|Rule Results| Logic
+    Request --> Rules
+    Rules --> Logic
 
-    Logic -->|Standardized Output| Signal
+    Logic --> Signal
 ```
