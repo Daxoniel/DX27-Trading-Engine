@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from datetime import datetime
 
-from dx27.strategies.plugins.intraday.trade_manager import (
+from dx27.domains.intraday.trade_management.trade_manager import (
     IntradayTradeManager,
 )
 

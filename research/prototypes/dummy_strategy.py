@@ -1,5 +1,5 @@
 from dx27.core.models.bot_signal import BotSignal, SignalDirection
-from dx27.strategies.base.strategy import Strategy
+from dx27.core.interfaces.strategy import Strategy
 
 
 class DummyStrategy(Strategy):

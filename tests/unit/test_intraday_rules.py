@@ -2,8 +2,8 @@ from datetime import datetime
 
 from dx27.core.models.market_context import MarketContext
 from dx27.core.models.feature_snapshot import FeatureSnapshot
-from dx27.rules.packs.breakout_rule import BreakoutRule
-from dx27.rules.packs.volume_confirmation_rule import VolumeConfirmationRule
+from dx27.domains.intraday.rules.breakout_rule import BreakoutRule
+from dx27.domains.intraday.rules.volume_confirmation_rule import VolumeConfirmationRule
 
 
 def make_context(close=101.0, volume=1500):

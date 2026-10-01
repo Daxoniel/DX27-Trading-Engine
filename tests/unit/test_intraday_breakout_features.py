@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from dx27.features.intraday_breakout_features import (
+from dx27.domains.intraday.features.breakout_features import (
     IntradayBreakoutFeatureCalculator,
 )
 

@@ -3,7 +3,7 @@ from datetime import datetime
 from dx27.core.models.bot_signal import SignalDirection
 from dx27.core.models.feature_snapshot import FeatureSnapshot
 from dx27.core.models.market_context import MarketContext
-from dx27.strategies.plugins.intraday.intraday_breakout import (
+from dx27.domains.intraday.bots.intraday_breakout import (
     IntradayBreakoutBot,
 )
 

@@ -1,6 +1,6 @@
 from dx27.core.models.bot_signal import BotSignal, SignalDirection
-from dx27.rules.packs.breakout_rule import BreakoutRule
-from dx27.rules.packs.volume_confirmation_rule import (
+from dx27.domains.intraday.rules.breakout_rule import BreakoutRule
+from dx27.domains.intraday.rules.volume_confirmation_rule import (
     VolumeConfirmationRule,
 )
 
