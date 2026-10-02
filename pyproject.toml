@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dx27-trading-engine"
+version = "0.1.0"
+description = "DX27 modular trading engine"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.0",
+    "yfinance>=0.2.40",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-m 'not network'"
+markers = [
+    "integration: test crosses a DX27 component boundary",
+    "network: test requires an external network service and is excluded by default",
+]

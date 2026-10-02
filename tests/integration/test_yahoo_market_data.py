@@ -1,6 +1,10 @@
+import pytest
+
 from dx27.adapters.yahoo.market_data import YahooMarketDataAdapter
 
 
+@pytest.mark.integration
+@pytest.mark.network
 def test_yahoo_returns_intraday_data():
     adapter = YahooMarketDataAdapter()
 
