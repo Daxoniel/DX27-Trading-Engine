@@ -1,4 +1,5 @@
 from dx27.core.models.trade_result import TradeResult
+from zoneinfo import ZoneInfo
 
 
 class IntradayTradeManager:
@@ -12,6 +13,7 @@ class IntradayTradeManager:
         quantity: float = 1.0,
         stop_atr: float = 1.0,
         target_atr: float = 2.0,
+        direction: str = "long",
     ):
         self.symbol = symbol
 
@@ -19,8 +21,12 @@ class IntradayTradeManager:
         self.entry_price = entry_price
         self.quantity = quantity
 
-        self.stop_price = entry_price - atr * stop_atr
-        self.target_price = entry_price + atr * target_atr
+        if direction not in {"long", "short"}:
+            raise ValueError("direction must be 'long' or 'short'")
+        self.direction = direction
+        self._new_york = ZoneInfo("America/New_York")
+        self.stop_price = entry_price - atr * stop_atr if direction == "long" else entry_price + atr * stop_atr
+        self.target_price = entry_price + atr * target_atr if direction == "long" else entry_price - atr * target_atr
 
         self.closed = False
 
@@ -28,44 +34,49 @@ class IntradayTradeManager:
         if self.closed:
             return None
 
-        # 保守处理：
-        # 同一根bar同时碰到止损和止盈时，先认为止损发生。
-        if bar.low <= self.stop_price:
+        # A position filled at a bar open is evaluated against that completed
+        # bar's high/low.  When both levels are touched, conservatively select
+        # the stop before the target.
+        stop_touched = bar.low <= self.stop_price if self.direction == "long" else bar.high >= self.stop_price
+        target_touched = bar.high >= self.target_price if self.direction == "long" else bar.low <= self.target_price
+        if stop_touched:
             return self._close(
                 timestamp=timestamp,
                 exit_price=self.stop_price,
                 reason="stop_loss",
             )
 
-        if bar.high >= self.target_price:
+        if target_touched:
             return self._close(
                 timestamp=timestamp,
                 exit_price=self.target_price,
                 reason="take_profit",
             )
 
-        # 15:50 或之后，日内强制平仓
-        if timestamp.hour > 15 or (
-            timestamp.hour == 15 and timestamp.minute >= 50
-        ):
-            return self._close(
-                timestamp=timestamp,
-                exit_price=bar.close,
-                reason="end_of_day",
-            )
-
         return None
+
+    def end_of_day_exit_due(self, timestamp) -> bool:
+        """Return whether a completed bar should schedule a next-open exit.
+
+        Bar timestamps are interval-start timestamps. A true result does not
+        itself create a fill: the caller must route a flat portfolio target
+        through execution planning and the next-bar execution scheduler.
+        """
+        local = timestamp.replace(tzinfo=self._new_york) if timestamp.tzinfo is None else timestamp.astimezone(self._new_york)
+        return local.hour > 15 or (
+            local.hour == 15 and local.minute >= 50
+        )
 
     def _close(self, timestamp, exit_price, reason):
         self.closed = True
 
-        pnl = (
-            exit_price - self.entry_price
-        ) * self.quantity
+        pnl = (exit_price - self.entry_price) * self.quantity
+        if self.direction == "short":
+            pnl = -pnl
 
-        return_pct = (
-            exit_price / self.entry_price - 1.0
-        ) * 100.0
+        return_pct = (exit_price / self.entry_price - 1.0) * 100.0
+        if self.direction == "short":
+            return_pct = -return_pct
 
         return TradeResult(
             symbol=self.symbol,

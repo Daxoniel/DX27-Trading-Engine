@@ -24,11 +24,14 @@ def test_market_context_keeps_market_data():
 
 def test_feature_snapshot_keeps_features():
     features = FeatureSnapshot(
-        previous_high_20=575.00,
-        average_volume_20=500000,
-        atr_14=1.80,
+        opening_range_high=575.00,
+        opening_range_low=570.00,
+        opening_range_ready=True,
+        atr=1.80,
+        adx=30.0,
+        indicators_ready=True,
     )
 
-    assert features.previous_high_20 == 575.00
-    assert features.average_volume_20 == 500000
-    assert features.atr_14 == 1.80
+    assert features.opening_range_high == 575.00
+    assert features.opening_range_low == 570.00
+    assert features.atr == 1.80
