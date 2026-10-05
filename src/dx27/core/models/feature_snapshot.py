@@ -3,6 +3,15 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class FeatureSnapshot:
-    previous_high_20: float
-    average_volume_20: float
-    atr_14: float
+    """Completed-bar features available to the intraday strategy.
+
+    ``None`` values deliberately describe insufficient history rather than
+    manufacturing an indicator value from future bars.
+    """
+
+    opening_range_high: float | None
+    opening_range_low: float | None
+    opening_range_ready: bool
+    atr: float | None
+    adx: float | None
+    indicators_ready: bool

@@ -11,6 +11,11 @@ after completed bar **N** is eligible for market execution only at bar **N+1**
 open. The simulated execution adapter applies configurable slippage to that
 next-open price.
 
+The intraday end-of-day rule follows the same timing. After the completed
+15:50-labeled five-minute bar, it schedules a flat target; the resulting exit
+intent is eligible to fill at the 15:55-labeled bar open. It must not use the
+already-completed 15:50 bar's close as a retroactive execution price.
+
 This adapter has no exchange calendar. It does not yet identify holidays or
 early-close sessions; those require later calendar infrastructure. Historical
 prefixes may include earlier bars for indicator warm-up. Strategy code must
