@@ -36,8 +36,11 @@ Selective intraday monitoring:
 
 - Core instruments
 - current holdings
-- high-relevance Contextual assets
+- Contextual assets explicitly activated for intraday monitoring
 - default intraday interval: 15 minutes
+
+Contextual activation is an observation-scope decision, not a P0/P1/P2
+priority decision.
 
 Discovery:
 
@@ -58,6 +61,35 @@ Discovery:
 
 - approximately 500 liquid US-listed assets
 - daily evaluation only in v0.1
+
+## Universe membership semantics
+
+Core membership is stable and versioned.
+
+Contextual membership must have an explicit activation reason and must not
+grow permanently by default. Contextual activations should support expiry or
+periodic reevaluation.
+
+Discovery membership must be reproducible from explicit eligibility rules.
+It must not depend on an arbitrary handwritten ticker list.
+
+The same universe configuration and portfolio state should produce the same
+universe membership.
+
+## Discovery eligibility
+
+Discovery Universe membership must require:
+
+- adequate liquidity
+- sufficient price/history coverage
+- supported session semantics
+- valid OHLCV observations
+- stable instrument identity
+- exclusion of penny stocks, microcaps, and economically redundant
+  instruments by default
+
+Exact quantitative thresholds are implementation-design decisions and are
+not frozen in this document.
 
 ## Discovery purpose
 
@@ -147,6 +179,15 @@ Future Sentinel models should distinguish at least:
 - UNSUPPORTED_SESSION
 - SOURCE_ERROR
 - UNAVAILABLE
+
+Detectors that depend on unavailable, stale, unsupported, or insufficient
+inputs must not silently emit a normal market conclusion.
+
+Data-health conditions are metadata, not ordinary market events.
+Material coverage problems may later be aggregated by the reporting layer.
+
+Missing data must never be interpreted as unchanged or normal market
+behavior.
 
 ## Architecture placement
 
