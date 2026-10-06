@@ -441,7 +441,17 @@ class DetectedEvent:
         object.__setattr__(
             self,
             "evidence",
-            tuple(sorted(self.evidence, key=lambda item: (item.metric, item.subject_id, item.lineage_id))),
+            tuple(
+                sorted(
+                    self.evidence,
+                    key=lambda item: (
+                        item.metric,
+                        item.subject_id,
+                        item.lineage_id,
+                        stable_content_hash(item),
+                    ),
+                )
+            ),
         )
         object.__setattr__(
             self, "evidence_lineage", tuple(sorted(self.evidence_lineage, key=lambda item: item.lineage_id))
@@ -449,20 +459,40 @@ class DetectedEvent:
         object.__setattr__(
             self,
             "provenance",
-            tuple(sorted(self.provenance, key=lambda item: (item.source_id, item.source_record_id or ""))),
+            tuple(
+                sorted(
+                    self.provenance,
+                    key=lambda item: (
+                        item.source_id,
+                        item.source_record_id or "",
+                        stable_content_hash(item),
+                    ),
+                )
+            ),
         )
         object.__setattr__(self, "deduplication_key", stable_content_hash(self._stream_identity()))
         object.__setattr__(self, "event_id", stable_content_hash(self._occurrence_identity()))
 
     def _validate_references(self) -> None:
         subject_ids = {subject.subject_id for subject in self.subjects}
-        lineage_ids = {lineage.lineage_id for lineage in self.evidence_lineage}
+        lineage_by_id = {
+            lineage.lineage_id: lineage
+            for lineage in self.evidence_lineage
+        }
+
         if any(item.subject_id not in subject_ids for item in self.evidence):
             raise ValueError("event evidence must reference an event subject")
-        if any(item.lineage_id not in lineage_ids for item in self.evidence):
+        if any(item.lineage_id not in lineage_by_id for item in self.evidence):
             raise ValueError("event evidence must reference declared evidence lineage")
         if any(not set(lineage.subject_ids).issubset(subject_ids) for lineage in self.evidence_lineage):
             raise ValueError("evidence lineage subjects must be event subjects")
+
+        for item in self.evidence:
+            lineage = lineage_by_id[item.lineage_id]
+            if item.subject_id not in lineage.subject_ids:
+                raise ValueError(
+                    "event evidence subject must belong to its referenced evidence lineage"
+                )
 
     def _validate_relationship(self) -> None:
         if self.event_type is EventType.RELATIONSHIP_CHANGE and self.relationship is None:
