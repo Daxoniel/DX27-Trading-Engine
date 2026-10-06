@@ -30,11 +30,26 @@ from dx27.intelligence.sentinel.models import (
     Provenance,
     SubjectRef,
 )
+from dx27.intelligence.sentinel.observations import (
+    ObservationCoverage,
+    ObservationEnvelope,
+)
+from dx27.intelligence.sentinel.universe import (
+    ContextualActivation,
+    DiscoveryEligibility,
+    DiscoveryRejectionReason,
+    KnownInterestSnapshot,
+    UniverseMembership,
+    UniverseTier,
+)
 
 __all__ = [
     "ContentIdentity",
+    "ContextualActivation",
     "DataStatus",
     "DetectedEvent",
+    "DiscoveryEligibility",
+    "DiscoveryRejectionReason",
     "BaselineParameter",
     "EventBaseline",
     "EventDirection",
@@ -45,6 +60,9 @@ __all__ = [
     "EventType",
     "EvidenceLineage",
     "IdentityKind",
+    "KnownInterestSnapshot",
+    "ObservationCoverage",
+    "ObservationEnvelope",
     "ObservationWindow",
     "Provenance",
     "RelevanceContext",
@@ -52,6 +70,8 @@ __all__ = [
     "SubjectRole",
     "SubjectRef",
     "UniverseContext",
+    "UniverseMembership",
+    "UniverseTier",
     "canonical_bytes",
     "canonical_json",
     "make_content_identity",
