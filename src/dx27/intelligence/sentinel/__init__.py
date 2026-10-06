@@ -24,6 +24,12 @@ from dx27.intelligence.sentinel.events import (
     SubjectRole,
     UniverseContext,
 )
+from dx27.intelligence.sentinel.detection import DetectionResult
+from dx27.intelligence.sentinel.detectors.activity import (
+    ActivityAnomalyConfig,
+    ActivityAnomalyDetector,
+    ActivityAnomalyMeasurement,
+)
 from dx27.intelligence.sentinel.models import (
     DataStatus,
     ObservationWindow,
@@ -44,12 +50,16 @@ from dx27.intelligence.sentinel.universe import (
 )
 
 __all__ = [
+    "ActivityAnomalyConfig",
+    "ActivityAnomalyDetector",
+    "ActivityAnomalyMeasurement",
     "ContentIdentity",
     "ContextualActivation",
     "DataStatus",
     "DetectedEvent",
     "DiscoveryEligibility",
     "DiscoveryRejectionReason",
+    "DetectionResult",
     "BaselineParameter",
     "EventBaseline",
     "EventDirection",
