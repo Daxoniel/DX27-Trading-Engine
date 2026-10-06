@@ -24,17 +24,42 @@ from dx27.intelligence.sentinel.events import (
     SubjectRole,
     UniverseContext,
 )
+from dx27.intelligence.sentinel.detection import DetectionResult
+from dx27.intelligence.sentinel.detectors.activity import (
+    ActivityAnomalyConfig,
+    ActivityAnomalyDetector,
+    ActivityAnomalyMeasurement,
+)
 from dx27.intelligence.sentinel.models import (
     DataStatus,
     ObservationWindow,
     Provenance,
     SubjectRef,
 )
+from dx27.intelligence.sentinel.observations import (
+    ObservationCoverage,
+    ObservationEnvelope,
+)
+from dx27.intelligence.sentinel.universe import (
+    ContextualActivation,
+    DiscoveryEligibility,
+    DiscoveryRejectionReason,
+    KnownInterestSnapshot,
+    UniverseMembership,
+    UniverseTier,
+)
 
 __all__ = [
+    "ActivityAnomalyConfig",
+    "ActivityAnomalyDetector",
+    "ActivityAnomalyMeasurement",
     "ContentIdentity",
+    "ContextualActivation",
     "DataStatus",
     "DetectedEvent",
+    "DetectionResult",
+    "DiscoveryEligibility",
+    "DiscoveryRejectionReason",
     "BaselineParameter",
     "EventBaseline",
     "EventDirection",
@@ -45,6 +70,9 @@ __all__ = [
     "EventType",
     "EvidenceLineage",
     "IdentityKind",
+    "KnownInterestSnapshot",
+    "ObservationCoverage",
+    "ObservationEnvelope",
     "ObservationWindow",
     "Provenance",
     "RelevanceContext",
@@ -52,6 +80,8 @@ __all__ = [
     "SubjectRole",
     "SubjectRef",
     "UniverseContext",
+    "UniverseMembership",
+    "UniverseTier",
     "canonical_bytes",
     "canonical_json",
     "make_content_identity",
