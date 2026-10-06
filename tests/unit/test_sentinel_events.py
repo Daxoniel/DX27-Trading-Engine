@@ -431,3 +431,184 @@ def test_detected_event_has_no_priority_or_trading_fields():
         "RESOLVED",
         "REVERSED",
     ]
+
+def test_single_subject_lineage_is_valid_inside_multi_subject_event():
+    spy_lineage = lineage(SPY)
+    event = make_event(
+        subjects=(SPY, QQQ),
+        evidence_lineage=(spy_lineage,),
+        evidence=(
+            EventEvidence(
+                "trend_slope",
+                SPY.subject_id,
+                0.12,
+                "slope",
+                window(),
+                DataStatus.AVAILABLE,
+                spy_lineage.lineage_id,
+                reference_value=0.0,
+            ),
+        ),
+    )
+
+    assert event.evidence[0].subject_id == SPY.subject_id
+    assert event.evidence[0].lineage_id == spy_lineage.lineage_id
+
+
+def test_evidence_subject_must_belong_to_its_referenced_lineage():
+    spy_lineage = lineage(SPY)
+
+    with pytest.raises(
+        ValueError,
+        match="subject must belong to its referenced evidence lineage",
+    ):
+        make_event(
+            subjects=(SPY, QQQ),
+            evidence_lineage=(spy_lineage,),
+            evidence=(
+                EventEvidence(
+                    "trend_slope",
+                    QQQ.subject_id,
+                    0.12,
+                    "slope",
+                    window(),
+                    DataStatus.AVAILABLE,
+                    spy_lineage.lineage_id,
+                    reference_value=0.0,
+                ),
+            ),
+        )
+
+
+def test_shared_multi_subject_lineage_accepts_evidence_for_each_subject():
+    shared_lineage = lineage(SPY, QQQ)
+    event = make_event(
+        subjects=(SPY, QQQ),
+        evidence_lineage=(shared_lineage,),
+        evidence=(
+            EventEvidence(
+                "trend_slope",
+                SPY.subject_id,
+                0.12,
+                "slope",
+                window(),
+                DataStatus.AVAILABLE,
+                shared_lineage.lineage_id,
+                reference_value=0.0,
+            ),
+            EventEvidence(
+                "trend_slope",
+                QQQ.subject_id,
+                0.08,
+                "slope",
+                window(),
+                DataStatus.AVAILABLE,
+                shared_lineage.lineage_id,
+                reference_value=0.0,
+            ),
+        ),
+    )
+
+    assert {item.subject_id for item in event.evidence} == {
+        SPY.subject_id,
+        QQQ.subject_id,
+    }
+
+
+def test_evidence_input_order_does_not_change_canonical_event_identity():
+    shared_lineage = lineage(SPY)
+    first_evidence = EventEvidence(
+        "trend_slope",
+        SPY.subject_id,
+        0.12,
+        "slope",
+        window(),
+        DataStatus.AVAILABLE,
+        shared_lineage.lineage_id,
+        reference_value=0.0,
+    )
+    second_evidence = EventEvidence(
+        "trend_slope",
+        SPY.subject_id,
+        0.18,
+        "slope",
+        window(),
+        DataStatus.AVAILABLE,
+        shared_lineage.lineage_id,
+        reference_value=0.0,
+    )
+
+    forward = make_event(
+        evidence_lineage=(shared_lineage,),
+        evidence=(first_evidence, second_evidence),
+    )
+    reversed_input = make_event(
+        evidence_lineage=(shared_lineage,),
+        evidence=(second_evidence, first_evidence),
+    )
+
+    assert forward.evidence == reversed_input.evidence
+    assert forward.event_id == reversed_input.event_id
+    assert forward.deduplication_key == reversed_input.deduplication_key
+    assert len(forward.evidence) == 2
+    assert {item.value for item in forward.evidence} == {0.12, 0.18}
+
+
+def test_provenance_input_order_does_not_change_canonical_event_identity():
+    first_provenance = Provenance(
+        "fixture",
+        NOW - timedelta(seconds=1),
+        "shared-record",
+    )
+    second_provenance = Provenance(
+        "fixture",
+        NOW,
+        "shared-record",
+    )
+
+    forward = make_event(
+        provenance=(first_provenance, second_provenance),
+    )
+    reversed_input = make_event(
+        provenance=(second_provenance, first_provenance),
+    )
+
+    assert forward.provenance == reversed_input.provenance
+    assert forward.event_id == reversed_input.event_id
+
+
+def test_evidence_content_change_changes_event_id_but_not_stream_identity():
+    evidence_lineage = lineage(SPY)
+    first = make_event(
+        evidence_lineage=(evidence_lineage,),
+        evidence=(
+            EventEvidence(
+                "trend_slope",
+                SPY.subject_id,
+                0.12,
+                "slope",
+                window(),
+                DataStatus.AVAILABLE,
+                evidence_lineage.lineage_id,
+                reference_value=0.0,
+            ),
+        ),
+    )
+    changed = make_event(
+        evidence_lineage=(evidence_lineage,),
+        evidence=(
+            EventEvidence(
+                "trend_slope",
+                SPY.subject_id,
+                0.13,
+                "slope",
+                window(),
+                DataStatus.AVAILABLE,
+                evidence_lineage.lineage_id,
+                reference_value=0.0,
+            ),
+        ),
+    )
+
+    assert first.event_id != changed.event_id
+    assert first.deduplication_key == changed.deduplication_key
