@@ -9,6 +9,58 @@ working repository state from frozen architecture and future work:
 - **NEXT** — immediate implementation work.
 - **DEFERRED** — intentionally outside the current implementation path.
 
+## Frozen design completed
+
+These tasks record completed, frozen Sentinel architecture design. They are not
+claims that the corresponding engines are fully implemented.
+
+- [x] **Task 1 — Monitoring Universe** — defines four tiers: `CORE`,
+  `CONTEXTUAL`, `DISCOVERY`, and `EXCLUDED_NOISE`. Monitoring is daily-first;
+  conceptual 15-minute coverage is limited to Core, holdings, and explicitly
+  activated Contextual subjects. Core is intended to contain approximately
+  30–40 subjects, Contextual approximately 25–75 with a hard ceiling around
+  100, and Discovery approximately 500 liquid US-listed daily candidates.
+  Contextual activation and expiry are explicit, Discovery eligibility must be
+  reproducible, and missing data is explicit rather than normal. Authoritative
+  future inputs may include rates, VIX, breadth, credit spreads, and calendars;
+  provider-specific behavior remains outside the frozen domain design.
+- [x] **Task 2 — Event Taxonomy** — freezes the nine event primitives
+  `PRICE_LEVEL_INTERACTION`, `PRICE_GAP`, `TREND_CHANGE`, `ACTIVITY_ANOMALY`,
+  `VOLATILITY_CHANGE`, `RELATIVE_STRENGTH_CHANGE`, `PARTICIPATION_CHANGE`,
+  `RELATIONSHIP_CHANGE`, and `SERIES_STATE_CHANGE`. A `DetectedEvent` records
+  an observation, not a trade recommendation; its event semantics are
+  immutable, with lifecycle states
+  `NEW`, `CONTINUING`, `STRENGTHENED`, `WEAKENED`, `RESOLVED`, and `REVERSED`.
+  Proxy evidence must be explicit; priority and trading semantics remain
+  outside `DetectedEvent`.
+- [x] **Task 3 — Priority Model** — freezes the deterministic flow: hard gates,
+  semantic deduplication, clustering, bounded ordinal components,
+  deterministic predicates, `P0` / `P1` / `P2` / `NOISE`, lexicographic
+  ranking, then top-K presentation. It has no weighted aggregate priority
+  score; confirmation requires independent evidence lineages, contradictory
+  evidence is handled explicitly, and proxy-only evidence is limited. The
+  default presentation target is approximately 6 (configurable around 5–7),
+  and P0 must never be silently suppressed. The Priority Engine remains future
+  implementation.
+- [x] **Task 4 — Blind Spot Discovery** — freezes `GROUP_FIRST`,
+  `GROUP_AND_MEMBERS`, and `MEMBER_EXCEPTION` observation modes for finding
+  unknown outperformers, ETF volume/breadth shifts, cross-asset relationship
+  breaks, and macro contradictions. Promotion has dual paths; fast promotion
+  requires an approved structured catalyst source. Contextual TTL is 30
+  calendar days from the latest material confirmation, unchanged repetition
+  does not reset it, and discovery does not permanently expand the universe.
+  GPT narrative challenge is optional and interpretive only. The Discovery
+  Engine remains future implementation.
+- [x] **Task 5 — SentinelReport Contract** — freezes peer **Market Now** and
+  **Portfolio Now** sections, plus **Attention Queue** and **Since Last Visit**
+  with only durable, currently relevant catch-up information. It requires
+  explicit missing-data disclosure, Account Equity, and an Investment
+  Performance Index using TWR / unitized NAV semantics, with SPY as the primary
+  benchmark and optional QQQ or custom benchmarks. Sentinel Evidence remains
+  separate from Analyst Interpretation. The default attention target is
+  approximately 6, and P0 cannot be silently suppressed. `SentinelReport`
+  remains future implementation.
+
 ## Implemented / completed
 
 - [x] **6A-1 Common Foundation** — explicit data status, subjects, observation
