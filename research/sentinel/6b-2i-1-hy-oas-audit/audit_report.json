@@ -1,0 +1,200 @@
+{
+  "task_id": "6B-2I-1",
+  "audit_result": "SOURCE_AUDIT_COMPLETED",
+  "admission_result": "BLOCKED_DATA",
+  "exports": [
+    {
+      "capture_id": "fred_latest",
+      "first_observation": "2023-10-09",
+      "last_observation": "2026-10-05",
+      "rows": 792,
+      "usable_rows": 784,
+      "missing_rows": 8,
+      "raw_unit": "percent",
+      "normalized_unit": "basis_points",
+      "conversion_factor": 100,
+      "nominal_vintage": null,
+      "intraday_availability_verified": false,
+      "covers_requested_2005_start": false
+    },
+    {
+      "capture_id": "alfred_20260331",
+      "first_observation": "2023-10-09",
+      "last_observation": "2026-03-31",
+      "rows": 657,
+      "usable_rows": 649,
+      "missing_rows": 8,
+      "raw_unit": "percent",
+      "normalized_unit": "basis_points",
+      "conversion_factor": 100,
+      "nominal_vintage": "2026-03-31",
+      "intraday_availability_verified": false,
+      "covers_requested_2005_start": false
+    },
+    {
+      "capture_id": "alfred_20261005",
+      "first_observation": "2023-10-09",
+      "last_observation": "2026-10-05",
+      "rows": 792,
+      "usable_rows": 784,
+      "missing_rows": 8,
+      "raw_unit": "percent",
+      "normalized_unit": "basis_points",
+      "conversion_factor": 100,
+      "nominal_vintage": "2026-10-05",
+      "intraday_availability_verified": false,
+      "covers_requested_2005_start": false
+    },
+    {
+      "capture_id": "alfred_20261006",
+      "first_observation": "2023-10-09",
+      "last_observation": "2026-10-05",
+      "rows": 792,
+      "usable_rows": 784,
+      "missing_rows": 8,
+      "raw_unit": "percent",
+      "normalized_unit": "basis_points",
+      "conversion_factor": 100,
+      "nominal_vintage": "2026-10-06",
+      "intraday_availability_verified": false,
+      "covers_requested_2005_start": false
+    }
+  ],
+  "export_failures": [],
+  "sample_role": "EXPLORATORY_NOMINAL_DATE_ARCHIVE_ONLY",
+  "sample_start": "2026-09-15",
+  "sample_end": "2026-10-06",
+  "expected_sessions": 16,
+  "usable_archive_samples": 16,
+  "archive_date_proxy_age0_count": 15,
+  "archive_date_proxy_age_le1_count": 16,
+  "archive_date_proxy_age0_fraction": 0.9375,
+  "overlapping_usable_value_comparisons": 11655,
+  "observed_overlap_value_changes": 0,
+  "revision_interpretation": "No observed overlap change does not establish immutable history or a complete revision audit.",
+  "rows": [
+    {
+      "nominal_vintage": "2026-09-15",
+      "latest_observation": "2026-09-15",
+      "archive_date_proxy_age_XNYS": 0,
+      "actual_first_seen_at": "2026-10-07T14:00:52.296705+00:00",
+      "original_cutoff_verified": false
+    },
+    {
+      "nominal_vintage": "2026-09-16",
+      "latest_observation": "2026-09-16",
+      "archive_date_proxy_age_XNYS": 0,
+      "actual_first_seen_at": "2026-10-07T14:00:52.380900+00:00",
+      "original_cutoff_verified": false
+    },
+    {
+      "nominal_vintage": "2026-09-17",
+      "latest_observation": "2026-09-17",
+      "archive_date_proxy_age_XNYS": 0,
+      "actual_first_seen_at": "2026-10-07T14:00:52.649306+00:00",
+      "original_cutoff_verified": false
+    },
+    {
+      "nominal_vintage": "2026-09-18",
+      "latest_observation": "2026-09-18",
+      "archive_date_proxy_age_XNYS": 0,
+      "actual_first_seen_at": "2026-10-07T14:00:52.389152+00:00",
+      "original_cutoff_verified": false
+    },
+    {
+      "nominal_vintage": "2026-09-21",
+      "latest_observation": "2026-09-21",
+      "archive_date_proxy_age_XNYS": 0,
+      "actual_first_seen_at": "2026-10-07T14:00:52.781192+00:00",
+      "original_cutoff_verified": false
+    },
+    {
+      "nominal_vintage": "2026-09-22",
+      "latest_observation": "2026-09-22",
+      "archive_date_proxy_age_XNYS": 0,
+      "actual_first_seen_at": "2026-10-07T14:00:52.913643+00:00",
+      "original_cutoff_verified": false
+    },
+    {
+      "nominal_vintage": "2026-09-23",
+      "latest_observation": "2026-09-23",
+      "archive_date_proxy_age_XNYS": 0,
+      "actual_first_seen_at": "2026-10-07T14:00:52.964182+00:00",
+      "original_cutoff_verified": false
+    },
+    {
+      "nominal_vintage": "2026-09-24",
+      "latest_observation": "2026-09-24",
+      "archive_date_proxy_age_XNYS": 0,
+      "actual_first_seen_at": "2026-10-07T14:00:53.995145+00:00",
+      "original_cutoff_verified": false
+    },
+    {
+      "nominal_vintage": "2026-09-25",
+      "latest_observation": "2026-09-25",
+      "archive_date_proxy_age_XNYS": 0,
+      "actual_first_seen_at": "2026-10-07T14:00:53.249607+00:00",
+      "original_cutoff_verified": false
+    },
+    {
+      "nominal_vintage": "2026-09-28",
+      "latest_observation": "2026-09-28",
+      "archive_date_proxy_age_XNYS": 0,
+      "actual_first_seen_at": "2026-10-07T14:00:53.780519+00:00",
+      "original_cutoff_verified": false
+    },
+    {
+      "nominal_vintage": "2026-09-29",
+      "latest_observation": "2026-09-29",
+      "archive_date_proxy_age_XNYS": 0,
+      "actual_first_seen_at": "2026-10-07T14:00:53.461519+00:00",
+      "original_cutoff_verified": false
+    },
+    {
+      "nominal_vintage": "2026-09-30",
+      "latest_observation": "2026-09-30",
+      "archive_date_proxy_age_XNYS": 0,
+      "actual_first_seen_at": "2026-10-07T14:00:53.752457+00:00",
+      "original_cutoff_verified": false
+    },
+    {
+      "nominal_vintage": "2026-10-01",
+      "latest_observation": "2026-10-01",
+      "archive_date_proxy_age_XNYS": 0,
+      "actual_first_seen_at": "2026-10-07T14:00:54.099181+00:00",
+      "original_cutoff_verified": false
+    },
+    {
+      "nominal_vintage": "2026-10-02",
+      "latest_observation": "2026-10-02",
+      "archive_date_proxy_age_XNYS": 0,
+      "actual_first_seen_at": "2026-10-07T14:00:54.543147+00:00",
+      "original_cutoff_verified": false
+    },
+    {
+      "nominal_vintage": "2026-10-05",
+      "latest_observation": "2026-10-05",
+      "archive_date_proxy_age_XNYS": 0,
+      "actual_first_seen_at": "2026-10-07T14:00:53.846130+00:00",
+      "original_cutoff_verified": false
+    },
+    {
+      "nominal_vintage": "2026-10-06",
+      "latest_observation": "2026-10-05",
+      "archive_date_proxy_age_XNYS": 1,
+      "actual_first_seen_at": "2026-10-07T14:00:53.907823+00:00",
+      "original_cutoff_verified": false
+    }
+  ],
+  "calendar_version": "XNYS:4.13.2:c5aa6371bf9958366fc15fa03393668d097a02dc3c2a06dccc7aff558b612422",
+  "verified_original_cutoff_sessions": 0,
+  "actual_original_cutoff_coverage": null,
+  "required_coverage_minimum": 0.95,
+  "source_binding_approved": false,
+  "nominal_dates_not_intraday_evidence": true,
+  "operational_reference_enabled": false,
+  "market_effectiveness_validated": false,
+  "runtime_commit": "360fa3641ff5819f0ee4aea009a527dd07e5498e",
+  "capture_manifest_sha256": "39bac3b0dc694b8e874e651a081ba8079eb9199ea08235dc353a60318e4b80d4",
+  "daily_manifest_sha256": "b80cd175e57352e22c1eae093b9acced1dbd333fae905a044d8eb189a042cfab"
+}

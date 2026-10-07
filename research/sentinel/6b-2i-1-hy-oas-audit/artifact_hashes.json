@@ -1,0 +1,9 @@
+{
+  "README.md": "4f0d4472cd821e35cdaef7b4728d67e9ba11fc61371146105682596804cbcfbc",
+  "acquisition_requirements.json": "8ad86484021befc56f137f84bfdf90965a6f721bd6e83b3ee622b024d2588761",
+  "audit_report.json": "6816379c360fb913a712afca8e96b65fbfc9e62034ff5989df9927a22539661f",
+  "daily_vintage_capture_manifest.json": "b80cd175e57352e22c1eae093b9acced1dbd333fae905a044d8eb189a042cfab",
+  "source_capture_manifest.json": "39bac3b0dc694b8e874e651a081ba8079eb9199ea08235dc353a60318e4b80d4",
+  "verification.md": "d5fda0b5da16984459986fd78c90a9d990e54a3b7165711f11dab912f371f728",
+  "../references/hy_oas_audit_v1.json": "7cc5d2886745d0576a02a24f2fc7e97c00a84f881f72eecbffd371c4b0c67da0"
+}
