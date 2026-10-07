@@ -6,7 +6,7 @@ working repository state from frozen architecture and future work:
 - **IMPLEMENTED / COMPLETED** — present as working contracts or behavior with
   tests.
 - **FROZEN DESIGN** — agreed architecture that is not yet implemented.
-- **NEXT** — immediate implementation work.
+- **NEXT** — immediate contract/research or implementation work.
 - **DEFERRED** — intentionally outside the current implementation path.
 
 ## Frozen design completed
@@ -77,19 +77,63 @@ claims that the corresponding engines are fully implemented.
   completed-daily-observation detection with explicit availability and
   insufficient-history outcomes.
 
+## Research completed — not production approval
+
+All of these tasks belong to **6B-2**, not Task 7. Completion means the
+research or preparation ran successfully, not that a detector passed promotion.
+
+- [x] **6B-2A — Trend Stage-A Research Foundation** — candidate models,
+  metrics, selection/OOS split, and tournament framework.
+- [x] **6B-2B — Yahoo Real-Data Runner / Validation** — loader, real-data entry
+  point, and quality validation.
+- [x] **6B-2C — Yahoo OHLC Floating Boundary Hardening** — PR #23.
+- [x] **6B-2D — Winner Selection Protocol Pre-registration** — PR #24.
+- [x] **6B-2E — Stage-A Real Yahoo Research Run** — frozen `ewmac_64_256`
+  winner; `STAGE_A_WEAK_PASS`, research only.
+- [x] **6B-2F — Frozen Winner Robustness / Regime Stress Validation** —
+  `ROBUSTNESS_FAIL`; four ETFs failed the full-period DC60 floor. EWMAC is
+  archived and is not approved as a production detector.
+
+See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
+
 ## Current checkpoint
 
-- [x] Architecture documentation sync after 6B-1.
+- [x] Preserve frozen EWMAC results, protocols, hashes, and promotion decision.
+- [x] Update the architecture to a multi-sensor design and assign the next tasks.
+- [ ] **6B-2 — Trend Change + Volatility Change** remains incomplete as a
+  production capability. Research completion does not close this parent task.
 
 ## Next
 
-- [ ] **6B-2 Trend Change + Volatility Change** — implement `TREND_CHANGE` and
-  `VOLATILITY_CHANGE`. Formula, indicator, and threshold selection belongs to
-  that research and implementation task; none is selected here.
+- [ ] **6B-2G — Multi-Sensor Contracts & Validation Protocol** — freeze sensor
+  scope, units, causal availability, proxy status, redundancy groups, output
+  contracts, current-state targets, change targets, baselines, and online replay
+  acceptance criteria before collecting new evaluation results.
+
+## Subsequent 6B-2 tasks — gated sequence
+
+- [ ] **6B-2H — Multi-Dimensional Market State Snapshot** — implement and
+  validate dimension states and coverage; no composite score is required.
+- [ ] **6B-2I — Composite Reference & Relationship Research** — compare a
+  simple group-weighted pressure reference and a separate relationship-anomaly
+  reference against dimension-only baselines. Freeze formulas before OOS runs;
+  complexity requires measured incremental value.
+- [ ] **6B-2J — Online Change Detection Validation** — sequential replay of
+  trend, volatility, participation, and relationship changes; measure false
+  alarms, missed changes, delay, and abstention coverage. Promote only validated
+  detectors, using the existing nine event primitives.
+- [ ] **6B-2K — Conditional Forecast Research** — separately specify future
+  targets and horizons, compare simple baselines, and validate calibration and
+  incremental OOS value. Forecast output stays disabled until its own gate passes.
+
+These tasks follow the [multi-sensor architecture](docs/architecture/sentinel-multi-sensor-design.md).
+6B-2G is the clean next starting point; this preparation does not execute it.
 
 ## Planned
 
-- [ ] **6B-3 Relative Strength + Relationship Detection**.
+- [ ] **6B-3 Relative Strength + Relationship Detection** — remaining production
+  integration after 6B-2J; reuse validated relationship work rather than create
+  a second research track.
 - [ ] **6C Blind Spot Discovery** — implement the frozen Discovery design.
 - [ ] **6D Priority Engine** — implement the frozen deterministic, non-weighted
   priority design.

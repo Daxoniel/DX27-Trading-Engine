@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "archived_artifacts_sha256": {
+    "stage-a/tournament/trend_metrics.csv": "738f6520767cab4245e877bfbf96a1745a4044144a8486057d2453b8354c33fd",
+    "stage-a/tournament/trend_sensitivity.csv": "ab41b919c87225c39c724844a5e6e6d26175e387b490369bddc1bce22b90deb4",
+    "stage-a/tournament/trend_tournament_summary.json": "cffe7bc2a6bcfb1cd257296f9d6b2d845f0a3828f83ba2e34f352fe805a2a934",
+    "stage-a/trend_stage_a_data_manifest.json": "a7b62de622c9278e7c348eae67dc8bf9b61155a9915cc33ce52e24dcaed406cf",
+    "stage-a/trend_stage_a_oos_ranking.csv": "bc24bc5f4bbd86ee81ca7f71a24beb86d3693c21d6d5b64e28ca322f59a64732",
+    "stage-a/trend_stage_a_report.json": "2cdc8d3572c220d3522daded99e283b5f2ffcce082a4230d0f7fe4c323c5c4b4",
+    "stage-a/trend_stage_a_selection_lock.json": "0758b7a918f95a8e21ff8bc91a587c4e4ba104364ca5eb37c705662c9033cb9a",
+    "stage-a/trend_stage_a_selection_ranking.csv": "2570fd30ce4cb7d1a79d1c7f02b44bf0923782cf724d4e10aa65c439cfcb4aca",
+    "stage-a/trend_stage_a_summary.md": "c11b16018950bfb9ea91d99c1f6d956ac18886a0513f05b43b36abcd9d79d6db",
+    "stage-a/trend_stage_a_artifact_hashes.json": "240f01187a933542be072d67e954f2d18a7677859c4ec7627a3ce219efab5fef",
+    "robustness/trend_robustness_asset_groups.csv": "53a32e9cfe055ef3bea675ba22db04da0d7e7deb43ae7bd48c7393de9cb2418d",
+    "robustness/trend_robustness_neighbours.csv": "d4313baf942757c77901306aa507e57b5768854d7a9cfc495cd078c035140da1",
+    "robustness/trend_robustness_protocol.json": "7bcdbba2ac18479e4a349d73a7c462da24d0785360a5766c186aa2bec8696fb7",
+    "robustness/trend_robustness_regimes.csv": "0490dec85f67fcb1dc000e6cd8096c3e45125482b2d959365d67dea652d8a6d0",
+    "robustness/trend_robustness_report.json": "6fd6dce5b33599fe07813d521e59decb0d33d92ff9b1441f267873d6712bda30",
+    "robustness/trend_robustness_summary.md": "9c921e2f9ed30d2059350555ac1a652c7c62a0887315a91309df2d6e8abd70a1",
+    "robustness/trend_robustness_symbols.csv": "64ed2488c9a05201f77b52ea7f37f4b40e46dd6cc9517dec3f77e868510bd152",
+    "robustness/trend_robustness_timing.csv": "1193ef7fc7380b66f96270534d2eacbd7333f39d707e8ff17ba43c9d11d7374c",
+    "robustness/trend_transition_events.csv": "0ddb7967279abd8ec57cd6951ca8e53df2fbf9f04ce1328ddd954955cb1ae02a",
+    "robustness/trend_robustness_artifact_hashes.json": "9e0cb3ef317f5ae2ac27319cf8c2bfaebcf4bc659f5cd08b04f535cb3be1f2de"
+  },
+  "externally_retained_artifacts_sha256": {
+    "stage-a/stage_a_adjusted_daily.csv": "9136494cf783f5892045e0fc52ad85166a4ede0c9b56107157a992c743cf75af",
+    "stage-a/tournament/trend_states.csv": "53d5413ae422601fe6199d1401f316e1e5e4c524ac475b8906971a7361c9307e"
+  }
+}

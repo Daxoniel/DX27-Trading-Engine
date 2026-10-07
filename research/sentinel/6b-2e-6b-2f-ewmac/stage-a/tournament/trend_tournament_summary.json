@@ -1,0 +1,229 @@
+{
+  "candidate_ids": [
+    "ewmac_8_32",
+    "ewmac_16_64",
+    "ewmac_32_128",
+    "ewmac_64_256",
+    "tsmom_21",
+    "tsmom_63",
+    "tsmom_126",
+    "tsmom_252",
+    "lean_ema_cross_12_26"
+  ],
+  "evaluated_symbols": [
+    "GLD",
+    "IWM",
+    "QQQ",
+    "SPY",
+    "TLT",
+    "XLE",
+    "XLF",
+    "XLI",
+    "XLK",
+    "XLP",
+    "XLU",
+    "XLV",
+    "XLY"
+  ],
+  "evaluation_definitions": {
+    "boundary_transition": "immediately preceding historical state retained",
+    "false_reversal_observations": "next N non-None states; NEUTRAL included",
+    "forward_windows": "within dataset and split",
+    "persistence_quartiles": "pandas linear sample quantiles",
+    "transition_matching": "Ascending A; nearest unused B; earlier B breaks ties",
+    "transition_matching_tolerance_observed_bars": 3
+  },
+  "formula_source_classifications": {
+    "ewmac": {
+      "classification": "QC_RESEARCH_REPRODUCTION",
+      "definition": "Independent EMA_fast-EMA_slow; source spans 16/64,32/128,64/256",
+      "source": "QuantConnect Research 16001: Combined Carry and Trend"
+    },
+    "ewmac_8_32": {
+      "classification": "DX27_RESEARCH_DEFINITION",
+      "definition": "Sensitivity-only span pair"
+    },
+    "ewmac_normalization": {
+      "classification": "DX27_RESEARCH_DEFINITION",
+      "definition": "EWMAC/(close*sigma_daily), not an exact Carver forecast; no annualization, cap or scalar"
+    },
+    "lean_ema": {
+      "classification": "LEAN_VERIFIED",
+      "definition": "SMA seed after period samples; alpha=2/(period+1)",
+      "source": "QuantConnect LEAN Indicators/ExponentialMovingAverage.cs and Tests/Indicators/ExponentialMovingAverageTests.cs"
+    },
+    "lean_ema_cross": {
+      "classification": "LEAN_VERIFIED",
+      "definition": "Daily EMA12-EMA26 directional state only",
+      "source": "QuantConnect LEAN Algorithm.Framework/Alphas/EmaCrossAlphaModel"
+    },
+    "metrics": {
+      "classification": "DX27_RESEARCH_DEFINITION",
+      "definition": "State/event behavior, not trading PnL"
+    },
+    "tsmom_evidence": {
+      "classification": "ACADEMIC",
+      "definition": "Own-return persistence over approximately 1\u201312 months in 58 studied liquid futures/forward instruments",
+      "source": "Moskowitz, Ooi, Pedersen (2012), Time series momentum, JFE 104(2), 228-250; DOI 10.1016/j.jfineco.2011.11.003"
+    },
+    "tsmom_horizons": {
+      "classification": "DX27_RESEARCH_DEFINITION",
+      "definition": "Daily translations 21/63/126/252; close_t/close_(t-h)-1 determines state"
+    },
+    "tsmom_normalization": {
+      "classification": "DX27_RESEARCH_DEFINITION",
+      "definition": "raw_return/(sigma_daily*sqrt(h)), diagnostic only"
+    }
+  },
+  "input_max_date": "2026-09-30",
+  "input_metadata": {},
+  "input_min_date": "2003-01-02",
+  "input_symbols": [
+    "GLD",
+    "IWM",
+    "QQQ",
+    "SPY",
+    "TLT",
+    "XLE",
+    "XLF",
+    "XLI",
+    "XLK",
+    "XLP",
+    "XLU",
+    "XLV",
+    "XLY"
+  ],
+  "output_filenames": [
+    "trend_states.csv",
+    "trend_metrics.csv",
+    "trend_sensitivity.csv",
+    "trend_tournament_summary.json"
+  ],
+  "parameter_definitions": {
+    "ewmac_16_64": {
+      "candidate_id": "ewmac_16_64",
+      "family": "ewmac",
+      "fast": 16,
+      "horizon": null,
+      "sensitivity_only": false,
+      "slow": 64,
+      "source_classification": "QC_RESEARCH_REPRODUCTION"
+    },
+    "ewmac_32_128": {
+      "candidate_id": "ewmac_32_128",
+      "family": "ewmac",
+      "fast": 32,
+      "horizon": null,
+      "sensitivity_only": false,
+      "slow": 128,
+      "source_classification": "QC_RESEARCH_REPRODUCTION"
+    },
+    "ewmac_64_256": {
+      "candidate_id": "ewmac_64_256",
+      "family": "ewmac",
+      "fast": 64,
+      "horizon": null,
+      "sensitivity_only": false,
+      "slow": 256,
+      "source_classification": "QC_RESEARCH_REPRODUCTION"
+    },
+    "ewmac_8_32": {
+      "candidate_id": "ewmac_8_32",
+      "family": "ewmac",
+      "fast": 8,
+      "horizon": null,
+      "sensitivity_only": true,
+      "slow": 32,
+      "source_classification": "DX27_RESEARCH_DEFINITION"
+    },
+    "lean_ema_cross_12_26": {
+      "candidate_id": "lean_ema_cross_12_26",
+      "family": "lean_ema_cross",
+      "fast": 12,
+      "horizon": null,
+      "sensitivity_only": false,
+      "slow": 26,
+      "source_classification": "LEAN_VERIFIED"
+    },
+    "tsmom_126": {
+      "candidate_id": "tsmom_126",
+      "family": "tsmom",
+      "fast": null,
+      "horizon": 126,
+      "sensitivity_only": true,
+      "slow": null,
+      "source_classification": "DX27_RESEARCH_DEFINITION"
+    },
+    "tsmom_21": {
+      "candidate_id": "tsmom_21",
+      "family": "tsmom",
+      "fast": null,
+      "horizon": 21,
+      "sensitivity_only": true,
+      "slow": null,
+      "source_classification": "DX27_RESEARCH_DEFINITION"
+    },
+    "tsmom_252": {
+      "candidate_id": "tsmom_252",
+      "family": "tsmom",
+      "fast": null,
+      "horizon": 252,
+      "sensitivity_only": false,
+      "slow": null,
+      "source_classification": "DX27_RESEARCH_DEFINITION"
+    },
+    "tsmom_63": {
+      "candidate_id": "tsmom_63",
+      "family": "tsmom",
+      "fast": null,
+      "horizon": 63,
+      "sensitivity_only": true,
+      "slow": null,
+      "source_classification": "DX27_RESEARCH_DEFINITION"
+    }
+  },
+  "price_adjustment": "Input provider responsibility; prices unchanged",
+  "production_trend_detector_created": false,
+  "research_id": "dx27.trend_tournament.v0.1",
+  "row_counts": {
+    "evaluated_input": 77188,
+    "input": 77188,
+    "trend_metrics": 234,
+    "trend_sensitivity": 312,
+    "trend_states": 694692
+  },
+  "rsi_definition": {
+    "classification": "LEAN_VERIFIED",
+    "diagnostic_only": true,
+    "moving_average": "Wilder",
+    "period": 14,
+    "seed": "SMA of first 14 gain/loss deltas",
+    "source": "QuantConnect LEAN Indicators/RelativeStrengthIndex.cs",
+    "warmup_price_bars": 15,
+    "zero_loss_check": "round(avg_loss,10)==0 => 100"
+  },
+  "schema_version": 1,
+  "sigma_definition": {
+    "adjust": true,
+    "bias": false,
+    "classification": "QC_RESEARCH_REPRODUCTION",
+    "epsilon_floor": false,
+    "min_periods": 32,
+    "returns": "simple close_t/close_(t-1)-1",
+    "source": "QuantConnect Research 15875: Futures Fast Trend Following, with Trend Strength",
+    "span": 32
+  },
+  "splits": {
+    "out_of_sample": {
+      "classification": "DX27_RESEARCH_PROTOCOL",
+      "end": "2026-09-30",
+      "start": "2020-01-01"
+    },
+    "selection": {
+      "classification": "DX27_RESEARCH_PROTOCOL",
+      "end": "2019-12-31",
+      "start": "2005-01-01"
+    }
+  },
+  "winner_selected": false
+}

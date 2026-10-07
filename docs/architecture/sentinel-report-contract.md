@@ -1047,3 +1047,14 @@ DESIGN BASELINE — FROZEN FOR SENTINEL V0.1
 Future substantive report-contract changes require an explicit, versioned design
 revision. Engineering questions remain intentionally open for implementation and
 evaluation.
+
+
+## Multi-sensor design revision after 6B-2F
+
+The [multi-sensor architecture](sentinel-multi-sensor-design.md) records the
+agreed next direction, not implemented behavior or silently changed frozen
+contracts. Task 6B-2G must explicitly freeze the sensor/availability and output
+contracts, including any report schema revision. SPY remains one index sensor
+and a portfolio benchmark; it does not alone establish market-wide conditions.
+Composite references are optional evidence, not replacements for ordinal
+Priority. Missing inputs remain explicit.

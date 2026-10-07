@@ -1,0 +1,368 @@
+{
+  "adjustment_method": "yfinance_history_auto_adjust_true",
+  "canonical_representation": "UTF-8 CSV; symbol,date,open,high,low,close,volume; symbol/date ascending; ISO dates; full precision; LF",
+  "combined_dataset_sha256": "9136494cf783f5892045e0fc52ad85166a4ede0c9b56107157a992c743cf75af",
+  "data_loader_version": "dx27.trend.stage_a.yahoo.v0.1",
+  "execution_commit": "8cc8a056950f34580631691bbd4f259153bdfe4e",
+  "history_parameters": {
+    "actions": false,
+    "auto_adjust": true,
+    "back_adjust": false,
+    "end": "2026-10-01",
+    "interval": "1d",
+    "keepna": false,
+    "raise_errors": true,
+    "repair": false,
+    "rounding": false,
+    "start": "2003-01-01"
+  },
+  "numpy_version": "2.5.3",
+  "ohlc_boundary_normalization": {
+    "absolute_tolerance": 1e-12,
+    "classification": "DX27_PROVIDER_BOUNDARY_NORMALIZATION",
+    "high_corrections_total": 62,
+    "low_corrections_total": 51,
+    "relative_tolerance": 1e-12,
+    "symbols": {
+      "GLD": {
+        "high_corrections": 0,
+        "low_corrections": 0
+      },
+      "IWM": {
+        "high_corrections": 1,
+        "low_corrections": 1
+      },
+      "QQQ": {
+        "high_corrections": 1,
+        "low_corrections": 1
+      },
+      "SPY": {
+        "high_corrections": 5,
+        "low_corrections": 0
+      },
+      "TLT": {
+        "high_corrections": 8,
+        "low_corrections": 4
+      },
+      "XLE": {
+        "high_corrections": 8,
+        "low_corrections": 9
+      },
+      "XLF": {
+        "high_corrections": 8,
+        "low_corrections": 12
+      },
+      "XLI": {
+        "high_corrections": 7,
+        "low_corrections": 4
+      },
+      "XLK": {
+        "high_corrections": 5,
+        "low_corrections": 3
+      },
+      "XLP": {
+        "high_corrections": 11,
+        "low_corrections": 8
+      },
+      "XLU": {
+        "high_corrections": 4,
+        "low_corrections": 5
+      },
+      "XLV": {
+        "high_corrections": 3,
+        "low_corrections": 3
+      },
+      "XLY": {
+        "high_corrections": 1,
+        "low_corrections": 1
+      }
+    }
+  },
+  "pandas_version": "3.0.6",
+  "per_symbol_metadata": {
+    "GLD": {
+      "correction_categories": {
+        "high_corrections": 0,
+        "low_corrections": 0
+      },
+      "duplicate_date_count": 0,
+      "first_date": "2004-11-18",
+      "first_usable_date": "2004-11-18",
+      "invalid_ohlc_rejection_count": 0,
+      "last_date": "2026-09-30",
+      "last_usable_date": "2026-09-30",
+      "null_row_rejection_count": 0,
+      "ohlc_boundary_correction_count": 0,
+      "oos_rows": 1695,
+      "row_count": 5500,
+      "rows_before_2005": 30,
+      "selection_rows": 3775,
+      "sha256": "35703ba2f367f58735938adb328fd55592a3acbd7ed8106e044bceff01094881",
+      "total_rows": 5500
+    },
+    "IWM": {
+      "correction_categories": {
+        "high_corrections": 1,
+        "low_corrections": 1
+      },
+      "duplicate_date_count": 0,
+      "first_date": "2003-01-02",
+      "first_usable_date": "2003-01-02",
+      "invalid_ohlc_rejection_count": 0,
+      "last_date": "2026-09-30",
+      "last_usable_date": "2026-09-30",
+      "null_row_rejection_count": 0,
+      "ohlc_boundary_correction_count": 2,
+      "oos_rows": 1695,
+      "row_count": 5974,
+      "rows_before_2005": 504,
+      "selection_rows": 3775,
+      "sha256": "d04a55edc353e3d888c2ca1b68cb0cdd686dc70f538b4f10a507e914aba3cf26",
+      "total_rows": 5974
+    },
+    "QQQ": {
+      "correction_categories": {
+        "high_corrections": 1,
+        "low_corrections": 1
+      },
+      "duplicate_date_count": 0,
+      "first_date": "2003-01-02",
+      "first_usable_date": "2003-01-02",
+      "invalid_ohlc_rejection_count": 0,
+      "last_date": "2026-09-30",
+      "last_usable_date": "2026-09-30",
+      "null_row_rejection_count": 0,
+      "ohlc_boundary_correction_count": 2,
+      "oos_rows": 1695,
+      "row_count": 5974,
+      "rows_before_2005": 504,
+      "selection_rows": 3775,
+      "sha256": "30ac0345297635953131a0b3c09a41d7cb2cee58430222889299fa3ff6a6cbe2",
+      "total_rows": 5974
+    },
+    "SPY": {
+      "correction_categories": {
+        "high_corrections": 5,
+        "low_corrections": 0
+      },
+      "duplicate_date_count": 0,
+      "first_date": "2003-01-02",
+      "first_usable_date": "2003-01-02",
+      "invalid_ohlc_rejection_count": 0,
+      "last_date": "2026-09-30",
+      "last_usable_date": "2026-09-30",
+      "null_row_rejection_count": 0,
+      "ohlc_boundary_correction_count": 5,
+      "oos_rows": 1695,
+      "row_count": 5974,
+      "rows_before_2005": 504,
+      "selection_rows": 3775,
+      "sha256": "5f51aedd332a560b7968af6413657caec9c1a08dfc616d036b94932ccad26667",
+      "total_rows": 5974
+    },
+    "TLT": {
+      "correction_categories": {
+        "high_corrections": 8,
+        "low_corrections": 4
+      },
+      "duplicate_date_count": 0,
+      "first_date": "2003-01-02",
+      "first_usable_date": "2003-01-02",
+      "invalid_ohlc_rejection_count": 0,
+      "last_date": "2026-09-30",
+      "last_usable_date": "2026-09-30",
+      "null_row_rejection_count": 0,
+      "ohlc_boundary_correction_count": 12,
+      "oos_rows": 1695,
+      "row_count": 5974,
+      "rows_before_2005": 504,
+      "selection_rows": 3775,
+      "sha256": "d12632a1ecf3fdef9a6da8cbd611b2ab428601f8066e8431632954435ea79b51",
+      "total_rows": 5974
+    },
+    "XLE": {
+      "correction_categories": {
+        "high_corrections": 8,
+        "low_corrections": 9
+      },
+      "duplicate_date_count": 0,
+      "first_date": "2003-01-02",
+      "first_usable_date": "2003-01-02",
+      "invalid_ohlc_rejection_count": 0,
+      "last_date": "2026-09-30",
+      "last_usable_date": "2026-09-30",
+      "null_row_rejection_count": 0,
+      "ohlc_boundary_correction_count": 17,
+      "oos_rows": 1695,
+      "row_count": 5974,
+      "rows_before_2005": 504,
+      "selection_rows": 3775,
+      "sha256": "f8f12b8bbdb2e1a5f542cc7cb8f64fb72604f6d4d15827b2dadc699176580bcb",
+      "total_rows": 5974
+    },
+    "XLF": {
+      "correction_categories": {
+        "high_corrections": 8,
+        "low_corrections": 12
+      },
+      "duplicate_date_count": 0,
+      "first_date": "2003-01-02",
+      "first_usable_date": "2003-01-02",
+      "invalid_ohlc_rejection_count": 0,
+      "last_date": "2026-09-30",
+      "last_usable_date": "2026-09-30",
+      "null_row_rejection_count": 0,
+      "ohlc_boundary_correction_count": 20,
+      "oos_rows": 1695,
+      "row_count": 5974,
+      "rows_before_2005": 504,
+      "selection_rows": 3775,
+      "sha256": "8c415797416f8ca219ee43790113bbad2b1cb3823a46d825daf2ec91272bb64f",
+      "total_rows": 5974
+    },
+    "XLI": {
+      "correction_categories": {
+        "high_corrections": 7,
+        "low_corrections": 4
+      },
+      "duplicate_date_count": 0,
+      "first_date": "2003-01-02",
+      "first_usable_date": "2003-01-02",
+      "invalid_ohlc_rejection_count": 0,
+      "last_date": "2026-09-30",
+      "last_usable_date": "2026-09-30",
+      "null_row_rejection_count": 0,
+      "ohlc_boundary_correction_count": 11,
+      "oos_rows": 1695,
+      "row_count": 5974,
+      "rows_before_2005": 504,
+      "selection_rows": 3775,
+      "sha256": "dd70810e20f180830176c5fff30aebc42867200918d61b20c83936392c82ef12",
+      "total_rows": 5974
+    },
+    "XLK": {
+      "correction_categories": {
+        "high_corrections": 5,
+        "low_corrections": 3
+      },
+      "duplicate_date_count": 0,
+      "first_date": "2003-01-02",
+      "first_usable_date": "2003-01-02",
+      "invalid_ohlc_rejection_count": 0,
+      "last_date": "2026-09-30",
+      "last_usable_date": "2026-09-30",
+      "null_row_rejection_count": 0,
+      "ohlc_boundary_correction_count": 8,
+      "oos_rows": 1695,
+      "row_count": 5974,
+      "rows_before_2005": 504,
+      "selection_rows": 3775,
+      "sha256": "a65d9a1ac031abd298d95d3846e4bcabdfed734e513667663905daaeb921c3c6",
+      "total_rows": 5974
+    },
+    "XLP": {
+      "correction_categories": {
+        "high_corrections": 11,
+        "low_corrections": 8
+      },
+      "duplicate_date_count": 0,
+      "first_date": "2003-01-02",
+      "first_usable_date": "2003-01-02",
+      "invalid_ohlc_rejection_count": 0,
+      "last_date": "2026-09-30",
+      "last_usable_date": "2026-09-30",
+      "null_row_rejection_count": 0,
+      "ohlc_boundary_correction_count": 19,
+      "oos_rows": 1695,
+      "row_count": 5974,
+      "rows_before_2005": 504,
+      "selection_rows": 3775,
+      "sha256": "c87a3b22cc71cef7d5d0bf276cf7b47f0dcf276144078a667a90d337375bd4be",
+      "total_rows": 5974
+    },
+    "XLU": {
+      "correction_categories": {
+        "high_corrections": 4,
+        "low_corrections": 5
+      },
+      "duplicate_date_count": 0,
+      "first_date": "2003-01-02",
+      "first_usable_date": "2003-01-02",
+      "invalid_ohlc_rejection_count": 0,
+      "last_date": "2026-09-30",
+      "last_usable_date": "2026-09-30",
+      "null_row_rejection_count": 0,
+      "ohlc_boundary_correction_count": 9,
+      "oos_rows": 1695,
+      "row_count": 5974,
+      "rows_before_2005": 504,
+      "selection_rows": 3775,
+      "sha256": "209d36ec43c3eae86b4179aed7f02bbdf2ca2b0f2cd143a0ff1c16780bc32a1e",
+      "total_rows": 5974
+    },
+    "XLV": {
+      "correction_categories": {
+        "high_corrections": 3,
+        "low_corrections": 3
+      },
+      "duplicate_date_count": 0,
+      "first_date": "2003-01-02",
+      "first_usable_date": "2003-01-02",
+      "invalid_ohlc_rejection_count": 0,
+      "last_date": "2026-09-30",
+      "last_usable_date": "2026-09-30",
+      "null_row_rejection_count": 0,
+      "ohlc_boundary_correction_count": 6,
+      "oos_rows": 1695,
+      "row_count": 5974,
+      "rows_before_2005": 504,
+      "selection_rows": 3775,
+      "sha256": "fe0bc5ca09f8b1f5a4ae5d3e1611e526fa7470efeb5b46f07ac46002e6089676",
+      "total_rows": 5974
+    },
+    "XLY": {
+      "correction_categories": {
+        "high_corrections": 1,
+        "low_corrections": 1
+      },
+      "duplicate_date_count": 0,
+      "first_date": "2003-01-02",
+      "first_usable_date": "2003-01-02",
+      "invalid_ohlc_rejection_count": 0,
+      "last_date": "2026-09-30",
+      "last_usable_date": "2026-09-30",
+      "null_row_rejection_count": 0,
+      "ohlc_boundary_correction_count": 2,
+      "oos_rows": 1695,
+      "row_count": 5974,
+      "rows_before_2005": 504,
+      "selection_rows": 3775,
+      "sha256": "16224166bd7d2fd9d59d89eed0fabd42bf294151bc3eace36470033a91363606",
+      "total_rows": 5974
+    }
+  },
+  "protocol_id": "dx27.trend.stage_a.selection.v0.1",
+  "python_version": "3.12.14",
+  "rejection_count_scope": "Returned provider rows only: successful strict validation rejects no rows; invalid inputs abort the entire run. Provider keepna=False filtering counts are unavailable.",
+  "requested_end_exclusive": "2026-10-01",
+  "requested_start": "2003-01-01",
+  "research_last_date": "2026-09-30",
+  "research_start": "2005-01-01",
+  "retrieval_timestamp_utc": "2026-10-07T10:01:08.935073Z",
+  "symbols": [
+    "SPY",
+    "QQQ",
+    "IWM",
+    "XLK",
+    "XLF",
+    "XLE",
+    "XLV",
+    "XLI",
+    "XLP",
+    "XLY",
+    "XLU",
+    "TLT",
+    "GLD"
+  ],
+  "yfinance_version": "1.7.0"
+}
