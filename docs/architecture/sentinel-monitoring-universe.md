@@ -222,3 +222,14 @@ contracts, including any report schema revision. SPY remains one index sensor
 and a portfolio benchmark; it does not alone establish market-wide conditions.
 Composite references are optional evidence, not replacements for ordinal
 Priority. Missing inputs remain explicit.
+
+
+## Initial multi-sensor research subset — 6B-2G
+
+The [frozen sensor registry](sentinel-sensor-contracts-v1.md) defines eight Core
+and eleven optional Contextual feed roles for the first research subset. These
+19 roles do not populate or replace the wider universe budget. Providers and
+canonical subject identities require versioned bindings; registry inclusion
+does not certify source availability. True constituent breadth and contribution
+sensors remain blocked without validated PIT inputs. Existing tier/activation/TTL
+and discovery eligibility semantics remain unchanged.

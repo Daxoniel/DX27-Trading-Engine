@@ -1,0 +1,9 @@
+{
+  "task_id": "6B-2G",
+  "result": "PROTOCOL_VALID",
+  "runtime_validated": false,
+  "market_effectiveness_validated": false,
+  "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+  "feed_count": 19,
+  "sensor_count": 18
+}

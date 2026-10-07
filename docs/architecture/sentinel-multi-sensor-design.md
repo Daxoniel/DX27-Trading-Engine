@@ -1,9 +1,11 @@
 # Sentinel multi-sensor architecture — design revision after 6B-2F
 
-Status: **AGREED DESIGN DIRECTION; NOT IMPLEMENTED**. This revision records the
-approved architectural direction, not frozen formulas, thresholds, sensor
-populations, or output schemas. Task **6B-2G** must freeze those contracts and
-the evaluation protocol before implementation or new result-driven selection.
+Status: **AGREED DESIGN DIRECTION; RUNTIME NOT IMPLEMENTED**. Task **6B-2G**
+has now frozen the first sensor/availability and output contracts, reference
+research baselines and validation protocol in the
+[versioned contract specification](sentinel-sensor-contracts-v1.md). This
+architecture remains the broader direction; the protocol governs the first
+subset. Neither document claims that new runtime measurements are implemented.
 
 ## Purpose and scope
 
@@ -85,8 +87,8 @@ revisions. Coverage and statistical reliability are separate fields.
 
 The three new names are proposed contracts, not implemented classes. Snapshot
 facts, change events, and optional research attachments must remain distinguishable
-in reports. Extending the frozen SentinelReport schema requires an explicit
-contract revision in 6B-2G; this document does not silently add required fields.
+in reports. The explicit SentinelReport v0.2 design revision in 6B-2G adds optional
+snapshot/reference/forecast fields; it does not silently alter v0.1 required fields.
 SPY remains a portfolio performance benchmark without becoming the authoritative
 market-state proxy. Holdings affect relevance downstream, not global state
 measurement.
@@ -106,8 +108,9 @@ window, minimum history, weight, and direction must be pre-registered.
 
 Keep relationship anomaly `D_t` separate: persistent concentration, disagreement,
 and unusual co-movement must not disappear inside an average pressure score.
-Its exact function remains open until 6B-2G/6B-2I. Compare simple divergence and
-correlation measures before adopting covariance inversion or dynamic factors.
+The first D candidate is frozen in 6B-2G as a separate robust-z divergence
+reference. Any correlation extension requires a new pre-registration before
+adopting covariance inversion or dynamic factors.
 A correlation-weighted CISS-style extension is a research comparator only;
 retain it only if it adds measurable OOS value over the simple baseline.
 
@@ -146,9 +149,10 @@ Analyst retain their 6C–6F numbering. This is not Task 7.
 6B-1 Activity Anomaly remains the implemented minimal daily detector.
 [EWMAC research](../../research/sentinel/6b-2e-6b-2f-ewmac/README.md) is archived:
 Stage-A WEAK_PASS followed by robustness FAIL. It is a reproducible baseline,
-not a production component. No new sensor or detector is implemented by this
-revision. Sentinel stays read-only; execution and the separate trading-agent
-path are outside this preparation. LLM interpretation remains downstream of
+not a production component. 6B-2G validates the frozen protocol artifact; no new
+runtime sensor or detector is implemented by these design revisions. Sentinel
+stays read-only; execution and the separate trading-agent path are outside this
+preparation. LLM interpretation remains downstream of
 deterministic facts and cannot change measurements, events, or hard gates.
 
 ## Literature informing the design

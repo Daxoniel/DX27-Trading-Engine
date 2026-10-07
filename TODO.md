@@ -103,17 +103,25 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
 - [ ] **6B-2 — Trend Change + Volatility Change** remains incomplete as a
   production capability. Research completion does not close this parent task.
 
+## 6B-2G checkpoint — design completed and verified
+
+- [x] **6B-2G — Multi-Sensor Contracts & Validation Protocol** — frozen
+  19-feed/18-sensor registry, availability and output contracts, simple S/D
+  research baselines, causal/prospective evaluation targets and numerical gates,
+  and explicit SentinelReport v0.2 design revision. Exact protocol lock and
+  offline checks pass; no runtime measurement or market-effectiveness claim.
+  See [contracts and validation](docs/architecture/sentinel-sensor-contracts-v1.md).
+
 ## Next
 
-- [ ] **6B-2G — Multi-Sensor Contracts & Validation Protocol** — freeze sensor
-  scope, units, causal availability, proxy status, redundancy groups, output
-  contracts, current-state targets, change targets, baselines, and online replay
-  acceptance criteria before collecting new evaluation results.
+- [ ] **6B-2H — Multi-Dimensional Market State Snapshot** — implement the
+  frozen scalar/availability bridge and typed sensor/state contracts with a
+  versioned session calendar. Validate causal prefix replay, late/revised/missing
+  data, proxy labelling, and independent formula agreement. S/D operational
+  calculation, change detectors and forecasts remain outside this task.
 
 ## Subsequent 6B-2 tasks — gated sequence
 
-- [ ] **6B-2H — Multi-Dimensional Market State Snapshot** — implement and
-  validate dimension states and coverage; no composite score is required.
 - [ ] **6B-2I — Composite Reference & Relationship Research** — compare a
   simple group-weighted pressure reference and a separate relationship-anomaly
   reference against dimension-only baselines. Freeze formulas before OOS runs;
@@ -127,7 +135,8 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
   incremental OOS value. Forecast output stays disabled until its own gate passes.
 
 These tasks follow the [multi-sensor architecture](docs/architecture/sentinel-multi-sensor-design.md).
-6B-2G is the clean next starting point; this preparation does not execute it.
+6B-2G design/verification is complete. 6B-2H is the next separate checkpoint;
+6B-2I–6B-2K remain unstarted and are gated individually.
 
 ## Planned
 

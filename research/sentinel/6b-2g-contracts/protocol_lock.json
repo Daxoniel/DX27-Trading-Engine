@@ -1,0 +1,8 @@
+{
+  "protocol_id": "sentinel-6b-2g-multisensor-v1",
+  "version": "1.0",
+  "sha256": "803bb9fde48966df52fd791d455828680dc0ce194f737cb2d526452cd9ede6b7",
+  "canonical_sha256": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+  "base_commit": "fd6169a",
+  "scope": "design_artifact_only_no_candidate_or_market_validation"
+}
