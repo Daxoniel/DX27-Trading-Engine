@@ -5,6 +5,9 @@ raw response bytes, source URL/status, SHA-256 and actual UTC response-completio
 `first_seen_at`. Unknown `published_at` stays null; HTTP Date, observation labels,
 nominal vintages and published schedules cannot replace availability evidence.
 
+The live Yahoo request captures two years for bootstrap; it does not fulfill
+the separate 2003/2004 historical acquisition requirements.
+
 Capture directories and initial binding records use exclusive creation. Replays
 verify payload, record and binding seals and refuse calendar/protocol changes.
 This is software-enforced append-only capture with tamper detection, not storage
