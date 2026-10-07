@@ -5,13 +5,14 @@ validated bindings and separately evidenced capture/publication metadata.
 """
 
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timezone
 import math
+from zoneinfo import ZoneInfo
 
 from dx27.intelligence.sentinel.models import DataStatus, ObservationWindow
 from dx27.intelligence.sentinel.observations import ObservationEnvelope
 from dx27.intelligence.sentinel.sensor_contracts import FeedBinding, SeriesPoint, VintageMode
-from dx27.intelligence.sentinel.session_calendar import SessionCalendar
+from dx27.intelligence.sentinel.session_calendar import SessionCalendar, utc
 
 
 @dataclass(frozen=True)
@@ -64,7 +65,20 @@ def normalize_ohlcv_close(envelope: ObservationEnvelope, binding: FeedBinding,
     if status is DataStatus.AVAILABLE:
         ctx = envelope.market_context
         numbers = (ctx.open, ctx.high, ctx.low, ctx.close, ctx.volume)
-        if (ctx.timeframe != '1d' or (binding.subject_ref.symbol is not None and ctx.symbol != binding.subject_ref.symbol)
+        try:
+            timestamp = utc(ctx.timestamp)
+            policy = binding.ohlcv_timestamp_policy
+            if policy == 'SESSION_END':
+                time_matches = timestamp == session.closes_at
+            elif policy == 'SESSION_OPEN':
+                time_matches = timestamp == session.opens_at
+            else:
+                zone = timezone.utc if policy == 'UTC_DATE_LABEL' else ZoneInfo('America/New_York')
+                label = timestamp.astimezone(zone)
+                time_matches = label.date().isoformat() == session_id and (label.hour,label.minute,label.second,label.microsecond) == (0,0,0,0)
+        except (TypeError, ValueError):
+            time_matches = False
+        if (not time_matches or ctx.timeframe != '1d' or (binding.subject_ref.symbol is not None and ctx.symbol != binding.subject_ref.symbol)
                 or any(isinstance(v, bool) or not isinstance(v, (int, float)) or not math.isfinite(v) for v in numbers)
                 or min(ctx.open, ctx.high, ctx.low, ctx.close) <= 0 or ctx.volume < 0
                 or ctx.high < max(ctx.open, ctx.close, ctx.low) or ctx.low > min(ctx.open, ctx.close, ctx.high)):

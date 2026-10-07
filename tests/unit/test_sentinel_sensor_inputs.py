@@ -116,3 +116,21 @@ def test_latest_vintage_is_an_explicit_point_tag(calendar):
     p=normalize_series_point(binding(),window(s),DataStatus.AVAILABLE,3.2,
                               stamp(s,vintage_mode=VintageMode.LATEST_VINTAGE_DESCRIPTIVE_ONLY))
     assert p.vintage_mode is VintageMode.LATEST_VINTAGE_DESCRIPTIVE_ONLY
+
+
+def test_ohlcv_timestamp_must_match_declared_label_policy_not_only_envelope(calendar):
+    s=calendar.get('2026-10-06')
+    b=binding('spy',raw_unit='USD',normalized_unit='USD',price_basis='TOTAL_RETURN_AS_AVAILABLE',
+              observation_label_policy='XNYS_SESSION',source_calendar_id='XNYS')
+    st=stamp(s);provenance=(Provenance('fixture',s.closes_at,s.session_id,'1'),)
+    membership=UniverseMembership(b.subject_ref.subject_id,UniverseTier.CORE,'fixture:universe','fixture:membership','test',provenance)
+    context=MarketContext('SPY',s.closes_at,'1d',100,102,99,101,1000)
+    envelope=ObservationEnvelope(b.subject_ref,window(s),DataStatus.AVAILABLE,provenance,membership,context)
+    for timestamp in [s.closes_at+timedelta(days=1),s.closes_at.replace(tzinfo=None)]:
+        point=normalize_ohlcv_close(replace(envelope,market_context=replace(context,timestamp=timestamp)),b,st,calendar,s.session_id)
+        assert point.data_status is DataStatus.SOURCE_ERROR and point.value is None
+    date_label=datetime(2026,10,6,tzinfo=timezone.utc)
+    labelled=replace(envelope,market_context=replace(context,timestamp=date_label))
+    assert normalize_ohlcv_close(labelled,b,st,calendar,s.session_id).data_status is DataStatus.SOURCE_ERROR
+    labelled_binding=replace(b,ohlcv_timestamp_policy='UTC_DATE_LABEL')
+    assert normalize_ohlcv_close(labelled,labelled_binding,st,calendar,s.session_id).value==101

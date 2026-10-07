@@ -34,7 +34,8 @@ The implementation is exported through `dx27.intelligence.sentinel`:
 
 `FeedBinding` is an immutable application-supplied metadata record with source
 and canonical subject identity, units, validation-record ID/time, price basis,
-source calendar, observation-label policy, and revision ordering. Its content
+source calendar, observation-label/explicit OHLCV timestamp policies, and
+revision ordering. Its content
 hash becomes the binding version. It does not certify its own assertions:
 metadata validation must actually occur outside Sentinel. Fixture bindings use
 explicit `fixture-only` validation IDs; no real provider is approved by this task.
@@ -47,6 +48,9 @@ context; nonpositive prices and negative VIX/HY OAS are invalid domains.
 
 ETF close normalization reuses the existing OHLCV envelope, matching source
 provenance and actual daily session bounds and checking OHLCV validity.
+The MarketContext timestamp must match its explicitly bound session-open,
+session-end, UTC-date-label or New-York-date-label policy; a future or naive
+bar timestamp cannot be concealed inside a past observation envelope.
 The binding must identify a total-return-consistent price chain as available,
 not raw closes across undisclosed dividends/splits. The caller must establish
 that corporate-action/vintage metadata; the bridge cannot infer it from prices.

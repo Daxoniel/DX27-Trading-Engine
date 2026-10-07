@@ -69,6 +69,7 @@ class FeedBinding:
     price_basis: str = 'NOT_PRICE'
     revision_order: str = 'OPAQUE'
     observation_label_policy: str = 'LOCAL_DATE_OF_END'
+    ohlcv_timestamp_policy: str = 'SESSION_END'
     binding_version: str = field(init=False)
 
     def __post_init__(self) -> None:
@@ -79,6 +80,8 @@ class FeedBinding:
         object.__setattr__(self, 'validated_at', utc(self.validated_at))
         if self.price_basis not in {'NOT_PRICE', 'TOTAL_RETURN_AS_AVAILABLE'}:
             raise ValueError('price basis must be explicit and causal')
+        if self.ohlcv_timestamp_policy not in {'SESSION_END', 'SESSION_OPEN', 'UTC_DATE_LABEL', 'NY_DATE_LABEL'}:
+            raise ValueError('explicit OHLCV timestamp policy required')
         if self.observation_label_policy not in {'XNYS_SESSION', 'LOCAL_DATE_OF_END',
                   'LOCAL_DATE_BEFORE_EXCLUSIVE_END', 'UTC_DATE_BEFORE_EXCLUSIVE_END'}:
             raise ValueError('explicit observation label policy required')
