@@ -1,0 +1,1028 @@
+{
+  "protocol_id": "sentinel-6b-2g-multisensor-v1",
+  "task_id": "6B-2G",
+  "version": "1.0",
+  "status": "FROZEN_DESIGN_NOT_RUNTIME_IMPLEMENTATION",
+  "scope": "US_EQUITIES_WITH_CREDIT_RATES_FUNDING_CONTEXT",
+  "feeds": [
+    {
+      "feed_id": "spy",
+      "subject_id": "SPY",
+      "kind": "ETF",
+      "normalized_unit": "USD",
+      "economic_role": "capitalization_weighted_large_cap",
+      "tier": "CORE",
+      "redundancy_group": "equity_prices",
+      "cadence": "DAILY",
+      "max_age_sessions": 0,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "rsp",
+      "subject_id": "RSP",
+      "kind": "ETF",
+      "normalized_unit": "USD",
+      "economic_role": "equal_weight_large_cap_proxy",
+      "tier": "CORE",
+      "redundancy_group": "equity_prices",
+      "cadence": "DAILY",
+      "max_age_sessions": 0,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "qqq",
+      "subject_id": "QQQ",
+      "kind": "ETF",
+      "normalized_unit": "USD",
+      "economic_role": "nasdaq_100_leadership_proxy",
+      "tier": "CORE",
+      "redundancy_group": "equity_prices",
+      "cadence": "DAILY",
+      "max_age_sessions": 0,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "iwm",
+      "subject_id": "IWM",
+      "kind": "ETF",
+      "normalized_unit": "USD",
+      "economic_role": "small_cap_proxy",
+      "tier": "CORE",
+      "redundancy_group": "equity_prices",
+      "cadence": "DAILY",
+      "max_age_sessions": 0,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "vix",
+      "subject_id": "CBOE:VIX",
+      "kind": "INDEX_SERIES",
+      "normalized_unit": "percent_annualized",
+      "economic_role": "spx_30_day_implied_volatility",
+      "tier": "CORE",
+      "redundancy_group": "spx_volatility",
+      "cadence": "DAILY",
+      "max_age_sessions": 1,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "hy_oas",
+      "subject_id": "ICE_BofA_US_HY_OAS",
+      "kind": "ECONOMIC_SERIES",
+      "normalized_unit": "basis_points",
+      "economic_role": "high_yield_credit_spread",
+      "tier": "CORE",
+      "redundancy_group": "credit",
+      "cadence": "DAILY",
+      "max_age_sessions": 1,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "ust_2y",
+      "subject_id": "US_TREASURY_2Y",
+      "kind": "ECONOMIC_SERIES",
+      "normalized_unit": "percent_per_annum",
+      "economic_role": "two_year_yield",
+      "tier": "CORE",
+      "redundancy_group": "rates",
+      "cadence": "DAILY",
+      "max_age_sessions": 1,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "ust_10y",
+      "subject_id": "US_TREASURY_10Y",
+      "kind": "ECONOMIC_SERIES",
+      "normalized_unit": "percent_per_annum",
+      "economic_role": "ten_year_yield",
+      "tier": "CORE",
+      "redundancy_group": "rates",
+      "cadence": "DAILY",
+      "max_age_sessions": 1,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "sofr",
+      "subject_id": "NYFED:SOFR",
+      "kind": "ECONOMIC_SERIES",
+      "normalized_unit": "percent_per_annum",
+      "economic_role": "secured_overnight_rate",
+      "tier": "CONTEXTUAL",
+      "redundancy_group": "funding",
+      "cadence": "DAILY",
+      "max_age_sessions": 1,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "effr",
+      "subject_id": "NYFED:EFFR",
+      "kind": "ECONOMIC_SERIES",
+      "normalized_unit": "percent_per_annum",
+      "economic_role": "effective_federal_funds_rate",
+      "tier": "CONTEXTUAL",
+      "redundancy_group": "funding",
+      "cadence": "DAILY",
+      "max_age_sessions": 1,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "xlk",
+      "subject_id": "XLK",
+      "kind": "ETF",
+      "normalized_unit": "USD",
+      "economic_role": "sector_context_proxy",
+      "tier": "CONTEXTUAL",
+      "redundancy_group": "equity_prices",
+      "cadence": "DAILY",
+      "max_age_sessions": 0,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "xlf",
+      "subject_id": "XLF",
+      "kind": "ETF",
+      "normalized_unit": "USD",
+      "economic_role": "sector_context_proxy",
+      "tier": "CONTEXTUAL",
+      "redundancy_group": "equity_prices",
+      "cadence": "DAILY",
+      "max_age_sessions": 0,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "xle",
+      "subject_id": "XLE",
+      "kind": "ETF",
+      "normalized_unit": "USD",
+      "economic_role": "sector_context_proxy",
+      "tier": "CONTEXTUAL",
+      "redundancy_group": "equity_prices",
+      "cadence": "DAILY",
+      "max_age_sessions": 0,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "xlv",
+      "subject_id": "XLV",
+      "kind": "ETF",
+      "normalized_unit": "USD",
+      "economic_role": "sector_context_proxy",
+      "tier": "CONTEXTUAL",
+      "redundancy_group": "equity_prices",
+      "cadence": "DAILY",
+      "max_age_sessions": 0,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "xli",
+      "subject_id": "XLI",
+      "kind": "ETF",
+      "normalized_unit": "USD",
+      "economic_role": "sector_context_proxy",
+      "tier": "CONTEXTUAL",
+      "redundancy_group": "equity_prices",
+      "cadence": "DAILY",
+      "max_age_sessions": 0,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "xlp",
+      "subject_id": "XLP",
+      "kind": "ETF",
+      "normalized_unit": "USD",
+      "economic_role": "sector_context_proxy",
+      "tier": "CONTEXTUAL",
+      "redundancy_group": "equity_prices",
+      "cadence": "DAILY",
+      "max_age_sessions": 0,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "xly",
+      "subject_id": "XLY",
+      "kind": "ETF",
+      "normalized_unit": "USD",
+      "economic_role": "sector_context_proxy",
+      "tier": "CONTEXTUAL",
+      "redundancy_group": "equity_prices",
+      "cadence": "DAILY",
+      "max_age_sessions": 0,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "xlu",
+      "subject_id": "XLU",
+      "kind": "ETF",
+      "normalized_unit": "USD",
+      "economic_role": "sector_context_proxy",
+      "tier": "CONTEXTUAL",
+      "redundancy_group": "equity_prices",
+      "cadence": "DAILY",
+      "max_age_sessions": 0,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    },
+    {
+      "feed_id": "xlb",
+      "subject_id": "XLB",
+      "kind": "ETF",
+      "normalized_unit": "USD",
+      "economic_role": "sector_context_proxy",
+      "tier": "CONTEXTUAL",
+      "redundancy_group": "equity_prices",
+      "cadence": "DAILY",
+      "max_age_sessions": 0,
+      "source_requirement": "versioned_adapter_binding_and_recorded_availability",
+      "historical_vintage_required": true
+    }
+  ],
+  "sensors": [
+    {
+      "sensor_id": "spy_return_20",
+      "dimension": "trend",
+      "input_feed_ids": [
+        "spy"
+      ],
+      "method_id": "log_return_20",
+      "method_version": "1",
+      "unit": "log_return",
+      "lookback_sessions": 20,
+      "evidence_role": "DIRECT",
+      "redundancy_group": "equity_prices",
+      "activation": "ACTIVE_CONTRACT",
+      "required_for_dimension": true
+    },
+    {
+      "sensor_id": "rsp_return_20",
+      "dimension": "trend",
+      "input_feed_ids": [
+        "rsp"
+      ],
+      "method_id": "log_return_20",
+      "method_version": "1",
+      "unit": "log_return",
+      "lookback_sessions": 20,
+      "evidence_role": "PROXY",
+      "redundancy_group": "equity_prices",
+      "activation": "ACTIVE_CONTRACT",
+      "required_for_dimension": true
+    },
+    {
+      "sensor_id": "qqq_spy_relative_20",
+      "dimension": "leadership",
+      "input_feed_ids": [
+        "qqq",
+        "spy"
+      ],
+      "method_id": "relative_log_return_20",
+      "method_version": "1",
+      "unit": "log_return",
+      "lookback_sessions": 20,
+      "evidence_role": "PROXY",
+      "redundancy_group": "equity_prices",
+      "activation": "ACTIVE_CONTRACT",
+      "required_for_dimension": true
+    },
+    {
+      "sensor_id": "iwm_spy_relative_20",
+      "dimension": "leadership",
+      "input_feed_ids": [
+        "iwm",
+        "spy"
+      ],
+      "method_id": "relative_log_return_20",
+      "method_version": "1",
+      "unit": "log_return",
+      "lookback_sessions": 20,
+      "evidence_role": "PROXY",
+      "redundancy_group": "equity_prices",
+      "activation": "ACTIVE_CONTRACT",
+      "required_for_dimension": true
+    },
+    {
+      "sensor_id": "rsp_spy_relative_20",
+      "dimension": "participation",
+      "input_feed_ids": [
+        "rsp",
+        "spy"
+      ],
+      "method_id": "relative_log_return_20",
+      "method_version": "1",
+      "unit": "log_return",
+      "lookback_sessions": 20,
+      "evidence_role": "PROXY",
+      "redundancy_group": "equity_prices",
+      "activation": "ACTIVE_CONTRACT",
+      "required_for_dimension": true
+    },
+    {
+      "sensor_id": "spy_rv_20",
+      "dimension": "volatility",
+      "input_feed_ids": [
+        "spy"
+      ],
+      "method_id": "sample_rv_20",
+      "method_version": "1",
+      "unit": "percent_annualized",
+      "lookback_sessions": 20,
+      "evidence_role": "DIRECT",
+      "redundancy_group": "spx_volatility",
+      "activation": "ACTIVE_CONTRACT",
+      "required_for_dimension": true
+    },
+    {
+      "sensor_id": "spy_rv_5_over_20",
+      "dimension": "volatility",
+      "input_feed_ids": [
+        "spy"
+      ],
+      "method_id": "rv_ratio_5_20",
+      "method_version": "1",
+      "unit": "ratio",
+      "lookback_sessions": 20,
+      "evidence_role": "DIRECT",
+      "redundancy_group": "spx_volatility",
+      "activation": "ACTIVE_CONTRACT",
+      "required_for_dimension": true
+    },
+    {
+      "sensor_id": "vix_level",
+      "dimension": "volatility",
+      "input_feed_ids": [
+        "vix"
+      ],
+      "method_id": "latest_point",
+      "method_version": "1",
+      "unit": "percent_annualized",
+      "lookback_sessions": 0,
+      "evidence_role": "DIRECT",
+      "redundancy_group": "spx_volatility",
+      "activation": "ACTIVE_CONTRACT",
+      "required_for_dimension": true
+    },
+    {
+      "sensor_id": "vix_minus_rv_20",
+      "dimension": "volatility",
+      "input_feed_ids": [
+        "vix",
+        "spy"
+      ],
+      "method_id": "implied_minus_realized_20",
+      "method_version": "1",
+      "unit": "percentage_points",
+      "lookback_sessions": 20,
+      "evidence_role": "PROXY",
+      "redundancy_group": "spx_volatility",
+      "activation": "ACTIVE_CONTRACT",
+      "required_for_dimension": true
+    },
+    {
+      "sensor_id": "hy_oas_level",
+      "dimension": "credit",
+      "input_feed_ids": [
+        "hy_oas"
+      ],
+      "method_id": "latest_point",
+      "method_version": "1",
+      "unit": "basis_points",
+      "lookback_sessions": 0,
+      "evidence_role": "DIRECT",
+      "redundancy_group": "credit",
+      "activation": "ACTIVE_CONTRACT",
+      "required_for_dimension": true
+    },
+    {
+      "sensor_id": "ust_2y_level",
+      "dimension": "rates",
+      "input_feed_ids": [
+        "ust_2y"
+      ],
+      "method_id": "latest_point",
+      "method_version": "1",
+      "unit": "percent_per_annum",
+      "lookback_sessions": 0,
+      "evidence_role": "DIRECT",
+      "redundancy_group": "rates",
+      "activation": "ACTIVE_CONTRACT",
+      "required_for_dimension": true
+    },
+    {
+      "sensor_id": "ust_10y_level",
+      "dimension": "rates",
+      "input_feed_ids": [
+        "ust_10y"
+      ],
+      "method_id": "latest_point",
+      "method_version": "1",
+      "unit": "percent_per_annum",
+      "lookback_sessions": 0,
+      "evidence_role": "DIRECT",
+      "redundancy_group": "rates",
+      "activation": "ACTIVE_CONTRACT",
+      "required_for_dimension": true
+    },
+    {
+      "sensor_id": "ust_10y_minus_2y",
+      "dimension": "rates",
+      "input_feed_ids": [
+        "ust_10y",
+        "ust_2y"
+      ],
+      "method_id": "yield_slope",
+      "method_version": "1",
+      "unit": "basis_points",
+      "lookback_sessions": 0,
+      "evidence_role": "DIRECT",
+      "redundancy_group": "rates",
+      "activation": "ACTIVE_CONTRACT",
+      "required_for_dimension": true
+    },
+    {
+      "sensor_id": "sofr_minus_effr",
+      "dimension": "funding",
+      "input_feed_ids": [
+        "sofr",
+        "effr"
+      ],
+      "method_id": "funding_spread",
+      "method_version": "1",
+      "unit": "basis_points",
+      "lookback_sessions": 0,
+      "evidence_role": "DIRECT",
+      "redundancy_group": "funding",
+      "activation": "OPTIONAL_CONTRACT",
+      "required_for_dimension": false
+    },
+    {
+      "sensor_id": "sector_relative_20",
+      "dimension": "leadership",
+      "input_feed_ids": [
+        "xlk",
+        "xlf",
+        "xle",
+        "xlv",
+        "xli",
+        "xlp",
+        "xly",
+        "xlu",
+        "xlb",
+        "spy"
+      ],
+      "method_id": "sector_relative_vector_20",
+      "method_version": "1",
+      "unit": "log_return",
+      "lookback_sessions": 20,
+      "evidence_role": "PROXY",
+      "redundancy_group": "equity_prices",
+      "activation": "OPTIONAL_CONTRACT",
+      "required_for_dimension": false
+    },
+    {
+      "sensor_id": "constituent_breadth_20",
+      "dimension": "participation",
+      "input_feed_ids": [],
+      "method_id": "pit_positive_return_fraction_20",
+      "method_version": "1",
+      "unit": "fraction",
+      "lookback_sessions": 20,
+      "evidence_role": "DIRECT",
+      "redundancy_group": "constituent_equity",
+      "activation": "BLOCKED_PIT_INPUTS",
+      "required_for_dimension": false
+    },
+    {
+      "sensor_id": "top7_weight",
+      "dimension": "participation",
+      "input_feed_ids": [],
+      "method_id": "pit_top7_weight_fraction",
+      "method_version": "1",
+      "unit": "fraction",
+      "lookback_sessions": 0,
+      "evidence_role": "DIRECT",
+      "redundancy_group": "constituent_equity",
+      "activation": "BLOCKED_PIT_INPUTS",
+      "required_for_dimension": false
+    },
+    {
+      "sensor_id": "mega7_return_contribution_20",
+      "dimension": "participation",
+      "input_feed_ids": [],
+      "method_id": "pit_fixed_group_contribution_20",
+      "method_version": "1",
+      "unit": "return_contribution",
+      "lookback_sessions": 20,
+      "evidence_role": "DIRECT",
+      "redundancy_group": "constituent_equity",
+      "activation": "BLOCKED_PIT_INPUTS",
+      "required_for_dimension": false
+    }
+  ],
+  "methods": {
+    "log_return_20": {
+      "formula": "ln(P[t]/P[t-20])",
+      "minimum_points": 21,
+      "zero_or_invalid_price": "SOURCE_ERROR",
+      "output_unit": "log_return"
+    },
+    "relative_log_return_20": {
+      "formula": "ln(A[t]/A[t-20])-ln(B[t]/B[t-20])",
+      "minimum_points_per_feed": 21,
+      "alignment": "same_XNYS_session_endpoints",
+      "output_unit": "log_return"
+    },
+    "sample_rv_20": {
+      "formula": "100*sqrt(252)*sample_std(log_daily_returns[t-19:t], ddof=1)",
+      "minimum_points": 21,
+      "output_unit": "percent_annualized"
+    },
+    "rv_ratio_5_20": {
+      "formula": "sample_std(last_5_returns,ddof=1)/sample_std(last_20_returns,ddof=1)",
+      "minimum_points": 21,
+      "zero_denominator": "INSUFFICIENT_HISTORY",
+      "output_unit": "ratio"
+    },
+    "latest_point": {
+      "formula": "latest_eligible_point_at_cutoff",
+      "minimum_points": 1,
+      "output_unit": "SAME_AS_INPUT"
+    },
+    "implied_minus_realized_20": {
+      "formula": "VIX[t]-RV20[t]",
+      "alignment": "same_observation_session",
+      "meaning": "horizon_mismatched_implied_realized_gap_not_true_variance_risk_premium",
+      "output_unit": "percentage_points"
+    },
+    "yield_slope": {
+      "formula": "100*(UST10Y[t]-UST2Y[t])",
+      "alignment": "same_observation_session",
+      "output_unit": "basis_points"
+    },
+    "funding_spread": {
+      "formula": "100*(SOFR[t]-EFFR[t])",
+      "alignment": "same_observation_session",
+      "meaning": "descriptive_funding_context_not_automatic_stress",
+      "output_unit": "basis_points"
+    },
+    "sector_relative_vector_20": {
+      "formula": "relative_log_return_20(sector,SPY)_for_each_sector",
+      "required_members": 9,
+      "aggregation": "sorted_vector_no_sector_vote_or_rank_when_incomplete",
+      "output_unit": "log_return"
+    },
+    "pit_positive_return_fraction_20": {
+      "formula": "eligible_positive_20_session_total_return_members/current_PIT_members",
+      "activation": "requires_new_version_and_validated_PIT_membership",
+      "member_coverage_min": 0.95,
+      "output_unit": "fraction"
+    },
+    "pit_top7_weight_fraction": {
+      "formula": "sum_of_seven_largest_current_PIT_constituent_weights",
+      "activation": "requires_new_version_and_validated_PIT_weights",
+      "meaning": "top_seven_by_weight_not_Mega7",
+      "output_unit": "fraction"
+    },
+    "pit_fixed_group_contribution_20": {
+      "formula": "not_enabled_until_PIT_group_definition_and_contribution_accounting_are_frozen",
+      "activation": "requires_new_version_and_validated_PIT_group_membership_and_weights",
+      "output_unit": "return_contribution"
+    }
+  },
+  "availability": {
+    "decision_calendar": "XNYS_VERSIONED",
+    "decision_offset_minutes_after_actual_close": 120,
+    "timestamp_timezone": "UTC",
+    "session_timezone": "America/New_York",
+    "eligibility": "max(published_at,first_seen_at)<=decision_cutoff",
+    "unknown_publication": "use_first_seen_at_only_no_backdating",
+    "observation_must_be_completed": true,
+    "point_vintage_selection": "latest_available_revision_at_cutoff",
+    "history_must_be_available_at_cutoff": true,
+    "fill_missing_sessions": false,
+    "non_available_value_policy": "NULL",
+    "missing_weight_policy": "UNAVAILABLE_NO_REWEIGHT",
+    "delayed_release": "retain_original_observation_time_no_relabel_as_current",
+    "historical_latest_vintage_role": "DESCRIPTIVE_ONLY_NOT_CAUSAL_CONFIRMATION",
+    "max_age_unit": "completed_XNYS_sessions",
+    "revision_replay_policy": "append_only_do_not_rewrite_emitted_snapshots",
+    "failure_precedence": [
+      "SOURCE_ERROR",
+      "UNSUPPORTED_SESSION",
+      "UNAVAILABLE",
+      "STALE",
+      "INSUFFICIENT_HISTORY",
+      "AVAILABLE"
+    ],
+    "maximum_reference_source_age_sessions": 0,
+    "consecutive_return_sessions_required": true
+  },
+  "contracts": {
+    "SensorDescriptor": {
+      "version": "1",
+      "fields": [
+        "sensor_id",
+        "subject_refs",
+        "dimension",
+        "unit",
+        "evidence_role",
+        "proxy_for",
+        "redundancy_group",
+        "method_id",
+        "method_version",
+        "lookback_sessions",
+        "required_for_dimension",
+        "activation",
+        "source_binding_version"
+      ]
+    },
+    "SeriesPoint": {
+      "version": "1",
+      "fields": [
+        "point_id",
+        "subject_ref",
+        "observation_window",
+        "data_status",
+        "value",
+        "unit",
+        "published_at",
+        "first_seen_at",
+        "available_at",
+        "source_id",
+        "source_record_id",
+        "source_version",
+        "revision_id",
+        "payload_sha256",
+        "vintage_mode"
+      ]
+    },
+    "SensorMeasurement": {
+      "version": "1",
+      "fields": [
+        "measurement_id",
+        "sensor_id",
+        "descriptor_version",
+        "method_id",
+        "method_version",
+        "observation_window",
+        "decision_cutoff",
+        "available_at",
+        "data_status",
+        "value",
+        "unit",
+        "input_point_ids",
+        "lineage_ids",
+        "qualifiers",
+        "reliability"
+      ]
+    },
+    "MarketStateSnapshot": {
+      "version": "1",
+      "fields": [
+        "snapshot_id",
+        "schema_version",
+        "protocol_digest",
+        "decision_cutoff",
+        "session_id",
+        "calendar_version",
+        "vintage_mode",
+        "dimensions",
+        "relationships",
+        "coverage",
+        "data_status"
+      ]
+    },
+    "CompositeReference": {
+      "version": "1",
+      "fields": [
+        "reference_id",
+        "schema_version",
+        "reference_config_id",
+        "snapshot_id",
+        "decision_cutoff",
+        "data_status",
+        "value",
+        "delta",
+        "group_contributions",
+        "input_measurement_ids",
+        "coverage",
+        "qualifiers"
+      ]
+    },
+    "ConditionalForecast": {
+      "version": "1",
+      "fields": [
+        "forecast_id",
+        "schema_version",
+        "snapshot_id",
+        "decision_cutoff",
+        "data_status",
+        "value",
+        "target_id",
+        "horizon_sessions",
+        "model_version",
+        "calibration_version",
+        "validation_record_id",
+        "input_measurement_ids",
+        "qualifiers"
+      ]
+    }
+  },
+  "dimension_policy": {
+    "dimensions": [
+      "trend",
+      "leadership",
+      "participation",
+      "volatility",
+      "credit",
+      "rates",
+      "funding"
+    ],
+    "global_regime_labels": false,
+    "partial_status": "COVERAGE_METADATA_NOT_NEW_DATASTATUS_ENUM",
+    "proxy_counts_as_constituent_breadth": false,
+    "sector_context_required": false,
+    "funding_required_for_overall_snapshot": false,
+    "blocked_measurements_must_be_visible_as_unavailable": true
+  },
+  "reference_research": {
+    "runtime_enabled": false,
+    "baseline_id": "us-equity-pressure-3g-v1",
+    "groups": {
+      "equity_weakness": {
+        "weight": 0.3333333333333333,
+        "members": {
+          "spy_return_20": 0.5,
+          "rsp_return_20": 0.5
+        },
+        "direction": "INVERSE_PERCENTILE"
+      },
+      "volatility": {
+        "weight": 0.3333333333333333,
+        "members": {
+          "spy_rv_20": 0.5,
+          "vix_level": 0.5
+        },
+        "direction": "PERCENTILE"
+      },
+      "credit": {
+        "weight": 0.3333333333333333,
+        "members": {
+          "hy_oas_level": 1.0
+        },
+        "direction": "PERCENTILE"
+      }
+    },
+    "percentile": {
+      "window_sessions": 252,
+      "minimum_usable_points": 126,
+      "include_current": false,
+      "ties": "midrank",
+      "formula": "(count_prior_less_than_current+0.5*count_prior_equal_current)/n",
+      "maximum_source_age_sessions": 0
+    },
+    "pressure_formula": "100*sum(group_weight*group_score)",
+    "relationship_reference_id": "us-equity-divergence-2p-v1",
+    "relationship_members": [
+      "rsp_spy_relative_20",
+      "qqq_spy_relative_20"
+    ],
+    "relationship_formula": "max(abs(x-median(prior))/ (1.4826*MAD(prior)))",
+    "relationship_window_sessions": 252,
+    "relationship_minimum_points": 126,
+    "relationship_zero_mad": "INSUFFICIENT_HISTORY",
+    "relationship_unit": "robust_z",
+    "combines_pressure_and_divergence": false,
+    "delta_policy": "difference_to_previous_XNYS_snapshot_only_if_both_available_and_same_config",
+    "missing_weight_policy": "UNAVAILABLE_NO_REWEIGHT",
+    "dynamic_correlation_extension": "DEFERRED_REQUIRES_SEPARATE_PREREGISTRATION"
+  },
+  "evaluation": {
+    "development_period": [
+      "2005-01-01",
+      "2026-09-30"
+    ],
+    "development_role": "PREVIOUSLY_OBSERVED_NOT_FRESH_HOLDOUT",
+    "development_selection_end": "2019-12-31",
+    "development_audit_start": "2020-01-01",
+    "confirmation": "PROSPECTIVE_ONLY_AFTER_CANDIDATE_FREEZE",
+    "confirmation_start_rule": "first_full_XNYS_session_after_final_candidate_protocol_commit_timestamp",
+    "minimum_confirmation_sessions": 252,
+    "maximum_followup_sessions": 40,
+    "purge_sessions": 40,
+    "embargo_sessions": 40,
+    "resampling": "joint_all_subjects_40_session_blocks_1000_replicates_seed_627",
+    "labels_evaluation_only": true,
+    "targets": {
+      "trend_shift": {
+        "subject": "SPY_AND_RSP_SEPARATELY",
+        "baseline_sessions": 20,
+        "future_blocks_sessions": [
+          20,
+          20
+        ],
+        "rule": "previous20_mean_and_both_future20_means_have_opposite_sign_with_each_absolute_mean_at_least_previous20_sample_std/sqrt(20)",
+        "refractory_sessions": 40,
+        "horizon_sessions": 40,
+        "event_type": "TREND_CHANGE"
+      },
+      "volatility_shift": {
+        "subject": "SPY",
+        "baseline_sessions": 20,
+        "future_blocks_sessions": [
+          5,
+          5
+        ],
+        "rule": "both_future5_sample_RV_to_prior20_RV_ratios_are_at_least_1.5_or_both_at_most_2/3",
+        "refractory_sessions": 10,
+        "horizon_sessions": 10,
+        "event_type": "VOLATILITY_CHANGE"
+      },
+      "relationship_shift": {
+        "subject": "RSP/SPY_AND_QQQ/SPY_SEPARATELY",
+        "baseline_sessions": 20,
+        "future_blocks_sessions": [
+          10,
+          10
+        ],
+        "rule": "both_future10_daily_log_spread_means_differ_from_previous20_mean_in_same_direction_by_at_least_2*previous20_sample_std/sqrt(10)",
+        "refractory_sessions": 20,
+        "horizon_sessions": 20,
+        "event_type": "RELATIONSHIP_CHANGE"
+      }
+    },
+    "matching": {
+      "window_sessions": [
+        0,
+        5
+      ],
+      "order": "chronological_targets_then_earliest_unused_same_subject_family_direction_alarm",
+      "one_to_one": true,
+      "alarms_before_anchor": "UNMATCHED_NOT_RETROACTIVE_DETECTIONS",
+      "label_refractory": "greedy_earliest_anchor_per_subject_family_ignoring_direction",
+      "availability_exclusions": "count_as_abstentions_not_dropped_from_miss_denominator",
+      "missing_target_outcome": "EXCLUDE_FROM_LABEL_DENOMINATOR_AND_REPORT_SEPARATELY",
+      "cooldown_sessions": 5
+    },
+    "baselines": [
+      "NO_CHANGE",
+      "FIXED_CAUSAL_THRESHOLD_V1",
+      "EWMAC_64_256_RESEARCH_ONLY"
+    ],
+    "change_gate": {
+      "minimum_labels_per_target_subject_direction": 30,
+      "minimum_precision": 0.6,
+      "minimum_recall": 0.6,
+      "maximum_median_delay_sessions": 3,
+      "maximum_p90_delay_sessions": 5,
+      "maximum_unmatched_alarms_per_252_eligible_sessions": 12,
+      "minimum_evaluation_availability": 0.95,
+      "minimum_absolute_f1_improvement_over_fixed_baseline": 0.05,
+      "f1_improvement_95pct_block_interval_lower_bound": 0.0,
+      "pooled_results_cannot_override_failed_stratum": true
+    },
+    "state_gate": {
+      "formula_tolerance_absolute": 1e-10,
+      "allowed_causal_violations": 0,
+      "deterministic_replay_mismatches": 0,
+      "missing_or_stale_as_zero_violations": 0,
+      "proxy_as_authoritative_violations": 0,
+      "required_feed_operational_coverage_min": 0.95,
+      "no_accuracy_claim_from_contract_checks": true
+    },
+    "reference_gate": {
+      "runtime_enabled": false,
+      "incremental_auc_min": 0.02,
+      "auc_increment_95pct_block_interval_lower_bound": 0.0,
+      "comparison": "fixed_logistic_regression_on_dimension_vector_vs_same_vector_plus_S_D",
+      "target": "next_20_sessions_SPY_max_close_to_close_drawdown_at_least_5_percent",
+      "minimum_nonoverlap_positive_outcomes": 30,
+      "minimum_nonoverlap_negative_outcomes": 30,
+      "coefficient_selection": "development_only_no_confirmation_refit",
+      "pressure_divergence_sensitivity": "leave_one_sensor_out_and_20pct_weight_perturbation_reported_no_result_driven_selection",
+      "new_correlation_model_requires_new_version": true,
+      "drawdown_definition": "max_{k=1..20}(1-P[t+k]/max(P[t],...,P[t+k]))>=0.05",
+      "anchor_grid": "first_eligible_confirmation_session_then_every_20_XNYS_sessions_no_shift_on_missing_data",
+      "paired_model_inputs": [
+        "spy_return_20",
+        "rsp_return_20",
+        "qqq_spy_relative_20",
+        "iwm_spy_relative_20",
+        "rsp_spy_relative_20",
+        "spy_rv_20",
+        "spy_rv_5_over_20",
+        "vix_level",
+        "vix_minus_rv_20",
+        "hy_oas_level",
+        "ust_2y_level",
+        "ust_10y_level",
+        "ust_10y_minus_2y"
+      ]
+    },
+    "forecast_gate": {
+      "runtime_enabled": false,
+      "target": "next_20_sessions_SPY_max_close_to_close_drawdown_at_least_5_percent",
+      "horizon_sessions": 20,
+      "baselines": [
+        "DEVELOPMENT_UNCONDITIONAL_FREQUENCY",
+        "DEVELOPMENT_LOGISTIC_RV20_VIX"
+      ],
+      "minimum_brier_skill_over_each_baseline": 0.05,
+      "brier_skill_95pct_block_interval_lower_bound": 0.0,
+      "minimum_nonoverlap_positive_outcomes": 30,
+      "minimum_nonoverlap_negative_outcomes": 30,
+      "calibration_bins": 5,
+      "maximum_expected_calibration_error": 0.05
+    },
+    "decision_states": [
+      "PASS",
+      "FAIL",
+      "INSUFFICIENT_EVIDENCE",
+      "BLOCKED_DATA"
+    ],
+    "unavailable_required_metric_policy": "NO_PASS",
+    "thresholds_are": "ENGINEERING_RESEARCH_ACCEPTANCE_CHOICES_NOT_ESTABLISHED_MARKET_LAWS",
+    "baseline_definitions": {
+      "NO_CHANGE": {
+        "formula": "no_alarms",
+        "precision_when_no_alarms": null
+      },
+      "FIXED_CAUSAL_THRESHOLD_V1": {
+        "trend": "mean(last20_returns)/(sample_std(previous20_before_last20,ddof=1)/sqrt(20));cross_+2_or_-2",
+        "volatility": "RV5_current/RV20_current;cross_1.5_or_2/3",
+        "relationship": "(mean(last5_daily_spreads)-mean(previous20_before_last5))/(sample_std(previous20_before_last5,ddof=1)/sqrt(5));cross_+2_or_-2",
+        "crossing": "previous_available_consecutive_evaluation_on_nontrigger_side",
+        "gap_policy": "break_crossing_continuity",
+        "cooldown_sessions": 5
+      },
+      "EWMAC_64_256_RESEARCH_ONLY": {
+        "method": "archived_ewmac_64_256",
+        "production_approved": false,
+        "neutral_to_directional": "counts_as_transition",
+        "directional_to_neutral": "not_a_directional_alarm",
+        "directional_flip": "counts_as_transition",
+        "initial_warmup_state": "not_an_alarm",
+        "cooldown_sessions": 5
+      }
+    },
+    "quantiles": "linear_interpolation",
+    "bootstrap": {
+      "block_sessions": 40,
+      "replicates": 1000,
+      "seed": 627,
+      "interval_percentiles": [
+        2.5,
+        97.5
+      ],
+      "joint_subjects": true,
+      "rematch_at_block_joins": false,
+      "unit": "fixed_chronology_session_sufficient_statistics",
+      "reference_and_forecast_unit": "paired_fixed_grid_outcomes_and_prediction_scores_grouped_by_XNYS_session"
+    },
+    "decision_precedence": [
+      "FAIL_INTEGRITY",
+      "BLOCKED_DATA",
+      "INSUFFICIENT_EVIDENCE",
+      "FAIL_NUMERIC",
+      "PASS"
+    ]
+  },
+  "report_revision": {
+    "version": "sentinel-report-multisensor-v0.2-design",
+    "base": "sentinel-report-v0.1",
+    "market_now_additions": [
+      "state_snapshot_ref",
+      "reference_values",
+      "conditional_forecasts"
+    ],
+    "reference_values_optional": true,
+    "conditional_forecasts_default": [],
+    "priority_from_composite": false,
+    "p0_and_top_k_rules_changed": false,
+    "market_state_independent_of_portfolio": true,
+    "report_runtime_implemented": false
+  },
+  "implementation_gate": {
+    "6B-2G": "DESIGN_CONTRACT_AND_PROTOCOL_CHECKS_ONLY",
+    "6B-2H": "NEXT_AFTER_6B_2G_REVIEW",
+    "6B-2I": "NOT_STARTED",
+    "6B-2J": "NOT_STARTED",
+    "6B-2K": "DISABLED_NOT_STARTED",
+    "ewmac_production_approved": false
+  }
+}

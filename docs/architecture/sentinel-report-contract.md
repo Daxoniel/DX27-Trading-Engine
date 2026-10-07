@@ -1058,3 +1058,20 @@ contracts, including any report schema revision. SPY remains one index sensor
 and a portfolio benchmark; it does not alone establish market-wide conditions.
 Composite references are optional evidence, not replacements for ordinal
 Priority. Missing inputs remain explicit.
+
+
+## Explicit design revision — SentinelReport multi-sensor v0.2 (6B-2G)
+
+The [6B-2G frozen contracts](sentinel-sensor-contracts-v1.md#6-explicit-sentinelreport-design-revision-v02)
+add optional `MarketNow.state_snapshot_ref` (nullable), `reference_values`
+(default empty), and `conditional_forecasts` (default empty). Snapshot references
+pin schema and protocol identity. Typed reference/forecast attachments join the
+deterministic identity only when present; consumers negotiate v0.2 for these
+fields. Forecasts require separate passing validation and stay disabled.
+
+The existing component slots receive dimension measurements through the
+StateValue pattern, including explicit proxy qualifiers and true-breadth gaps.
+No synthetic whole-market regime or composite Priority predicate is added.
+All v0.1 required containers, peer market/portfolio sections, portfolio
+performance, P0/top-K and Analyst boundaries remain. This is a frozen design
+revision, not an implemented report builder.

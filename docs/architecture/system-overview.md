@@ -55,8 +55,8 @@ Dashed arrows represent unimplemented design. SPY is one capitalization-weighted
 index sensor, not the market itself. Current state, observed change, reference
 values, and conditional predictions have separate semantics and validation.
 The [multi-sensor design revision](sentinel-multi-sensor-design.md) defines the
-boundaries and 6B-2G–6B-2K sequence. Exact contracts and formulas remain open
-until their pre-registered gates. GPT remains downstream of deterministic evidence.
+boundaries and 6B-2G–6B-2K sequence. The first contracts and reference candidates are now frozen by
+[6B-2G](sentinel-sensor-contracts-v1.md); runtime and empirical gates remain open. GPT remains downstream of deterministic evidence.
 
 ## 3. Implemented foundation
 
@@ -235,11 +235,12 @@ floor. It remains a research baseline, not an approved detector. The
 protocols, reports, audit tables, and hashes, with explicit raw-data retention
 limits.
 
-Immediate **NEXT** is **6B-2G — Multi-Sensor Contracts & Validation Protocol**.
-Freeze scope, input availability/proxy semantics, output contracts, evaluation
-targets, baselines and acceptance criteria before adding sensors or choosing
-new detectors. Subsequent gated tasks cover dimension-state snapshots (6B-2H),
-simple pressure and relationship references (6B-2I), online change validation
+**6B-2G — Multi-Sensor Contracts & Validation Protocol** is complete as a
+frozen design/protocol artifact, with an exact lock and offline validation.
+It does not implement measurements or establish effectiveness. Immediate
+**NEXT** is **6B-2H — Multi-Dimensional Market State Snapshot**. Implement the
+frozen contracts and validate causal measurement/coverage before new detectors.
+Subsequent gated tasks cover simple pressure and relationship references (6B-2I), online change validation
 (6B-2J), and separately validated conditional forecasts (6B-2K). Forecast output
 is disabled by default. The parent 6B-2 remains open; later production integration
 and Discovery, Priority and Report retain their existing roadmap numbering.
@@ -247,7 +248,8 @@ and Discovery, Priority and Report retain their existing roadmap numbering.
 This design direction leaves the existing nine event primitives, non-weighted
 ordinal Priority, read-only boundary, and implemented Activity Anomaly intact.
 A composite reference cannot replace Priority or suppress independent events.
-Report schema extensions require an explicit contract revision in 6B-2G.
+The explicit 6B-2G report v0.2 design adds optional state/reference/forecast
+attachments while preserving v0.1 required containers and priority rules.
 
 ## 7. GPT Analyst boundary (**FUTURE**)
 
