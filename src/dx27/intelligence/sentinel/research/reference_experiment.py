@@ -87,7 +87,9 @@ def compare_arms(development_vector, development_sd, development_y, audit_vector
     positives=int(np.sum(y==1));negatives=int(np.sum(y==0))
     sufficient=positives>=30 and negatives>=30 and len(diff)==1000
     numeric=None if not sufficient else increment>=.02 and interval[0]>0
-    return {'role':'KNOWN_HISTORY_AUDIT_NOT_CONFIRMATION','market_effectiveness_result':'INSUFFICIENT_EVIDENCE' if not sufficient else ('AUDIT_NUMERIC_PASS_ONLY' if numeric else 'FAIL'),
+    return {'role':'KNOWN_HISTORY_AUDIT_NOT_CONFIRMATION',
+            'audit_numeric_result':'INSUFFICIENT_EVIDENCE' if not sufficient else ('PASS' if numeric else 'FAIL'),
+            'market_effectiveness_result':'FAIL' if numeric is False else 'INSUFFICIENT_EVIDENCE',
             'auc':scores,'primary_auc_increment':increment,'primary_95pct_block_interval':interval,'valid_bootstrap_replicates':len(diff),
             'positive_outcomes':positives,'negative_outcomes':negatives,'confirmation_pass':False,'operational_enabled':False,
             'fitted_models':{name:vars(model) for name,model in models.items()}}
