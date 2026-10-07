@@ -13,7 +13,11 @@ The status labels in this document are deliberate:
   are covered by tests.
 - **FROZEN DESIGN** — semantics have been agreed, but the component is not yet
   implemented.
-- **NEXT** — the immediate implementation work.
+- **RESEARCH COMPLETE** — frozen evaluation artifacts exist; completion is not
+  production approval.
+- **AGREED DESIGN DIRECTION** — architectural revision awaiting contract and
+  validation-protocol freeze.
+- **NEXT** — the immediate contract/research or implementation work.
 - **DEFERRED** — intentionally outside the current implementation path.
 
 Infrastructure providers remain behind adapters. `MarketContext` is the
@@ -22,35 +26,37 @@ must not enter Sentinel domain contracts.
 
 ## 2. Active architecture
 
+The implemented foundation remains observations, deterministic event contracts,
+and the minimal daily Activity Anomaly detector. The next architecture expands
+market measurement into multiple dimensions before selecting new detectors.
+
 ```mermaid
 flowchart TB
-    Data["Market Data / Historical Data"] --> Context["MarketContext"]
-    Context --> Observation["Observation + Universe<br/>IMPLEMENTED"]
-    Observation --> Detection["DETECTION"]
-
-    Detection --> Activity["Activity Anomaly<br/>IMPLEMENTED"]
-    Detection --> Trend["Trend Change<br/>NEXT"]
-    Detection --> Volatility["Volatility Change<br/>NEXT"]
-    Detection --> Other["Other primitives<br/>PLANNED"]
-
-    Activity --> Event["DetectedEvent<br/>IMPLEMENTED"]
-    Trend -.-> Event
-    Volatility -.-> Event
-    Other -.-> Event
-
-    Event --> Discovery["Blind Spot Discovery<br/>FROZEN DESIGN"]
-    Discovery --> Priority["Priority Engine<br/>FROZEN DESIGN"]
-    Priority --> Report["SentinelReport<br/>FROZEN DESIGN"]
-    Report --> Analyst["GPT Analyst<br/>FUTURE"]
+    Data["Adapters: market / index / economic series"] --> Observation["Observation + Universe<br/>foundation IMPLEMENTED"]
+    Observation --> Activity["Activity Anomaly<br/>IMPLEMENTED"]
+    Activity --> Event["DetectedEvent<br/>contract IMPLEMENTED"]
+    Observation -.-> Sensors["Multi-sensor measurement<br/>DESIGN DIRECTION"]
+    Sensors -.-> State["Dimension states + relationships<br/>MarketStateSnapshot: DESIGN"]
+    State -.-> Change["Validated change detectors<br/>PLANNED"]
+    Change -.-> Event
+    State -.-> Reference["Pressure / relationship references<br/>RESEARCH PLANNED"]
+    State -.-> Forecast["Conditional forecasts<br/>DISABLED / RESEARCH PLANNED"]
+    Event --> Discovery["DISCOVER: FROZEN DESIGN"]
+    Discovery --> Priority["PRIORITIZE: FROZEN DESIGN"]
+    Priority --> Report["REPORT: FROZEN DESIGN"]
+    State -.-> Report
+    Reference -.-> Report
+    Forecast -.-> Report
+    Report --> Analyst["Optional GPT Analyst: FUTURE"]
     Analyst --> Human["Human"]
-
-    Execution["Execution / Broker Actions<br/>DEFERRED"]
-    Human -. "separate boundary" .-> Execution
 ```
 
-Solid arrows describe the current conceptual direction. Dashed detector arrows
-do not imply that the **NEXT** or **PLANNED** detectors already exist. GPT is
-downstream of deterministic evidence and never sits inside detection.
+Dashed arrows represent unimplemented design. SPY is one capitalization-weighted
+index sensor, not the market itself. Current state, observed change, reference
+values, and conditional predictions have separate semantics and validation.
+The [multi-sensor design revision](sentinel-multi-sensor-design.md) defines the
+boundaries and 6B-2G–6B-2K sequence. Exact contracts and formulas remain open
+until their pre-registered gates. GPT remains downstream of deterministic evidence.
 
 ## 3. Implemented foundation
 
@@ -218,13 +224,30 @@ Performance Index, SPY as the primary benchmark, and optional QQQ or custom
 benchmarks. Reports keep **Sentinel Evidence** strictly separate from **Analyst
 Interpretation**.
 
-## 6. What comes next
+## 6. Research checkpoint and what comes next
 
-The immediate **NEXT** work is 6B-2: deterministic `TREND_CHANGE` and
-`VOLATILITY_CHANGE` detection. This checkpoint does not select their formulas,
-indicators, or thresholds. Later planned work adds relative-strength and
-relationship detection, then implements the already-frozen Discovery, Priority,
-and Report designs.
+6B-2A–6B-2F completed trend research and real-data validation, not production
+Trend Change or Volatility Change detection. `ewmac_64_256` was selected under
+the frozen Stage-A protocol with `STAGE_A_WEAK_PASS`; the frozen robustness run
+returned `ROBUSTNESS_FAIL` because four ETFs fell below the full-period DC60
+floor. It remains a research baseline, not an approved detector. The
+[research archive](../../research/sentinel/6b-2e-6b-2f-ewmac/README.md) preserves
+protocols, reports, audit tables, and hashes, with explicit raw-data retention
+limits.
+
+Immediate **NEXT** is **6B-2G — Multi-Sensor Contracts & Validation Protocol**.
+Freeze scope, input availability/proxy semantics, output contracts, evaluation
+targets, baselines and acceptance criteria before adding sensors or choosing
+new detectors. Subsequent gated tasks cover dimension-state snapshots (6B-2H),
+simple pressure and relationship references (6B-2I), online change validation
+(6B-2J), and separately validated conditional forecasts (6B-2K). Forecast output
+is disabled by default. The parent 6B-2 remains open; later production integration
+and Discovery, Priority and Report retain their existing roadmap numbering.
+
+This design direction leaves the existing nine event primitives, non-weighted
+ordinal Priority, read-only boundary, and implemented Activity Anomaly intact.
+A composite reference cannot replace Priority or suppress independent events.
+Report schema extensions require an explicit contract revision in 6B-2G.
 
 ## 7. GPT Analyst boundary (**FUTURE**)
 

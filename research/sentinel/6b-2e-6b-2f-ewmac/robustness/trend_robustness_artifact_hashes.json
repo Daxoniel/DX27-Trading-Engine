@@ -1,0 +1,11 @@
+{
+  "trend_robustness_asset_groups.csv": "53a32e9cfe055ef3bea675ba22db04da0d7e7deb43ae7bd48c7393de9cb2418d",
+  "trend_robustness_neighbours.csv": "d4313baf942757c77901306aa507e57b5768854d7a9cfc495cd078c035140da1",
+  "trend_robustness_protocol.json": "7bcdbba2ac18479e4a349d73a7c462da24d0785360a5766c186aa2bec8696fb7",
+  "trend_robustness_regimes.csv": "0490dec85f67fcb1dc000e6cd8096c3e45125482b2d959365d67dea652d8a6d0",
+  "trend_robustness_report.json": "6fd6dce5b33599fe07813d521e59decb0d33d92ff9b1441f267873d6712bda30",
+  "trend_robustness_summary.md": "9c921e2f9ed30d2059350555ac1a652c7c62a0887315a91309df2d6e8abd70a1",
+  "trend_robustness_symbols.csv": "64ed2488c9a05201f77b52ea7f37f4b40e46dd6cc9517dec3f77e868510bd152",
+  "trend_robustness_timing.csv": "1193ef7fc7380b66f96270534d2eacbd7333f39d707e8ff17ba43c9d11d7374c",
+  "trend_transition_events.csv": "0ddb7967279abd8ec57cd6951ca8e53df2fbf9f04ce1328ddd954955cb1ae02a"
+}

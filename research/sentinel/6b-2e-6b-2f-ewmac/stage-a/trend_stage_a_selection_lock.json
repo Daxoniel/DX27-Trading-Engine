@@ -1,0 +1,27 @@
+{
+  "combined_dataset_sha256": "9136494cf783f5892045e0fc52ad85166a4ede0c9b56107157a992c743cf75af",
+  "eligible_candidate_ids": [
+    "ewmac_16_64",
+    "ewmac_32_128",
+    "ewmac_64_256",
+    "tsmom_252",
+    "lean_ema_cross_12_26"
+  ],
+  "execution_commit": "8cc8a056950f34580631691bbd4f259153bdfe4e",
+  "median_rank": 2.0,
+  "p75_rank": 4.0,
+  "protocol_id": "dx27.trend.stage_a.selection.v0.1",
+  "provisional_selection_winner": "ewmac_64_256",
+  "selection_period": {
+    "end": "2019-12-31",
+    "start": "2005-01-01"
+  },
+  "selection_ranking_sha256": "2570fd30ce4cb7d1a79d1c7f02b44bf0923782cf724d4e10aa65c439cfcb4aca",
+  "tie_break_values": {
+    "candidate_id": "ewmac_64_256",
+    "directional_consistency_60_symbol_median": 0.5,
+    "false_reversal_rate_20_symbol_median": 0.14285714285714285,
+    "mae_60_symbol_median": -0.042532629148665624
+  },
+  "winner_mean_rank": 2.5064102564102564
+}

@@ -1,0 +1,96 @@
+{
+  "aggregation": "Rates pooled from integer eligible/event counts; MFE/MAE pooled event medians; duration pooled directional-run median. Also report unweighted symbol medians.",
+  "asset_groups": {
+    "broad_equity": [
+      "SPY",
+      "QQQ",
+      "IWM"
+    ],
+    "equity_sectors": [
+      "XLK",
+      "XLF",
+      "XLE",
+      "XLV",
+      "XLI",
+      "XLP",
+      "XLY",
+      "XLU"
+    ],
+    "gold": [
+      "GLD"
+    ],
+    "rates": [
+      "TLT"
+    ]
+  },
+  "decision_scope": "Regime pooled event rates; full-period per-symbol rates; full-period pooled baseline minus delay-3 directional_consistency_60.",
+  "delay_semantics": "Original observation at i-delay is attached to current daily bar i; unavailable prefix stays None. Prices and date axis never move.",
+  "event_windows": "Existing evaluate_metrics semantics, clipped at the relevant scope end; no crossing regime/split ends. Audit includes full-period and regime-clipped outcomes.",
+  "execution_commit": "8e973e42c995d283231bf46882be1495aff61edd",
+  "fail": {
+    "delay3_directional_60_deterioration_above": 0.15,
+    "integrity_failure": true,
+    "regime_directional_60_below": 0.4,
+    "regime_false_reversal_20_above": 0.5,
+    "symbols_directional_60_below_040_more_than": 3
+  },
+  "frozen_winner": "ewmac_64_256",
+  "major_regime_valid_transitions": "At least 20 transitions with complete 60 observed-bar forward windows within that regime, pooled across the fixed 13 ETFs.",
+  "missing_values": "Undefined remains null; no imputation; unavailable required decision rates prevent PASS. Regimes below 20 valid transitions are descriptive only.",
+  "neighbour_matching": "Existing ascending-A nearest-unused-B +/-3 observed-bar matching; A is lexical first candidate, earlier B breaks ties; absolute timing differences in observed trading bars, matched events only.",
+  "observation_delays": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "pass": {
+    "delay3_directional_60_deterioration_at_most": 0.1,
+    "regime_directional_60_at_least": 0.45,
+    "regime_false_reversal_20_at_most": 0.35,
+    "symbols_directional_60_at_least_045_minimum": 10
+  },
+  "protocol_id": "dx27.trend.robustness.v0.1",
+  "regimes": [
+    {
+      "end": "2007-10-08",
+      "name": "pre_gfc_expansion",
+      "start": "2005-01-01"
+    },
+    {
+      "end": "2009-03-09",
+      "name": "global_financial_crisis",
+      "start": "2007-10-09"
+    },
+    {
+      "end": "2015-12-31",
+      "name": "post_gfc_bull_qe",
+      "start": "2009-03-10"
+    },
+    {
+      "end": "2019-12-31",
+      "name": "late_cycle_pre_covid",
+      "start": "2016-01-01"
+    },
+    {
+      "end": "2020-12-31",
+      "name": "covid_shock_recovery",
+      "start": "2020-01-01"
+    },
+    {
+      "end": "2021-12-31",
+      "name": "post_covid_risk_on",
+      "start": "2021-01-01"
+    },
+    {
+      "end": "2022-12-31",
+      "name": "inflation_rate_shock",
+      "start": "2022-01-01"
+    },
+    {
+      "end": "2026-09-30",
+      "name": "current_post_2022",
+      "start": "2023-01-01"
+    }
+  ]
+}

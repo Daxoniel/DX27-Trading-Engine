@@ -79,6 +79,9 @@ def test_lock_before_any_oos_price_and_no_replacement(monkeypatch, acquisition, 
         else:
             lock = json.loads((tmp_path / 'trend_stage_a_selection_lock.json').read_text())
             assert lock['protocol_id'] == r.PROTOCOL_ID
+            ranking = pd.read_csv(tmp_path / 'trend_stage_a_selection_ranking.csv')
+            winner = ranking[ranking.candidate_id == lock['provisional_selection_winner']].iloc[0]
+            assert lock['median_rank'] == winner.median_primary_rank
             assert lock['selection_ranking_sha256'] == r.digest((tmp_path / 'trend_stage_a_selection_ranking.csv').read_bytes())
             assert maximum == '2026-09-30'
         return original(frame)
