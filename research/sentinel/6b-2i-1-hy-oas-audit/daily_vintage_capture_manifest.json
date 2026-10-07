@@ -1,0 +1,162 @@
+[
+  {
+    "capture_id": "2026-09-15",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-15",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-15",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:52.296705+00:00",
+    "bytes": 12455,
+    "payload_sha256": "850a3c870aae705409146c7b6c87c5ad330fb5635ec5e747307726a1880d82fa"
+  },
+  {
+    "capture_id": "2026-09-16",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-16",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-16",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:52.380900+00:00",
+    "bytes": 12471,
+    "payload_sha256": "23ad7238b4889f2e609db4292b9cf06b9925d2651094d6a3ee0830c78593e38a"
+  },
+  {
+    "capture_id": "2026-09-17",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-17",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-17",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:52.649306+00:00",
+    "bytes": 12487,
+    "payload_sha256": "4671043c2f9cc88776be9907706d9bbc20feef47d2d93a0adf0ea91e1e956afb"
+  },
+  {
+    "capture_id": "2026-09-18",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-18",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-18",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:52.389152+00:00",
+    "bytes": 12503,
+    "payload_sha256": "307a6cd49fe17dac1e8ca9ac2694ed9a5e1e8148ec2a5df2c04277c6e7cbb788"
+  },
+  {
+    "capture_id": "2026-09-21",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-21",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-21",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:52.781192+00:00",
+    "bytes": 12519,
+    "payload_sha256": "a4f2e7bbe2be6cd87944a7aac9c022c19543b3ffeb27cb8ce38fb8f224838a81"
+  },
+  {
+    "capture_id": "2026-09-22",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-22",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-22",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:52.913643+00:00",
+    "bytes": 12535,
+    "payload_sha256": "d4a6a54b64e2490fd85b688aa12b2b65993784d6415777f88f18bb531aab52ee"
+  },
+  {
+    "capture_id": "2026-09-23",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-23",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-23",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:52.964182+00:00",
+    "bytes": 12551,
+    "payload_sha256": "d12ad28c68e6cac6433449a8667f983fcd5f85aebb3ec44e69827346ca1530a3"
+  },
+  {
+    "capture_id": "2026-09-24",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-24",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-24",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:53.995145+00:00",
+    "bytes": 12567,
+    "payload_sha256": "07940550040f3e01698cccb857fb30ae6232822e67106fd87abe4ff1b991639e"
+  },
+  {
+    "capture_id": "2026-09-25",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-25",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-25",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:53.249607+00:00",
+    "bytes": 12583,
+    "payload_sha256": "b826f3780598b9eb4e005eda82fdf367404b659c7326396ea8f200975b80fd95"
+  },
+  {
+    "capture_id": "2026-09-28",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-28",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-28",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:53.780519+00:00",
+    "bytes": 12599,
+    "payload_sha256": "96eeda2e0eb03b3bfb44457ccef8962a87cfcf7cf8bab46822f2c630b6579b00"
+  },
+  {
+    "capture_id": "2026-09-29",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-29",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-29",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:53.461519+00:00",
+    "bytes": 12615,
+    "payload_sha256": "b8fa34dd9d17dbfd2f2c53da90ad10c2eec39634cf1bf46b0a6c48cbac14a4d3"
+  },
+  {
+    "capture_id": "2026-09-30",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-30",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-09-30",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:53.752457+00:00",
+    "bytes": 12631,
+    "payload_sha256": "64b45a32a04d616fa7d8fdbb139e3769831345c329b06091d6270539c31c0bcc"
+  },
+  {
+    "capture_id": "2026-10-01",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-10-01",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-10-01",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:54.099181+00:00",
+    "bytes": 12647,
+    "payload_sha256": "85f11c63daca913533b4ffec60a93667ef2fa11dd8732898c7573a5160f7b174"
+  },
+  {
+    "capture_id": "2026-10-02",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-10-02",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-10-02",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:54.543147+00:00",
+    "bytes": 12663,
+    "payload_sha256": "10df982d0907a7d78f516c0096033a43abb6f6c6f4ee85fbc31ef5622a15e307"
+  },
+  {
+    "capture_id": "2026-10-05",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-10-05",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-10-05",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:53.846130+00:00",
+    "bytes": 12679,
+    "payload_sha256": "64c82565ea8b9ae59c9f1d0768f34eb83eaa15aed37c5e89358ee1a7d152a155"
+  },
+  {
+    "capture_id": "2026-10-06",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-10-06",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-10-06",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T14:00:53.907823+00:00",
+    "bytes": 12679,
+    "payload_sha256": "9458a5e3fab8006109b2de31586309308bec705452b8ea11453f9a47bc55e2c3"
+  }
+]

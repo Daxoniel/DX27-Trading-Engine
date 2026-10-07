@@ -1,0 +1,92 @@
+[
+  {
+    "capture_id": "fred_latest",
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2&cosd=2005-01-01&coed=2026-10-06",
+    "final_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2&cosd=2005-01-01&coed=2026-10-06",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T13:59:28.997898+00:00",
+    "bytes": 12670,
+    "payload_sha256": "04639cc3a881b1d5c65ada740b3191004e29efb1d4f2368d93560a902ca9a408"
+  },
+  {
+    "capture_id": "alfred_20260331",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-03-31",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-03-31",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T13:59:28.803876+00:00",
+    "bytes": 10519,
+    "payload_sha256": "f6edd4195aaf6a27fc98b3b9d74ae5ce24d7b033a9d222468472d5b0269a6e04"
+  },
+  {
+    "capture_id": "alfred_20261005",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-10-05",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-10-05",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T13:59:28.685843+00:00",
+    "bytes": 12679,
+    "payload_sha256": "64c82565ea8b9ae59c9f1d0768f34eb83eaa15aed37c5e89358ee1a7d152a155"
+  },
+  {
+    "capture_id": "alfred_20261006",
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-10-06",
+    "final_url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=BAMLH0A0HYM2&vintage_date=2026-10-06",
+    "http_status": 200,
+    "content_type": "application/csv",
+    "first_seen_at": "2026-10-07T13:59:28.743292+00:00",
+    "bytes": 12679,
+    "payload_sha256": "9458a5e3fab8006109b2de31586309308bec705452b8ea11453f9a47bc55e2c3"
+  },
+  {
+    "capture_id": "ice_methodology",
+    "url": "https://www.theice.com/publicdocs/data/Bond_Index_Methodologies.pdf",
+    "final_url": "https://www.ice.com/publicdocs/data/Bond_Index_Methodologies.pdf",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "first_seen_at": "2026-10-07T13:59:28.661230+00:00",
+    "bytes": 1278013,
+    "payload_sha256": "57f382ef718bc81be586014f5541f9628414d16a63a249d15d05afd23a4b3419"
+  },
+  {
+    "capture_id": "ice_platform",
+    "url": "https://indices.ice.com/registration?AccessType=Full",
+    "final_url": "https://indices.ice.com/registration?AccessType=Full",
+    "http_status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "first_seen_at": "2026-10-07T13:59:28.241971+00:00",
+    "bytes": 77057,
+    "payload_sha256": "dc1d062b265caf1d4939b79f8d7e5e9d8c29d62bddb7a734e4a9e13dcbcaa8fc"
+  },
+  {
+    "capture_id": "alfred_help",
+    "url": "https://alfred.stlouisfed.org/help",
+    "final_url": "https://alfred.stlouisfed.org/help",
+    "http_status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "first_seen_at": "2026-10-07T13:59:28.812974+00:00",
+    "bytes": 30816,
+    "payload_sha256": "6efc3c3367b833ec3ccae7123343ebc9a87dc7806961b0167d53085e614ffabd"
+  },
+  {
+    "capture_id": "fred_metadata",
+    "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+    "final_url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+    "http_status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "first_seen_at": "2026-10-07T13:59:29.550491+00:00",
+    "bytes": 89903,
+    "payload_sha256": "b480fb6115c3e01db861d1ba4675ba02a43a355d521a1c3f752f0f8148dec0fa"
+  },
+  {
+    "capture_id": "alfred_download",
+    "url": "https://alfred.stlouisfed.org/series/downloaddata?seid=BAMLH0A0HYM2",
+    "final_url": "https://alfred.stlouisfed.org/series/downloaddata?seid=BAMLH0A0HYM2",
+    "http_status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "first_seen_at": "2026-10-07T13:59:29.180429+00:00",
+    "bytes": 93908,
+    "payload_sha256": "c93c666d00289f22567f66fefb0ef3e8951b07da38a834262da7ed553cc565db"
+  }
+]

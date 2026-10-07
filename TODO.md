@@ -143,10 +143,25 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
   and candidate commit before collecting prospective confirmation. A fixture
   PASS cannot complete 6B-2I market validation or open 6B-2J/6B-2K.
 
+## 6B-2I-1 checkpoint — HY OAS source audit
+
+- [x] **6B-2I-1 — HY OAS Source & Availability Audit** — official public FRED
+  and ALFRED exports, source definitions, valuation/publication distinction,
+  sampled revision comparison and stable reference appendix audited. Repeatable
+  capture/offline audit entry points preserve raw source hashes and missingness.
+  See [audit and limitations](docs/architecture/sentinel-hy-oas-source-audit.md).
+- [ ] **HY admission remains BLOCKED_DATA** — captured history begins 2023-10-09;
+  original-cutoff coverage unknown. A 15/16 nominal-date age-zero proxy is not
+  operational coverage. Official long-history/field/timestamp/entitlement and
+  publication-revision evidence remain unverified.
+
 ## Next
 
-- [ ] Resolve the **6B-2I** source/availability gate before real incremental-value
-  evaluation; review any delayed-reference alternative as a separate version.
+- [ ] Proposed **6B-2I-2 — Recorded Availability Capture & Source Binding
+  Validation** — actual daily availability, immutable revisions and provider
+  metadata validation; resolve HY history and same-day-delivery requirements
+  before real S effectiveness evaluation. Delayed-credit alternatives require
+  an explicit separate version and preregistration.
 
 ## Subsequent 6B-2 tasks — gated sequence
 

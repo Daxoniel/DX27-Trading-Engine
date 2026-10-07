@@ -143,3 +143,10 @@ coverage measurement, registered fitted-candidate freeze, and prospective
 collection/evaluation. If HY fails frozen S coverage, any delayed-reference
 alternative must be explicitly versioned and preregistered separately. This
 checkpoint does not silently modify S or move into 6B-2J/6B-2K.
+
+## 6B-2I-1 source audit follow-up
+
+The [HY OAS audit](sentinel-hy-oas-source-audit.md) verifies actual public export
+limits and distinguishes nominal archive dates from intraday source availability.
+Source admission remains BLOCKED_DATA. New references use a versioned appendix;
+this checkpoint's frozen experiment and bibliography files remain unchanged.
