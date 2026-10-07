@@ -1,0 +1,6 @@
+{
+  "user_authorized_correction": "Separate decision start from raw warmup in the prepared, unsent request. Original source audit conclusions and captures unchanged.",
+  "file": "research/sentinel/6b-2i-1-hy-oas-audit/acquisition_requirements.json",
+  "previous_sha256": "8ad86484021befc56f137f84bfdf90965a6f721bd6e83b3ee622b024d2588761",
+  "corrected_sha256": "ba94da85ddea77d0486cf735008ffbf389e2208304476be36759ea9ae5d27378"
+}

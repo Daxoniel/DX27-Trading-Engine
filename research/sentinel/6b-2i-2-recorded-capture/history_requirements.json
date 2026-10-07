@@ -1,0 +1,144 @@
+{
+  "decision_period_start": "2005-01-01",
+  "first_decision_session": "2005-01-03",
+  "decision_period_end": "2026-09-30",
+  "raw_history_start_required": "2003-12-03",
+  "prior_measurement_start": "2004-01-02",
+  "calendar_version": "XNYS:4.13.2:0d6de6b1862d8fad326c7e97d017288d2f6826fff80404ca12d21d774df2ae9b",
+  "policy": "Full 252 prior measurement sessions; price inputs also need each measurement lookback. This is not historical availability evidence.",
+  "per_feed": {
+    "spy": {
+      "raw_history_start_required": "2003-12-03",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 20,
+      "raw_session_intervals_before_first_decision": 272,
+      "minimum_price_points_in_measurement": 21
+    },
+    "rsp": {
+      "raw_history_start_required": "2003-12-03",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 20,
+      "raw_session_intervals_before_first_decision": 272,
+      "minimum_price_points_in_measurement": 21
+    },
+    "qqq": {
+      "raw_history_start_required": "2003-12-03",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 20,
+      "raw_session_intervals_before_first_decision": 272,
+      "minimum_price_points_in_measurement": 21
+    },
+    "iwm": {
+      "raw_history_start_required": "2003-12-03",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 20,
+      "raw_session_intervals_before_first_decision": 272,
+      "minimum_price_points_in_measurement": 21
+    },
+    "vix": {
+      "raw_history_start_required": "2003-12-03",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 20,
+      "raw_session_intervals_before_first_decision": 272,
+      "minimum_price_points_in_measurement": 21
+    },
+    "hy_oas": {
+      "raw_history_start_required": "2004-01-02",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 0,
+      "raw_session_intervals_before_first_decision": 252,
+      "minimum_price_points_in_measurement": null
+    },
+    "ust_2y": {
+      "raw_history_start_required": "2004-01-02",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 0,
+      "raw_session_intervals_before_first_decision": 252,
+      "minimum_price_points_in_measurement": null
+    },
+    "ust_10y": {
+      "raw_history_start_required": "2004-01-02",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 0,
+      "raw_session_intervals_before_first_decision": 252,
+      "minimum_price_points_in_measurement": null
+    },
+    "sofr": {
+      "raw_history_start_required": "2004-01-02",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 0,
+      "raw_session_intervals_before_first_decision": 252,
+      "minimum_price_points_in_measurement": null
+    },
+    "effr": {
+      "raw_history_start_required": "2004-01-02",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 0,
+      "raw_session_intervals_before_first_decision": 252,
+      "minimum_price_points_in_measurement": null
+    },
+    "xlk": {
+      "raw_history_start_required": "2003-12-03",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 20,
+      "raw_session_intervals_before_first_decision": 272,
+      "minimum_price_points_in_measurement": 21
+    },
+    "xlf": {
+      "raw_history_start_required": "2003-12-03",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 20,
+      "raw_session_intervals_before_first_decision": 272,
+      "minimum_price_points_in_measurement": 21
+    },
+    "xle": {
+      "raw_history_start_required": "2003-12-03",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 20,
+      "raw_session_intervals_before_first_decision": 272,
+      "minimum_price_points_in_measurement": 21
+    },
+    "xlv": {
+      "raw_history_start_required": "2003-12-03",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 20,
+      "raw_session_intervals_before_first_decision": 272,
+      "minimum_price_points_in_measurement": 21
+    },
+    "xli": {
+      "raw_history_start_required": "2003-12-03",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 20,
+      "raw_session_intervals_before_first_decision": 272,
+      "minimum_price_points_in_measurement": 21
+    },
+    "xlp": {
+      "raw_history_start_required": "2003-12-03",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 20,
+      "raw_session_intervals_before_first_decision": 272,
+      "minimum_price_points_in_measurement": 21
+    },
+    "xly": {
+      "raw_history_start_required": "2003-12-03",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 20,
+      "raw_session_intervals_before_first_decision": 272,
+      "minimum_price_points_in_measurement": 21
+    },
+    "xlu": {
+      "raw_history_start_required": "2003-12-03",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 20,
+      "raw_session_intervals_before_first_decision": 272,
+      "minimum_price_points_in_measurement": 21
+    },
+    "xlb": {
+      "raw_history_start_required": "2003-12-03",
+      "prior_measurement_sessions": 252,
+      "measurement_lookback_sessions": 20,
+      "raw_session_intervals_before_first_decision": 272,
+      "minimum_price_points_in_measurement": 21
+    }
+  }
+}

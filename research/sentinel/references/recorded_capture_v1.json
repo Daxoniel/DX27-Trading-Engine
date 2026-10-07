@@ -1,0 +1,55 @@
+{
+  "schema_version": "sentinel-reference-appendix-v1",
+  "parent_library_sha256": "2009acc5605ae30969ae05a6cb1add0ced0fd4c98ba7ff7f0725d626bbf27ea9",
+  "task_id": "6B-2I-2",
+  "references": [
+    {
+      "reference_id": "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION",
+      "url": "https://github.com/ranaroussi/yfinance/blob/main/yfinance/utils.py",
+      "feed_ids": [
+        "spy",
+        "rsp",
+        "qqq",
+        "iwm",
+        "xlk",
+        "xlf",
+        "xle",
+        "xlv",
+        "xli",
+        "xlp",
+        "xly",
+        "xlu",
+        "xlb"
+      ],
+      "scope": "Maintainer adjustment implementation; captured adjusted-price chain is not historical availability evidence."
+    },
+    {
+      "reference_id": "REF-CBOE-VIX-DAILY-CAPTURE",
+      "url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv",
+      "feed_ids": [
+        "vix"
+      ],
+      "scope": "Official daily schema. Exact completion/publication clock not established by a date-only CSV."
+    },
+    {
+      "reference_id": "REF-NYFED-SOFR-PUBLICATION",
+      "url": "https://www.newyorkfed.org/markets/reference-rates/sofr",
+      "feed_ids": [
+        "sofr"
+      ],
+      "scope": "Published following business day; schedule is not per-row timestamp evidence."
+    },
+    {
+      "reference_id": "REF-FRED-CAPTURE-UNITS",
+      "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+      "feed_ids": [
+        "hy_oas",
+        "ust_2y",
+        "ust_10y",
+        "sofr",
+        "effr"
+      ],
+      "scope": "Each feed captures its own series metadata page and validates exact units/frequency selectors; HY percent converts to basis points."
+    }
+  ]
+}

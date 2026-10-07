@@ -150,3 +150,9 @@ The [HY OAS audit](sentinel-hy-oas-source-audit.md) verifies actual public expor
 limits and distinguishes nominal archive dates from intraday source availability.
 Source admission remains BLOCKED_DATA. New references use a versioned appendix;
 this checkpoint's frozen experiment and bibliography files remain unchanged.
+
+## 6B-2I-2 recorded capture follow-up
+
+See [capture architecture](sentinel-recorded-capture.md) for stable provider bindings,
+actual availability records and corrected warmup boundaries. Bootstrap download
+success leaves original-cutoff operating coverage and S/D admission BLOCKED_DATA.

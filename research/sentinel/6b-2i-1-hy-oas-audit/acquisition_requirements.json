@@ -15,9 +15,6 @@
     "source calendar and close-label definition",
     "payload/provenance digest"
   ],
-  "history_start_required": "2005-01-01",
-  "warmup_requirement": "At least 252 prior XNYS measurement sessions before first eligible 2005 decision; document actual earlier start.",
-  "history_end_required": "2026-09-30",
   "temporal_test": "For source-age-zero S, current observation must be published and captured by actual XNYS close+120 minutes; do not substitute valuation time or assumed fixed delay.",
   "rights_scope": "Confirm authorized research use/export under the actual data agreement; retain raw series locally.",
   "unknowns": [
@@ -28,5 +25,10 @@
     "Required cost, if any"
   ],
   "outreach_performed": false,
-  "registration_or_purchase_performed": false
+  "registration_or_purchase_performed": false,
+  "decision_period_start": "2005-01-01",
+  "first_decision_session": "2005-01-03",
+  "decision_period_end": "2026-09-30",
+  "raw_history_start_required": "2004-01-02",
+  "warmup_requirement": "252 prior XNYS measurement sessions before 2005-01-03. HY level has zero measurement lookback; price-based feeds require their additional lookback. Supply actual publication/revision evidence separately."
 }
