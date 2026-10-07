@@ -52,7 +52,7 @@ def test_exact_sequential_provider_contract_and_unchanged_prices(monkeypatch, hi
     for h in histories.values():
         h["Adj Close"] = 999999.0
     calls = mock_provider(monkeypatch, histories)
-    data, coverage = a.acquire_data()
+    data, coverage, normalization = a.acquire_data()
     assert calls == list(a.STAGE_A_SYMBOLS)
     assert list(data.columns) == list(a.REQUIRED_COLUMNS)
     assert list(data[["symbol", "date"]].itertuples(index=False, name=None)) == sorted(
@@ -246,3 +246,89 @@ def test_symlink_repository_destination_rejected(tmp_path):
     (tmp_path / "tournament").symlink_to(ROOT, target_is_directory=True)
     with pytest.raises(a.StageADataError):
         a.output_directory(tmp_path)
+
+
+@pytest.mark.parametrize("price", [10., 50., 100., 1000.])
+@pytest.mark.parametrize("boundary,anchor", [("high", "close"), ("low", "close"),
+                                           ("high", "open"), ("low", "open")])
+def test_tiny_boundary_correction_exact(price, boundary, anchor):
+    import math
+    row = dict(symbol="SPY", date="2026-09-30", open=price, close=price,
+               high=price + 1, low=price - 1, volume=123.456)
+    row["open" if anchor == "close" else "close"] = price - .5 if boundary == "high" else price + .5
+    row[boundary] = math.nextafter(price, -math.inf if boundary == "high" else math.inf)
+    original = pd.DataFrame([row])
+    with pytest.raises(ValueError):
+        a.validate_dataframe(original)
+    corrected, stats = a.normalize_ohlc_boundaries(original)
+    assert corrected.loc[0, boundary] == price
+    assert stats == {"high_corrections": int(boundary == "high"), "low_corrections": int(boundary == "low")}
+    pd.testing.assert_frame_equal(corrected.drop(columns=boundary), original.drop(columns=boundary), check_exact=True)
+    assert original.loc[0, boundary] == row[boundary]
+    a.validate_dataframe(corrected)
+
+
+@pytest.mark.parametrize("price", [10., 50., 100., 1000.])
+@pytest.mark.parametrize("boundary", ["high", "low"])
+def test_material_boundary_still_rejected(price, boundary):
+    row = dict(symbol="SPY", date="2026-09-30", open=price, close=price,
+               high=price + 1, low=price - 1, volume=0)
+    row[boundary] = price + (-1e-6 if boundary == "high" else 1e-6)
+    original = pd.DataFrame([row])
+    with pytest.raises(a.StageADataError, match="material"):
+        a.normalize_ohlc_boundaries(original)
+    with pytest.raises(ValueError):
+        a.validate_dataframe(original)
+
+
+def test_valid_rows_exactly_unchanged(frame):
+    corrected, stats = a.normalize_ohlc_boundaries(frame)
+    pd.testing.assert_frame_equal(corrected, frame, check_exact=True)
+    assert stats == dict(high_corrections=0, low_corrections=0)
+
+
+def test_exact_relative_and_absolute_tolerances():
+    assert a.OHLC_BOUNDARY_REL_TOL == a.OHLC_BOUNDARY_ABS_TOL == 1e-12
+    for price, gap, allowed in [(1000., 5e-10, True), (1000., 2e-9, False),
+                                (.01, 5e-13, True), (.01, 2e-12, False)]:
+        frame = pd.DataFrame([dict(symbol="SPY", date="2026-09-30", open=price,
+                                  close=price, high=price-gap, low=price/2, volume=0)])
+        if allowed:
+            corrected, stats = a.normalize_ohlc_boundaries(frame)
+            assert corrected.high.iloc[0] == price and stats["high_corrections"] == 1
+        else:
+            with pytest.raises(a.StageADataError):
+                a.normalize_ohlc_boundaries(frame)
+
+
+def test_counts_manifest_and_repeatable_normalized_output(monkeypatch, histories, tmp_path):
+    import math
+    for symbol, boundary in [("SPY", "High"), ("QQQ", "Low")]:
+        h = histories[symbol]
+        price = h.Close.iloc[0]
+        h.loc[h.index[0], boundary] = math.nextafter(price, -math.inf if boundary == "High" else math.inf)
+    mock_provider(monkeypatch, histories)
+    a.run_stage_a(tmp_path)
+    original = {name: (tmp_path / name).read_bytes() for name in (*a.ARTIFACTS, "stage_a_artifact_hashes.json")}
+    manifest = json.loads(original["stage_a_data_manifest.json"])
+    stats = manifest["ohlc_boundary_normalization"]
+    assert stats["classification"] == "DX27_PROVIDER_BOUNDARY_NORMALIZATION"
+    assert stats["relative_tolerance"] == stats["absolute_tolerance"] == 1e-12
+    assert stats["high_corrections_total"] == stats["low_corrections_total"] == 1
+    assert stats["symbols"] == {s: dict(high_corrections=int(s == "SPY"), low_corrections=int(s == "QQQ"))
+                                for s in a.STAGE_A_SYMBOLS}
+    assert manifest["adjustment_method"] == "yfinance_history_auto_adjust_true"
+    a.run_stage_a(tmp_path)
+    assert original == {name: (tmp_path / name).read_bytes() for name in original}
+
+
+def test_high_then_low_boundary_order():
+    import math
+    frame = pd.DataFrame([dict(symbol="SPY", date="2026-09-30", open=100., close=100.,
+                               high=math.nextafter(100., -math.inf),
+                               low=math.nextafter(100., math.inf), volume=0)])
+    corrected, stats = a.normalize_ohlc_boundaries(frame)
+    assert corrected.high.iloc[0] == frame.low.iloc[0]
+    assert corrected.low.iloc[0] == 100.
+    assert stats == dict(high_corrections=1, low_corrections=1)
+    a.validate_dataframe(corrected)
