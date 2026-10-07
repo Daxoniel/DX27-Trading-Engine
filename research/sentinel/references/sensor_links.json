@@ -1,0 +1,298 @@
+{
+  "schema_version": "sentinel-sensor-reference-links-v1",
+  "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+  "feeds": {
+    "spy": [
+      "REF-SSGA-SPY"
+    ],
+    "rsp": [
+      "REF-INVESCO-RSP"
+    ],
+    "qqq": [
+      "REF-INVESCO-QQQ"
+    ],
+    "iwm": [
+      "REF-ISHARES-IWM"
+    ],
+    "vix": [
+      "REF-CBOE-VIX-METHODOLOGY",
+      "REF-CBOE-VIX-HISTORY"
+    ],
+    "hy_oas": [
+      "REF-FRED-ICE-HY-OAS"
+    ],
+    "ust_2y": [
+      "REF-FRED-DGS2"
+    ],
+    "ust_10y": [
+      "REF-FRED-DGS10"
+    ],
+    "sofr": [
+      "REF-NYFED-SOFR"
+    ],
+    "effr": [
+      "REF-NYFED-EFFR"
+    ],
+    "xlk": [
+      "REF-SSGA-SECTORS"
+    ],
+    "xlf": [
+      "REF-SSGA-SECTORS"
+    ],
+    "xle": [
+      "REF-SSGA-SECTORS"
+    ],
+    "xlv": [
+      "REF-SSGA-SECTORS"
+    ],
+    "xli": [
+      "REF-SSGA-SECTORS"
+    ],
+    "xlp": [
+      "REF-SSGA-SECTORS"
+    ],
+    "xly": [
+      "REF-SSGA-SECTORS"
+    ],
+    "xlu": [
+      "REF-SSGA-SECTORS"
+    ],
+    "xlb": [
+      "REF-SSGA-SECTORS"
+    ]
+  },
+  "sensors": [
+    {
+      "sensor_id": "spy_return_20",
+      "reference_ids": [
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1",
+        "REF-SSGA-SPY"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "References define inputs; they do not validate predictive effectiveness."
+    },
+    {
+      "sensor_id": "rsp_return_20",
+      "reference_ids": [
+        "REF-INVESCO-RSP",
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "References define inputs; they do not validate predictive effectiveness."
+    },
+    {
+      "sensor_id": "qqq_spy_relative_20",
+      "reference_ids": [
+        "REF-INVESCO-QQQ",
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1",
+        "REF-SSGA-SPY"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "References define inputs; they do not validate predictive effectiveness."
+    },
+    {
+      "sensor_id": "iwm_spy_relative_20",
+      "reference_ids": [
+        "REF-ISHARES-IWM",
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1",
+        "REF-SSGA-SPY"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "References define inputs; they do not validate predictive effectiveness."
+    },
+    {
+      "sensor_id": "rsp_spy_relative_20",
+      "reference_ids": [
+        "REF-INVESCO-RSP",
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1",
+        "REF-SSGA-SPY"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "References define inputs; they do not validate predictive effectiveness."
+    },
+    {
+      "sensor_id": "spy_rv_20",
+      "reference_ids": [
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1",
+        "REF-SSGA-SPY"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "References define inputs; they do not validate predictive effectiveness."
+    },
+    {
+      "sensor_id": "spy_rv_5_over_20",
+      "reference_ids": [
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1",
+        "REF-SSGA-SPY"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "References define inputs; they do not validate predictive effectiveness."
+    },
+    {
+      "sensor_id": "vix_level",
+      "reference_ids": [
+        "REF-CBOE-VIX-HISTORY",
+        "REF-CBOE-VIX-METHODOLOGY",
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "References define inputs; they do not validate predictive effectiveness."
+    },
+    {
+      "sensor_id": "vix_minus_rv_20",
+      "reference_ids": [
+        "REF-CBOE-VIX-HISTORY",
+        "REF-CBOE-VIX-METHODOLOGY",
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1",
+        "REF-SSGA-SPY"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "References define inputs; they do not validate predictive effectiveness."
+    },
+    {
+      "sensor_id": "hy_oas_level",
+      "reference_ids": [
+        "REF-FRED-ICE-HY-OAS",
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "References define inputs; they do not validate predictive effectiveness."
+    },
+    {
+      "sensor_id": "ust_2y_level",
+      "reference_ids": [
+        "REF-FRED-DGS2",
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "References define inputs; they do not validate predictive effectiveness."
+    },
+    {
+      "sensor_id": "ust_10y_level",
+      "reference_ids": [
+        "REF-FRED-DGS10",
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "References define inputs; they do not validate predictive effectiveness."
+    },
+    {
+      "sensor_id": "ust_10y_minus_2y",
+      "reference_ids": [
+        "REF-FRED-DGS10",
+        "REF-FRED-DGS2",
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "References define inputs; they do not validate predictive effectiveness."
+    },
+    {
+      "sensor_id": "sofr_minus_effr",
+      "reference_ids": [
+        "REF-NYFED-EFFR",
+        "REF-NYFED-SOFR",
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "References define inputs; they do not validate predictive effectiveness."
+    },
+    {
+      "sensor_id": "sector_relative_20",
+      "reference_ids": [
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1",
+        "REF-SSGA-SECTORS",
+        "REF-SSGA-SPY"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "References define inputs; they do not validate predictive effectiveness."
+    },
+    {
+      "sensor_id": "constituent_breadth_20",
+      "reference_ids": [
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "Requires historical membership/weights and a new validated contract before activation."
+    },
+    {
+      "sensor_id": "top7_weight",
+      "reference_ids": [
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "Requires historical membership/weights and a new validated contract before activation."
+    },
+    {
+      "sensor_id": "mega7_return_contribution_20",
+      "reference_ids": [
+        "REF-NYSE-CALENDAR",
+        "REF-SENTINEL-G-V1",
+        "REF-SENTINEL-H-V1"
+      ],
+      "method_origin": "LOCAL_DESIGN",
+      "source_binding_approved": false,
+      "limitations": "Requires historical membership/weights and a new validated contract before activation."
+    }
+  ],
+  "composites": {
+    "us-equity-pressure-3g-v1": [
+      "REF-ECB-CISS-2012",
+      "REF-SENTINEL-G-V1"
+    ],
+    "us-equity-divergence-2p-v1": [
+      "REF-NIST-ROBUST-Z",
+      "REF-SENTINEL-G-V1"
+    ]
+  }
+}

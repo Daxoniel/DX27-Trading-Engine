@@ -1,0 +1,13 @@
+{
+  "README.md": "ad473fd9f1c58f801355ef538a1420f339668e89070805f61ffc98d287ffb2d5",
+  "artifact_hashes.json": "101db5e24871657197dad3551953a7b627a6bdeda7fb91603098598f2de0e8f2",
+  "experiment_lock.json": "90a4228d70f366bba5aa4015f57f78308b7111e06108f2163f59568cb174746c",
+  "experiment_protocol.json": "b9c4541f6cff83f09dfca146622e9bab0f1d910eaf88c4182f5dff85c08e2b98",
+  "reference_conformance_report.json": "c478fb3c14d298d3d9456587226930c2e471082b1c88556aeef33437a3c92c11",
+  "reference_sample.json": "3c81e2d1eda794750d563c6c40e62ba869d1c3dcdfc7a58166887a64757ac3be",
+  "sensor_reference_annotations.json": "222c4ae6aac73a94b3dfe8e80f32867237e452467c484f778cb3f1ce364a6423",
+  "source_admission_report.json": "48835714fecbe92fba97c7e1e091ce36e94ca9ad7ae6435de98aab4c610c7070",
+  "source_capture_manifest.json": "8d208397722c5db8b32cc21bd80f088b1acafb9babbf05d9b539d4c4035427ba",
+  "verification.md": "1fe836f0248b58804127a3987c7d2aae9f076ebafb06586fd817cc7ebf2440d1",
+  "yahoo_capture_manifest.json": "a664285c735521865fbfb278d643ba051776beda06dcb7330f84c1c749c491b8"
+}

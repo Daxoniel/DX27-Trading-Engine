@@ -1,0 +1,8 @@
+{
+  "schema_version": "sentinel-reference-experiment-lock-v1",
+  "protocol_file_sha256": "b9c4541f6cff83f09dfca146622e9bab0f1d910eaf88c4182f5dff85c08e2b98",
+  "reference_library_sha256": "2009acc5605ae30969ae05a6cb1add0ced0fd4c98ba7ff7f0725d626bbf27ea9",
+  "sensor_links_sha256": "0c20e2fd4677e92d804a277c6d7fdd77ba5f6837f4d41e19ac22fc5fb26e8d7a",
+  "final_candidate_commit": "NOT_YET_FROZEN",
+  "confirmation_started": false
+}

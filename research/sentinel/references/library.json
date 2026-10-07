@@ -1,0 +1,185 @@
+{
+  "schema_version": "sentinel-reference-library-v1",
+  "references": [
+    {
+      "reference_id": "REF-CBOE-VIX-METHODOLOGY",
+      "title": "Cboe VIX Methodology",
+      "author": "Cboe",
+      "url": "https://cdn.cboe.com/api/global/us_indices/governance/VIX_Methodology.pdf",
+      "kind": "OFFICIAL_METHOD",
+      "verification_status": "SEARCH_METADATA_ONLY_FULL_TEXT_HTTP_403",
+      "verified_on": "2026-10-07",
+      "supported_claim": "30-calendar-day SPX implied volatility; no return-direction inference."
+    },
+    {
+      "reference_id": "REF-CBOE-VIX-HISTORY",
+      "title": "VIX historical daily closes",
+      "author": "Cboe",
+      "url": "https://www.cboe.com/tradable-products/vix/vix-historical-data/",
+      "kind": "OFFICIAL_DATA",
+      "verification_status": "FULL_PAGE_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Daily close source identity, not historical publication/capture timestamps."
+    },
+    {
+      "reference_id": "REF-FRED-ICE-HY-OAS",
+      "title": "BAMLH0A0HYM2 series definition",
+      "author": "ICE Data Indices / Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+      "kind": "OFFICIAL_DATA",
+      "verification_status": "FULL_PAGE_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Raw percent converts to basis points by 100. Three-year history limitation from April 2026; source calendar may include month-end weekends."
+    },
+    {
+      "reference_id": "REF-FRED-DGS2",
+      "title": "Two-year Treasury constant maturity rate",
+      "author": "Federal Reserve / FRED",
+      "url": "https://fred.stlouisfed.org/series/DGS2",
+      "kind": "OFFICIAL_DATA",
+      "verification_status": "FULL_PAGE_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Annual percent, not basis points; observation date is not availability."
+    },
+    {
+      "reference_id": "REF-FRED-DGS10",
+      "title": "Ten-year Treasury constant maturity rate",
+      "author": "Federal Reserve / FRED",
+      "url": "https://fred.stlouisfed.org/series/DGS10",
+      "kind": "OFFICIAL_DATA",
+      "verification_status": "HTTP_CAPTURE_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Annual percent; slope 100*(10y-2y)."
+    },
+    {
+      "reference_id": "REF-NYFED-SOFR",
+      "title": "Secured Overnight Financing Rate",
+      "author": "Federal Reserve Bank of New York",
+      "url": "https://www.newyorkfed.org/markets/reference-rates/sofr",
+      "kind": "OFFICIAL_DATA",
+      "verification_status": "FULL_PAGE_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Secured rate with its own observation/publication calendar."
+    },
+    {
+      "reference_id": "REF-NYFED-EFFR",
+      "title": "Effective Federal Funds Rate",
+      "author": "Federal Reserve Bank of New York",
+      "url": "https://www.newyorkfed.org/markets/reference-rates/effr",
+      "kind": "OFFICIAL_DATA",
+      "verification_status": "FULL_PAGE_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Unsecured rate; difference to SOFR is a contextual spread."
+    },
+    {
+      "reference_id": "REF-FRED-VINTAGES",
+      "title": "FRED real-time periods",
+      "author": "Federal Reserve Bank of St. Louis",
+      "url": "https://fred.stlouisfed.org/docs/api/fred/realtime_period.html",
+      "kind": "OFFICIAL_METHOD",
+      "verification_status": "FULL_PAGE_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Vintage dates do not alone prove intraday availability at Sentinel cutoff."
+    },
+    {
+      "reference_id": "REF-SSGA-SPY",
+      "title": "SPY issuer specification",
+      "author": "State Street",
+      "url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy",
+      "kind": "OFFICIAL_PRODUCT",
+      "verification_status": "SEARCH_METADATA_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Large-cap S&P 500 exposure; not the whole market."
+    },
+    {
+      "reference_id": "REF-INVESCO-RSP",
+      "title": "RSP issuer specification",
+      "author": "Invesco",
+      "url": "https://www.invesco.com/us/en/financial-products/etfs/invesco-sp-500-equal-weight-etf.html",
+      "kind": "OFFICIAL_PRODUCT",
+      "verification_status": "SEARCH_METADATA_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Equal-weight S&P 500 proxy; relative performance is not constituent breadth."
+    },
+    {
+      "reference_id": "REF-INVESCO-QQQ",
+      "title": "QQQ issuer specification",
+      "author": "Invesco",
+      "url": "https://www.invesco.com/qqq-etf/en/about.html",
+      "kind": "OFFICIAL_PRODUCT",
+      "verification_status": "FULL_PAGE_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Nasdaq-100 nonfinancial exposure; not a Mega7 basket."
+    },
+    {
+      "reference_id": "REF-ISHARES-IWM",
+      "title": "IWM issuer specification",
+      "author": "BlackRock iShares",
+      "url": "https://www.ishares.com/us/products/239710/ishares-russell-2000-etf",
+      "kind": "OFFICIAL_PRODUCT",
+      "verification_status": "FULL_PAGE_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Russell 2000 small-cap exposure; not S&P 500 excluding Mega7."
+    },
+    {
+      "reference_id": "REF-SSGA-SECTORS",
+      "title": "Sector ETF issuer directory",
+      "author": "State Street",
+      "url": "https://www.ssga.com/us/en/individual/fund-finder",
+      "kind": "OFFICIAL_PRODUCT",
+      "verification_status": "FULL_PAGE_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Directory only: individual historical sector binding metadata still requires verification."
+    },
+    {
+      "reference_id": "REF-NYSE-CALENDAR",
+      "title": "NYSE hours and holidays",
+      "author": "NYSE",
+      "url": "https://www.nyse.com/trade/hours-calendars",
+      "kind": "OFFICIAL_METHOD",
+      "verification_status": "FULL_PAGE_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Actual trading sessions/early closes; Sentinel close+120 minutes is a local design choice."
+    },
+    {
+      "reference_id": "REF-ECB-CISS-2012",
+      "title": "CISS: a composite indicator of systemic stress",
+      "author": "Hollo, Kremer, Lo Duca / ECB WP1426",
+      "url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecbwp1426.pdf",
+      "kind": "RESEARCH",
+      "verification_status": "FULL_TEXT_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Grouped stress/percentile motivation only; Sentinel equal-group S is not CISS and has no borrowed validation."
+    },
+    {
+      "reference_id": "REF-NIST-ROBUST-Z",
+      "title": "Detection of outliers",
+      "author": "NIST",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35h.htm",
+      "kind": "STATISTICAL_METHOD",
+      "verification_status": "FULL_PAGE_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Median/MAD robust standardization; no financial effectiveness claim."
+    },
+    {
+      "reference_id": "REF-SENTINEL-G-V1",
+      "title": "Frozen multi-sensor protocol",
+      "author": "DX27",
+      "url": "research/sentinel/6b-2g-contracts/protocol.json",
+      "kind": "LOCAL_DESIGN",
+      "verification_status": "FROZEN_HASH_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Local formulas, windows, weights, and gates are engineering choices, not official source recommendations."
+    },
+    {
+      "reference_id": "REF-SENTINEL-H-V1",
+      "title": "Market state runtime",
+      "author": "DX27",
+      "url": "docs/architecture/sentinel-market-state-runtime.md",
+      "kind": "LOCAL_IMPLEMENTATION",
+      "verification_status": "CODE_VERIFIED",
+      "verified_on": "2026-10-07",
+      "supported_claim": "Implemented formula and point-in-time contract; fixture validation only."
+    }
+  ]
+}

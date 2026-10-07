@@ -1,0 +1,164 @@
+{
+  "task_id": "6B-2I",
+  "result": "BLOCKED_DATA",
+  "network_access": "WORKING",
+  "source_definitions": "VERIFIED_WITH_EXPLICIT_REFERENCE_SCOPE",
+  "real_downloaded_etf_rows": 100,
+  "vix_rows": 9288,
+  "vix_first_observation": "01/02/1990",
+  "vix_last_observation": "10/06/2026",
+  "recorded_historical_snapshot_sessions": 0,
+  "operational_coverage": null,
+  "minimum_coverage": 0.95,
+  "pressure_available_coverage": null,
+  "source_definitions_do_not_approve_runtime_bindings": true,
+  "issues": [
+    {
+      "id": "HY_HISTORY_TRUNCATED",
+      "reference_id": "REF-FRED-ICE-HY-OAS",
+      "evidence": "Official series notes: from April 2026 only three years; 2005-2026 requested development range cannot be met through this public FRED series alone.",
+      "action": "Obtain an approved longer ICE history with availability/vintage evidence; no silent shorter-period substitution."
+    },
+    {
+      "id": "HY_RELEASE_LAG",
+      "reference_id": "REF-FRED-ICE-HY-OAS",
+      "evidence": "Captured page: last observation 2026-10-05, updated 2026-10-06 09:30 CDT. This is one observed release relationship, not a proved universal daily lag.",
+      "action": "Measure original-cutoff age-0 coverage; current snapshot context allows age 1 but frozen S does not."
+    },
+    {
+      "id": "HISTORICAL_AVAILABILITY_NOT_RECORDED",
+      "reference_id": "REF-FRED-VINTAGES",
+      "evidence": "New Yahoo/FRED/Cboe downloads carry first_seen_at 2026-10-07, not historic session cutoff timestamps.",
+      "action": "Capture daily immutable availability forward; accept historical timestamps only with actual validated evidence."
+    },
+    {
+      "id": "VIX_METHODOLOGY_FULL_TEXT_403",
+      "reference_id": "REF-CBOE-VIX-METHODOLOGY",
+      "evidence": "Official PDF returned HTTP 403; search metadata and separate official daily-close page verified.",
+      "action": "Keep explicit partial verification; resolve before claiming full methodology audit."
+    },
+    {
+      "id": "HY_GRAPH_NOT_A_SERIES_DOWNLOAD",
+      "reference_id": "REF-FRED-ICE-HY-OAS",
+      "evidence": "Graph request returned text/html, not observation CSV.",
+      "action": "Do not count HTML as usable series observations."
+    }
+  ],
+  "feeds": [
+    {
+      "feed_id": "spy",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "capitalization_weighted_large_cap"
+    },
+    {
+      "feed_id": "rsp",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "equal_weight_large_cap_proxy"
+    },
+    {
+      "feed_id": "qqq",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "nasdaq_100_leadership_proxy"
+    },
+    {
+      "feed_id": "iwm",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "small_cap_proxy"
+    },
+    {
+      "feed_id": "vix",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "spx_30_day_implied_volatility"
+    },
+    {
+      "feed_id": "hy_oas",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "high_yield_credit_spread"
+    },
+    {
+      "feed_id": "ust_2y",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "two_year_yield"
+    },
+    {
+      "feed_id": "ust_10y",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "ten_year_yield"
+    },
+    {
+      "feed_id": "sofr",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "secured_overnight_rate"
+    },
+    {
+      "feed_id": "effr",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "effective_federal_funds_rate"
+    },
+    {
+      "feed_id": "xlk",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "sector_context_proxy"
+    },
+    {
+      "feed_id": "xlf",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "sector_context_proxy"
+    },
+    {
+      "feed_id": "xle",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "sector_context_proxy"
+    },
+    {
+      "feed_id": "xlv",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "sector_context_proxy"
+    },
+    {
+      "feed_id": "xli",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "sector_context_proxy"
+    },
+    {
+      "feed_id": "xlp",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "sector_context_proxy"
+    },
+    {
+      "feed_id": "xly",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "sector_context_proxy"
+    },
+    {
+      "feed_id": "xlu",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "sector_context_proxy"
+    },
+    {
+      "feed_id": "xlb",
+      "source_binding_approved": false,
+      "historical_availability_verified": false,
+      "role": "sector_context_proxy"
+    }
+  ],
+  "decision": "Continue offline implementation research; real effectiveness evaluation and operational promotion are blocked. No lagging, fill, backdating, or baseline weight change."
+}

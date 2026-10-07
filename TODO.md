@@ -125,12 +125,28 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
   Current status: BLOCKED_DATA, real sample count 0 and coverage unknown.
   Fixture completeness is not operational promotion.
 
+## 6B-2I checkpoint — research implementation and source audit
+
+- [x] **6B-2I implementation preparation** — frozen causal S/D research contracts,
+  formula/prefix/missing/scenario validation, stable reference library covering
+  all 19 feeds and 18 sensors, fixed four-arm logistic experiment and numerical
+  primitives. No operational report, Priority, detector, or forecast activation.
+  See [research checkpoint](docs/architecture/sentinel-composite-reference-research.md).
+- [x] **6B-2I online source probe** — Yahoo SPY/RSP/QQQ/IWM and official Cboe VIX
+  downloads succeed; source hashes/first-seen captured. Historical availability
+  is unverified; FRED HY history is limited to three years since April 2026.
+- [ ] **6B-2I source admission / effectiveness** — BLOCKED_DATA. Admit original-
+  cutoff tapes, obtain the required long HY history, and measure age-zero
+  reference coverage. No silent lagging, backdating, imputation, or reweighting.
+- [ ] **6B-2I fitted-candidate freeze / prospective confirmation** — not started;
+  zero sessions, INSUFFICIENT_EVIDENCE. Freeze admitted development coefficients
+  and candidate commit before collecting prospective confirmation. A fixture
+  PASS cannot complete 6B-2I market validation or open 6B-2J/6B-2K.
+
 ## Next
 
-- [ ] **6B-2I — Composite Reference & Relationship Research** — implement the
-  frozen simple pressure S and separate divergence D as gated research, validate
-  formulas and incremental value under the pre-registered protocol. Live-data
-  and effectiveness gates remain separate; no composite Priority or forecast.
+- [ ] Resolve the **6B-2I** source/availability gate before real incremental-value
+  evaluation; review any delayed-reference alternative as a separate version.
 
 ## Subsequent 6B-2 tasks — gated sequence
 

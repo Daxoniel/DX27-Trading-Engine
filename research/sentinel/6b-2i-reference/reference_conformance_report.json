@@ -1,0 +1,321 @@
+{
+  "task_id": "6B-2I",
+  "runtime_commit": "75874a1646d596c2525e4476f008a8dffa8c8fb8",
+  "data_role": "SYNTHETIC_FIXTURE_ONLY",
+  "synthetic_tape_digest": "cad191f2f30ab0f12839be083cf9d4017b50fdb182ad0986114dd2101a06b942",
+  "implementation_correctness": "PASS",
+  "formula_comparisons": 48,
+  "maximum_absolute_formula_error": 7.105427357601002e-15,
+  "prefix_replay_mismatches": 0,
+  "library": {
+    "references": 18,
+    "feeds": 19,
+    "sensors": 18,
+    "library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9"
+  },
+  "interpretation_scenarios": [
+    {
+      "scenario": "CAP_WEIGHT_UP_EQUAL_WEIGHT_DOWN",
+      "data_role": "SYNTHETIC_COUNTERFACTUAL_MEASUREMENTS",
+      "S": 64.65324384787472,
+      "D": 4.949692132072947,
+      "S_contributions": [
+        {
+          "name": "equity_weakness",
+          "value": 15.100671140939598,
+          "signed_components": [
+            [
+              "spy_return_20",
+              0.0
+            ],
+            [
+              "rsp_return_20",
+              0.9060402684563759
+            ]
+          ]
+        },
+        {
+          "name": "volatility",
+          "value": 26.286353467561522,
+          "signed_components": [
+            [
+              "spy_rv_20",
+              0.8791946308724832
+            ],
+            [
+              "vix_level",
+              0.697986577181208
+            ]
+          ]
+        },
+        {
+          "name": "credit",
+          "value": 23.266219239373605,
+          "signed_components": [
+            [
+              "hy_oas_level",
+              0.697986577181208
+            ]
+          ]
+        }
+      ],
+      "D_components": [
+        {
+          "name": "rsp_spy_relative_20",
+          "value": 3.170047619165553,
+          "signed_components": [
+            [
+              "rsp_spy_relative_20",
+              -3.170047619165553
+            ]
+          ]
+        },
+        {
+          "name": "qqq_spy_relative_20",
+          "value": 4.949692132072947,
+          "signed_components": [
+            [
+              "qqq_spy_relative_20",
+              4.949692132072947
+            ]
+          ]
+        }
+      ],
+      "interpretation": "D reflects atypical relative performance; sign stays in components, no bearish/forecast classification."
+    },
+    {
+      "scenario": "QUIET_EQUITY_HIGH_VOL_CREDIT",
+      "data_role": "SYNTHETIC_COUNTERFACTUAL_MEASUREMENTS",
+      "S": 85.3467561521253,
+      "D": 0.25709616613783237,
+      "S_contributions": [
+        {
+          "name": "equity_weakness",
+          "value": 18.680089485458616,
+          "signed_components": [
+            [
+              "spy_return_20",
+              0.5906040268456376
+            ],
+            [
+              "rsp_return_20",
+              0.5302013422818792
+            ]
+          ]
+        },
+        {
+          "name": "volatility",
+          "value": 33.333333333333336,
+          "signed_components": [
+            [
+              "spy_rv_20",
+              1.0
+            ],
+            [
+              "vix_level",
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "credit",
+          "value": 33.333333333333336,
+          "signed_components": [
+            [
+              "hy_oas_level",
+              1.0
+            ]
+          ]
+        }
+      ],
+      "D_components": [
+        {
+          "name": "rsp_spy_relative_20",
+          "value": 0.25709616613783237,
+          "signed_components": [
+            [
+              "rsp_spy_relative_20",
+              0.25709616613783237
+            ]
+          ]
+        },
+        {
+          "name": "qqq_spy_relative_20",
+          "value": 0.25709616613777264,
+          "signed_components": [
+            [
+              "qqq_spy_relative_20",
+              0.25709616613777264
+            ]
+          ]
+        }
+      ],
+      "interpretation": "D reflects atypical relative performance; sign stays in components, no bearish/forecast classification."
+    },
+    {
+      "scenario": "BROAD_RALLY_LOW_PRESSURE",
+      "data_role": "SYNTHETIC_COUNTERFACTUAL_MEASUREMENTS",
+      "S": 0.0,
+      "D": 0.25709616613783237,
+      "S_contributions": [
+        {
+          "name": "equity_weakness",
+          "value": 0.0,
+          "signed_components": [
+            [
+              "spy_return_20",
+              0.0
+            ],
+            [
+              "rsp_return_20",
+              0.0
+            ]
+          ]
+        },
+        {
+          "name": "volatility",
+          "value": 0.0,
+          "signed_components": [
+            [
+              "spy_rv_20",
+              0.0
+            ],
+            [
+              "vix_level",
+              0.0
+            ]
+          ]
+        },
+        {
+          "name": "credit",
+          "value": 0.0,
+          "signed_components": [
+            [
+              "hy_oas_level",
+              0.0
+            ]
+          ]
+        }
+      ],
+      "D_components": [
+        {
+          "name": "rsp_spy_relative_20",
+          "value": 0.25709616613783237,
+          "signed_components": [
+            [
+              "rsp_spy_relative_20",
+              0.25709616613783237
+            ]
+          ]
+        },
+        {
+          "name": "qqq_spy_relative_20",
+          "value": 0.25709616613777264,
+          "signed_components": [
+            [
+              "qqq_spy_relative_20",
+              0.25709616613777264
+            ]
+          ]
+        }
+      ],
+      "interpretation": "D reflects atypical relative performance; sign stays in components, no bearish/forecast classification."
+    },
+    {
+      "scenario": "DELAYED_HY_PUBLICATION",
+      "S": null,
+      "S_status": "STALE",
+      "S_usable": 4,
+      "D_status": "AVAILABLE",
+      "interpretation": "No renormalization of missing credit; D has independent input coverage."
+    }
+  ],
+  "sensitivity": [
+    {
+      "kind": "GROUP_WEIGHT",
+      "group": "equity_weakness",
+      "relative_factor": 0.8,
+      "S": 64.98082454458294
+    },
+    {
+      "kind": "GROUP_WEIGHT",
+      "group": "volatility",
+      "relative_factor": 0.8,
+      "S": 62.32023010546501
+    },
+    {
+      "kind": "GROUP_WEIGHT",
+      "group": "credit",
+      "relative_factor": 0.8,
+      "S": 62.96740172579099
+    },
+    {
+      "kind": "GROUP_WEIGHT",
+      "group": "equity_weakness",
+      "relative_factor": 1.2,
+      "S": 62.05956375838926
+    },
+    {
+      "kind": "GROUP_WEIGHT",
+      "group": "volatility",
+      "relative_factor": 1.2,
+      "S": 64.38758389261744
+    },
+    {
+      "kind": "GROUP_WEIGHT",
+      "group": "credit",
+      "relative_factor": 1.2,
+      "S": 63.82130872483222
+    },
+    {
+      "kind": "LEAVE_ONE_SENSOR_OUT",
+      "removed": "spy_return_20",
+      "S": 63.42281879194631,
+      "status": "AVAILABLE_RESEARCH_SENSITIVITY"
+    },
+    {
+      "kind": "LEAVE_ONE_SENSOR_OUT",
+      "removed": "rsp_return_20",
+      "S": 63.42281879194631,
+      "status": "AVAILABLE_RESEARCH_SENSITIVITY"
+    },
+    {
+      "kind": "LEAVE_ONE_SENSOR_OUT",
+      "removed": "spy_rv_20",
+      "S": 60.40268456375839,
+      "status": "AVAILABLE_RESEARCH_SENSITIVITY"
+    },
+    {
+      "kind": "LEAVE_ONE_SENSOR_OUT",
+      "removed": "vix_level",
+      "S": 66.44295302013424,
+      "status": "AVAILABLE_RESEARCH_SENSITIVITY"
+    },
+    {
+      "kind": "LEAVE_ONE_SENSOR_OUT",
+      "removed": "hy_oas_level",
+      "S": null,
+      "status": "UNAVAILABLE"
+    },
+    {
+      "kind": "D_SINGLE_PAIR_ABLATION",
+      "pair": "rsp_spy_relative_20",
+      "D": 0.25709616613783237
+    },
+    {
+      "kind": "D_SINGLE_PAIR_ABLATION",
+      "pair": "qqq_spy_relative_20",
+      "D": 0.25709616613777264
+    }
+  ],
+  "real_source_admission": "BLOCKED_DATA",
+  "live_recorded_coverage": null,
+  "incremental_effectiveness": "BLOCKED_DATA",
+  "prospective_confirmation": "INSUFFICIENT_EVIDENCE",
+  "prospective_sessions": 0,
+  "confirmation_started": false,
+  "operational_reference_enabled": false,
+  "forecast_enabled": false,
+  "priority_enabled": false
+}

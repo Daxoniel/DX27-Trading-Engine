@@ -1,0 +1,50 @@
+[
+  {
+    "feed": "spy",
+    "provider": "Yahoo via yfinance 1.7.0",
+    "first_seen_at": "2026-10-07T13:27:46.974731+00:00",
+    "rows": 25,
+    "first_observation": "2026-09-01 00:00:00-04:00",
+    "last_observation": "2026-10-06 00:00:00-04:00",
+    "payload_sha256": "fb2be245a5186d906b50161fb9e73033105200187567025d60b21a5779e59ffb",
+    "vintage_mode": "LATEST_VINTAGE_DESCRIPTIVE_ONLY",
+    "historical_intraday_availability_verified": false,
+    "source_binding_approved": false
+  },
+  {
+    "feed": "rsp",
+    "provider": "Yahoo via yfinance 1.7.0",
+    "first_seen_at": "2026-10-07T13:27:47.549301+00:00",
+    "rows": 25,
+    "first_observation": "2026-09-01 00:00:00-04:00",
+    "last_observation": "2026-10-06 00:00:00-04:00",
+    "payload_sha256": "69e2650de93c363d8278dbda6377a133afbc2763d1046aacb34f9bd48d392a84",
+    "vintage_mode": "LATEST_VINTAGE_DESCRIPTIVE_ONLY",
+    "historical_intraday_availability_verified": false,
+    "source_binding_approved": false
+  },
+  {
+    "feed": "qqq",
+    "provider": "Yahoo via yfinance 1.7.0",
+    "first_seen_at": "2026-10-07T13:27:48.014087+00:00",
+    "rows": 25,
+    "first_observation": "2026-09-01 00:00:00-04:00",
+    "last_observation": "2026-10-06 00:00:00-04:00",
+    "payload_sha256": "93437138261884c4cdda6212a2955fca1e79cfe6bdbb83edb12a2ec53e7420d9",
+    "vintage_mode": "LATEST_VINTAGE_DESCRIPTIVE_ONLY",
+    "historical_intraday_availability_verified": false,
+    "source_binding_approved": false
+  },
+  {
+    "feed": "iwm",
+    "provider": "Yahoo via yfinance 1.7.0",
+    "first_seen_at": "2026-10-07T13:27:48.572161+00:00",
+    "rows": 25,
+    "first_observation": "2026-09-01 00:00:00-04:00",
+    "last_observation": "2026-10-06 00:00:00-04:00",
+    "payload_sha256": "3f248b9d929b86ccda9a6fb92c7b37eb14f9e03e5640cdd24ed39cfad95dce3e",
+    "vintage_mode": "LATEST_VINTAGE_DESCRIPTIVE_ONLY",
+    "historical_intraday_availability_verified": false,
+    "source_binding_approved": false
+  }
+]
