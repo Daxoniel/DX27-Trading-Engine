@@ -1,0 +1,257 @@
+{
+  "task_id": "6B-2I",
+  "protocol_id": "sentinel-6b-2i-reference-experiment-v1",
+  "g_protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+  "reference_definition": "UNCHANGED_FROM_G",
+  "reference_library": "research/sentinel/references/library.json",
+  "sensor_reference_links": "research/sentinel/references/sensor_links.json",
+  "inputs": [
+    "spy_return_20",
+    "rsp_return_20",
+    "qqq_spy_relative_20",
+    "iwm_spy_relative_20",
+    "rsp_spy_relative_20",
+    "spy_rv_20",
+    "spy_rv_5_over_20",
+    "vix_level",
+    "vix_minus_rv_20",
+    "hy_oas_level",
+    "ust_2y_level",
+    "ust_10y_level",
+    "ust_10y_minus_2y"
+  ],
+  "arms": {
+    "VECTOR": [],
+    "VECTOR_S": [
+      "S"
+    ],
+    "VECTOR_D": [
+      "D"
+    ],
+    "VECTOR_SD": [
+      "S",
+      "D"
+    ]
+  },
+  "primary_comparison": "VECTOR_SD_MINUS_VECTOR",
+  "secondary_comparisons": "S and D ablations reported; not alternate promotion winners",
+  "model": {
+    "family": "LOGISTIC_L2",
+    "objective": "mean(logaddexp(0,Xb)-y*Xb)+0.5*sum(nonintercept_b**2)",
+    "lambda": 1.0,
+    "intercept_penalized": false,
+    "standardization": "development complete-case mean and population std; zero std replaced by one",
+    "optimizer": "deterministic full batch gradient descent",
+    "step": "1/(0.25*norm(X,2)**2/n+1)",
+    "maximum_iterations": 20000,
+    "gradient_inf_tolerance": 1e-08,
+    "nonconvergence": "FAIL_INTEGRITY_NO_SCORE",
+    "class_weights": "NONE",
+    "hyperparameter_search": "NONE",
+    "missing": "PAIRED_COMPLETE_CASE_ALL_FOUR_ARMS_NO_IMPUTATION",
+    "fitting": "fit through 2019 with 40-session purge; freeze all coefficients before confirmation",
+    "refit": "NEVER_ON_CONFIRMATION"
+  },
+  "evaluation": {
+    "development_period": [
+      "2005-01-01",
+      "2026-09-30"
+    ],
+    "development_role": "PREVIOUSLY_OBSERVED_NOT_FRESH_HOLDOUT",
+    "development_selection_end": "2019-12-31",
+    "development_audit_start": "2020-01-01",
+    "confirmation": "PROSPECTIVE_ONLY_AFTER_CANDIDATE_FREEZE",
+    "confirmation_start_rule": "first_full_XNYS_session_after_final_candidate_protocol_commit_timestamp",
+    "minimum_confirmation_sessions": 252,
+    "maximum_followup_sessions": 40,
+    "purge_sessions": 40,
+    "embargo_sessions": 40,
+    "resampling": "joint_all_subjects_40_session_blocks_1000_replicates_seed_627",
+    "labels_evaluation_only": true,
+    "targets": {
+      "trend_shift": {
+        "subject": "SPY_AND_RSP_SEPARATELY",
+        "baseline_sessions": 20,
+        "future_blocks_sessions": [
+          20,
+          20
+        ],
+        "rule": "previous20_mean_and_both_future20_means_have_opposite_sign_with_each_absolute_mean_at_least_previous20_sample_std/sqrt(20)",
+        "refractory_sessions": 40,
+        "horizon_sessions": 40,
+        "event_type": "TREND_CHANGE"
+      },
+      "volatility_shift": {
+        "subject": "SPY",
+        "baseline_sessions": 20,
+        "future_blocks_sessions": [
+          5,
+          5
+        ],
+        "rule": "both_future5_sample_RV_to_prior20_RV_ratios_are_at_least_1.5_or_both_at_most_2/3",
+        "refractory_sessions": 10,
+        "horizon_sessions": 10,
+        "event_type": "VOLATILITY_CHANGE"
+      },
+      "relationship_shift": {
+        "subject": "RSP/SPY_AND_QQQ/SPY_SEPARATELY",
+        "baseline_sessions": 20,
+        "future_blocks_sessions": [
+          10,
+          10
+        ],
+        "rule": "both_future10_daily_log_spread_means_differ_from_previous20_mean_in_same_direction_by_at_least_2*previous20_sample_std/sqrt(10)",
+        "refractory_sessions": 20,
+        "horizon_sessions": 20,
+        "event_type": "RELATIONSHIP_CHANGE"
+      }
+    },
+    "matching": {
+      "window_sessions": [
+        0,
+        5
+      ],
+      "order": "chronological_targets_then_earliest_unused_same_subject_family_direction_alarm",
+      "one_to_one": true,
+      "alarms_before_anchor": "UNMATCHED_NOT_RETROACTIVE_DETECTIONS",
+      "label_refractory": "greedy_earliest_anchor_per_subject_family_ignoring_direction",
+      "availability_exclusions": "count_as_abstentions_not_dropped_from_miss_denominator",
+      "missing_target_outcome": "EXCLUDE_FROM_LABEL_DENOMINATOR_AND_REPORT_SEPARATELY",
+      "cooldown_sessions": 5
+    },
+    "baselines": [
+      "NO_CHANGE",
+      "FIXED_CAUSAL_THRESHOLD_V1",
+      "EWMAC_64_256_RESEARCH_ONLY"
+    ],
+    "change_gate": {
+      "minimum_labels_per_target_subject_direction": 30,
+      "minimum_precision": 0.6,
+      "minimum_recall": 0.6,
+      "maximum_median_delay_sessions": 3,
+      "maximum_p90_delay_sessions": 5,
+      "maximum_unmatched_alarms_per_252_eligible_sessions": 12,
+      "minimum_evaluation_availability": 0.95,
+      "minimum_absolute_f1_improvement_over_fixed_baseline": 0.05,
+      "f1_improvement_95pct_block_interval_lower_bound": 0.0,
+      "pooled_results_cannot_override_failed_stratum": true
+    },
+    "state_gate": {
+      "formula_tolerance_absolute": 1e-10,
+      "allowed_causal_violations": 0,
+      "deterministic_replay_mismatches": 0,
+      "missing_or_stale_as_zero_violations": 0,
+      "proxy_as_authoritative_violations": 0,
+      "required_feed_operational_coverage_min": 0.95,
+      "no_accuracy_claim_from_contract_checks": true
+    },
+    "reference_gate": {
+      "runtime_enabled": false,
+      "incremental_auc_min": 0.02,
+      "auc_increment_95pct_block_interval_lower_bound": 0.0,
+      "comparison": "fixed_logistic_regression_on_dimension_vector_vs_same_vector_plus_S_D",
+      "target": "next_20_sessions_SPY_max_close_to_close_drawdown_at_least_5_percent",
+      "minimum_nonoverlap_positive_outcomes": 30,
+      "minimum_nonoverlap_negative_outcomes": 30,
+      "coefficient_selection": "development_only_no_confirmation_refit",
+      "pressure_divergence_sensitivity": "leave_one_sensor_out_and_20pct_weight_perturbation_reported_no_result_driven_selection",
+      "new_correlation_model_requires_new_version": true,
+      "drawdown_definition": "max_{k=1..20}(1-P[t+k]/max(P[t],...,P[t+k]))>=0.05",
+      "anchor_grid": "first_eligible_confirmation_session_then_every_20_XNYS_sessions_no_shift_on_missing_data",
+      "paired_model_inputs": [
+        "spy_return_20",
+        "rsp_return_20",
+        "qqq_spy_relative_20",
+        "iwm_spy_relative_20",
+        "rsp_spy_relative_20",
+        "spy_rv_20",
+        "spy_rv_5_over_20",
+        "vix_level",
+        "vix_minus_rv_20",
+        "hy_oas_level",
+        "ust_2y_level",
+        "ust_10y_level",
+        "ust_10y_minus_2y"
+      ]
+    },
+    "forecast_gate": {
+      "runtime_enabled": false,
+      "target": "next_20_sessions_SPY_max_close_to_close_drawdown_at_least_5_percent",
+      "horizon_sessions": 20,
+      "baselines": [
+        "DEVELOPMENT_UNCONDITIONAL_FREQUENCY",
+        "DEVELOPMENT_LOGISTIC_RV20_VIX"
+      ],
+      "minimum_brier_skill_over_each_baseline": 0.05,
+      "brier_skill_95pct_block_interval_lower_bound": 0.0,
+      "minimum_nonoverlap_positive_outcomes": 30,
+      "minimum_nonoverlap_negative_outcomes": 30,
+      "calibration_bins": 5,
+      "maximum_expected_calibration_error": 0.05
+    },
+    "decision_states": [
+      "PASS",
+      "FAIL",
+      "INSUFFICIENT_EVIDENCE",
+      "BLOCKED_DATA"
+    ],
+    "unavailable_required_metric_policy": "NO_PASS",
+    "thresholds_are": "ENGINEERING_RESEARCH_ACCEPTANCE_CHOICES_NOT_ESTABLISHED_MARKET_LAWS",
+    "baseline_definitions": {
+      "NO_CHANGE": {
+        "formula": "no_alarms",
+        "precision_when_no_alarms": null
+      },
+      "FIXED_CAUSAL_THRESHOLD_V1": {
+        "trend": "mean(last20_returns)/(sample_std(previous20_before_last20,ddof=1)/sqrt(20));cross_+2_or_-2",
+        "volatility": "RV5_current/RV20_current;cross_1.5_or_2/3",
+        "relationship": "(mean(last5_daily_spreads)-mean(previous20_before_last5))/(sample_std(previous20_before_last5,ddof=1)/sqrt(5));cross_+2_or_-2",
+        "crossing": "previous_available_consecutive_evaluation_on_nontrigger_side",
+        "gap_policy": "break_crossing_continuity",
+        "cooldown_sessions": 5
+      },
+      "EWMAC_64_256_RESEARCH_ONLY": {
+        "method": "archived_ewmac_64_256",
+        "production_approved": false,
+        "neutral_to_directional": "counts_as_transition",
+        "directional_to_neutral": "not_a_directional_alarm",
+        "directional_flip": "counts_as_transition",
+        "initial_warmup_state": "not_an_alarm",
+        "cooldown_sessions": 5
+      }
+    },
+    "quantiles": "linear_interpolation",
+    "bootstrap": {
+      "block_sessions": 40,
+      "replicates": 1000,
+      "seed": 627,
+      "interval_percentiles": [
+        2.5,
+        97.5
+      ],
+      "joint_subjects": true,
+      "rematch_at_block_joins": false,
+      "unit": "fixed_chronology_session_sufficient_statistics",
+      "reference_and_forecast_unit": "paired_fixed_grid_outcomes_and_prediction_scores_grouped_by_XNYS_session"
+    },
+    "decision_precedence": [
+      "FAIL_INTEGRITY",
+      "BLOCKED_DATA",
+      "INSUFFICIENT_EVIDENCE",
+      "FAIL_NUMERIC",
+      "PASS"
+    ]
+  },
+  "sensitivity": {
+    "mode": "DESCRIPTIVE_ONLY_NEVER_SELECT",
+    "leave_one_sensor_out": "each S member removed; renormalize only inside affected group; removal of sole credit member makes S unavailable",
+    "group_weights": "each group separately multiplied by 0.8 or 1.2 then normalize total group weights",
+    "D_leave_one_out": "report surviving pair abs robust-z separately",
+    "direction_of_result": "no pass based on a sensitivity variant"
+  },
+  "operational_reference_enabled": false,
+  "forecast_enabled": false,
+  "priority_enabled": false,
+  "confirmation_status": "NOT_STARTED_REQUIRES_FINAL_CANDIDATE_COMMIT_AND_ADMITTED_RECORDED_FEEDS",
+  "data_admission": "Current downloads are latest-vintage descriptive only for historical periods, not historic first-seen evidence."
+}

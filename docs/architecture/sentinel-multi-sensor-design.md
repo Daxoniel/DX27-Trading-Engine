@@ -49,7 +49,8 @@ flowchart TB
 ```
 
 Sensor measurement, dimension state and state-report projection are implemented
-in 6B-2H; new detectors, references and forecasts remain gated design/research. OHLCV continues through `MarketContext`;
+in 6B-2H; S/D research is implemented in 6B-2I with live data/effectiveness blocked;
+new detectors and forecasts remain gated design/research. OHLCV continues through `MarketContext`;
 non-OHLCV series require explicit adapter/domain contracts, not fabricated bars.
 
 ## Sensor dimensions and measurement boundaries
@@ -171,3 +172,13 @@ or proves useful daily equity change detection.
 - Zaremba et al. (2021), [Herding for Profits](https://www.sciencedirect.com/science/article/pii/S0264999319312982): breadth evidence at monthly/cross-country scope; not direct validation of Sentinel daily alarms. Prior review used the abstract, not a full-text audit.
 - Monin (2017), [The OFR Financial Stress Index](https://www.financialresearch.gov/working-papers/files/OFRwp-17-04_The-OFR-Financial-Stress-Index.pdf): categorized multi-market stress measurement; current stress differs from latent vulnerability.
 - OECD/JRC (2008), [Handbook on Constructing Composite Indicators](https://www.oecd.org/en/publications/handbook-on-constructing-composite-indicators-methodology-and-user-guide_9789264043466-en.html): explicit normalization, weighting and sensitivity analysis.
+
+## 6B-2I implementation checkpoint
+
+The [reference research checkpoint](sentinel-composite-reference-research.md)
+implements frozen S/D, original-cutoff support checks, contribution/scenario and
+sensitivity reports, and a fixed incremental-value experiment. The
+[reference library](../../research/sentinel/references/README.md) links every
+sensor through stable IDs and explicit source-verification scope. Real source
+admission and effectiveness remain BLOCKED_DATA; production references and
+forecasts remain disabled. No change to frozen G definitions or Priority.

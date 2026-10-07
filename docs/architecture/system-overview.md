@@ -42,7 +42,7 @@ flowchart TB
     Sensors --> State["Dimension states + relationships<br/>MarketStateSnapshot: IMPLEMENTED"]
     State -.-> Change["Validated change detectors<br/>PLANNED"]
     Change -.-> Event
-    State -.-> Reference["Pressure / relationship references<br/>RESEARCH PLANNED"]
+    State -.-> Reference["Pressure / relationship references<br/>RESEARCH IMPLEMENTED; LIVE BLOCKED"]
     State -.-> Forecast["Conditional forecasts<br/>DISABLED / RESEARCH PLANNED"]
     Event --> Discovery["DISCOVER: FROZEN DESIGN"]
     Discovery --> Priority["PRIORITIZE: FROZEN DESIGN"]
@@ -148,8 +148,9 @@ lineage evidence. MarketNow v0.2 projection is implemented as a helper, without
 implementing the full Report, Discovery or Priority engines.
 
 State calculation preserves conflicting SPY/RSP evidence and proxy qualifiers,
-and does not invent global regimes. True PIT internals stay unavailable. S/D,
-new change detectors and conditional forecasts remain disabled/unimplemented.
+and does not invent global regimes. True PIT internals stay unavailable. S/D
+research is implemented with operational output disabled; new change detectors
+and conditional forecasts remain disabled/unimplemented.
 The live operational gate is BLOCKED_DATA: real provider binding/vintage and
 >=95% operational coverage are not certified by synthetic conformance.
 
@@ -256,8 +257,11 @@ limits.
 
 **6B-2G — Multi-Sensor Contracts & Validation Protocol** is complete as a
 frozen design/protocol artifact, with an exact lock and offline validation.
-It does not implement measurements or establish effectiveness. Immediate
-**NEXT** is **6B-2I — Composite Reference & Relationship Research**.
+It does not implement measurements or establish effectiveness.
+**CURRENT** is **6B-2I — Composite Reference & Relationship Research**: causal
+S/D research and the reference library are implemented; real source admission
+and incremental effectiveness remain BLOCKED_DATA. See the
+[research checkpoint](sentinel-composite-reference-research.md).
 6B-2H state measurement/projection has passed implementation conformance; its
 real-source operational gate remains BLOCKED_DATA. Subsequent gated tasks cover
 reference incremental-value research (6B-2I), online change validation

@@ -376,3 +376,14 @@ PIT-blocked features; partial sector context; contradictory SPY/RSP states;
 input-order invariance and prefix replay with unchanged prior identities.
 Keep S/D operational calculation, detectors and forecasts outside that task.
 Proceed only to the next numbered checkpoint after review of this one.
+
+## Literature linkage and 6B-2I research checkpoint
+
+The [versioned bibliography sidecar](../../research/sentinel/references/README.md)
+associates all 18 sensor contracts and 19 feeds with stable reference IDs, pinning
+this exact protocol digest. Runtime descriptor annotations also carry the
+descriptor/library/mapping versions. It does not rewrite the frozen protocol or
+change Descriptor v1 fields. Source definitions, local formula choices, and
+validation evidence have separate provenance. See the
+[6B-2I implementation checkpoint](sentinel-composite-reference-research.md);
+real source admission and incremental effectiveness remain blocked.

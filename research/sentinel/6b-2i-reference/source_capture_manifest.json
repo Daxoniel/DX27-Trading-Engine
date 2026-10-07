@@ -1,0 +1,58 @@
+[
+  {
+    "feed": "vix",
+    "url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv",
+    "first_seen_at": "2026-10-07T13:22:10.893758+00:00",
+    "http_status": 200,
+    "content_type": "text/csv",
+    "bytes": 473431,
+    "payload_sha256": "cfcb9dce25bbbbd83aedca9a1480468bb25db2e988b3e893a4eebabb1905e1ab",
+    "historical_intraday_availability_verified": false
+  },
+  {
+    "feed": "hy_oas",
+    "url": "https://fred.stlouisfed.org/graph/?id=BAMLH0A0HYM2",
+    "first_seen_at": "2026-10-07T13:22:11.208278+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 88400,
+    "payload_sha256": "2a91935f32272eb81b9cfc6aa11cb4d656324c2f6b1918b330a7930c62d9c1b3",
+    "historical_intraday_availability_verified": false
+  },
+  {
+    "feed": "hy_metadata",
+    "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+    "first_seen_at": "2026-10-07T13:22:10.788637+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 89903,
+    "payload_sha256": "b480fb6115c3e01db861d1ba4675ba02a43a355d521a1c3f752f0f8148dec0fa",
+    "historical_intraday_availability_verified": false
+  },
+  {
+    "feed": "ust_2y",
+    "url": "https://fred.stlouisfed.org/series/DGS2",
+    "first_seen_at": "2026-10-07T13:22:11.201565+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 79488,
+    "payload_sha256": "10b855d998c00b991e30b280becebcac8db59b6049ef225c7b83798a2aa716b2",
+    "historical_intraday_availability_verified": false
+  },
+  {
+    "feed": "ust_10y",
+    "url": "https://fred.stlouisfed.org/series/DGS10",
+    "first_seen_at": "2026-10-07T13:22:11.074211+00:00",
+    "http_status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 87125,
+    "payload_sha256": "c98c2f3c4d14c124c567b045c534e547d0344dc0d81df91627f6e8dd898882f5",
+    "historical_intraday_availability_verified": false
+  },
+  {
+    "feed": "vix_methodology",
+    "url": "https://cdn.cboe.com/api/global/us_indices/governance/VIX_Methodology.pdf",
+    "capture_error": "HTTPError: HTTP Error 403: Forbidden",
+    "historical_intraday_availability_verified": false
+  }
+]
