@@ -1075,3 +1075,13 @@ No synthetic whole-market regime or composite Priority predicate is added.
 All v0.1 required containers, peer market/portfolio sections, portfolio
 performance, P0/top-K and Analyst boundaries remain. This is a frozen design
 revision, not an implemented report builder.
+
+
+## 6B-2H state-projection implementation checkpoint
+
+The [state runtime](sentinel-market-state-runtime.md) implements only the
+MarketNow v0.2 projection. It preserves units inside typed StateValue values,
+actual observation times and null unavailable values; partial sector members
+are explicit context. Snapshot references pin schema/protocol identity.
+References, forecasts and source-event lists remain empty. This helper does
+not implement the full report, portfolio, Discovery or Priority engine.

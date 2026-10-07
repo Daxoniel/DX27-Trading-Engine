@@ -112,20 +112,28 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
   offline checks pass; no runtime measurement or market-effectiveness claim.
   See [contracts and validation](docs/architecture/sentinel-sensor-contracts-v1.md).
 
+## 6B-2H checkpoint — implementation conformance
+
+- [x] **6B-2H — Multi-Dimensional Market State Snapshot** — typed scalar and
+  OHLCV/availability bridge, pinned XNYS calendar, frozen sensor measurements,
+  seven dimension states, resolvable immutable snapshots and MarketNow v0.2
+  projection. Synthetic formula/prefix conformance passes; no market-effectiveness
+  or live-provider-coverage claim.
+  See [runtime and validation](docs/architecture/sentinel-market-state-runtime.md).
+- [ ] **6B-2H live operational gate** — verify real provider metadata/bindings,
+  actual recorded availability and vintages, and >=95% required-feed coverage.
+  Current status: BLOCKED_DATA, real sample count 0 and coverage unknown.
+  Fixture completeness is not operational promotion.
+
 ## Next
 
-- [ ] **6B-2H — Multi-Dimensional Market State Snapshot** — implement the
-  frozen scalar/availability bridge and typed sensor/state contracts with a
-  versioned session calendar. Validate causal prefix replay, late/revised/missing
-  data, proxy labelling, and independent formula agreement. S/D operational
-  calculation, change detectors and forecasts remain outside this task.
+- [ ] **6B-2I — Composite Reference & Relationship Research** — implement the
+  frozen simple pressure S and separate divergence D as gated research, validate
+  formulas and incremental value under the pre-registered protocol. Live-data
+  and effectiveness gates remain separate; no composite Priority or forecast.
 
 ## Subsequent 6B-2 tasks — gated sequence
 
-- [ ] **6B-2I — Composite Reference & Relationship Research** — compare a
-  simple group-weighted pressure reference and a separate relationship-anomaly
-  reference against dimension-only baselines. Freeze formulas before OOS runs;
-  complexity requires measured incremental value.
 - [ ] **6B-2J — Online Change Detection Validation** — sequential replay of
   trend, volatility, participation, and relationship changes; measure false
   alarms, missed changes, delay, and abstention coverage. Promote only validated
@@ -135,8 +143,8 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
   incremental OOS value. Forecast output stays disabled until its own gate passes.
 
 These tasks follow the [multi-sensor architecture](docs/architecture/sentinel-multi-sensor-design.md).
-6B-2G design/verification is complete. 6B-2H is the next separate checkpoint;
-6B-2I–6B-2K remain unstarted and are gated individually.
+6B-2G design verification and 6B-2H implementation conformance are complete.
+6B-2H live operation is not approved; 6B-2I–6B-2K remain unstarted and individually gated.
 
 ## Planned
 

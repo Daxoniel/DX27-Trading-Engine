@@ -49,7 +49,22 @@ from dx27.intelligence.sentinel.universe import (
     UniverseTier,
 )
 
+from dx27.intelligence.sentinel.market_state import MarketStateBuilder, SensorRegistry, StateBuild
+from dx27.intelligence.sentinel.sensor_contracts import (
+    FeedBinding, SeriesPoint, SensorDescriptor, SensorMeasurement,
+    MarketStateSnapshot, VintageMode,
+)
+from dx27.intelligence.sentinel.sensor_inputs import (
+    AvailabilityStamp, normalize_ohlcv_close, normalize_series_point,
+)
+from dx27.intelligence.sentinel.session_calendar import SessionCalendar, TradingSession
+from dx27.intelligence.sentinel.state_projection import project_market_now
+
 __all__ = [
+    "MarketStateBuilder", "SensorRegistry", "StateBuild", "FeedBinding",
+    "SeriesPoint", "SensorDescriptor", "SensorMeasurement", "MarketStateSnapshot",
+    "VintageMode", "AvailabilityStamp", "normalize_ohlcv_close", "normalize_series_point",
+    "SessionCalendar", "TradingSession", "project_market_now",
     "ActivityAnomalyConfig",
     "ActivityAnomalyDetector",
     "ActivityAnomalyMeasurement",

@@ -1,6 +1,9 @@
 # 6B-2G — Multi-Sensor Contracts & Validation Protocol v1
 
-Status: **FROZEN DESIGN AND RESEARCH PROTOCOL; RUNTIME NOT IMPLEMENTED**.
+Status: **FROZEN 6B-2G DESIGN AND RESEARCH PROTOCOL**.
+The [6B-2H runtime](sentinel-market-state-runtime.md) now implements the state
+subset with fixture conformance. This specification and its locked protocol
+remain the original design contract, not an operational/effectiveness approval.
 The normative machine-readable registry is
 [`protocol.json`](../../research/sentinel/6b-2g-contracts/protocol.json).
 The [lock](../../research/sentinel/6b-2g-contracts/protocol_lock.json) identifies

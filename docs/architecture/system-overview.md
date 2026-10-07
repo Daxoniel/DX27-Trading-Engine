@@ -22,21 +22,24 @@ The status labels in this document are deliberate:
 
 Infrastructure providers remain behind adapters. `MarketContext` is the
 existing normalized OHLCV boundary used by Sentinel; provider or broker objects
-must not enter Sentinel domain contracts.
+must not enter Sentinel domain contracts. The implemented 6B-2H scalar bridge
+uses typed SeriesPoint and validated source-binding metadata, not fabricated
+OHLCV records for economic series.
 
 ## 2. Active architecture
 
-The implemented foundation remains observations, deterministic event contracts,
-and the minimal daily Activity Anomaly detector. The next architecture expands
-market measurement into multiple dimensions before selecting new detectors.
+The implemented foundation includes observations, deterministic event contracts,
+the minimal daily Activity Anomaly detector, and 6B-2H multi-dimensional state
+measurement. This measurement is fixture-validated; real source coverage is not
+approved. New change detectors remain future work.
 
 ```mermaid
 flowchart TB
     Data["Adapters: market / index / economic series"] --> Observation["Observation + Universe<br/>foundation IMPLEMENTED"]
     Observation --> Activity["Activity Anomaly<br/>IMPLEMENTED"]
     Activity --> Event["DetectedEvent<br/>contract IMPLEMENTED"]
-    Observation -.-> Sensors["Multi-sensor measurement<br/>DESIGN DIRECTION"]
-    Sensors -.-> State["Dimension states + relationships<br/>MarketStateSnapshot: DESIGN"]
+    Observation --> Sensors["Multi-sensor measurement<br/>IMPLEMENTED / fixture validated"]
+    Sensors --> State["Dimension states + relationships<br/>MarketStateSnapshot: IMPLEMENTED"]
     State -.-> Change["Validated change detectors<br/>PLANNED"]
     Change -.-> Event
     State -.-> Reference["Pressure / relationship references<br/>RESEARCH PLANNED"]
@@ -44,7 +47,7 @@ flowchart TB
     Event --> Discovery["DISCOVER: FROZEN DESIGN"]
     Discovery --> Priority["PRIORITIZE: FROZEN DESIGN"]
     Priority --> Report["REPORT: FROZEN DESIGN"]
-    State -.-> Report
+    State --> Report
     Reference -.-> Report
     Forecast -.-> Report
     Report --> Analyst["Optional GPT Analyst: FUTURE"]
@@ -55,8 +58,9 @@ Dashed arrows represent unimplemented design. SPY is one capitalization-weighted
 index sensor, not the market itself. Current state, observed change, reference
 values, and conditional predictions have separate semantics and validation.
 The [multi-sensor design revision](sentinel-multi-sensor-design.md) defines the
-boundaries and 6B-2G–6B-2K sequence. The first contracts and reference candidates are now frozen by
-[6B-2G](sentinel-sensor-contracts-v1.md); runtime and empirical gates remain open. GPT remains downstream of deterministic evidence.
+boundaries and 6B-2G–6B-2K sequence. The first contracts and reference candidates are frozen by
+[6B-2G](sentinel-sensor-contracts-v1.md). State runtime conformance is implemented
+in [6B-2H](sentinel-market-state-runtime.md); live-source and empirical gates remain open. GPT remains downstream of deterministic evidence.
 
 ## 3. Implemented foundation
 
@@ -134,6 +138,20 @@ ordinary non-event.
 | `SOURCE_ERROR` or `UNAVAILABLE` with `events=()` | An explicit data-availability problem prevented evaluation. |
 
 Missing data must not be converted to zero or interpreted as normal activity.
+
+### 3.5 Multi-dimensional state — 6B-2H (**IMPLEMENTED / FIXTURE VALIDATED**)
+
+The scalar/OHLCV bridge, immutable source revisions, versioned XNYS schedule,
+frozen sensor registry, sensor measurements, seven dimension states and
+`MarketStateSnapshot` are implemented. `StateBuild` retains resolvable input and
+lineage evidence. MarketNow v0.2 projection is implemented as a helper, without
+implementing the full Report, Discovery or Priority engines.
+
+State calculation preserves conflicting SPY/RSP evidence and proxy qualifiers,
+and does not invent global regimes. True PIT internals stay unavailable. S/D,
+new change detectors and conditional forecasts remain disabled/unimplemented.
+The live operational gate is BLOCKED_DATA: real provider binding/vintage and
+>=95% operational coverage are not certified by synthetic conformance.
 
 ## 4. Current detection data flow
 
@@ -217,7 +235,8 @@ seven. P0 is never silently suppressed.
 
 ### 5.4 SentinelReport (**FROZEN DESIGN**)
 
-`SentinelReport` is not implemented. `Market Now` and `Portfolio Now` are peer
+`SentinelReport` as a complete engine is not implemented; 6B-2H supplies the
+MarketNow v0.2 state-projection helper only. `Market Now` and `Portfolio Now` are peer
 top-level concepts. Future report concepts include `Attention Queue`, `Since
 Last Visit`, explicit missing-data disclosure, Account Equity, an Investment
 Performance Index, SPY as the primary benchmark, and optional QQQ or custom
@@ -238,9 +257,10 @@ limits.
 **6B-2G — Multi-Sensor Contracts & Validation Protocol** is complete as a
 frozen design/protocol artifact, with an exact lock and offline validation.
 It does not implement measurements or establish effectiveness. Immediate
-**NEXT** is **6B-2H — Multi-Dimensional Market State Snapshot**. Implement the
-frozen contracts and validate causal measurement/coverage before new detectors.
-Subsequent gated tasks cover simple pressure and relationship references (6B-2I), online change validation
+**NEXT** is **6B-2I — Composite Reference & Relationship Research**.
+6B-2H state measurement/projection has passed implementation conformance; its
+real-source operational gate remains BLOCKED_DATA. Subsequent gated tasks cover
+reference incremental-value research (6B-2I), online change validation
 (6B-2J), and separately validated conditional forecasts (6B-2K). Forecast output
 is disabled by default. The parent 6B-2 remains open; later production integration
 and Discovery, Priority and Report retain their existing roadmap numbering.

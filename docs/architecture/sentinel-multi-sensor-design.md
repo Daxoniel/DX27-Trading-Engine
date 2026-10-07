@@ -1,11 +1,13 @@
 # Sentinel multi-sensor architecture — design revision after 6B-2F
 
-Status: **AGREED DESIGN DIRECTION; RUNTIME NOT IMPLEMENTED**. Task **6B-2G**
+Status: **AGREED DESIGN DIRECTION; STATE RUNTIME FIXTURE-VALIDATED**. Task **6B-2G**
 has now frozen the first sensor/availability and output contracts, reference
 research baselines and validation protocol in the
 [versioned contract specification](sentinel-sensor-contracts-v1.md). This
 architecture remains the broader direction; the protocol governs the first
-subset. Neither document claims that new runtime measurements are implemented.
+subset. [6B-2H](sentinel-market-state-runtime.md) implements the state/measurement
+subset with fixture conformance; live-source coverage and empirical utility
+remain unpassed gates.
 
 ## Purpose and scope
 
@@ -46,7 +48,8 @@ flowchart TB
     Report --> Analyst["Optional Analyst interpretation"]
 ```
 
-All new boxes above are design concepts. OHLCV continues through `MarketContext`;
+Sensor measurement, dimension state and state-report projection are implemented
+in 6B-2H; new detectors, references and forecasts remain gated design/research. OHLCV continues through `MarketContext`;
 non-OHLCV series require explicit adapter/domain contracts, not fabricated bars.
 
 ## Sensor dimensions and measurement boundaries
@@ -85,7 +88,8 @@ revisions. Coverage and statistical reliability are separate fields.
 | `CompositeReference` | Optional pressure S, relationship anomaly D, deltas and contributions | Reference values, not priority scores or calibrated probabilities. |
 | `ConditionalForecast` | Explicit future target, horizon, conditional estimate and validation version | Disabled unless separate predictive validation passes. |
 
-The three new names are proposed contracts, not implemented classes. Snapshot
+`MarketStateSnapshot` is implemented; CompositeReference and ConditionalForecast
+remain future runtime contracts. Snapshot
 facts, change events, and optional research attachments must remain distinguishable
 in reports. The explicit SentinelReport v0.2 design revision in 6B-2G adds optional
 snapshot/reference/forecast fields; it does not silently alter v0.1 required fields.
@@ -149,9 +153,9 @@ Analyst retain their 6C–6F numbering. This is not Task 7.
 6B-1 Activity Anomaly remains the implemented minimal daily detector.
 [EWMAC research](../../research/sentinel/6b-2e-6b-2f-ewmac/README.md) is archived:
 Stage-A WEAK_PASS followed by robustness FAIL. It is a reproducible baseline,
-not a production component. 6B-2G validates the frozen protocol artifact; no new
-runtime sensor or detector is implemented by these design revisions. Sentinel
-stays read-only; execution and the separate trading-agent path are outside this
+not a production component. 6B-2G validates the frozen protocol artifact, and
+6B-2H implements fixture-validated state measurement, not new detectors.
+Sentinel stays read-only; execution and the separate trading-agent path are outside this
 preparation. LLM interpretation remains downstream of
 deterministic facts and cannot change measurements, events, or hard gates.
 
