@@ -1,0 +1,3769 @@
+{
+  "report_schema_version": "sentinel-report-multisensor-v0.2",
+  "market_now": {
+    "status": "DEGRADED",
+    "as_of": "2026-03-09T22:00:00+00:00",
+    "broad_equity": [
+      {
+        "sensor_id": "rsp_return_20",
+        "measurement_ref": "80dd0b336254106a2a7e591be354d7abcd4f126ddef66f933799336cc7e7d12e",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "amount": -0.01580000000000048
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "0a4768e1f879b20f9301498709c0a2712625912c518050f30a50c7b3b0d8e1a5",
+            "122c712cd6dd8868a0d6d9608d15eb700464fa5b4d464973f4cef713e667baf8",
+            "38948802dc5e908610da2b9b0ca62f037c6c5d524e27fd6a5528563344017071",
+            "3ed807d29ec671a5081de8c3ae6bee951c392c6791b8ad6069e5776dcc8b6bec",
+            "4f850be6f6471286847b25014706c8193b50a38b968b178c0a12905e9397c8de",
+            "5972e577c4511625d461d2e0c341a32e5f45c9afb37b937e2934ecded40888d1",
+            "5fa10800e51583d809950b2dcd564ba3918789cc53ce1cee0c1f73aa739d2add",
+            "6820607c9000ab7801d11b213ca9934f42b03f4365f2cdaad34e020af899273b",
+            "7d00c4318011b2372009e675899630861abb17ea453b1fc551070c56f6906db8",
+            "8c7c4bd7637218455d7f353a690a7f383e408ab36fb8cb437b127b59814b7a22",
+            "9463f080f7a85ee5f4d9d268071a79664e7fc76f976d63147974510a232be47e",
+            "a70ca323a3631688b25378e09d50a73e8c1be863e1f322945ca1c8ccb78e1cf6",
+            "b019eb30437a9887183fb16d4d4b2bd82d5c3981ced0442016c358f205a0df56",
+            "b78b93b83a98179462a396d7b618fa32773fdca72b27733e1030621e63d64510",
+            "b7ab872831939cd216c30282c160817c5261fa1edfd0a3bbdf995fac16a6a513",
+            "b98d57bf41a9eaef29a5275a0df456cd67d2c0cd27c87597ee6e357a68b59381",
+            "befebbe2e7353ab70ace0d5eccea3a962227513bd93286ff3fa9b779fcf96a91",
+            "c106e20a313e7a3b1100d19ee01cb9024527e18fcabe3cccb14b9f11476b01af",
+            "c45a20c2933a833618b137231a85a8427f6dfa5c9c841c79a071a95ea8f3b5d8",
+            "fa26a700dfd78dbc60fe02d99347f0dc958f2a92975ee154087de6930d9ddfba",
+            "facdfa434b0cd69e222aefd72f70fcb9b3f0a666f1a51072bc3053f253b1a549"
+          ],
+          "method_id": "log_return_20:1",
+          "qualifiers": [
+            "PROXY_FOR:rsp_return_20_economic_role_proxy",
+            "PROXY_ONLY"
+          ]
+        }
+      },
+      {
+        "sensor_id": "spy_return_20",
+        "measurement_ref": "e3f6eaaad35095d45827a2f021c2a59f48c2df43c40fb8b5489d17aaa3da21eb",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "amount": 0.08420000000000094
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f"
+          ],
+          "method_id": "log_return_20:1",
+          "qualifiers": []
+        }
+      }
+    ],
+    "leadership": [
+      {
+        "sensor_id": "iwm_spy_relative_20",
+        "measurement_ref": "1c3ca9e86d8b61df94c659beb6b5c14d57dee78de4ed5a81dc6fd3a0fd34a596",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "amount": -0.1200000000000001
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "189c391a424bf9dd8f1a94b141b07c9d24756b34486ebaf69505be183adfee03",
+            "1a6ad9b93650dfa89f170bb19f6625039ea22a644dbe208e5b81bb89520c36e0",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "24821c5496f5fbc5651a3146581088c1bf3703ac8108d34f3cfa24a1b028bda5",
+            "2731e06a9738085f11293aa3f342a4e708ec2699ed50e5f23c2288b18d416007",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "3183b09b1824dbe78f8fd41f4f0b52d3707b74554b864072b2272e32ab19ee86",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "441128853a476829d9655c8406a0804370b8c0fcccb53583b6ef5cc8c85a5944",
+            "49a3779443bc7a5e1cd4d9edae5d865835079a54d00ea943c41c37362824eae6",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "5692b8e0c82f64acfaddb78a85101133dbaca7bbf16fdd9012c2ff5570e8263e",
+            "58495c81941341fa98b2f17196ac0f3f1c34cef19e5daba5404729227fbc48df",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "721a601d4b0dc98cba60d62c418d976e103f6d1bc07ff2c5b0fd479c62b57f62",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "8ac2284afdcc4d01d9d83e5a4db54fc3593330b5be9c787ea3a5f51ef533f190",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "a7d959532950ab7919f186e7918668f2031f1c181beea6615b7ebac0ed1be041",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "b11cbcaa78a7f0da16c06f92fa00f3f3b10122169edbbf240d293b2089cb6f0d",
+            "b132d705a944b180c22b301b80e65f136da199ba2a8aecb703a8b9ab0245ed0d",
+            "bbb234b39703b8aa74b5505a10ef153056f40e91e711c22c3b3e5bb46732e5ed",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "cedaffa5de0e5f77929db371c0d6fcabd4a0d1613bfe7148da1328a6cc4ead67",
+            "d1b62e66086fc1b246e81d7edfed685040e02c9043a1f4451bf3823e1f5e8653",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d5983b3a6f6d09d2c4ff4f03ffb36c9484e07e31be768b4265ebcc5bc74e02fd",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "f0e4d1b300d2c65db78dae8477a5bb1045631811e88fe4c4f2b551ef658d6c9f",
+            "f7b337ccca23130e36827e5920fb1e6f609ffdd0d6e15ef59b9b60bc6933399b",
+            "ff71e1b18c89d31ff694354ef1cf17e291c3dbaad93d79acdabe1e1e0b41c35c"
+          ],
+          "method_id": "relative_log_return_20:1",
+          "qualifiers": [
+            "PROXY_FOR:iwm_spy_relative_20_economic_role_proxy",
+            "PROXY_ONLY"
+          ]
+        }
+      },
+      {
+        "sensor_id": "qqq_spy_relative_20",
+        "measurement_ref": "53803eec059f31246c9b9cfb37521d3cf63ae51f560d77ef17964d64adde4689",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "amount": 0.040000000000000036
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "00664ceeb5bef8d4f943ecd2fd8bae020cf4aa602bb239915c8bd1eabe43ada7",
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e5472d9d474b32e9f3b554b8dadc5db59f7603519513f6f95b8057e62a84ad6",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "314a6faa8dba63dea085ad29abf92cbc1bbd351f47c6b82c09eb535fc23a7c1c",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "3e181d24159a124e22307d58327cc865bc47955e9de6985557274e5c0029daf3",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "56f60828c82d4132872ff666fc0fc26c24ec46c83e58d2b5acf0fa31ba88e6b9",
+            "5afb9f0a7c24446d9799b00622838bb9b0ce1b54dbf70716610f7c132d038023",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "6f7a8adb1dbd49fed90f4b9dca375ec6c076429882280d4038917dae0041809e",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "9bd48fca02fb0fdcc538780accad0972e06002fc76ec4beac84da9b9160fc80c",
+            "9e2633f3ace2e24366794995e60c7f443d6a05d9eeaeef70b7bb4f7d97b0139d",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "a8504465f9205c714688909be1fa464aa0009cc5b7f326ad908ebd7859c3781c",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "b82c5d755dc34eaabc4d7c6020acc3e1e256a3f251df5c4e3ae238cb75622ee6",
+            "b83e5889e4bf60892fd0bc23f2616b0724a5020d831ed6b7b9d39381b3fb4330",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "cbd084ec92759997f83848210f55cb87cfd20ff8d6a78bfbc3df736cdb0a6f4e",
+            "ccb2867998584c02efc242539080d96781ceedd2589f70e7cf29c97dda58c83d",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d03a2553e868a8809b51a77805bcc5dd3a362de0051373f41e78055f67a47e0c",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "de132efa3ac35e408052835b6bb67ef10f22c954e56e3c6a72ed8fe2dc768b98",
+            "e0e595bb3555ab97b38204b7c292f3cb635b922423646ef5c68bb93f224d4c28",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "ef094fbc2092373a34d2fc4e04c869ec133ada3c102bff6474ef57bd9ba9ba74",
+            "f1fcc933a603c41ee9f77c252a712f0969d952d24cd312ef4cacd0962946a82d",
+            "f2a0e4e11021914d7d9aa42a92bdbb08a7c6745fe516bbce930d5b68bb4f0c2f",
+            "f3cee4c4eee55663d1e01a428035a79c75d148f216cedded17a91a069b2f6cc3"
+          ],
+          "method_id": "relative_log_return_20:1",
+          "qualifiers": [
+            "PROXY_FOR:qqq_spy_relative_20_economic_role_proxy",
+            "PROXY_ONLY"
+          ]
+        }
+      },
+      {
+        "sensor_id": "sector_relative_20",
+        "measurement_ref": "9f992e10f0d7f620fa61412474f4b0f48914c24e340fef086e6dbb793613eb6e",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "members": [
+              {
+                "subject_id": "fixture:xlb",
+                "value": -0.0600000000000005
+              }
+            ]
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "075d8239d54bb21f7e965e122a7e4a5304030c6530f82668169e0e74aa4bb201",
+            "0f732439c0dc092f3e88ae8f02338f13a1e745a52f113c70da01283b682fdfb3",
+            "1d86f1b736a3ebdda9622299a687a6f08800675b8f7e20d697931075860aa4bc",
+            "217dded603511295192eeab3fbfa3146d99e9337609416a6fb98e87fee3dad02",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "3f83600ca2dcdcb6a1627e21bba3567d63e81b69f314e76b0593a3cca81fa52f",
+            "46e9049c4ac893c0589ae6ad4b9bc3fd68e092078cfc93792e473055e960a179",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "54207b6f5c160baa1ab89c231b01f5bed78ca77d14f44835ae58ff44d27310ca",
+            "5e37d8898ef407c15081873e30b9e21bcc5ec3a453a9416e7d2c8d98dc1aca62",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "75ec3b29616c1adefabe151b50d6a630987dc02ed0be0c80b5959e4ca1d12406",
+            "7a2e56bbe6ace124904ec76e88fc4e46734ce61adcfe78b280d1d55118107737",
+            "7ee69760d3e76895807371e558a8ddfe4342249d47116df3ee49af82e3a51f07",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "97d1125c67c42e45ece281529af2ca980ff7ef9e1c02a90920a8fb145e9bb3ff",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "a4bc0c8411215a53718188ec7c5630c2922cd9a456e8ef36015523ad44576a3c",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "ae63a19396381a8375890f42324ac74f587a3351d2ca4e05ddf0844fb8ab9a85",
+            "c32a5eb5c9d81d5554adfa22f8d2fd45c3d11e267bcfb79dfa944ccf443c3eca",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "cbc61a5a7874299367a3398783c8832f5804a1e765c757f6d78c39ec81cfafe3",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "cea6f7094b343e37b538d2e64cc45d47212e32126ba8b853c546cbf1cb32a99a",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d408a2f49f287f8843e14f4c84b55de4cde39a8248df3931d11e92b7cf68334a",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "db5e431d1fb1b0601a72cdf8d9ffddcdd6d0d5da230ea79aa855c05b914c7c1d",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "e73c7b2f5b283c7ab78c15c83b9f47ac2c8844f3f93f436fec02b9c2885b90a7",
+            "fa503057e3fbc5b30ef3f6adcf91c2556aba38e91ef77375394127f300a39740"
+          ],
+          "method_id": "sector_relative_vector_20:1",
+          "qualifiers": [
+            "PROXY_FOR:sector_relative_20_economic_role_proxy",
+            "PROXY_ONLY",
+            "SECTOR_FEED:xlb",
+            "SECTOR_MEMBER_CONTEXT",
+            "SECTOR_SUBJECT:fixture:xlb"
+          ]
+        }
+      },
+      {
+        "sensor_id": "sector_relative_20",
+        "measurement_ref": "127c7b7ca32aecd0a5fa48d700d27327f00f8a205bc69501305a655d9a02fd5e",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "members": [
+              {
+                "subject_id": "fixture:xle",
+                "value": -0.0600000000000005
+              }
+            ]
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "00d0e7bb780b3295fa288b377a8b97b8e95876176bbf20a84de86bbc1186b351",
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "17a659d2cef1f84a7d7ae390a2628fc540536117d4ae71a6934419994d41977e",
+            "20bb6a443ae1204ef089f0deb3562ef06bc2c3493d7ac44d4edb4d0e867a6660",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "247d690ec2c07cde0fe0870f7ecd88a20645a290a72daf690a9c0bd25d85ee29",
+            "262b64dacdd543f71bf07c6e25502a5fb1578ad878e39d79b67de022db5776cc",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "31e9c964b25cf1ca3a0783c070bc826039a217697fe28aeb167466a9a4fedb2d",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "428078aaa2c78a54d247afeb18c08866b7a57520a19cbbfaac18e1c0abbfeb2d",
+            "4318bb143afe807b1da619e88a4a3d4e2564497b5561fd829dd6a5b6d896b30a",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "7398703b05b7bac99a7b41952834a28c7baef00c1825482540088ebf520875c5",
+            "84305004f80c2b16c3656f0e60c7740af9fd7ce7deea67cd1c6a1674f5a8e6fb",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a188c4ae460e3486e81d8fca3b58c3b2a6419f3d07b64c46e7b3d8eea317fee8",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "a91aeb7d8bb6542bf1b39fa345dc0c5948e9d54e15bc28bc579269ca835f594a",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "b1e9aa2a816b4a9dfe2c16db789949b1bb20468b252e6c0c34531d3ecf9af996",
+            "b84a787f22f27153725d4bc20b539ea3a77bc39fb892c2815f91a4d5771d113e",
+            "bb9f4c8bb0b7bc37d083fb933ffa936b33b7900ef2db300095f5b6064c47fd28",
+            "c398266a32ef142183f49bc655c124bd284d5ea2e25110a5d2d4b4c80ea79777",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "c95aef54aa27a237767e9f552568fa7e92095e26de7d4e3421c1e78843c71d24",
+            "ca45ec084b29cd4a7b4077bec979000d64f70450179db0554d70fca44d974fe0",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "dc5a9cf64c43e2fa68e01705ea56d0d70a9b75eb9c84ffaf3319f2a0b89362e1",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "f41ad6cb1f9f0dcf10674d7e2bd4d20e74a520b6bcf1ce499e0f749da62a948f",
+            "fbccaa14db3f7320638e91abd41ec4d6c2a78f6abf5207c49d899c10469d15ab"
+          ],
+          "method_id": "sector_relative_vector_20:1",
+          "qualifiers": [
+            "PROXY_FOR:sector_relative_20_economic_role_proxy",
+            "PROXY_ONLY",
+            "SECTOR_FEED:xle",
+            "SECTOR_MEMBER_CONTEXT",
+            "SECTOR_SUBJECT:fixture:xle"
+          ]
+        }
+      },
+      {
+        "sensor_id": "sector_relative_20",
+        "measurement_ref": "90fc6cae9913cd2245fb65e7c1cd88c0abdf22d1c2a228075eddcb4beb2c4514",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "members": [
+              {
+                "subject_id": "fixture:xlf",
+                "value": -0.0600000000000005
+              }
+            ]
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2483073bd702062a07d483146b49a258a7a0c4695321cdf9941c4b256642ff9d",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "3cd6ec8749c5ff8ba762e14396fb6f03ddef189d656722b160e3f9cb6d2d50c6",
+            "4e8aed7ac0b8811a635512283c229954f5aa233a2d24a9d1941d3d1ea66cd0f0",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "533b16844c3a26f3060759ba2b33705fc5796262c801f291704c5d69e88ba1d3",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "67e3fd335ebe67b40284983103a90ec29864cd97424a3e3fc38b2990f3962cf0",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "7747f0938e8791d2cfde2b2d34ee568cdb60ca8d2cff54abe299dfe3c5789b74",
+            "7e588077bcfa431c2a77f0d5eba3476b9e62179bbfa581b4a77dc2cb64155199",
+            "87d42c9e31dcad1d56c2a3d84877449ca741c8e441cafa75150e6b7ddf9acbce",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "8c36dd31ac1a2e92bdfb35c1d4879c32a995ff621295cf1cae9550a93c5a013a",
+            "926de7d631cc4d8071465d1d6650d03bfed51fc329356423483d48b0f2e91dd0",
+            "95fe501792361a9d6b9a3c272f010ceff8b802785e32e9adcc27823ddff17ea4",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "993cc9313742563fb175137dfb3de4f7add8b6daa2daa960d85970f17cb1800c",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "a5ec74118527473e3e4c6ad8527cc31f09184d3cc3700d3c5a1ba8117b8832ff",
+            "a6ae17a7e27670d24040c4a2b9cf732e328826f64eb38ba7c985cf43c027d8a1",
+            "abe01e67695b7c2279c8bf2bc7d1c9b654cc4248191c6435dfc4e5602fbc55df",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "c213d839f8522ff8e68c371cbb0d5c2137c51a440576fb332275fb3acbd3544a",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "c796a0614f801eb270ee1eed67fe31baa73cc3f223c1cccb10a5073aa4089d2d",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "d99438a266bd034e716f63610b40d124ec330e791ba331df3a1b51ef61a1b1be",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "f109581f701295fc19c6b782e591765ec4848624bdce1954ff6559d7a054419e",
+            "f1691d84669feebc3dfdb5d422befb6f8cddf1748e9bdfb69815237d5892719c",
+            "fc30613284edf5f5e1cc34b8904e4fa03c15170a981101581898be6f2fb0e10c"
+          ],
+          "method_id": "sector_relative_vector_20:1",
+          "qualifiers": [
+            "PROXY_FOR:sector_relative_20_economic_role_proxy",
+            "PROXY_ONLY",
+            "SECTOR_FEED:xlf",
+            "SECTOR_MEMBER_CONTEXT",
+            "SECTOR_SUBJECT:fixture:xlf"
+          ]
+        }
+      },
+      {
+        "sensor_id": "sector_relative_20",
+        "measurement_ref": "2e26015b3bff92c346a9adfb5b5b1501f8c498c9727c8efff08e56bfdaa46fb0",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "members": [
+              {
+                "subject_id": "fixture:xli",
+                "value": -0.0600000000000005
+              }
+            ]
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "0787083e8a5c5ebefb9fe5722370a91d875190d992e0f96725c5f13bf338dd37",
+            "16899f5495d3d3cb4d83d2d11bc3c2f2c7b919cbf0c6d7e4b5e14728c91323be",
+            "243666026a25ba3500d9f08e3e7e41688091d5044b0359da057e2a48a1a9ab97",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "442b1ead8fe003e3ff7f6dfa41cbb536ef78460315b9e374ea63664fad2d7fb5",
+            "4bedace6633b90e3bc6c4ee49636b15106b601c6cadbf54f8815644236e8e05a",
+            "4c1e26cabb65fec66cf616c2d270eb743eaa02bedc070b527fd5a0b4c08a2458",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "5fd61efb24e22282cf6131751eb499f5ed5782b9abec131d8b3f29936bcce21e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6a74bd783035aa49a5836383ece7ab6cc9dfa3eb47ea8b5fbed7d4a354f98120",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "728a38d74c7c0c5e4567b6336b0498f713b980260b46183af5ee320d0d5b3d82",
+            "743e7726188b586e568ccc87ab996d483e7dd9c571eca879b001bcebedf5e0d3",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "934bc42d1f750d4017599223633e8664a9da708b09df71f1244c66e8ac536c7f",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "9d791d431aa8a17c2923ce01411b75b01a31805032872982406e42e1ab580d22",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "b07a83376199bc83ac7224b07ff6b1794a68e39b232fed0caf25d98d822bb06c",
+            "b0d479c717abf42727ed52e5e03a4b45a6a9f203d3a2e5d0a16483b006acbcc5",
+            "b7c60f37a95637ea68a0f7d8174feea3b0293945908bc494cc6f33c547d8bf61",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "cbefd94eb7887ea1480b9d6ce85e886efea16b30e44cc6d413956eccda8301de",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "cee5c6bd055579733e8ad61ad75f5afb83dcb9a8945a4829b7ed23b0086ed3e2",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "f2a9e68efb4de573ec6418770116f853cd1d9aacf976ac932becd0ae8c39f045",
+            "f33a632ed390bd4abf89d968ea588a43a5abb4f8f615e3691dd0adc7f6325a37",
+            "f47e722c83c9a9f236cb09de306cc9462541dea6cca432df2be0facb4411c8e7",
+            "f908c0bd5145e36aff5236a0fa22ad24cf2e5b1990ca47ea8305c91a5b3a074e"
+          ],
+          "method_id": "sector_relative_vector_20:1",
+          "qualifiers": [
+            "PROXY_FOR:sector_relative_20_economic_role_proxy",
+            "PROXY_ONLY",
+            "SECTOR_FEED:xli",
+            "SECTOR_MEMBER_CONTEXT",
+            "SECTOR_SUBJECT:fixture:xli"
+          ]
+        }
+      },
+      {
+        "sensor_id": "sector_relative_20",
+        "measurement_ref": "64b0062e1996820b608fb91670e1c74bcd22effd0bec5125483073fb57e8f383",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "members": [
+              {
+                "subject_id": "fixture:xlk",
+                "value": -0.0600000000000005
+              }
+            ]
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "026e585154561be2faae4356a6ddc3c42305178c1d08dd8c914416150c3f6c47",
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "0dfdecea8500885cc1fb47527bd35a667de6d44afbf9c87f4a0004f76bb26abe",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e94df7b9886b39d4110a2f6a39e2c3f0895e3d120cc352dc7af77904ad61e4f",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "4ce5df6a8948af637f82960eda97d38b95f9685ab294da16639a37c2ace74834",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "529679878bade2f19462855ad5414b3140b46dffc9bfa6bfb26f87fcccdb51c1",
+            "5983d6fc160a396447fac916a0b4519025d25150a74cefb516243551c2df970e",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "66b1909b4ba2dbbe933f75cd6eb0f6a54b70cc720cf7fbe1e12e8cdc80a01bae",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "7a5028258d04c97fc70596bad7abd00898b7a6c8994481924913a41837c566f3",
+            "7c2d05307bafd3a2e9c92e003f475002c726f5bf574824dd342228f35b84d439",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "89c07a213ef7591498bf169e61bc764423fae301f37d74d459af8fb95d5f1ce7",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "a2e130b10b246a6bc75854e01395adb9c782c0a141915d8063ca654cd46ceda1",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "b03710a13a7480c3f9f8f03fe3ed1ada9be72585f5ed59ce554055c92c55a2e5",
+            "b0945c1e7efcf4260a9fe120d692dc53cddba554f9fb2d4fde318ede9aaab979",
+            "b5570b755e26ba12bf5486fac420cfb5af1ae954466fb12535c2dd0b68653eff",
+            "bf80128e0216c3af047481a40c8801fc21d793837c97710fb4db0aa4bb20717c",
+            "c011f294ccd6d700963fdc45f308b70040c7d17c5a395393f035e4f0dc6054cb",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d5fb5cfe99dbeb39942a1951b64c9dbe82d8b0d60e2d4d6b385c98f265a141de",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "d9fe1f5007d9648d7b7fecfb1e8852597515d6f414d843c7c5292089a6ccf321",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "e5715ecb3a3cd2914fa0c82e51faf0e6e9eff0fd71404ac9e5546b2df3adc240",
+            "e62493e0cf583f8fb80e26cb2e1e7f1646e48e760dc17333a72c482015cd5231",
+            "f05db00ff14c62fe72486af94ec131dad6636dd9bff0154e9da7d329c711a098"
+          ],
+          "method_id": "sector_relative_vector_20:1",
+          "qualifiers": [
+            "PROXY_FOR:sector_relative_20_economic_role_proxy",
+            "PROXY_ONLY",
+            "SECTOR_FEED:xlk",
+            "SECTOR_MEMBER_CONTEXT",
+            "SECTOR_SUBJECT:fixture:xlk"
+          ]
+        }
+      },
+      {
+        "sensor_id": "sector_relative_20",
+        "measurement_ref": "0a6e0e8785c03cb32000d884c7e1f841ab8e445de071fd64613d24fe4129ecc2",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "members": [
+              {
+                "subject_id": "fixture:xlp",
+                "value": -0.0600000000000005
+              }
+            ]
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "04adc9dc358cd0d6111f8e7b5b05d38088189e436e880f6812f5325252afc31d",
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "1575b79998f8decb536243f5fe3d247002ba4895ddc6e4e07ccc147b41606c34",
+            "1fbb4aec527a22a10ea2d3eb42c750fff07bc8754c17423e3db3f3d61484aa05",
+            "21e45e602e8766e389ee45666caa685b323fc75238839465d9b045e50fbca2c1",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "285523e3e9a0a668826c4d20dfc38dab8220f96c6837cb6fae0a7cc1ac64e86a",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "3450c5d610207fb836b16e936f71a0d8660d4f0f7ede4dd54e14415a31898b50",
+            "355c921e20f55ff22e032878fd464480111f44a07f18a4dfa3b4b642cc940e5e",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "49962be11f4fd5b77d90f98661764453d43a2774e226ad877717c23079639f5b",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "5161faa08456beefa008b8090345ead7c86f2375f1f50ebf4e1b5360e5473cde",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "6199af351367e3391777243e01ae4bc5b6f4e0ab9d324ca07e2f3be82a123a29",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "64ebb108fd151a6a527686873ad7191fae4827459cb4688013725c0e86f6244f",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "89cc0609e03c6942d465930427a7947dcda0897ac0a32c348cb5281ec39b5044",
+            "8cddc26ab3ff662d740282246cbd1a96ad78111810315b8868aa88d0d9324ed5",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "9b93dbf13d6f3d8f07ad66f6ab8a4c1a0c9c16ab56708117ebb12c4c9f3697d7",
+            "a0c279e2239ded712d4bfe1f1baa822838440390056eab49e028d0575cbcb189",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "a4554cee0ca8967691e07398e5d33c852e07fb40eb8488a23c0d4e1af55d0de2",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "b6ed68001355107162bc746986b59328d0237b7bb2489b236b97f0a02021041e",
+            "b97f2c09e81c24d41eee0cca2fff67f2aeab406ab8f2986a2a205de5a8e8d3fd",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "ccc9224e0f547a7743fd81620573fc1c0d07c5b0f9e254d0c0ed0f0417c82e17",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "dce9838bacb1efb297d6c9c3c5af021fbe6e379e44eac24a5f6662cb6a182009",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "e741ace1f24116889f13795dec050137a62936d7e835f5eaf90ff2d898e443e0"
+          ],
+          "method_id": "sector_relative_vector_20:1",
+          "qualifiers": [
+            "PROXY_FOR:sector_relative_20_economic_role_proxy",
+            "PROXY_ONLY",
+            "SECTOR_FEED:xlp",
+            "SECTOR_MEMBER_CONTEXT",
+            "SECTOR_SUBJECT:fixture:xlp"
+          ]
+        }
+      },
+      {
+        "sensor_id": "sector_relative_20",
+        "measurement_ref": "c032ce71849c2c53811fe8c6d5e2f03d8b663f981e3c33131d402147de7a58fa",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "members": [
+              {
+                "subject_id": "fixture:xlu",
+                "value": -0.0600000000000005
+              }
+            ]
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "0003abbd22e77d6e56ff3219148f6d6050349340bb72c2587f405421341f8041",
+            "0578eb27d798996eaa7f22ca8dd59406990e5489b135c90d760b26ac2f3d9943",
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "151f51aee8cc27ec8feede680fc693552564c256932ae5cce78e9fba9447e792",
+            "1714095c6d02ff944d9f2d4e17f62681ffc4fb803e68aca16edc071ad60f308a",
+            "1f2bb38caebba9f0271db195f8e2340a98120f84d47952f7c5563901aa27b816",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "3b793c2a6dc23d0c5c637a7d85f12ca1cb2030238348a1e8b3072b70245dcc27",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "54877b5df682b51c5427bd425d912952676f50cccf010326e4030ac8984ad24c",
+            "57815ef2fe5b1818b1876a43a5b727eb64539851f277f999a37bc6500b679764",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "5ee4cc767b8d531ad706f03f59b98fae9878d2af2ec9c01c24900a56725cd671",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6572333d862b1d03c9edafb48042d56c59d778248b80a41a17e8cbfa00e43dae",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "6dcd6597504c31cc75359fea59db89c0c710bdc0fb092f45f010ff2ee1a12d34",
+            "74734a20a321bb04dcbd78130c28a62fb89fe8b982416ce1ddb2fe6e350ef166",
+            "79d795236867b60ea4c550368ecdb50abfc2df1560080d137a5005c3b19b80f4",
+            "88c4ca781672b96bc11b7a001de36708fee1d02ef439cd70f09fcb52a028b73c",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "963b12eaea2b6f976cad765e30c3e03851f735ef9a78db6c18ad26b6fe8679d8",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "abee792f80bf45a46fbbd640084a2d045af721cf27b6993f195099891e048ba1",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "ae9b403598da251ad2dff854cde8504c28133ef472a91427c09bbfdf8b002073",
+            "bcead6058acda7f7181052b274d4f2c1033466fb1e55b20ffe05559d26208b6a",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "c6f7cdf7e0161fd38595b61622919e490972461989b69558d66923437d7e2226",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "e4841272f27190a7a94420a298c7e8d47372990f8738b6106b25064ab728ac87",
+            "ebfbb8d5c4142d141d5c80625f0769c47c2f55b16a13ad8f26fd64178dcbb5f7"
+          ],
+          "method_id": "sector_relative_vector_20:1",
+          "qualifiers": [
+            "PROXY_FOR:sector_relative_20_economic_role_proxy",
+            "PROXY_ONLY",
+            "SECTOR_FEED:xlu",
+            "SECTOR_MEMBER_CONTEXT",
+            "SECTOR_SUBJECT:fixture:xlu"
+          ]
+        }
+      },
+      {
+        "sensor_id": "sector_relative_20",
+        "measurement_ref": "0922ddc254830a9383b1d74f623bea6966da3a29b1de52c60591fe93ca08829b",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "members": [
+              {
+                "subject_id": "fixture:xlv",
+                "value": -0.0600000000000005
+              }
+            ]
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "11451bce4522c989d777f2e392eaab425025f6d01fe7af026da0470c6bffe10d",
+            "1d3a3b6cc42948709869133b428eb6a35ef06cf658c4b833001e22a9e7a624ee",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2ba612b454a0d6956f8a0f18157f06a554bf18e044ed08f40daca4b886235cb8",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "395225a51ff1ac2de84e730a80416919ac974719f4a871d13d0d87f8710b8579",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "3d8e385c05ee554dcaf6393bb87ded116770f02a9c1cc02c53fed5cb5610a652",
+            "489735bdaa549dffb21494de793d5f8b6319c4a3d1d2c239cbb194bd3806269f",
+            "4ea83a81de4cd5e47c56ba6f6fe377ef74933521f625093e8b15e38f98b2a861",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "57e9c608631d9f021db1b94dcae145d7bdf54f44696f517bc6fd3bf82536c689",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "652b1cb8bc1b5acf0d0963f39ebc0b7a621cd1c716c05136bea70dd28e0bc21d",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "8612bc91cdb99267b520923257440e3d2a22e55b8f2079d5c375acb0cee5d0fe",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "8a1a7d50f65a326cd3c20a1e3696592f3004ff216bddcce788470e1c949dc8d1",
+            "96955d3afe8d097f47e57f737483e53fbd80acff2686cf171ad11978dc900f65",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "af082e247698aad89f19eb095bdb24df0ec75a6c3df5a603dd8fafad13784e29",
+            "b76df9dd5ba1a34576196ca0b3d56e5ed96cedde1a21b9ccbd11662c6c2a9ee1",
+            "b7ec63a52597c23923c1c5a0a62f641d95bffecb76748f40d24b77bcd1c965ff",
+            "bad0a7c2c8aa450d78e1988100dfb439a2e7670b82be8ffe8bf447055bcfa257",
+            "c4f1163d1cfefe47ee88607e3c78761056fa5b80a52fedb18ccb265be4cd65a4",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d11ad70c78a2c7b72facb7899b9cea075825eab0610ef961acc8becf7e4ced10",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "e352547b3ca52b20d6313550b6511f62bf4885838b720d43dc016136520e701d",
+            "f3c038a150f9ca8e91fc31a9a8f3e068e2b4ff4aa05e2bf4a8ac0d8172328ef5",
+            "f465ed9fada2ff1edeb0d9a819275728f95c5b78ae3c8feecd27a449542918b9"
+          ],
+          "method_id": "sector_relative_vector_20:1",
+          "qualifiers": [
+            "PROXY_FOR:sector_relative_20_economic_role_proxy",
+            "PROXY_ONLY",
+            "SECTOR_FEED:xlv",
+            "SECTOR_MEMBER_CONTEXT",
+            "SECTOR_SUBJECT:fixture:xlv"
+          ]
+        }
+      },
+      {
+        "sensor_id": "sector_relative_20",
+        "measurement_ref": "0bd6a97b8edaccdd99fabbad03e715cf2d76a6a6c7b86197dc4529da17456ace",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "members": [
+              {
+                "subject_id": "fixture:xly",
+                "value": -0.0600000000000005
+              }
+            ]
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "003d17577ca05bff49ed36f9b4cdb7eccde49b2bcca7bd65621404418e829b31",
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "14c5b60beb57e6c289d191cd50537b87d798f7beb5da9224e86c45a3723b2c25",
+            "2194886e2701f4218839f3ada208eec0766e36c3f925345cbfd88eae7766b3ab",
+            "221b87cf578db8b69229de8b0557fc83516ff9f35601a0416eee5293141df5ad",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "3b1c5d29c944b7b143c3bdafeb82a4a1f5e499cc679f16b32e9f3c21b802622b",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "4681b9e79efc6b9e7ad3426990eaf0cea4de3461f5aebb51294d8ebaa93c3c7e",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "50816a57bc94ebdc400dfde21b6350fd44aa00cf772d690a083f4eed90c1b08d",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6b0b1ff04459a1d09fca85414cc7de5b2828183175be6c093511fb4fa192c0bb",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "6d16e3739d53ac3fec0e9a6f6408755d2cf2378fe93f91e79182276e0fa6a6c8",
+            "71f920e1205ad00de3459464d64254f97c218a3539b1bd99ab23dd4ecc22ea70",
+            "7c4c0d26ba936999014f795222353974788b53a3c721ddcd7edab6079b71ab9b",
+            "7c9946f7a96265c07422566b91ce92ebf51548d4269d3fa13468600aef585ce6",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "a48b0375c3c160b39868cd2280e45ff687b81db59f48512f895e5312092b758a",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "af05ac089f89628ec78526a540b14eca541b520d39c1b3a90a1bceffd2a15938",
+            "b53654056612ad20f015b9865c3378c31daa657f60a3e31912c237170d7b8d4a",
+            "c1eb18b1de527d806c5b30bf720265b05500b3fca91a541a9f4214eb88d5cc5a",
+            "c5cd266e13e17bcf126401d585c8efea2a46511a66b15f2faae4523a4a0909fa",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "cd489c70684e7b6db46eb35e16fac24225d3a4671be54335d381efa309d65a36",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d304b6be07b578650c70316bacfddaaa30714ea101f64202dc1e90127214c935",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "df9102535f0064cd69a566d7c921f65a5ee84f61797c479f682057719fcd94fe",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "eff0b4fac640c1022885c88f6ede838a5532f2c483b214665cd1877052cc186a"
+          ],
+          "method_id": "sector_relative_vector_20:1",
+          "qualifiers": [
+            "PROXY_FOR:sector_relative_20_economic_role_proxy",
+            "PROXY_ONLY",
+            "SECTOR_FEED:xly",
+            "SECTOR_MEMBER_CONTEXT",
+            "SECTOR_SUBJECT:fixture:xly"
+          ]
+        }
+      }
+    ],
+    "participation": [
+      {
+        "sensor_id": "constituent_breadth_20",
+        "measurement_ref": "f893f4b0fa7895f841e65ba8fd225bbf94ef7bb3d3be7404255cf300df75b039",
+        "state": {
+          "value": null,
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "UNAVAILABLE",
+          "source_refs": [],
+          "evidence_refs": [],
+          "method_id": "pit_positive_return_fraction_20:1",
+          "qualifiers": [
+            "BLOCKED_PIT_INPUTS",
+            "TRUE_BREADTH_UNAVAILABLE"
+          ]
+        }
+      },
+      {
+        "sensor_id": "mega7_return_contribution_20",
+        "measurement_ref": "f531cdd925d97c26b0cc7f5741c536abd8ee2488ff1c05edab1261578f3ae09b",
+        "state": {
+          "value": null,
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "UNAVAILABLE",
+          "source_refs": [],
+          "evidence_refs": [],
+          "method_id": "pit_fixed_group_contribution_20:1",
+          "qualifiers": [
+            "BLOCKED_PIT_INPUTS",
+            "TRUE_BREADTH_UNAVAILABLE"
+          ]
+        }
+      },
+      {
+        "sensor_id": "rsp_spy_relative_20",
+        "measurement_ref": "9d3f942c0ecc41ef12a078e463d5c60a88b82c8d4bef6a3eb905787e5e657932",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "amount": -0.10000000000000142
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "0a4768e1f879b20f9301498709c0a2712625912c518050f30a50c7b3b0d8e1a5",
+            "122c712cd6dd8868a0d6d9608d15eb700464fa5b4d464973f4cef713e667baf8",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "38948802dc5e908610da2b9b0ca62f037c6c5d524e27fd6a5528563344017071",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "3ed807d29ec671a5081de8c3ae6bee951c392c6791b8ad6069e5776dcc8b6bec",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "4f850be6f6471286847b25014706c8193b50a38b968b178c0a12905e9397c8de",
+            "5972e577c4511625d461d2e0c341a32e5f45c9afb37b937e2934ecded40888d1",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "5fa10800e51583d809950b2dcd564ba3918789cc53ce1cee0c1f73aa739d2add",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6820607c9000ab7801d11b213ca9934f42b03f4365f2cdaad34e020af899273b",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "7d00c4318011b2372009e675899630861abb17ea453b1fc551070c56f6906db8",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "8c7c4bd7637218455d7f353a690a7f383e408ab36fb8cb437b127b59814b7a22",
+            "9463f080f7a85ee5f4d9d268071a79664e7fc76f976d63147974510a232be47e",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "a70ca323a3631688b25378e09d50a73e8c1be863e1f322945ca1c8ccb78e1cf6",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "b019eb30437a9887183fb16d4d4b2bd82d5c3981ced0442016c358f205a0df56",
+            "b78b93b83a98179462a396d7b618fa32773fdca72b27733e1030621e63d64510",
+            "b7ab872831939cd216c30282c160817c5261fa1edfd0a3bbdf995fac16a6a513",
+            "b98d57bf41a9eaef29a5275a0df456cd67d2c0cd27c87597ee6e357a68b59381",
+            "befebbe2e7353ab70ace0d5eccea3a962227513bd93286ff3fa9b779fcf96a91",
+            "c106e20a313e7a3b1100d19ee01cb9024527e18fcabe3cccb14b9f11476b01af",
+            "c45a20c2933a833618b137231a85a8427f6dfa5c9c841c79a071a95ea8f3b5d8",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "fa26a700dfd78dbc60fe02d99347f0dc958f2a92975ee154087de6930d9ddfba",
+            "facdfa434b0cd69e222aefd72f70fcb9b3f0a666f1a51072bc3053f253b1a549"
+          ],
+          "method_id": "relative_log_return_20:1",
+          "qualifiers": [
+            "PROXY_FOR:participation_weighting_divergence_not_constituent_breadth",
+            "PROXY_ONLY",
+            "TRUE_BREADTH_UNAVAILABLE"
+          ]
+        }
+      },
+      {
+        "sensor_id": "top7_weight",
+        "measurement_ref": "7479f274610f34f1b6bed59ac510a5166abdea16c423c2fff02e8333189dad1b",
+        "state": {
+          "value": null,
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "UNAVAILABLE",
+          "source_refs": [],
+          "evidence_refs": [],
+          "method_id": "pit_top7_weight_fraction:1",
+          "qualifiers": [
+            "BLOCKED_PIT_INPUTS",
+            "TRUE_BREADTH_UNAVAILABLE"
+          ]
+        }
+      }
+    ],
+    "volatility": [
+      {
+        "sensor_id": "spy_rv_20",
+        "measurement_ref": "13736f5e5bbf74b6392260ce29fc5fca14183f800402d229f9e2140ef4f20d46",
+        "state": {
+          "value": {
+            "unit": "percent_annualized",
+            "amount": 4.909332466146431
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f"
+          ],
+          "method_id": "sample_rv_20:1",
+          "qualifiers": []
+        }
+      },
+      {
+        "sensor_id": "spy_rv_5_over_20",
+        "measurement_ref": "ddd98dee883eca4abd4089d89bc9cf5e7374297ae07908d768be15e7055097c2",
+        "state": {
+          "value": {
+            "unit": "ratio",
+            "amount": 1.0461878772476763
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f"
+          ],
+          "method_id": "rv_ratio_5_20:1",
+          "qualifiers": []
+        }
+      },
+      {
+        "sensor_id": "vix_level",
+        "measurement_ref": "5dbaac476b95d996c785345d0bb1c56f4b3b35f8b29e7eb318d774d0981bbb31",
+        "state": {
+          "value": {
+            "unit": "percent_annualized",
+            "amount": 18.0
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "ea248558cd1162e4858514c7bc2d9029810e912792fdf3e26712d6610396ea08"
+          ],
+          "method_id": "latest_point:1",
+          "qualifiers": []
+        }
+      },
+      {
+        "sensor_id": "vix_minus_rv_20",
+        "measurement_ref": "21063b0cec005fc778992c20088f26fcd1825f185e59fe4ce97dc3a9e4c91887",
+        "state": {
+          "value": {
+            "unit": "percentage_points",
+            "amount": 13.09066753385357
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "ea248558cd1162e4858514c7bc2d9029810e912792fdf3e26712d6610396ea08"
+          ],
+          "method_id": "implied_minus_realized_20:1",
+          "qualifiers": [
+            "PROXY_FOR:vix_minus_rv_20_economic_role_proxy",
+            "PROXY_ONLY"
+          ]
+        }
+      }
+    ],
+    "rates": [
+      {
+        "sensor_id": "ust_10y_level",
+        "measurement_ref": "5df09172ef82b785a8dd598003ec190d7b3a3eb32c26aa81af7e38e92996fc8e",
+        "state": {
+          "value": {
+            "unit": "percent_per_annum",
+            "amount": 4.0
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "7a8a7831b3bd38a92cf4643c835a2de06e39b1e4a517cf6e6324345eb0ddb641"
+          ],
+          "method_id": "latest_point:1",
+          "qualifiers": []
+        }
+      },
+      {
+        "sensor_id": "ust_10y_minus_2y",
+        "measurement_ref": "b81f06a7ff5879f8613d0c3987b7a6e4eacee4224c6a3e00f23121ddf509151a",
+        "state": {
+          "value": {
+            "unit": "basis_points",
+            "amount": 150.0
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "10da88fcb88c246f4c95a087c7d0efafb53a5abde3d478476e60077cf0637076",
+            "7a8a7831b3bd38a92cf4643c835a2de06e39b1e4a517cf6e6324345eb0ddb641"
+          ],
+          "method_id": "yield_slope:1",
+          "qualifiers": []
+        }
+      },
+      {
+        "sensor_id": "ust_2y_level",
+        "measurement_ref": "de77d6699934e7f93bebe0d3320b0d611b01ad321ef29067ba9eca34578e17ba",
+        "state": {
+          "value": {
+            "unit": "percent_per_annum",
+            "amount": 2.5
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "10da88fcb88c246f4c95a087c7d0efafb53a5abde3d478476e60077cf0637076"
+          ],
+          "method_id": "latest_point:1",
+          "qualifiers": []
+        }
+      }
+    ],
+    "credit": [
+      {
+        "sensor_id": "hy_oas_level",
+        "measurement_ref": "079f6c8cb713fb771bb3d0f235db0f8995856e19321fe5ab8c34d32a0416c330",
+        "state": {
+          "value": {
+            "unit": "basis_points",
+            "amount": 320.0
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "bb7e69bf360fa45f3d159d15756ef33df1f3039c3a646edd67ee2cbf9ff5e578"
+          ],
+          "method_id": "latest_point:1",
+          "qualifiers": []
+        }
+      }
+    ],
+    "usd_and_macro_series": [],
+    "major_relationships": [
+      {
+        "sensor_id": "iwm_spy_relative_20",
+        "measurement_ref": "1c3ca9e86d8b61df94c659beb6b5c14d57dee78de4ed5a81dc6fd3a0fd34a596",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "amount": -0.1200000000000001
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "189c391a424bf9dd8f1a94b141b07c9d24756b34486ebaf69505be183adfee03",
+            "1a6ad9b93650dfa89f170bb19f6625039ea22a644dbe208e5b81bb89520c36e0",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "24821c5496f5fbc5651a3146581088c1bf3703ac8108d34f3cfa24a1b028bda5",
+            "2731e06a9738085f11293aa3f342a4e708ec2699ed50e5f23c2288b18d416007",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "3183b09b1824dbe78f8fd41f4f0b52d3707b74554b864072b2272e32ab19ee86",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "441128853a476829d9655c8406a0804370b8c0fcccb53583b6ef5cc8c85a5944",
+            "49a3779443bc7a5e1cd4d9edae5d865835079a54d00ea943c41c37362824eae6",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "5692b8e0c82f64acfaddb78a85101133dbaca7bbf16fdd9012c2ff5570e8263e",
+            "58495c81941341fa98b2f17196ac0f3f1c34cef19e5daba5404729227fbc48df",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "721a601d4b0dc98cba60d62c418d976e103f6d1bc07ff2c5b0fd479c62b57f62",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "8ac2284afdcc4d01d9d83e5a4db54fc3593330b5be9c787ea3a5f51ef533f190",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "a7d959532950ab7919f186e7918668f2031f1c181beea6615b7ebac0ed1be041",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "b11cbcaa78a7f0da16c06f92fa00f3f3b10122169edbbf240d293b2089cb6f0d",
+            "b132d705a944b180c22b301b80e65f136da199ba2a8aecb703a8b9ab0245ed0d",
+            "bbb234b39703b8aa74b5505a10ef153056f40e91e711c22c3b3e5bb46732e5ed",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "cedaffa5de0e5f77929db371c0d6fcabd4a0d1613bfe7148da1328a6cc4ead67",
+            "d1b62e66086fc1b246e81d7edfed685040e02c9043a1f4451bf3823e1f5e8653",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d5983b3a6f6d09d2c4ff4f03ffb36c9484e07e31be768b4265ebcc5bc74e02fd",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "f0e4d1b300d2c65db78dae8477a5bb1045631811e88fe4c4f2b551ef658d6c9f",
+            "f7b337ccca23130e36827e5920fb1e6f609ffdd0d6e15ef59b9b60bc6933399b",
+            "ff71e1b18c89d31ff694354ef1cf17e291c3dbaad93d79acdabe1e1e0b41c35c"
+          ],
+          "method_id": "relative_log_return_20:1",
+          "qualifiers": [
+            "PROXY_FOR:iwm_spy_relative_20_economic_role_proxy",
+            "PROXY_ONLY"
+          ]
+        }
+      },
+      {
+        "sensor_id": "qqq_spy_relative_20",
+        "measurement_ref": "53803eec059f31246c9b9cfb37521d3cf63ae51f560d77ef17964d64adde4689",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "amount": 0.040000000000000036
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "00664ceeb5bef8d4f943ecd2fd8bae020cf4aa602bb239915c8bd1eabe43ada7",
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e5472d9d474b32e9f3b554b8dadc5db59f7603519513f6f95b8057e62a84ad6",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "314a6faa8dba63dea085ad29abf92cbc1bbd351f47c6b82c09eb535fc23a7c1c",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "3e181d24159a124e22307d58327cc865bc47955e9de6985557274e5c0029daf3",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "56f60828c82d4132872ff666fc0fc26c24ec46c83e58d2b5acf0fa31ba88e6b9",
+            "5afb9f0a7c24446d9799b00622838bb9b0ce1b54dbf70716610f7c132d038023",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "6f7a8adb1dbd49fed90f4b9dca375ec6c076429882280d4038917dae0041809e",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "9bd48fca02fb0fdcc538780accad0972e06002fc76ec4beac84da9b9160fc80c",
+            "9e2633f3ace2e24366794995e60c7f443d6a05d9eeaeef70b7bb4f7d97b0139d",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "a8504465f9205c714688909be1fa464aa0009cc5b7f326ad908ebd7859c3781c",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "b82c5d755dc34eaabc4d7c6020acc3e1e256a3f251df5c4e3ae238cb75622ee6",
+            "b83e5889e4bf60892fd0bc23f2616b0724a5020d831ed6b7b9d39381b3fb4330",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "cbd084ec92759997f83848210f55cb87cfd20ff8d6a78bfbc3df736cdb0a6f4e",
+            "ccb2867998584c02efc242539080d96781ceedd2589f70e7cf29c97dda58c83d",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d03a2553e868a8809b51a77805bcc5dd3a362de0051373f41e78055f67a47e0c",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "de132efa3ac35e408052835b6bb67ef10f22c954e56e3c6a72ed8fe2dc768b98",
+            "e0e595bb3555ab97b38204b7c292f3cb635b922423646ef5c68bb93f224d4c28",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "ef094fbc2092373a34d2fc4e04c869ec133ada3c102bff6474ef57bd9ba9ba74",
+            "f1fcc933a603c41ee9f77c252a712f0969d952d24cd312ef4cacd0962946a82d",
+            "f2a0e4e11021914d7d9aa42a92bdbb08a7c6745fe516bbce930d5b68bb4f0c2f",
+            "f3cee4c4eee55663d1e01a428035a79c75d148f216cedded17a91a069b2f6cc3"
+          ],
+          "method_id": "relative_log_return_20:1",
+          "qualifiers": [
+            "PROXY_FOR:qqq_spy_relative_20_economic_role_proxy",
+            "PROXY_ONLY"
+          ]
+        }
+      },
+      {
+        "sensor_id": "rsp_spy_relative_20",
+        "measurement_ref": "9d3f942c0ecc41ef12a078e463d5c60a88b82c8d4bef6a3eb905787e5e657932",
+        "state": {
+          "value": {
+            "unit": "log_return",
+            "amount": -0.10000000000000142
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "0a4768e1f879b20f9301498709c0a2712625912c518050f30a50c7b3b0d8e1a5",
+            "122c712cd6dd8868a0d6d9608d15eb700464fa5b4d464973f4cef713e667baf8",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "38948802dc5e908610da2b9b0ca62f037c6c5d524e27fd6a5528563344017071",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "3ed807d29ec671a5081de8c3ae6bee951c392c6791b8ad6069e5776dcc8b6bec",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "4f850be6f6471286847b25014706c8193b50a38b968b178c0a12905e9397c8de",
+            "5972e577c4511625d461d2e0c341a32e5f45c9afb37b937e2934ecded40888d1",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "5fa10800e51583d809950b2dcd564ba3918789cc53ce1cee0c1f73aa739d2add",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6820607c9000ab7801d11b213ca9934f42b03f4365f2cdaad34e020af899273b",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "7d00c4318011b2372009e675899630861abb17ea453b1fc551070c56f6906db8",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "8c7c4bd7637218455d7f353a690a7f383e408ab36fb8cb437b127b59814b7a22",
+            "9463f080f7a85ee5f4d9d268071a79664e7fc76f976d63147974510a232be47e",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "a70ca323a3631688b25378e09d50a73e8c1be863e1f322945ca1c8ccb78e1cf6",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "b019eb30437a9887183fb16d4d4b2bd82d5c3981ced0442016c358f205a0df56",
+            "b78b93b83a98179462a396d7b618fa32773fdca72b27733e1030621e63d64510",
+            "b7ab872831939cd216c30282c160817c5261fa1edfd0a3bbdf995fac16a6a513",
+            "b98d57bf41a9eaef29a5275a0df456cd67d2c0cd27c87597ee6e357a68b59381",
+            "befebbe2e7353ab70ace0d5eccea3a962227513bd93286ff3fa9b779fcf96a91",
+            "c106e20a313e7a3b1100d19ee01cb9024527e18fcabe3cccb14b9f11476b01af",
+            "c45a20c2933a833618b137231a85a8427f6dfa5c9c841c79a071a95ea8f3b5d8",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "fa26a700dfd78dbc60fe02d99347f0dc958f2a92975ee154087de6930d9ddfba",
+            "facdfa434b0cd69e222aefd72f70fcb9b3f0a666f1a51072bc3053f253b1a549"
+          ],
+          "method_id": "relative_log_return_20:1",
+          "qualifiers": [
+            "PROXY_FOR:participation_weighting_divergence_not_constituent_breadth",
+            "PROXY_ONLY",
+            "TRUE_BREADTH_UNAVAILABLE"
+          ]
+        }
+      },
+      {
+        "sensor_id": "sofr_minus_effr",
+        "measurement_ref": "18f3a9e22430ef6892fe994ae96e872d56b76f4a3f1ddfe0626f73d0ad92623c",
+        "state": {
+          "value": {
+            "unit": "basis_points",
+            "amount": 9.999999999999964
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "17f739eb269e025b458e4a3bd4b65de21fc7ef782dcdaebc1d5f9b9877d33a06",
+            "a60b3bf6314de4957435cf5d90a8f7097451b9528a2055e25d9a239d13d7e108"
+          ],
+          "method_id": "funding_spread:1",
+          "qualifiers": []
+        }
+      },
+      {
+        "sensor_id": "ust_10y_minus_2y",
+        "measurement_ref": "b81f06a7ff5879f8613d0c3987b7a6e4eacee4224c6a3e00f23121ddf509151a",
+        "state": {
+          "value": {
+            "unit": "basis_points",
+            "amount": 150.0
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "10da88fcb88c246f4c95a087c7d0efafb53a5abde3d478476e60077cf0637076",
+            "7a8a7831b3bd38a92cf4643c835a2de06e39b1e4a517cf6e6324345eb0ddb641"
+          ],
+          "method_id": "yield_slope:1",
+          "qualifiers": []
+        }
+      },
+      {
+        "sensor_id": "vix_minus_rv_20",
+        "measurement_ref": "21063b0cec005fc778992c20088f26fcd1825f185e59fe4ce97dc3a9e4c91887",
+        "state": {
+          "value": {
+            "unit": "percentage_points",
+            "amount": 13.09066753385357
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-09",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-10",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-11",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-12",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-13",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-17",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-18",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-19",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-20",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-23",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-24",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-25",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-26",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-02-27",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-02",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-03",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-04",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-05",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-06",
+              "source_version": "1"
+            },
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "060702a5e5b1f533838acd0e9eee0dbb83bb517a264a1e094083ed8779de6650",
+            "2475c38956816744b1e47780edd1654d65a7823a9daa512fbe230b225fc79353",
+            "2d564a0d7fc8a3180bc190db2d1383d93f80e3977f96a3c653dabf9ec8df5281",
+            "2e966c393bd1c1e38d3a7555898817c1bd57bff20aeb75204d9674816ffe6ffb",
+            "3b96707af42cfbc5695426186b1af4b6caff95b1469e69591bc398b8a9ba675a",
+            "4eea3584faacc9f35eae29a70ba3c7d1ef3b7a9d3854d3190c39bb7aa5d2391a",
+            "5e7f91b26deeba20f1c150b0736b49ad67fc8de7c2e33231c69a9cbc89ef074e",
+            "620f4b841fd0c79e4773984dbf2c409d2beb34bf34cd6dae9491f8afe2a2f4f7",
+            "630425b80ddaab83fc186b53f77257371a12343295102c57040e5c006e547309",
+            "6c9acabce37b60570ac56fc3051ec6c1cb6ba59b37167da72e942e5978bf5499",
+            "89bf0827aeecc19de64dc5c75016c5533ac149d0340ac08f5c8798880fc36e73",
+            "96fdcb1c8cbfefcfd5d6e004833996962d4f3eb6b8d7fdb24afc4388d6b443f3",
+            "9a7ddb24c8e5debd15d567355bd4e1c029d8a40f093a63a1528c7400918a86b1",
+            "9af9215126a3359f4959d92fd38cc1ca31a2081e444ef6595ff631faee2d0b58",
+            "a2d4d238c3a64282ddfd27bc8a30f63857a599ee0f858ba9dc2866a0715768a6",
+            "ad50ebfb3e561232beae61b79a2ae963ea9e45b3c51932746f3cfdaf6089a378",
+            "c618edb42da34b54270493da3f60b4a7e53e46d3ef2bb5ec171be9fc9baf799e",
+            "ce1b56df6f10aebd5e3ec93fc546863997649929bc3daab308904bc619f4e743",
+            "d36f81f094c7065c8d65db74ac842e208a4614b6563fe0cfec15a4a5ca875b01",
+            "d7dd449d7e5c5950e90ad1f8445826ca54a5c96e41dacf27255b553a82898704",
+            "e1dbf4160a268596431e6dec371ac5a1289c8b23856e0de25d5e1c0f4060b19f",
+            "ea248558cd1162e4858514c7bc2d9029810e912792fdf3e26712d6610396ea08"
+          ],
+          "method_id": "implied_minus_realized_20:1",
+          "qualifiers": [
+            "PROXY_FOR:vix_minus_rv_20_economic_role_proxy",
+            "PROXY_ONLY"
+          ]
+        }
+      }
+    ],
+    "active_structural_conditions": [
+      {
+        "sensor_id": "sofr_minus_effr",
+        "measurement_ref": "18f3a9e22430ef6892fe994ae96e872d56b76f4a3f1ddfe0626f73d0ad92623c",
+        "state": {
+          "value": {
+            "unit": "basis_points",
+            "amount": 9.999999999999964
+          },
+          "state_as_of": "2026-03-09T20:00:00+00:00",
+          "data_status": "AVAILABLE",
+          "source_refs": [
+            {
+              "source_id": "fixture",
+              "source_record_id": "2026-03-09",
+              "source_version": "1"
+            }
+          ],
+          "evidence_refs": [
+            "17f739eb269e025b458e4a3bd4b65de21fc7ef782dcdaebc1d5f9b9877d33a06",
+            "a60b3bf6314de4957435cf5d90a8f7097451b9528a2055e25d9a239d13d7e108"
+          ],
+          "method_id": "funding_spread:1",
+          "qualifiers": []
+        }
+      }
+    ],
+    "source_event_ids": [],
+    "coverage": {
+      "grade": "PARTIAL",
+      "registered": {
+        "expected": 18,
+        "available": 15
+      },
+      "active_required": {
+        "expected": 13,
+        "available": 13
+      },
+      "optional": {
+        "expected": 2,
+        "available": 2
+      },
+      "blocked": {
+        "expected": 3,
+        "available": 0
+      },
+      "qualifiers": [
+        "TRUE_BREADTH_UNAVAILABLE",
+        "CONCENTRATION_UNAVAILABLE",
+        "USD_MACRO_NOT_IMPLEMENTED"
+      ]
+    },
+    "state_snapshot_ref": {
+      "snapshot_id": "3cbbb92b15b5b84eddaab6d4c62678edfed2a7a3881f148c4f87395a2309f3ee",
+      "schema_version": "1",
+      "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784"
+    },
+    "reference_values": [],
+    "conditional_forecasts": []
+  }
+}
