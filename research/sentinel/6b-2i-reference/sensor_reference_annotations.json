@@ -1,0 +1,242 @@
+[
+  {
+    "sensor_id": "constituent_breadth_20",
+    "descriptor_version": "1:ff502de96705c62e6a1be7740e9c43f3176b345c8a0aa1d69053c290aa452560",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1"
+    ]
+  },
+  {
+    "sensor_id": "hy_oas_level",
+    "descriptor_version": "1:42f9a48aaa66dcc05b5ff3409c2a3c0686f315fe4c9930af0fb59c50638f2624",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-FRED-ICE-HY-OAS",
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1"
+    ]
+  },
+  {
+    "sensor_id": "iwm_spy_relative_20",
+    "descriptor_version": "1:d56b563f4b46f864476edece24f177ae008896aa65334af66bf1e97aaa42c67e",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-ISHARES-IWM",
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1",
+      "REF-SSGA-SPY"
+    ]
+  },
+  {
+    "sensor_id": "mega7_return_contribution_20",
+    "descriptor_version": "1:33b8374a955adb438728203c7dfa7e5dde50055470ef269642bd4db75e723223",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1"
+    ]
+  },
+  {
+    "sensor_id": "qqq_spy_relative_20",
+    "descriptor_version": "1:792647f630c36f4abd029625e73aa119b9a321a176f42b99d68631e0fe69d48f",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-INVESCO-QQQ",
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1",
+      "REF-SSGA-SPY"
+    ]
+  },
+  {
+    "sensor_id": "rsp_return_20",
+    "descriptor_version": "1:888b595f62985af7ad00c268ec85cd0a472552a7ef9e76d8fa39b268ee490a18",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-INVESCO-RSP",
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1"
+    ]
+  },
+  {
+    "sensor_id": "rsp_spy_relative_20",
+    "descriptor_version": "1:855fff05580d2ad9b313e9b3598828e87be2db8c0eb6d4a46181d25edb5adeae",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-INVESCO-RSP",
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1",
+      "REF-SSGA-SPY"
+    ]
+  },
+  {
+    "sensor_id": "sector_relative_20",
+    "descriptor_version": "1:3b83287cd783435e93b49ef467d95ac31439a41d6908d9dda01ac83e6eca3c0a",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1",
+      "REF-SSGA-SECTORS",
+      "REF-SSGA-SPY"
+    ]
+  },
+  {
+    "sensor_id": "sofr_minus_effr",
+    "descriptor_version": "1:3739cf887dffdf47fe3ac92a1f6208843d11989004a99551c359d79889699edd",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-NYFED-EFFR",
+      "REF-NYFED-SOFR",
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1"
+    ]
+  },
+  {
+    "sensor_id": "spy_return_20",
+    "descriptor_version": "1:a5dbc2ab5c53e337fce8c06fde3ec8678f9e38d0b005079c4ce52f87c1dd9f22",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1",
+      "REF-SSGA-SPY"
+    ]
+  },
+  {
+    "sensor_id": "spy_rv_20",
+    "descriptor_version": "1:7167bf2b7fb5e617463cea7827c8be872db7e43bd41068cf6da83d69647e470c",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1",
+      "REF-SSGA-SPY"
+    ]
+  },
+  {
+    "sensor_id": "spy_rv_5_over_20",
+    "descriptor_version": "1:d6fea8101bd08b55758ef71efee8ff3694c067969350001406682f9abc128b1f",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1",
+      "REF-SSGA-SPY"
+    ]
+  },
+  {
+    "sensor_id": "top7_weight",
+    "descriptor_version": "1:a24e52682cc952ec1bd22bf65786a7bb2aa0076b66c74c7056e980687d5d91f5",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1"
+    ]
+  },
+  {
+    "sensor_id": "ust_10y_level",
+    "descriptor_version": "1:e6779b4d0b1b6815d2bbf10d3f4033e07634939968868002b776fb3bc6b668cd",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-FRED-DGS10",
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1"
+    ]
+  },
+  {
+    "sensor_id": "ust_10y_minus_2y",
+    "descriptor_version": "1:cb39566744bc2691f737dda46472c11526c562cb7b132ea0587a5856398910ba",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-FRED-DGS10",
+      "REF-FRED-DGS2",
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1"
+    ]
+  },
+  {
+    "sensor_id": "ust_2y_level",
+    "descriptor_version": "1:4b735f09bad15035b6b433d683b454b4760524fb0a5a1a218d7e7f4de286e121",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-FRED-DGS2",
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1"
+    ]
+  },
+  {
+    "sensor_id": "vix_level",
+    "descriptor_version": "1:c9691ac702ffbe1a632a92ea019c0de2226fec036c69a86cab491be607507c22",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-CBOE-VIX-HISTORY",
+      "REF-CBOE-VIX-METHODOLOGY",
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1"
+    ]
+  },
+  {
+    "sensor_id": "vix_minus_rv_20",
+    "descriptor_version": "1:7e749f9dfe2ef91ff4e45f9d3933649c88fdaa643e4641f3d2e05e2334c7f690",
+    "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+    "reference_library_digest": "4431c409c34ec6cc5a167885f4fd5d9951b59240ca1ab73b1c5e396cbe689df6",
+    "sensor_links_digest": "44ee2c3e3d569de947305f881eef76ba083c71d8f32bc0e5ec77fea05ce6edb9",
+    "reference_ids": [
+      "REF-CBOE-VIX-HISTORY",
+      "REF-CBOE-VIX-METHODOLOGY",
+      "REF-NYSE-CALENDAR",
+      "REF-SENTINEL-G-V1",
+      "REF-SENTINEL-H-V1",
+      "REF-SSGA-SPY"
+    ]
+  }
+]
