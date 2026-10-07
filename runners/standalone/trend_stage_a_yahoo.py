@@ -22,6 +22,8 @@ HISTORY_PARAMETERS = dict(start="2003-01-01", end="2026-10-01", interval="1d",
                           repair=False, keepna=False, rounding=False, raise_errors=True)
 # YFINANCE_VERIFIED_PROVIDER_BEHAVIOR: auto_adjust=True adjusts all OHLC.
 ADJUSTMENT_METHOD = "yfinance_history_auto_adjust_true"
+OHLC_BOUNDARY_REL_TOL = 1e-12
+OHLC_BOUNDARY_ABS_TOL = 1e-12
 CANDIDATE_IDS = tuple(c.candidate_id for c in CANDIDATES)
 SPLITS = ("selection", "out_of_sample")
 ARTIFACTS = ("stage_a_adjusted_daily.csv", "stage_a_data_manifest.json",
@@ -77,6 +79,45 @@ def normalize_symbol(symbol, history):
     return frame.reset_index(drop=True)
 
 
+def normalize_ohlc_boundaries(frame):
+    """Normalize floating-point boundaries after adjustment, not price repair.
+
+    yfinance auto_adjust=True multiplies Open/High/Low by an adjustment
+    ratio, while adjusted Close originates from Adj Close. Mathematically
+    equal boundaries can consequently differ in the final floating-point
+    bits. The frozen tournament validator must remain strict and unchanged.
+    """
+    corrected = frame.copy(deep=True)
+    stats = dict(high_corrections=0, low_corrections=0)
+    for position, row in enumerate(frame.itertuples(index=False)):
+        values = (row.open, row.high, row.low, row.close, row.volume)
+        # Invalid numeric data belongs to the final strict validator; never
+        # normalize nonfinite, nonpositive prices or negative volume.
+        try:
+            valid = all(isfinite(v) and v > 0 for v in values[:4]) and isfinite(row.volume) and row.volume >= 0
+        except TypeError:
+            valid = False
+        if not valid:
+            continue
+        high, low = row.high, row.low
+        upper_bound = max(row.open, row.close, low)
+        if high < upper_bound:
+            if not isclose(high, upper_bound, rel_tol=OHLC_BOUNDARY_REL_TOL,
+                           abs_tol=OHLC_BOUNDARY_ABS_TOL):
+                raise StageADataError(f"{row.symbol}/{row.date}: material High boundary violation")
+            high = upper_bound
+            corrected.iat[position, corrected.columns.get_loc("high")] = high
+            stats["high_corrections"] += 1
+        lower_bound = min(row.open, row.close, high)
+        if low > lower_bound:
+            if not isclose(low, lower_bound, rel_tol=OHLC_BOUNDARY_REL_TOL,
+                           abs_tol=OHLC_BOUNDARY_ABS_TOL):
+                raise StageADataError(f"{row.symbol}/{row.date}: material Low boundary violation")
+            corrected.iat[position, corrected.columns.get_loc("low")] = lower_bound
+            stats["low_corrections"] += 1
+    return corrected, stats
+
+
 def validate_data(frame):
     try:
         bars = validate_dataframe(frame)
@@ -104,9 +145,20 @@ def validate_data(frame):
 
 
 def acquire_data():
-    frames = [normalize_symbol(s, fetch_symbol(s)) for s in STAGE_A_SYMBOLS]
+    frames, symbol_stats = [], {}
+    for symbol in STAGE_A_SYMBOLS:
+        normalized, stats = normalize_ohlc_boundaries(normalize_symbol(symbol, fetch_symbol(symbol)))
+        frames.append(normalized)
+        symbol_stats[symbol] = stats
+    normalization = dict(
+        classification="DX27_PROVIDER_BOUNDARY_NORMALIZATION",
+        relative_tolerance=OHLC_BOUNDARY_REL_TOL, absolute_tolerance=OHLC_BOUNDARY_ABS_TOL,
+        high_corrections_total=sum(s["high_corrections"] for s in symbol_stats.values()),
+        low_corrections_total=sum(s["low_corrections"] for s in symbol_stats.values()),
+        symbols=symbol_stats,
+    )
     frame = pd.concat(frames, ignore_index=True).sort_values(["symbol", "date"]).reset_index(drop=True)
-    return frame, validate_data(frame)
+    return frame, validate_data(frame), normalization
 
 
 def write_csv(frame, path):
@@ -122,12 +174,13 @@ def sha256(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def data_manifest(coverage, digest):
+def data_manifest(coverage, digest, normalization):
     return dict(dataset_id="dx27.trend.stage_a.v0.1", provider="Yahoo Finance via yfinance",
                 yfinance_version=yfinance.__version__, acquisition_method="Ticker.history",
                 adjustment_method=ADJUSTMENT_METHOD, requested_start="2003-01-01",
                 requested_end_exclusive="2026-10-01", research_last_date="2026-09-30",
-                symbols=list(STAGE_A_SYMBOLS), coverage=coverage, csv_sha256=digest)
+                symbols=list(STAGE_A_SYMBOLS), coverage=coverage, csv_sha256=digest,
+                ohlc_boundary_normalization=normalization)
 
 
 def check_tournament(directory, input_rows):
@@ -226,11 +279,11 @@ def print_scoreboards(coverage, aggregate):
 
 def run_stage_a(path):
     destination = output_directory(path)
-    frame, coverage = acquire_data()
+    frame, coverage, normalization = acquire_data()
     destination.mkdir(parents=True, exist_ok=True)
     source = destination / ARTIFACTS[0]
     write_csv(frame, source)
-    write_json(data_manifest(coverage, sha256(source)), destination / ARTIFACTS[1])
+    write_json(data_manifest(coverage, sha256(source), normalization), destination / ARTIFACTS[1])
     tournament = destination / "tournament"
     result = run_tournament(read_csv(source))
     write_outputs(result, tournament)
