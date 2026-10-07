@@ -1,0 +1,32 @@
+{
+  "task_id": "6B-2I-1",
+  "request_status": "PREPARED_NOT_SENT",
+  "official_route": "ICE Index Platform / approved official data delivery",
+  "subject": "ICE BofA US High Yield Index OAS; exact product/field crosswalk to BAMLH0A0HYM2 must be verified",
+  "required_fields": [
+    "observation_date",
+    "OAS and explicit unit",
+    "source product and field identifier",
+    "source methodology/version",
+    "original published_at with timezone",
+    "revision/vintage identifier",
+    "revision published_at",
+    "actual delivery/first_seen_at",
+    "source calendar and close-label definition",
+    "payload/provenance digest"
+  ],
+  "history_start_required": "2005-01-01",
+  "warmup_requirement": "At least 252 prior XNYS measurement sessions before first eligible 2005 decision; document actual earlier start.",
+  "history_end_required": "2026-09-30",
+  "temporal_test": "For source-age-zero S, current observation must be published and captured by actual XNYS close+120 minutes; do not substitute valuation time or assumed fixed delay.",
+  "rights_scope": "Confirm authorized research use/export under the actual data agreement; retain raw series locally.",
+  "unknowns": [
+    "Exact requested historical OAS availability",
+    "Availability of original revisions and publication logs",
+    "Cutoff-time delivery reliability",
+    "Actual account entitlement",
+    "Required cost, if any"
+  ],
+  "outreach_performed": false,
+  "registration_or_purchase_performed": false
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": "sentinel-reference-appendix-v1",
+  "appendix_id": "hy-oas-source-audit-v1",
+  "parent_library_file_sha256": "2009acc5605ae30969ae05a6cb1add0ced0fd4c98ba7ff7f0725d626bbf27ea9",
+  "frozen_parent_unchanged": true,
+  "feed_id": "hy_oas",
+  "sensor_ids": [
+    "hy_oas_level"
+  ],
+  "parent_reference_ids": [
+    "REF-FRED-ICE-HY-OAS",
+    "REF-FRED-VINTAGES",
+    "REF-SENTINEL-G-V1"
+  ],
+  "references": [
+    {
+      "reference_id": "REF-ALFRED-HY-OAS-EXPORT",
+      "title": "HY OAS vintage export interface",
+      "url": "https://alfred.stlouisfed.org/series/downloaddata?seid=BAMLH0A0HYM2",
+      "author": "Federal Reserve Bank of St. Louis",
+      "verified_on": "2026-10-07",
+      "verification_status": "OFFICIAL_RELEVANT_TEXT_VERIFIED",
+      "supported_claim": "Nominal vintage selection; sampled exports remain truncated and do not supply intraday capture timestamps."
+    },
+    {
+      "reference_id": "REF-ALFRED-RELEASE-SEMANTICS",
+      "title": "ALFRED release and revision semantics",
+      "url": "https://alfred.stlouisfed.org/help",
+      "author": "Federal Reserve Bank of St. Louis",
+      "verified_on": "2026-10-07",
+      "verification_status": "OFFICIAL_RELEVANT_TEXT_VERIFIED",
+      "supported_claim": "Archive updates can follow releases; source/provider release date and FRED first-availability date are distinct alternatives."
+    },
+    {
+      "reference_id": "REF-ICE-BOND-METHODOLOGY-20250430",
+      "title": "Bond Index Methodologies, April 30 2025",
+      "url": "https://www.theice.com/publicdocs/data/Bond_Index_Methodologies.pdf",
+      "author": "ICE Data Indices",
+      "verified_on": "2026-10-07",
+      "verification_status": "OFFICIAL_RELEVANT_TEXT_VERIFIED",
+      "supported_claim": "Page 72: valuation timing; pages 6-7: possible delayed/suspended publication and case-by-case restatement. Valuation time does not establish HY OAS distribution time."
+    },
+    {
+      "reference_id": "REF-ICE-INDEX-PLATFORM-ACCESS",
+      "title": "ICE Index Platform full-access overview",
+      "url": "https://indices.ice.com/registration?AccessType=Full",
+      "author": "ICE Data Indices",
+      "verified_on": "2026-10-07",
+      "verification_status": "OFFICIAL_RELEVANT_TEXT_VERIFIED",
+      "supported_claim": "Official historical download capability. Target OAS field, requested history, revision records and entitlements are not verified by the public overview."
+    },
+    {
+      "reference_id": "REF-FRED-OBSERVATIONS-API",
+      "title": "FRED observations API specification",
+      "url": "https://fred.stlouisfed.org/docs/api/fred/series_observations.html",
+      "author": "Federal Reserve Bank of St. Louis",
+      "verified_on": "2026-10-07",
+      "verification_status": "OFFICIAL_RELEVANT_TEXT_VERIFIED",
+      "supported_claim": "Realtime/vintage query semantics. No configured FRED API credential used in this task."
+    },
+    {
+      "reference_id": "REF-FRED-VINTAGEDATES-API",
+      "title": "FRED vintage dates API specification",
+      "url": "https://fred.stlouisfed.org/docs/api/fred/series_vintagedates.html",
+      "author": "Federal Reserve Bank of St. Louis",
+      "verified_on": "2026-10-07",
+      "verification_status": "OFFICIAL_RELEVANT_TEXT_VERIFIED",
+      "supported_claim": "Vintage dates alone do not supply per-observation intraday publication timestamps."
+    }
+  ]
+}
