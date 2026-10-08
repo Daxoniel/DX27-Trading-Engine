@@ -1,0 +1,16 @@
+{
+  "README.md": "1f729c1368422a118a4c1745a31df0cab7973266cd6e1e43a08b766ee9c84622",
+  "bootstrap_coverage_report.json": "e215d28c394b94990f3486985b9fab00bcebed8fb7db3be909dc35976faac8b1",
+  "clock_evidence_manifest.json": "0fefaa9fb01e858d69830940916e3de7810db24ae57b4a746a3541db08dad580",
+  "clock_profile.json": "88f7866095c16fb9d07d67f5e674f89abaf87015874eb6e0974acc71f759669d",
+  "frozen_code_capture_manifest.json": "3033fcad2ac45e8cd8a1ca9ca4a1dd39975962b9e7ebbb140ffcaca6318a5de2",
+  "pilot_lock.json": "3b8eaebc109e655e14211aeda43e7f342d91df5fcef67c24652142015c273330",
+  "pilot_protocol.json": "18dfdda77bb43367261493498972736f1d56fd1b04dac2f29f6978fcfc597cde",
+  "pre_pilot_cutoff_diagnostic.json": "1c5712e8cc47e7a99f4f29cbfdd74cfc1f2269bdce094fbc17d2865bd9b0f47e",
+  "source_admission_matrix.json": "71d1660898fa757929f3fa39bedd40a6532e8e9de22542f2fa901402a99c8c44",
+  "v2_binding_manifest.json": "e6166b4e70df749dc3bd912cd5e3582064ec07cdd75d7882a9ba74a461c55f73",
+  "validation_report.json": "b90d20f6443f5bf410383a79533ab72f41f3d08746ecb4b2c09b0c387f1eef3f",
+  "verification.md": "c34762a35e99961e790ec5425a7042a3ec7fc0c37b580272713b614ea1649694",
+  "worker_launch_observation.json": "3d2c99068be178f78b72980cc5fe5555771c9b3de4c5cf3eda638fe795027d8c",
+  "../references/source_clock_pilot_v1.json": "4dc0535c70c7951af848b55731aa121ad901af2fddc157079db1857c998ecda4"
+}

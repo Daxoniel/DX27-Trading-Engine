@@ -1,0 +1,154 @@
+[
+  {
+    "feed_id": "effr",
+    "clock_status": "CONSERVATIVE_VALUE_DATE_CONTEXT",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "hy_oas",
+    "clock_status": "UNVERIFIED_FIELD_CROSSWALK_AND_DELIVERY",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "iwm",
+    "clock_status": "EXISTING_XNYS_SESSION_RULE",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "qqq",
+    "clock_status": "EXISTING_XNYS_SESSION_RULE",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "rsp",
+    "clock_status": "EXISTING_XNYS_SESSION_RULE",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "sofr",
+    "clock_status": "CONSERVATIVE_VALUE_DATE_CONTEXT",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "spy",
+    "clock_status": "EXISTING_XNYS_SESSION_RULE",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "ust_10y",
+    "clock_status": "PROVISIONAL_CONSERVATIVE_QUOTE_BOUND",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "ust_2y",
+    "clock_status": "PROVISIONAL_CONSERVATIVE_QUOTE_BOUND",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "vix",
+    "clock_status": "VERIFIED_REGULAR_SESSION_CONSERVATIVE_BOUND",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "xlb",
+    "clock_status": "EXISTING_XNYS_SESSION_RULE",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "xle",
+    "clock_status": "EXISTING_XNYS_SESSION_RULE",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "xlf",
+    "clock_status": "EXISTING_XNYS_SESSION_RULE",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "xli",
+    "clock_status": "EXISTING_XNYS_SESSION_RULE",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "xlk",
+    "clock_status": "EXISTING_XNYS_SESSION_RULE",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "xlp",
+    "clock_status": "EXISTING_XNYS_SESSION_RULE",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "xlu",
+    "clock_status": "EXISTING_XNYS_SESSION_RULE",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "xlv",
+    "clock_status": "EXISTING_XNYS_SESSION_RULE",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  },
+  {
+    "feed_id": "xly",
+    "clock_status": "EXISTING_XNYS_SESSION_RULE",
+    "completed_cutoff_samples": 0,
+    "operating_coverage": null,
+    "pilot_admission": "PENDING_SAMPLE",
+    "overall_admission": "BLOCKED_DATA"
+  }
+]

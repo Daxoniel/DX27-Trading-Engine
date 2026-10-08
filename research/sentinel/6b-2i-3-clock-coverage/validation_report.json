@@ -1,0 +1,31 @@
+{
+  "task_id": "6B-2I-3",
+  "implementation_validation": "PASS",
+  "default_regression": {
+    "passed": 540,
+    "network_deselected": 1,
+    "seconds": 133.77
+  },
+  "focused_capture_and_pilot_tests": 18,
+  "official_clock_document_captures": 6,
+  "frozen_code_live_probe": {
+    "responses": 24,
+    "http_successes": 24,
+    "feed_count": 19,
+    "fred_metadata_pages": 5
+  },
+  "pilot_completed_decisions": 0,
+  "coverage_rates": null,
+  "coverage_pilot_status": "INSUFFICIENT_SAMPLE",
+  "data_admission": "BLOCKED_DATA",
+  "pre_pilot_2026_10_07_active_required_available": 1,
+  "pre_pilot_active_required_expected": 13,
+  "local_worker": "STARTED_LIVENESS_CHECKED_NOT_DURABLE",
+  "review_pending": [
+    "20 completed pilot decisions",
+    "Treasury completion-bound approval",
+    "HY exact field/clock/delivery and historical availability",
+    "126/252 prior usable S/D measurements",
+    "Research effectiveness and subsequent 6B-2J gate"
+  ]
+}

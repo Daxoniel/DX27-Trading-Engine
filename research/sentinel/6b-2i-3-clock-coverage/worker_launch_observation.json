@@ -1,0 +1,14 @@
+{
+  "observed_at": "2026-10-08T05:56:54.369428+00:00",
+  "heartbeat": {
+    "durability": "LOCAL_PROCESS_NOT_DURABLE_SCHEDULER",
+    "last_heartbeat_at": "2026-10-08T05:56:44.996885+00:00",
+    "pid": 35014,
+    "pilot_id": "cdb9582e3c6714dac3790ae5312d91e87d49438ea535a207db8d227cb6534d88"
+  },
+  "process_alive_at_check": true,
+  "heartbeat_age_seconds": 9.372543,
+  "first_capture_scheduled_at_berlin": "2026-10-08T22:20:00+02:00",
+  "final_decision_session": "2026-11-04",
+  "warning": "Snapshot of liveness only, not a guarantee of continued environment/process uptime; no durable scheduler available."
+}

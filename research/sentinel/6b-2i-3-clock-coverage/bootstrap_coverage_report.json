@@ -1,0 +1,795 @@
+{
+  "D_current_measurement_coverage": null,
+  "S_age_zero_input_coverage": null,
+  "S_current_measurement_coverage": null,
+  "as_of": "2026-10-08T05:54:09.329160+00:00",
+  "clock_profile_id": "8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+  "complete_state_vector_coverage": null,
+  "completed_decisions": 0,
+  "coverage_pilot_status": "INSUFFICIENT_SAMPLE",
+  "daily": [],
+  "data_admission": "BLOCKED_DATA",
+  "note": "Coverage threshold alone is not clock/history/S/D/effectiveness admission. Missing consecutive days stay in the denominator. No forecast or production promotion.",
+  "parsing": [
+    {
+      "capture_id": "f62a49ed358a5a83358612c8e53c4325df4d7fa9a9a61b39c1007fa5b46520a9",
+      "feed_id": "rsp",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "90d3f9c80ba6e3e255c7fb47d2a8e4ff4a584b1ab961ddf0365db314b289a9b1",
+      "feed_id": "xlf",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "559a3512798c077d7bf18d57ec613a952ff814b8905108d01f4957faf86f1685",
+      "feed_id": "iwm",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "c5e249c09773aeaccf532c8c57dd3e1b960bd57617b30a3604b2dc3a3f76d82b",
+      "feed_id": "qqq",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "91dbefc0bc207fff29fc495d2341b5d7e897a925795131e0bf8a5ba6eaa6a629",
+      "feed_id": "spy",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "782a0dd241bdc95374beccc441e696e2335005d0acc6c216e164e7a0aad659dd",
+      "feed_id": "xlk",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "3d0a43267eb98405f6d0a448bf2e512336f7dec9a9f492b3dad42826f694e67f",
+      "feed_id": "xli",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "1dd19b16b89de5bec57b095c7178342011dbd99614062ea9412d3ca1032fc8e0",
+      "feed_id": "xlp",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "8ab4b5dc218e0be85a9f502569fe4b10ede851bc09896ac815fda08fe33e31e1",
+      "feed_id": "xlu",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "bd3c8a603e027c27b79b91bd4d01ccc31ba1ea74fa32a3dde652bdb96b41c9bc",
+      "feed_id": "xle",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "4907b65cfbd5765a194957464345f89a29e8e0da1b280c8b2fc7ecc28c2f215c",
+      "feed_id": "xlb",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "1344948e57f2383bf65dcf0b56ed79f7719a1975157262ce5d611027a6553a7f",
+      "feed_id": "xlv",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "1b0678f206838394556773593f8ad328058f5f62deac435567994365c6baa79d",
+      "feed_id": "xly",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "762dbc5523d96f8620db54f43cfb0200eccaaf1bc5b5a3ccd8c9d51f5cf59692",
+      "feed_id": "hy_oas",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 284,
+      "out_of_scope_rows": 508,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "f11d74d3fca03f2943c63b83e3372252de5e31253ef1b0d96797b730b4c1f46b",
+      "feed_id": "ust_10y",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 268,
+      "out_of_scope_rows": 16615,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 12
+    },
+    {
+      "capture_id": "f5cf85d4b35298b672bd1381fb1d198d2f3b8ad489d118696b9804020d171b7f",
+      "feed_id": "ust_2y",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 268,
+      "out_of_scope_rows": 12855,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 12
+    },
+    {
+      "capture_id": "51736681ec8e43dcc0e1aef7e9e2edb8aa7da10fd99e1aae4614c9203eba2ab0",
+      "feed_id": "sofr",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 281,
+      "out_of_scope_rows": 1940,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "bc240e4748555bed5e74ad1ab28f7ba8ea441109fdbc12f0c312c0dea357a8f3",
+      "feed_id": "vix",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 269,
+      "out_of_scope_rows": 9010,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 9
+    },
+    {
+      "capture_id": "9ecf8b4977ee5c0f1f399f6ed6547f85526cac21a3bbad74b4b46dbfcc8cd76e",
+      "feed_id": "effr",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 281,
+      "out_of_scope_rows": 6571,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "8fcef7d8f8a74519724cf0014ab4917cfb896cb893cfbb25e8b3817332a0bdb7",
+      "feed_id": "xlk",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "00cc215e5d81cf9c0bbcbd6582e2b2ef4066474c58ba42ade40938c52d3fa5c9",
+      "feed_id": "iwm",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "3508b4b9104320927160761ad09215bb0084840f9237d70bba7f97de709e55ac",
+      "feed_id": "rsp",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "3bb999f8b17481a6b68cb0e9d5c14bdaa8393b75f16325b64f3061112b2c1aea",
+      "feed_id": "qqq",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "cc75b02f3ba5b68343e583116dfa73dc44fbbd2a83b29fcd14d1c414b6f18c37",
+      "feed_id": "spy",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "c29255ca5e77345e7226ba3148d36a2e7fb4c9207e47f9ee83ad241f4a8780f7",
+      "feed_id": "xlf",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "4d07f2a140e64bfa3c4fa38d084310b1c99f123adfa875694eb21781f40900f6",
+      "feed_id": "xle",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "7764db514a28e7b41a33856df0343c5d4188c7e6d0c247bb44867abeeffdddc8",
+      "feed_id": "xlv",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "5b2ef8becdfcf8e6f6765f4a43222f589e1771945a8f25790e0e5bc4417cb4e6",
+      "feed_id": "xli",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "03d5741e348ecf2b8ec7fc65fcb57a58525b2d3a4e7a12d6025e81bd6449056f",
+      "feed_id": "xlp",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "fc35d666229d33ad6c4aef9123da93511e0ec9f11509b32663e56d71fa8b64db",
+      "feed_id": "xlu",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "f53026d0b8c075a26c76956dabf1cde201c78bd672ea0694a199fd904787cbde",
+      "feed_id": "hy_oas",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 284,
+      "out_of_scope_rows": 508,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "e19e8a18616add665ccd02bca3e2a1eb75c278bedaf284f85873db136833d90c",
+      "feed_id": "xly",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "f2d5225557497d98eae53f1875b13a65bfbfc2a956ba0b13c5bac192c8add0a8",
+      "feed_id": "ust_2y",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 268,
+      "out_of_scope_rows": 12855,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 12
+    },
+    {
+      "capture_id": "e1b99faefce1c266c45949c82b39ac2377e6252c76e502646d4590f5fd5008ae",
+      "feed_id": "vix",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 269,
+      "out_of_scope_rows": 9010,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 9
+    },
+    {
+      "capture_id": "d71e6476168347eebbe366068cafb9195728582f35f8bed5b7ef4d1e7b29a5c3",
+      "feed_id": "xlb",
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 271,
+      "out_of_scope_rows": 230,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "2f3b65912aabe369aab8e37b61aa906b6f1f91ae21c24b3732c01b023703011a",
+      "feed_id": "sofr",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 281,
+      "out_of_scope_rows": 1940,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "e11e768be592f6d62844491ae869de0d163f2ab3287d1cb08f17be877610b20d",
+      "feed_id": "ust_10y",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 268,
+      "out_of_scope_rows": 16615,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 12
+    },
+    {
+      "capture_id": "8fd8a4c93edbe096667ee14e7f8ac50fd0d5c4728f2f77f1be10e9114898fea4",
+      "feed_id": "effr",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 281,
+      "out_of_scope_rows": 6571,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "63632de365d89f439af70408245878aa9c45c6ff027597f4f8f70ed61be2d907",
+      "feed_id": "iwm",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "fbefda142e351cf6f44145920270b934392dd20a6ef1507462c3949c5986a7bf",
+      "feed_id": "xlk",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "a34213acd46efe21216e569d5879bc6cf5681cbca4ea2e30790e2ef2d9e3adef",
+      "feed_id": "rsp",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "425e0130e46958885b27d3aa9dedcfed4ef5df1bafae103b14c62c403ae962e8",
+      "feed_id": "qqq",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "6988f1a205bc2d3718cd09d3416ed2987bce4694154042bf2dced4321d874a1c",
+      "feed_id": "xlf",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "2932058fdc75a766d1faf614ef5be53122455d5cc9fbfa134643093b4c4a1df5",
+      "feed_id": "spy",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "e7022c178ed800833a31d8c111078b2291e60799b1a5c908e94b9d74cd1a044b",
+      "feed_id": "xle",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "00e56574806ad9ddac21ecc4f85264d1227f341bb825796d02944b184df9f745",
+      "feed_id": "xlv",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "5011e087adb097018adeaa4f0a57a019ce7eee2c5f377656d65ac5caf405c1c5",
+      "feed_id": "xlu",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "f8349e338172b7fa7177648619264f97c1762f30dda0005f1946184ffd23ce14",
+      "feed_id": "xli",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "d5b93a96f21ce86d69ae4e4baafb3b8d0ea4a40777590c33c1aa57ba301559a2",
+      "feed_id": "xlp",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "49ced9853c1aa4fe68525262f6e60fc05790acb01d09600d7e9e9321a133ec3d",
+      "feed_id": "xlb",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "cbfaa19d349c41a845200dabfa9cf6b43458f9126aef5498ef7c140f66c4c310",
+      "feed_id": "xly",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "fd2dccb5bbb89b09a8419cf8cbfcba3293016e177e9299518854df7ea1b2fb78",
+      "feed_id": "ust_2y",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 269,
+      "out_of_scope_rows": 12855,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 12
+    },
+    {
+      "capture_id": "5a4d056f28d69b6ea8890d0161d85806b3885e93ee9822666749ba90e202fe1f",
+      "feed_id": "hy_oas",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 285,
+      "out_of_scope_rows": 508,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "631851ba6d6a4036247a32ef6675b3316a8d9a95bbbf1393f9b2a9ac516cb077",
+      "feed_id": "vix",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 270,
+      "out_of_scope_rows": 9010,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 9
+    },
+    {
+      "capture_id": "ebd2b6478a050d183eceefd3a125e2d81dcc3607d2daf9caadd24571cefb6c1a",
+      "feed_id": "ust_10y",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 269,
+      "out_of_scope_rows": 16615,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 12
+    },
+    {
+      "capture_id": "c0e06ff8a7afc843b8b316d57a06c40975fb61033d5df31dbe1e01210718f017",
+      "feed_id": "effr",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 281,
+      "out_of_scope_rows": 6571,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "b2c3687a5b4c938113ec6a3572b12fc862885accc3f2aef99e0bdba138f2e13a",
+      "feed_id": "sofr",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 281,
+      "out_of_scope_rows": 1940,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "4eda179aaa7ca60c489920695f95eb8644edc0a81f2be9c29dede726d5277249",
+      "feed_id": "iwm",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "e7748ea5e3830a57a4bd81da82da644c3f5f65166d7399f2648634a8bb142d6a",
+      "feed_id": "rsp",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "26dcf39a8ef5ab3b525e6b94f212ab7cc1e42e6ace40d687fa7a0eb3dbfe1976",
+      "feed_id": "xlf",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "4e77ca06dfc79aebd849f15960b13cf664e5ce73d834de7dec3d070ed36cd9f6",
+      "feed_id": "xlk",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "c375e0937218a925d6fe83ccaeabf39f658d0d74d267d1e8951b4410d6af8aef",
+      "feed_id": "spy",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "a3fbed16d0ed5fe20ddd165c1e3ee002ebab1f0a0d24a3c07f641e2b3421e5de",
+      "feed_id": "qqq",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "aefcdf381262f37f2542c1133273a10379039467fe65e154dc237730bd668750",
+      "feed_id": "xlp",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "a27e3815aeee51ef3bc74751cf6f0f65b0beb94f8fbc53ed682bd3c2cbb17750",
+      "feed_id": "xli",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "2ac9b03fa06fd008bffc4d7d3a3c558ad851a6ad73f307719190744c3b227b36",
+      "feed_id": "xlv",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "29ed11a1917c23d331b3de1704a1fbf428257476fe33f5cea809507013243039",
+      "feed_id": "xlb",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "48c59dc7cc1d5947bb6704d106a14d33460e03f44509dc0040cc5c8e1b6396bd",
+      "feed_id": "xle",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "05f28507c9f5b2df022668e47ba2b07460d17325e86a65d8e7468b04f29abed0",
+      "feed_id": "xlu",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "2f330296823ea6671abe7419fb74dd910a02e95a2bcc0c7ae60c1348a89d488f",
+      "feed_id": "xly",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 272,
+      "out_of_scope_rows": 229,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "5bc423476b076ba537ba58fa98364800d21b568592a38df4782abad5758264a3",
+      "feed_id": "vix",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 270,
+      "out_of_scope_rows": 9010,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 9
+    },
+    {
+      "capture_id": "59cc015073c2dcc0ef9b9629baaecc5541fc8bebeff6f4156ea6a89ac657382f",
+      "feed_id": "hy_oas",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 285,
+      "out_of_scope_rows": 508,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "6cc20f72a054051caf8ca973fee3551f9c61a6a8a73503a4a9a7257b6f96d177",
+      "feed_id": "ust_2y",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 269,
+      "out_of_scope_rows": 12855,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 12
+    },
+    {
+      "capture_id": "216e43cf8f3495c594e66b1ae001fe6d37dbe890c3513aa0b73e6c9b8ffc49e2",
+      "feed_id": "ust_10y",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 269,
+      "out_of_scope_rows": 16615,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 12
+    },
+    {
+      "capture_id": "021c11a9618489a009c71060c8450204a2de88ffb7d6379a374ca49afd5f051f",
+      "feed_id": "effr",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 281,
+      "out_of_scope_rows": 6571,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "c5ac23e54fefd6c2a98c8d2ecfb6c4c4a19f0abf0085eb4de95b8c2159e6bf85",
+      "feed_id": "sofr",
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 281,
+      "out_of_scope_rows": 1940,
+      "source_error_rows": 0,
+      "status": "PARSED",
+      "unsupported_clock_rows_excluded": 0
+    }
+  ],
+  "pilot_id": "cdb9582e3c6714dac3790ae5312d91e87d49438ea535a207db8d227cb6534d88",
+  "planned_decisions": 20,
+  "polling_job_events": [],
+  "required_feed_contract_coverage": {
+    "hy_oas": null,
+    "iwm": null,
+    "qqq": null,
+    "rsp": null,
+    "spy": null,
+    "ust_10y": null,
+    "ust_2y": null,
+    "vix": null
+  },
+  "source_clock_admission": {
+    "hy_oas": "UNVERIFIED_FIELD_CROSSWALK_AND_DELIVERY",
+    "ust_10y": "PROVISIONAL_CONSERVATIVE_QUOTE_BOUND",
+    "ust_2y": "PROVISIONAL_CONSERVATIVE_QUOTE_BOUND",
+    "vix": "VERIFIED_REGULAR_SESSION_CONSERVATIVE_BOUND"
+  },
+  "task_id": "6B-2I-3"
+}

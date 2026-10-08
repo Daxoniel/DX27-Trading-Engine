@@ -68,7 +68,9 @@ python -m dx27.adapters.sentinel.coverage_pilot --store work/task-6b-2i-2/valida
 
 `--capture-now --report-only` performs a genuine diagnostic capture, even outside
 a polling slot; this never pretends to be a scheduled after-close attempt.
-A file lock prevents concurrent local workers. Job records are exclusive-create
+A file lock prevents concurrent local workers. While the daemon holds that
+lock, inspect its latest content-addressed coverage JSON; `--report-only` needs
+the worker stopped to rebuild a fresh report without competing writes. Job records are exclusive-create
 and sealed; immutable coverage archives are content-addressed. Mutable heartbeat
 files describe process liveness, not source availability evidence. Raw series and
 MarketNow numeric values stay local; checked-in evidence contains hashes/counts.
