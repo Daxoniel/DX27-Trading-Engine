@@ -1,0 +1,25 @@
+{
+  "schema_version": "sentinel-source-clocks-v1",
+  "profile_name": "regular-session-observation-bounds-v2",
+  "regular_session_bounds": {
+    "vix": "16:16:00",
+    "ust_2y": "16:00:00",
+    "ust_10y": "16:00:00"
+  },
+  "evidence_capture_ids": [
+    "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+    "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+    "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+    "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+    "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+    "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+  ],
+  "evidence_semantics": "VIX conservative end-of-calculation bound; Treasury 16:00 is a research conservative bound around approximate 15:30 quotes, not an exact observation or publication timestamp. Early-close/closed dates excluded. HY/funding retain full-day windows.",
+  "clock_admission": {
+    "vix": "VERIFIED_REGULAR_SESSION_CONSERVATIVE_BOUND",
+    "ust_2y": "PROVISIONAL_CONSERVATIVE_QUOTE_BOUND",
+    "ust_10y": "PROVISIONAL_CONSERVATIVE_QUOTE_BOUND",
+    "hy_oas": "UNVERIFIED_FIELD_CROSSWALK_AND_DELIVERY"
+  },
+  "publication_policy": "UNKNOWN_PER_ROW_NOT_INFERRED_FROM_SCHEDULE"
+}

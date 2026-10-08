@@ -25,7 +25,7 @@ from dx27.intelligence.sentinel.research.history_requirements import (
 )
 
 
-def capture_sources(store):
+def capture_sources(store, requests=None):
     def fetch(request):
         feed, source, url = request
         status = 0
@@ -61,7 +61,9 @@ def capture_sources(store):
         )
 
     with ThreadPoolExecutor(max_workers=6) as pool:
-        return tuple(pool.map(fetch, source_requests()))
+        return tuple(
+            pool.map(fetch, source_requests() if requests is None else requests)
+        )
 
 
 def completed_session(calendar, as_of, requested=None):
@@ -75,7 +77,7 @@ def completed_session(calendar, as_of, requested=None):
     return next(s for s in reversed(calendar.sessions) if s.decision_cutoff <= as_of)
 
 
-def replay(store, protocol, as_of, requested=None):
+def replay(store, protocol, as_of, requested=None, clock_profile=None):
     calendar = load_xnys_calendar(date(2003, 1, 1), date(2027, 12, 31))
     pin = {
         "calendar_version": calendar.calendar_version,
@@ -117,8 +119,12 @@ def replay(store, protocol, as_of, requested=None):
         }
         try:
             raw = store.get(record["capture_id"])[1]
-            binding, qualifiers = binding_for(feed, record, raw, store, calendar, as_of)
-            normalized, counts = normalize_capture(feed, binding, record, raw, calendar)
+            binding, qualifiers = binding_for(
+                feed, record, raw, store, calendar, as_of, clock_profile
+            )
+            normalized, counts = normalize_capture(
+                feed, binding, record, raw, calendar, clock_profile
+            )
             bindings[feed] = binding
             points.extend(normalized)
             report.update(

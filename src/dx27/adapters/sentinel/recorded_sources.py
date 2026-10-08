@@ -89,7 +89,16 @@ def source_requests():
     return tuple(requests)
 
 
-def binding_for(feed, record, raw, store, calendar, as_of=None):
+def binding_for(
+    feed,
+    record,
+    raw,
+    store,
+    calendar,
+    as_of=None,
+    clock_profile=None,
+    metadata_records=None,
+):
     """Validate response identity/unit/date profile before creating a stable binding."""
     seen = datetime.fromisoformat(record["first_seen_at"])
     if record["http_status"] != 200 or record["error"]:
@@ -142,7 +151,7 @@ def binding_for(feed, record, raw, store, calendar, as_of=None):
             raise ValueError("FRED series identity mismatch")
         metadata = [
             r
-            for r in store.records()
+            for r in (store.records() if metadata_records is None else metadata_records)
             if r["feed_id"] == feed + "_metadata"
             and r["http_status"] == 200
             and not r["error"]
@@ -175,10 +184,29 @@ def binding_for(feed, record, raw, store, calendar, as_of=None):
         qualifiers.append("CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK")
     else:
         raise ValueError("unregistered feed")
+    source_version = "recorded-source-profile-v1"
+    if clock_profile is not None:
+        from dx27.adapters.sentinel.source_clocks import validate_clock_profile
+
+        clock_seen = validate_clock_profile(clock_profile, store)
+        if as_of is not None and clock_seen > as_of:
+            raise ValueError("clock evidence unavailable at replay watermark")
+        seen = max(seen, clock_seen)
+        validation_ids.extend(clock_profile["evidence_capture_ids"])
+        source_version = "recorded-source-clock-v2:" + stable_content_hash(
+            clock_profile
+        )
+        if feed in clock_profile["regular_session_bounds"]:
+            policy = "LOCAL_DATE_OF_END"
+            qualifiers.remove("CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK")
+            qualifiers.append(
+                "REGULAR_SESSION_CONSERVATIVE_OBSERVATION_BOUND_NOT_PUBLICATION"
+            )
+            qualifiers.append("EARLY_CLOSE_CLOCK_UNVERIFIED_EXCLUDED")
     profile = {
         "feed_id": feed,
         "source_id": source,
-        "source_version": "recorded-source-profile-v1",
+        "source_version": source_version,
         "unit": unit,
         "raw_unit": raw_unit,
         "label_policy": policy,
@@ -211,7 +239,7 @@ def binding_for(feed, record, raw, store, calendar, as_of=None):
         feed,
         subject,
         source,
-        "recorded-source-profile-v1",
+        source_version,
         raw_unit,
         unit,
         validation["validation_capture_id"],
@@ -224,19 +252,36 @@ def binding_for(feed, record, raw, store, calendar, as_of=None):
     return binding, tuple(qualifiers)
 
 
-def normalize_capture(feed, binding, record, raw, calendar):
+def normalize_capture(
+    feed, binding, record, raw, calendar, clock_profile=None, min_observation_date=None
+):
+    if (
+        clock_profile is not None
+        and binding.source_version
+        != "recorded-source-clock-v2:" + stable_content_hash(clock_profile)
+    ):
+        raise ValueError("normalization clock/binding mismatch")
     seen = datetime.fromisoformat(record["first_seen_at"])
     points = []
-    incomplete = out_of_scope = bad = 0
+    incomplete = out_of_scope = bad = unsupported_clock = 0
 
     def add(day, value, source_fields, status=DataStatus.AVAILABLE):
-        nonlocal incomplete, out_of_scope, bad
-        if not calendar.valid_from <= day <= calendar.valid_through:
+        nonlocal incomplete, out_of_scope, bad, unsupported_clock
+        if not calendar.valid_from <= day <= calendar.valid_through or (
+            min_observation_date is not None and day < min_observation_date
+        ):
             out_of_scope += 1
             return
         if binding.observation_label_policy == "XNYS_SESSION":
             session = calendar.get(day)
             window = ObservationWindow(session.opens_at, session.closes_at, "1d")
+        elif clock_profile is not None:
+            from dx27.adapters.sentinel.source_clocks import clock_window
+
+            window = clock_window(feed, day, calendar, clock_profile)
+            if window is None:
+                unsupported_clock += 1
+                return
         else:
             start = datetime.fromisoformat(day).replace(tzinfo=NY)
             window = ObservationWindow(start, start + timedelta(days=1), "1d")
@@ -340,4 +385,5 @@ def normalize_capture(feed, binding, record, raw, calendar):
         "incomplete_observations_excluded": incomplete,
         "out_of_scope_rows": out_of_scope,
         "source_error_rows": bad,
+        "unsupported_clock_rows_excluded": unsupported_clock,
     }
