@@ -93,3 +93,15 @@ Finish the 20-session coverage study, resolve provisional Treasury semantics and
 HY field/delivery/history evidence, and accumulate valid S/D historical support.
 6B-2J change-detection validation remains gated; this PR starts collection, not
 its future effectiveness conclusion.
+
+## Deployment status correction — 6B-2I-3A
+
+Implementation and local startup checks passed; durable deployment is NOT_READY.
+The local worker is best-effort fallback, not a reliable 20-day arrangement.
+A persistent host/store, automatic restart, external monitoring and recovery
+acceptance are required before continuous collection is considered operational.
+Migration preserves the 2026-10-08 through 2026-11-04 window, all frozen rules and
+existing actual capture times. Infrastructure downtime is diagnosed separately
+from provider supply, without removing missing decisions from the denominator.
+6B-2J real validation remains blocked. Protocol/synthetic preparation may proceed
+only as a separately identified research task after this infrastructure gate.

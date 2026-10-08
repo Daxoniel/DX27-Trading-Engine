@@ -1,6 +1,6 @@
 # 6B-2I-3 — source-clock pilot start
 
-**Implementation validation PASS; real pilot COLLECTING; data admission BLOCKED_DATA.**
+**Implementation validation PASS; durable deployment NOT_READY; source coverage verdict PENDING; data admission BLOCKED_DATA.**
 
 The frozen protocol declares 20 consecutive XNYS decisions, 2026-10-08 through
 2026-11-04. It fixes four post-close polling offsets and the >=95% per-core-feed
@@ -19,7 +19,9 @@ only 1/13 active required sensors available. New late captures do not repair it.
 This predates the newly frozen pilot and is explicitly shown rather than treated
 as a successful observation or hidden from prior collection history.
 
-A local worker was started and its live PID/heartbeat verified. The launch artifact
+A best-effort local worker was started and its live PID/heartbeat verified.
+This proves only instantaneous liveness. The 20-day pilot has no reliable
+continuous-run infrastructure until 6B-2I-3A deployment/recovery acceptance. The launch artifact
 is an observation, not an uptime guarantee. This environment has no durable
 scheduler; suspension/restart can interrupt collection. Missing decisions stay
 in the denominator and require resumption using the same raw store and protocol.

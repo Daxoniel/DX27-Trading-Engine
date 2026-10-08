@@ -1,0 +1,15 @@
+{
+  "task_id": "6B-2I-3A",
+  "corrected_at": "2026-10-08T09:48:11.508129+00:00",
+  "reason": "Local PID and heartbeat prove instant liveness, not reliable 20-day operation. Protocol, dates, denominator, captures and historical launch facts unchanged.",
+  "files": {
+    "README.md": {
+      "previous_sha256": "1f729c1368422a118a4c1745a31df0cab7973266cd6e1e43a08b766ee9c84622",
+      "corrected_sha256": "3551df45ae6ece6478036ff757c99b44dbd102354fdc5c564cad640c360edc15"
+    },
+    "validation_report.json": {
+      "previous_sha256": "b90d20f6443f5bf410383a79533ab72f41f3d08746ecb4b2c09b0c387f1eef3f",
+      "corrected_sha256": "cb4c66376622d8d20fcdb1ce8bf4654954baad120563909526bd820588cbeda0"
+    }
+  }
+}

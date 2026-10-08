@@ -175,15 +175,18 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
   and isolated v2 source bindings; retain HY/funding conservative windows.
 - [x] Validate missed/late/revised inputs, separate daily coverage and original-
   cutoff S/D support, including DST and unsupported early closes.
-- [ ] **20-session real coverage pilot** — collecting from 2026-10-08 through
-  2026-11-04. Local worker requires a running environment; suspension/restart
-  can interrupt capture and missed days remain failures. See
+- [ ] **20-session real coverage pilot** — fixed window 2026-10-08 through
+  2026-11-04; reliable deployment NOT_READY. The local worker is best-effort
+  fallback only; missing days remain failures. See
   [source clocks and pilot](docs/architecture/sentinel-source-clock-pilot.md).
 - [ ] **Source admission remains BLOCKED_DATA** — provisional Treasury/HY clock
   evidence, historical availability and 126/252-session S/D support remain gated.
 
 ## Next
 
+- [ ] **6B-2I-3A — Durable Pilot Runner & Recovery Validation** — mandatory
+  infrastructure gate: persistent host/store, restart, monitoring/alerting and
+  verified migration. Preserve original protocol, dates and all records.
 - [ ] Complete the frozen pilot and review each source's actual cutoff coverage;
   resolve provisional source clocks/HY delivery and plan continuous S/D warmup.
   Do not open 6B-2J or claim effectiveness based on schema checks or pilot setup.

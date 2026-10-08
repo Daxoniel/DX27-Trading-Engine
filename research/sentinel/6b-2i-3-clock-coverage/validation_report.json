@@ -27,5 +27,7 @@
     "HY exact field/clock/delivery and historical availability",
     "126/252 prior usable S/D measurements",
     "Research effectiveness and subsequent 6B-2J gate"
-  ]
+  ],
+  "durable_deployment_admission": "NOT_READY",
+  "pilot_execution_status": "LOCAL_FALLBACK_ONLY_NOT_RELIABLE_CONTINUOUS_DEPLOYMENT"
 }
