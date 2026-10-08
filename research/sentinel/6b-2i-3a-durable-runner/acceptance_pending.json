@@ -1,0 +1,20 @@
+{
+  "task_id": "6B-2I-3A",
+  "implementation_preparation": "PASS",
+  "durable_deployment": "NOT_READY",
+  "target": "USER_WINDOWS_10_11",
+  "pending": [
+    "Windows native execution",
+    "Task Scheduler registration / logged-out operation",
+    "Reboot recovery / one active writer",
+    "Actual alarm and recovery email receipt",
+    "Final checkpoint handoff",
+    "Persistent power/network/no-sleep conditions"
+  ],
+  "original_pilot_window": [
+    "2026-10-08",
+    "2026-11-04"
+  ],
+  "pilot_rules_reset": false,
+  "data_admission": "BLOCKED_DATA"
+}
