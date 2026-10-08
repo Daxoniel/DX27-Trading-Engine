@@ -1,0 +1,472 @@
+{
+  "admission_status": "BLOCKED_DATA",
+  "as_of": "2026-10-07T14:40:45.960593+00:00",
+  "calendar_version": "XNYS:4.13.2:bf37b8e66b5cb8b7e4de2a1c1cb703cbaa88f3db136827bb18deb15f1ad37f7d",
+  "capture_count": 24,
+  "causal_prefix_replay": "PASS",
+  "completed_monitored_decisions": 0,
+  "cutoff_eligible_points": 0,
+  "decision_cutoff": "2026-10-06T22:00:00+00:00",
+  "decision_session": "2026-10-06",
+  "normalized_points": 34136,
+  "note": "Research profiles only. No operating coverage approval. Unknown publication times remain null. Bootstrap snapshots preceding first capture are not monitoring failures.",
+  "operating_coverage": null,
+  "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+  "references": [
+    {
+      "configuration": "us-equity-pressure-3g-v1",
+      "qualifiers": [
+        "LIMITED_US_EQUITY_PRESSURE",
+        "NOT_A_FORECAST",
+        "NOT_PRIORITY",
+        "REF-ECB-CISS-2012",
+        "REF-SENTINEL-G-V1",
+        "RESEARCH_ONLY"
+      ],
+      "reference_id": "9bb8b056b8fbbaec49873cb3ed61d9860db13f6b104a6f7df2f44cabb14b660c",
+      "status": "UNAVAILABLE"
+    },
+    {
+      "configuration": "us-equity-divergence-2p-v1",
+      "qualifiers": [
+        "DIVERGENCE_NOT_BEARISH",
+        "NOT_A_FORECAST",
+        "NOT_PRIORITY",
+        "REF-NIST-ROBUST-Z",
+        "REF-SENTINEL-G-V1",
+        "RESEARCH_ONLY"
+      ],
+      "reference_id": "34787f97267a10eeeb2fa8bcd466bcb003ebf452b0bb50738c24ca8effd76064",
+      "status": "UNAVAILABLE"
+    }
+  ],
+  "snapshot_coverage": {
+    "active_required": {
+      "available": 0,
+      "expected": 13
+    },
+    "blocked": {
+      "available": 0,
+      "expected": 3
+    },
+    "grade": "UNAVAILABLE",
+    "optional": {
+      "available": 0,
+      "expected": 2
+    },
+    "qualifiers": [
+      "TRUE_BREADTH_UNAVAILABLE",
+      "CONCENTRATION_UNAVAILABLE",
+      "USD_MACRO_NOT_IMPLEMENTED"
+    ],
+    "registered": {
+      "available": 0,
+      "expected": 18
+    }
+  },
+  "snapshot_id": "bcb7cce75c1aa1d95ed0da198b0b4945f54a7bfc33057b2177fc89d1a7e8359c",
+  "snapshot_status": "UNAVAILABLE",
+  "source_results": [
+    {
+      "capture_id": "f62a49ed358a5a83358612c8e53c4325df4d7fa9a9a61b39c1007fa5b46520a9",
+      "feed_id": "rsp",
+      "first_seen_at": "2026-10-07T14:40:44.328728+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "22712d79d0ce97f005161b358777e63587dba14c2a4ae6eb99c0adc28bb975d1",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "90d3f9c80ba6e3e255c7fb47d2a8e4ff4a584b1ab961ddf0365db314b289a9b1",
+      "feed_id": "xlf",
+      "first_seen_at": "2026-10-07T14:40:44.347692+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "27b352ba678e43f141aca49301a012c803b3e7a990df6232fdc7a0fcbd5141be",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "559a3512798c077d7bf18d57ec613a952ff814b8905108d01f4957faf86f1685",
+      "feed_id": "iwm",
+      "first_seen_at": "2026-10-07T14:40:44.374634+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "c969fa8cc1835095978a892ce3c0804f5b37911129ab9df209069a1dbc5bf7d2",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "c5e249c09773aeaccf532c8c57dd3e1b960bd57617b30a3604b2dc3a3f76d82b",
+      "feed_id": "qqq",
+      "first_seen_at": "2026-10-07T14:40:44.375263+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "111d5da1c6f830abd60363f8b37aca78e1daa840beea8cf86707ed719bf8afc4",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "91dbefc0bc207fff29fc495d2341b5d7e897a925795131e0bf8a5ba6eaa6a629",
+      "feed_id": "spy",
+      "first_seen_at": "2026-10-07T14:40:44.378125+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "e0540cc807f50a44510440efddf79848014cc2a905a6a1de3169caf7f6f568a2",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "782a0dd241bdc95374beccc441e696e2335005d0acc6c216e164e7a0aad659dd",
+      "feed_id": "xlk",
+      "first_seen_at": "2026-10-07T14:40:44.380921+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "b34ae0d45c4656cc39f061e2529352b220af77a7fb09751e43cfeb952ef222e2",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "3d0a43267eb98405f6d0a448bf2e512336f7dec9a9f492b3dad42826f694e67f",
+      "feed_id": "xli",
+      "first_seen_at": "2026-10-07T14:40:44.520467+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "fc2022cfe6509ae0a5d16edb012156d1c478f1444f3966f5eb85ffe54e5f5ece",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "1dd19b16b89de5bec57b095c7178342011dbd99614062ea9412d3ca1032fc8e0",
+      "feed_id": "xlp",
+      "first_seen_at": "2026-10-07T14:40:44.556470+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "1a095e2832f09849789b907cea5eb2ea444fc93efeeffab40aa5d85dd22ee0c4",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "8ab4b5dc218e0be85a9f502569fe4b10ede851bc09896ac815fda08fe33e31e1",
+      "feed_id": "xlu",
+      "first_seen_at": "2026-10-07T14:40:44.576191+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "ebe3419f61775961431d15e96e6261a26e16bbcc520542bad66dd51e2dd572eb",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "bd3c8a603e027c27b79b91bd4d01ccc31ba1ea74fa32a3dde652bdb96b41c9bc",
+      "feed_id": "xle",
+      "first_seen_at": "2026-10-07T14:40:44.596783+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "6ae55d197c8820981547343cd3452aa53d2bf47728a1f4a06981b34229bdf44a",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "4907b65cfbd5765a194957464345f89a29e8e0da1b280c8b2fc7ecc28c2f215c",
+      "feed_id": "xlb",
+      "first_seen_at": "2026-10-07T14:40:44.664032+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "c34a08cf663e9fa5516ec6a9b7cb6541cce845ce0a7e4ed764b632cc88b03756",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "1344948e57f2383bf65dcf0b56ed79f7719a1975157262ce5d611027a6553a7f",
+      "feed_id": "xlv",
+      "first_seen_at": "2026-10-07T14:40:44.701897+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "e7f995281d46eae35816afed017a53c2fab020fd3b2c6786a48ed126fc4a063a",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "1b0678f206838394556773593f8ad328058f5f62deac435567994365c6baa79d",
+      "feed_id": "xly",
+      "first_seen_at": "2026-10-07T14:40:44.758090+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "b4257af79654dd29bf7a719ffdce6a7356fa7a55fcafe8866fbb4cc18fac458e",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "762dbc5523d96f8620db54f43cfb0200eccaaf1bc5b5a3ccd8c9d51f5cf59692",
+      "feed_id": "hy_oas",
+      "first_seen_at": "2026-10-07T14:40:44.830513+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 792,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "04639cc3a881b1d5c65ada740b3191004e29efb1d4f2368d93560a902ca9a408",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "f11d74d3fca03f2943c63b83e3372252de5e31253ef1b0d96797b730b4c1f46b",
+      "feed_id": "ust_10y",
+      "first_seen_at": "2026-10-07T14:40:45.035811+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6199,
+      "out_of_scope_rows": 10696,
+      "payload_sha256": "b4f07ee2c644f43a0abf293499a2bc4ad479bb6656d1ccb6c9d7dd33b01f82ae",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "f5cf85d4b35298b672bd1381fb1d198d2f3b8ad489d118696b9804020d171b7f",
+      "feed_id": "ust_2y",
+      "first_seen_at": "2026-10-07T14:40:45.111064+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6199,
+      "out_of_scope_rows": 6936,
+      "payload_sha256": "acc55db8e7e82a0719afb685dd422752569d806be362fb3340985486d7d4ecd0",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "51736681ec8e43dcc0e1aef7e9e2edb8aa7da10fd99e1aae4614c9203eba2ab0",
+      "feed_id": "sofr",
+      "first_seen_at": "2026-10-07T14:40:45.188222+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 2221,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "0882b956d4213ac35f17b9d9e7ada420a40c29d3bea9e9905f9f739ce64b41d9",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS",
+        "REF-NYFED-SOFR-PUBLICATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "bc240e4748555bed5e74ad1ab28f7ba8ea441109fdbc12f0c312c0dea357a8f3",
+      "feed_id": "vix",
+      "first_seen_at": "2026-10-07T14:40:45.261359+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6012,
+      "out_of_scope_rows": 3276,
+      "payload_sha256": "cfcb9dce25bbbbd83aedca9a1480468bb25db2e988b3e893a4eebabb1905e1ab",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-CBOE-VIX-DAILY-CAPTURE"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    },
+    {
+      "capture_id": "9ecf8b4977ee5c0f1f399f6ed6547f85526cac21a3bbad74b4b46dbfcc8cd76e",
+      "feed_id": "effr",
+      "first_seen_at": "2026-10-07T14:40:45.507531+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6200,
+      "out_of_scope_rows": 652,
+      "payload_sha256": "a848859dfee97a35eb8df25756b3ae477cb101bf60b514a94d4ddccea53e45f7",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED"
+    }
+  ],
+  "task_id": "6B-2I-2"
+}

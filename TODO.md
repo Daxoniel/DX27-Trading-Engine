@@ -155,13 +155,23 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
   operational coverage. Official long-history/field/timestamp/entitlement and
   publication-revision evidence remain unverified.
 
+## 6B-2I-2 checkpoint — recorded capture
+
+- [x] **6B-2I-2 implementation and bootstrap validation** — exclusive-create
+  captures, payload/binding seals, stable source profiles, causal replay and
+  real 19-feed plus five-metadata-page capture. See
+  [recorded capture architecture](docs/architecture/sentinel-recorded-capture.md).
+- [x] Separate decision period from per-feed raw history requirements;
+  correct the prepared, unsent HY request with explicit old/new hashes.
+- [ ] **Source admission remains BLOCKED_DATA** — completed-cutoff operating
+  coverage, scalar observation-clock evidence, historical HY publication/revision
+  evidence and full reference warmup remain unapproved.
+
 ## Next
 
-- [ ] Proposed **6B-2I-2 — Recorded Availability Capture & Source Binding
-  Validation** — actual daily availability, immutable revisions and provider
-  metadata validation; resolve HY history and same-day-delivery requirements
-  before real S effectiveness evaluation. Delayed-credit alternatives require
-  an explicit separate version and preregistration.
+- [ ] Collect original-cutoff observations with the persistent capture store;
+  validate source clocks and operating coverage before S/D effectiveness testing.
+  Delayed-credit alternatives require separate versioning and preregistration.
 
 ## Subsequent 6B-2 tasks — gated sequence
 

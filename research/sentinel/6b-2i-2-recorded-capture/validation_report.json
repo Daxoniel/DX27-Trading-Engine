@@ -1,0 +1,27 @@
+{
+  "task_id": "6B-2I-2",
+  "implementation_validation": "PASS",
+  "real_capture_rounds": 2,
+  "feed_count": 19,
+  "metadata_page_count_per_round": 5,
+  "capture_count": 48,
+  "all_http_responses": 200,
+  "source_schema_checks": "PASS_RESEARCH_PROFILES_ONLY",
+  "causal_prefix_replay": "PASS_BOTH_ROUNDS",
+  "same_original_cutoff_snapshot_across_rounds": true,
+  "completed_monitored_decisions": 0,
+  "operating_coverage": null,
+  "data_admission": "BLOCKED_DATA",
+  "S": "UNAVAILABLE",
+  "D": "UNAVAILABLE",
+  "bootstrap_decision_session": "2026-10-06",
+  "incomplete_rows": "Excluded permanently from their pre-close captures",
+  "raw_data_location": "Local persistent store; do not redistribute raw series",
+  "limitations": [
+    "No original 2005 historical availability proof",
+    "Yahoo live request is a two-year captured chain, not the supplier historical request",
+    "Date-only scalar profiles have conservative full-day windows, not approved source close clocks",
+    "No after-close daily capture or scheduler installed",
+    "No source admission, candidate freeze, experiment start or production promotion"
+  ]
+}
