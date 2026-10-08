@@ -1,0 +1,76 @@
+{
+  "schema_version": "sentinel-reference-appendix-v1",
+  "task_id": "6B-2I-3",
+  "parent_library_sha256": "2009acc5605ae30969ae05a6cb1add0ced0fd4c98ba7ff7f0725d626bbf27ea9",
+  "references": [
+    {
+      "reference_id": "REF-CBOE-VIX-ENDTIME-20210927",
+      "url": "https://datashop.cboe.com/new-product-launch-high-level-option-sentiment-10222021",
+      "feed_ids": [
+        "vix"
+      ],
+      "payload_sha256": "646ed9239e6c7e2a8c2030f6c59481727307b640ae0be725842b97b1f860467f",
+      "capture_id": "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+      "first_seen_at": "2026-10-08T05:42:46.450643+00:00",
+      "scope": "Regular-session conservative completion bound; not CSV publication evidence."
+    },
+    {
+      "reference_id": "REF-CBOE-VIX-HISTORICAL-CLOSE",
+      "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data",
+      "feed_ids": [
+        "vix"
+      ],
+      "payload_sha256": "ff6e9771a7447a6a1d10d18aba4b611696035afe507697c788f89c04d587ccb3",
+      "capture_id": "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+      "first_seen_at": "2026-10-08T05:42:47.177905+00:00",
+      "scope": "Public daily series closing-field identity."
+    },
+    {
+      "reference_id": "REF-TREASURY-QUOTE-CLOCK",
+      "url": "https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics",
+      "feed_ids": [
+        "ust_2y",
+        "ust_10y"
+      ],
+      "payload_sha256": "d9321f14f2d30c738d1f244dd57a390e824e4eee228c7d58e8ac6a5f3842b02b",
+      "capture_id": "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+      "first_seen_at": "2026-10-08T05:42:47.593220+00:00",
+      "scope": "Approximate Treasury quote time; 16:00 is a provisional inference."
+    },
+    {
+      "reference_id": "REF-FED-H15-RELEASE-CLOCK",
+      "url": "https://www.federalreserve.gov/releases/h15/",
+      "feed_ids": [
+        "ust_2y",
+        "ust_10y"
+      ],
+      "payload_sha256": "2205f35c7300db28a91f189f9a397911122bf7b9b11fa92eb71a20d660d90cb4",
+      "capture_id": "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+      "first_seen_at": "2026-10-08T05:42:47.890733+00:00",
+      "scope": "Release schedule is not actual FRED availability."
+    },
+    {
+      "reference_id": "REF-NYFED-REFERENCE-RATE-TIMING",
+      "url": "https://www.newyorkfed.org/markets/reference-rates/additional-information-about-reference-rates",
+      "feed_ids": [
+        "sofr",
+        "effr"
+      ],
+      "payload_sha256": "8f6111e7a6b5f9ee84f0e688fad909d58823e2dfc615b6fa16da858bbe9028b9",
+      "capture_id": "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+      "first_seen_at": "2026-10-08T05:42:49.586808+00:00",
+      "scope": "Value date, following-business-day publication and revision distinction."
+    },
+    {
+      "reference_id": "REF-ICE-BOND-CLOCK-20250430",
+      "url": "https://www.theice.com/publicdocs/data/Bond_Index_Methodologies.pdf",
+      "feed_ids": [
+        "hy_oas"
+      ],
+      "payload_sha256": "57f382ef718bc81be586014f5541f9628414d16a63a249d15d05afd23a4b3419",
+      "capture_id": "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64",
+      "first_seen_at": "2026-10-08T05:42:50.504219+00:00",
+      "scope": "Valuation clock does not verify HY field crosswalk or distribution time."
+    }
+  ]
+}

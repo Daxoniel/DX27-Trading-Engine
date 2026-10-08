@@ -1,0 +1,602 @@
+{
+  "profile_id": "8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+  "bindings": [
+    {
+      "profile": {
+        "feed_id": "effr",
+        "label_policy": "LOCAL_DATE_BEFORE_EXCLUSIVE_END",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "NOT_PRICE",
+        "raw_unit": "percent_per_annum",
+        "source_calendar_id": "US_CALENDAR_DAY",
+        "source_id": "fred-public-csv",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "percent_per_annum"
+      },
+      "profile_id": "92cade9360315cb3d2bad1d36909e8d6e8a2e2cf2ef7f05f9c32f963868c7c09",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "9ecf8b4977ee5c0f1f399f6ed6547f85526cac21a3bbad74b4b46dbfcc8cd76e",
+      "validation_capture_ids": [
+        "9ecf8b4977ee5c0f1f399f6ed6547f85526cac21a3bbad74b4b46dbfcc8cd76e",
+        "9c4a84060724c71ed25c16814ad4fb8ad29dbfda27546d7a8e7867e131d9df1c",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "hy_oas",
+        "label_policy": "LOCAL_DATE_BEFORE_EXCLUSIVE_END",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "NOT_PRICE",
+        "raw_unit": "percent",
+        "source_calendar_id": "US_CALENDAR_DAY",
+        "source_id": "fred-public-csv",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "basis_points"
+      },
+      "profile_id": "79a71f58af20ae22b9be7685b357521a25dae2577d342cbbfbd6cd539ba4a7ee",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "762dbc5523d96f8620db54f43cfb0200eccaaf1bc5b5a3ccd8c9d51f5cf59692",
+      "validation_capture_ids": [
+        "762dbc5523d96f8620db54f43cfb0200eccaaf1bc5b5a3ccd8c9d51f5cf59692",
+        "6875bedf0b93d3ee4897156099ae109c1afce2e1b23d3eeef8c396d15b6074b0",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "iwm",
+        "label_policy": "XNYS_SESSION",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "TOTAL_RETURN_AS_AVAILABLE",
+        "raw_unit": "USD",
+        "source_calendar_id": "XNYS",
+        "source_id": "yahoo-chart-v8",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "USD"
+      },
+      "profile_id": "e8f7e91bed2accc8783886efaa3fac3c0520dfd983a65e2247580685fc2915ff",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "559a3512798c077d7bf18d57ec613a952ff814b8905108d01f4957faf86f1685",
+      "validation_capture_ids": [
+        "559a3512798c077d7bf18d57ec613a952ff814b8905108d01f4957faf86f1685",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "qqq",
+        "label_policy": "XNYS_SESSION",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "TOTAL_RETURN_AS_AVAILABLE",
+        "raw_unit": "USD",
+        "source_calendar_id": "XNYS",
+        "source_id": "yahoo-chart-v8",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "USD"
+      },
+      "profile_id": "ce402798b40e3f69da100e832196abf083247bb1aa939883c24f5a67c36c43f0",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "c5e249c09773aeaccf532c8c57dd3e1b960bd57617b30a3604b2dc3a3f76d82b",
+      "validation_capture_ids": [
+        "c5e249c09773aeaccf532c8c57dd3e1b960bd57617b30a3604b2dc3a3f76d82b",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "rsp",
+        "label_policy": "XNYS_SESSION",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "TOTAL_RETURN_AS_AVAILABLE",
+        "raw_unit": "USD",
+        "source_calendar_id": "XNYS",
+        "source_id": "yahoo-chart-v8",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "USD"
+      },
+      "profile_id": "fd9f3ab72ac62d743551d9d12944fdac2725bdccbd966f5cbd798fc6b0d9b3cb",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "f62a49ed358a5a83358612c8e53c4325df4d7fa9a9a61b39c1007fa5b46520a9",
+      "validation_capture_ids": [
+        "f62a49ed358a5a83358612c8e53c4325df4d7fa9a9a61b39c1007fa5b46520a9",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "sofr",
+        "label_policy": "LOCAL_DATE_BEFORE_EXCLUSIVE_END",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "NOT_PRICE",
+        "raw_unit": "percent_per_annum",
+        "source_calendar_id": "US_CALENDAR_DAY",
+        "source_id": "fred-public-csv",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "percent_per_annum"
+      },
+      "profile_id": "afcb0a88922e092297f4468edd1756414441930d3aff01994ba521c2eca5d53d",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "51736681ec8e43dcc0e1aef7e9e2edb8aa7da10fd99e1aae4614c9203eba2ab0",
+      "validation_capture_ids": [
+        "51736681ec8e43dcc0e1aef7e9e2edb8aa7da10fd99e1aae4614c9203eba2ab0",
+        "661ff98880bd57b425b27794fd1603032282e76b5b59294cf15408ce87f3a413",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "spy",
+        "label_policy": "XNYS_SESSION",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "TOTAL_RETURN_AS_AVAILABLE",
+        "raw_unit": "USD",
+        "source_calendar_id": "XNYS",
+        "source_id": "yahoo-chart-v8",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "USD"
+      },
+      "profile_id": "86e1633f19e7bc43593147ddf282c0efd5a6f3feca2860b86d99a01ce6a930df",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "91dbefc0bc207fff29fc495d2341b5d7e897a925795131e0bf8a5ba6eaa6a629",
+      "validation_capture_ids": [
+        "91dbefc0bc207fff29fc495d2341b5d7e897a925795131e0bf8a5ba6eaa6a629",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "ust_10y",
+        "label_policy": "LOCAL_DATE_OF_END",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "NOT_PRICE",
+        "raw_unit": "percent_per_annum",
+        "source_calendar_id": "US_CALENDAR_DAY",
+        "source_id": "fred-public-csv",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "percent_per_annum"
+      },
+      "profile_id": "76a57110dce765e241aaddd76d084092a86cdbf691df58f27951847a45614877",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "REGULAR_SESSION_CONSERVATIVE_OBSERVATION_BOUND_NOT_PUBLICATION",
+        "EARLY_CLOSE_CLOCK_UNVERIFIED_EXCLUDED"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "f11d74d3fca03f2943c63b83e3372252de5e31253ef1b0d96797b730b4c1f46b",
+      "validation_capture_ids": [
+        "f11d74d3fca03f2943c63b83e3372252de5e31253ef1b0d96797b730b4c1f46b",
+        "1ca4e62f5443e6623b1f827765f3cceb4e6089ef7d2708b15fe03178723eec3b",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "ust_2y",
+        "label_policy": "LOCAL_DATE_OF_END",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "NOT_PRICE",
+        "raw_unit": "percent_per_annum",
+        "source_calendar_id": "US_CALENDAR_DAY",
+        "source_id": "fred-public-csv",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "percent_per_annum"
+      },
+      "profile_id": "7dcbcd25e96a24484c731f583ce507cdc4388ed011b5be0e97cd75cea1073d02",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "REGULAR_SESSION_CONSERVATIVE_OBSERVATION_BOUND_NOT_PUBLICATION",
+        "EARLY_CLOSE_CLOCK_UNVERIFIED_EXCLUDED"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "f5cf85d4b35298b672bd1381fb1d198d2f3b8ad489d118696b9804020d171b7f",
+      "validation_capture_ids": [
+        "f5cf85d4b35298b672bd1381fb1d198d2f3b8ad489d118696b9804020d171b7f",
+        "0cdce4efd9bb985b495306c69465ed72462c82ba62bea00e8fb0ee008208748a",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "vix",
+        "label_policy": "LOCAL_DATE_OF_END",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "NOT_PRICE",
+        "raw_unit": "percent_annualized",
+        "source_calendar_id": "US_CALENDAR_DAY",
+        "source_id": "cboe-daily-csv",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "percent_annualized"
+      },
+      "profile_id": "7372e958ac08a122107fcb84d49da0c7eff59b8b0469e53cdbf091dfe9d65a7c",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "REGULAR_SESSION_CONSERVATIVE_OBSERVATION_BOUND_NOT_PUBLICATION",
+        "EARLY_CLOSE_CLOCK_UNVERIFIED_EXCLUDED"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "bc240e4748555bed5e74ad1ab28f7ba8ea441109fdbc12f0c312c0dea357a8f3",
+      "validation_capture_ids": [
+        "bc240e4748555bed5e74ad1ab28f7ba8ea441109fdbc12f0c312c0dea357a8f3",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "xlb",
+        "label_policy": "XNYS_SESSION",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "TOTAL_RETURN_AS_AVAILABLE",
+        "raw_unit": "USD",
+        "source_calendar_id": "XNYS",
+        "source_id": "yahoo-chart-v8",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "USD"
+      },
+      "profile_id": "00e07dbe0f778136e2dd502eeb097c938d8dbec8ff97087d484514dccc1274bd",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "4907b65cfbd5765a194957464345f89a29e8e0da1b280c8b2fc7ecc28c2f215c",
+      "validation_capture_ids": [
+        "4907b65cfbd5765a194957464345f89a29e8e0da1b280c8b2fc7ecc28c2f215c",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "xle",
+        "label_policy": "XNYS_SESSION",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "TOTAL_RETURN_AS_AVAILABLE",
+        "raw_unit": "USD",
+        "source_calendar_id": "XNYS",
+        "source_id": "yahoo-chart-v8",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "USD"
+      },
+      "profile_id": "d8e7b0b8bf022abab1016ee6eb9fc6ff8a46c2c99e550d4cae6edbb448926e22",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "bd3c8a603e027c27b79b91bd4d01ccc31ba1ea74fa32a3dde652bdb96b41c9bc",
+      "validation_capture_ids": [
+        "bd3c8a603e027c27b79b91bd4d01ccc31ba1ea74fa32a3dde652bdb96b41c9bc",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "xlf",
+        "label_policy": "XNYS_SESSION",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "TOTAL_RETURN_AS_AVAILABLE",
+        "raw_unit": "USD",
+        "source_calendar_id": "XNYS",
+        "source_id": "yahoo-chart-v8",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "USD"
+      },
+      "profile_id": "c9428135e68d6364ec4635198cb0d5b01066b17afc166672b3813ada40111bfe",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "90d3f9c80ba6e3e255c7fb47d2a8e4ff4a584b1ab961ddf0365db314b289a9b1",
+      "validation_capture_ids": [
+        "90d3f9c80ba6e3e255c7fb47d2a8e4ff4a584b1ab961ddf0365db314b289a9b1",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "xli",
+        "label_policy": "XNYS_SESSION",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "TOTAL_RETURN_AS_AVAILABLE",
+        "raw_unit": "USD",
+        "source_calendar_id": "XNYS",
+        "source_id": "yahoo-chart-v8",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "USD"
+      },
+      "profile_id": "ff17ed7097965d901067af4f18c6a93a3a1a2d898a75f09430db3e33a2436c98",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "3d0a43267eb98405f6d0a448bf2e512336f7dec9a9f492b3dad42826f694e67f",
+      "validation_capture_ids": [
+        "3d0a43267eb98405f6d0a448bf2e512336f7dec9a9f492b3dad42826f694e67f",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "xlk",
+        "label_policy": "XNYS_SESSION",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "TOTAL_RETURN_AS_AVAILABLE",
+        "raw_unit": "USD",
+        "source_calendar_id": "XNYS",
+        "source_id": "yahoo-chart-v8",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "USD"
+      },
+      "profile_id": "84499268f2ddc4c237726e7ba0af04444e96872b3e3a9beef7d4431ecd0099bb",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "782a0dd241bdc95374beccc441e696e2335005d0acc6c216e164e7a0aad659dd",
+      "validation_capture_ids": [
+        "782a0dd241bdc95374beccc441e696e2335005d0acc6c216e164e7a0aad659dd",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "xlp",
+        "label_policy": "XNYS_SESSION",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "TOTAL_RETURN_AS_AVAILABLE",
+        "raw_unit": "USD",
+        "source_calendar_id": "XNYS",
+        "source_id": "yahoo-chart-v8",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "USD"
+      },
+      "profile_id": "9f070049df7f1f38d61642e74d080ba262b9d684d5e2368ae36ec64914df7a8b",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "1dd19b16b89de5bec57b095c7178342011dbd99614062ea9412d3ca1032fc8e0",
+      "validation_capture_ids": [
+        "1dd19b16b89de5bec57b095c7178342011dbd99614062ea9412d3ca1032fc8e0",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "xlu",
+        "label_policy": "XNYS_SESSION",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "TOTAL_RETURN_AS_AVAILABLE",
+        "raw_unit": "USD",
+        "source_calendar_id": "XNYS",
+        "source_id": "yahoo-chart-v8",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "USD"
+      },
+      "profile_id": "371addc6d3d2f111cd7ca0bcc6097740a2048911cf172a9ea0b73dc5eb742674",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "8ab4b5dc218e0be85a9f502569fe4b10ede851bc09896ac815fda08fe33e31e1",
+      "validation_capture_ids": [
+        "8ab4b5dc218e0be85a9f502569fe4b10ede851bc09896ac815fda08fe33e31e1",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "xlv",
+        "label_policy": "XNYS_SESSION",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "TOTAL_RETURN_AS_AVAILABLE",
+        "raw_unit": "USD",
+        "source_calendar_id": "XNYS",
+        "source_id": "yahoo-chart-v8",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "USD"
+      },
+      "profile_id": "67e7a57160eb309e234a64399d87d96afa05855000876da0462ef9b59aa03c36",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "1344948e57f2383bf65dcf0b56ed79f7719a1975157262ce5d611027a6553a7f",
+      "validation_capture_ids": [
+        "1344948e57f2383bf65dcf0b56ed79f7719a1975157262ce5d611027a6553a7f",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    },
+    {
+      "profile": {
+        "feed_id": "xly",
+        "label_policy": "XNYS_SESSION",
+        "metadata_scope": "VERIFIED_RESPONSE_IDENTITY_UNITS_AND_CONSERVATIVE_WINDOW_NOT_OPERATING_COVERAGE",
+        "price_basis": "TOTAL_RETURN_AS_AVAILABLE",
+        "raw_unit": "USD",
+        "source_calendar_id": "XNYS",
+        "source_id": "yahoo-chart-v8",
+        "source_version": "recorded-source-clock-v2:8eed1d7e24c6102009363a9ae937c62832d800313b179f598599ba1b52f85f6b",
+        "unit": "USD"
+      },
+      "profile_id": "4e19a162e29dcf0b7c9d947cdfadca98b08ed57c8382215790c4069ac2597d26",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "validated_at": "2026-10-08T05:42:50.504219+00:00",
+      "validation_capture_id": "1b0678f206838394556773593f8ad328058f5f62deac435567994365c6baa79d",
+      "validation_capture_ids": [
+        "1b0678f206838394556773593f8ad328058f5f62deac435567994365c6baa79d",
+        "6f4daa3b399b6e9c7710e9ee8a6b696af9debdeb94f1ab988a8343ca0d14f3d6",
+        "676fd0bce658b8634ffd30c642fd2db729d858afbcc81ba469a5a2a674eea791",
+        "74ad470307a6f498fab248e5692e0dc890f29593e4a00a84ad35794ba80b8f2a",
+        "e92932eed3713e3b6b185b2ebe5247a49338ebd70b8a1770dc3892c8807d5a32",
+        "59232f41d420ffc622d975bbec70d3aaa936611d9185d8dbb5d6ff79273002cc",
+        "86356eb7ce9dee4721fc6d110211c3cda71c0fe568dfceebc8e32b23a2055c64"
+      ]
+    }
+  ]
+}

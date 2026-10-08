@@ -1,0 +1,62 @@
+{
+  "task_id": "6B-2I-3",
+  "schema_version": "sentinel-daily-coverage-pilot-v1",
+  "activated_at": "2026-10-08T05:44:51.841744+00:00",
+  "decision_sessions": [
+    "2026-10-08",
+    "2026-10-09",
+    "2026-10-12",
+    "2026-10-13",
+    "2026-10-14",
+    "2026-10-15",
+    "2026-10-16",
+    "2026-10-19",
+    "2026-10-20",
+    "2026-10-21",
+    "2026-10-22",
+    "2026-10-23",
+    "2026-10-26",
+    "2026-10-27",
+    "2026-10-28",
+    "2026-10-29",
+    "2026-10-30",
+    "2026-11-02",
+    "2026-11-03",
+    "2026-11-04"
+  ],
+  "calendar_version": "XNYS:4.13.2:bf37b8e66b5cb8b7e4de2a1c1cb703cbaa88f3db136827bb18deb15f1ad37f7d",
+  "clock_profile_sha256": "88f7866095c16fb9d07d67f5e674f89abaf87015874eb6e0974acc71f759669d",
+  "capture_offsets_after_close_minutes": [
+    20,
+    60,
+    100,
+    115
+  ],
+  "slot_grace_minutes": 4,
+  "missed_slot_policy": "Record MISSED; do not backdate or catch up as if timely. Later same-day slots can provide genuine timely recovery.",
+  "cutoff_minutes_after_close": 120,
+  "minimum_completed_sessions": 20,
+  "operational_coverage_min": 0.95,
+  "denominator": "All 20 consecutive predeclared XNYS decisions; missed/failed/late days remain failures. Future cutoffs excluded until elapsed.",
+  "required_feed_ids": [
+    "spy",
+    "rsp",
+    "qqq",
+    "iwm",
+    "vix",
+    "hy_oas",
+    "ust_2y",
+    "ust_10y"
+  ],
+  "source_age_zero_S_feed_ids": [
+    "spy",
+    "rsp",
+    "vix",
+    "hy_oas"
+  ],
+  "pilot_pass_scope": "Coverage only; source-clock approval, historical availability, S/D warmup and effectiveness remain independent gates.",
+  "S_D_prior_measurements_min": 126,
+  "S_D_prior_measurements_target": 252,
+  "admission": "BLOCKED_DATA_UNTIL_SEPARATE_REVIEW",
+  "runtime_policy": "Local worker only; no durable scheduler available in this managed environment. Suspension/restart risks are explicit and missed days count."
+}

@@ -70,3 +70,10 @@ appendix bound to the original bibliography. Frozen G protocol and I experiment
 locks are unchanged. Next: collect completed-cutoff samples, verify scalar close
 semantics and HY publication/history evidence, then evaluate source admission.
 6B-2J remains gated by data admission and validated S/D research effectiveness.
+
+## 6B-2I-3 continuation
+
+[The source-clock pilot](sentinel-source-clock-pilot.md) starts a separately frozen
+20-decision collection study with isolated clock-v2 bindings and a local worker.
+V1 source bindings and this bootstrap audit stay unchanged. Coverage completion
+and S/D/data admission remain outstanding.

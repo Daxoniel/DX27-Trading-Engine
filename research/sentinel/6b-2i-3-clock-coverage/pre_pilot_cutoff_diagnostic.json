@@ -1,0 +1,1329 @@
+{
+  "admission_status": "BLOCKED_DATA",
+  "as_of": "2026-10-08T05:49:18.496594+00:00",
+  "calendar_version": "XNYS:4.13.2:bf37b8e66b5cb8b7e4de2a1c1cb703cbaa88f3db136827bb18deb15f1ad37f7d",
+  "capture_count": 78,
+  "causal_prefix_replay": "PASS",
+  "completed_monitored_decisions": 1,
+  "cutoff_eligible_points": 68272,
+  "decision_cutoff": "2026-10-07T22:00:00+00:00",
+  "decision_session": "2026-10-07",
+  "normalized_points": 102412,
+  "note": "Research profiles only. No operating coverage approval. Unknown publication times remain null. Bootstrap snapshots preceding first capture are not monitoring failures.",
+  "operating_coverage": null,
+  "protocol_digest": "18b21fc01c5776b6a9965262d6f6ca6efbd8197342c483589529257c5061a784",
+  "references": [
+    {
+      "configuration": "us-equity-pressure-3g-v1",
+      "qualifiers": [
+        "LIMITED_US_EQUITY_PRESSURE",
+        "NOT_A_FORECAST",
+        "NOT_PRIORITY",
+        "REF-ECB-CISS-2012",
+        "REF-SENTINEL-G-V1",
+        "RESEARCH_ONLY"
+      ],
+      "reference_id": "1375a44d060982f30a050a19a7ab00b5b2d7a0e65aae4b715de22ab8bd94780a",
+      "status": "STALE"
+    },
+    {
+      "configuration": "us-equity-divergence-2p-v1",
+      "qualifiers": [
+        "DIVERGENCE_NOT_BEARISH",
+        "NOT_A_FORECAST",
+        "NOT_PRIORITY",
+        "REF-NIST-ROBUST-Z",
+        "REF-SENTINEL-G-V1",
+        "RESEARCH_ONLY"
+      ],
+      "reference_id": "08b1b7e8def097a0469c6bc9dbfabd010d0e0dd884714a8b3182df58176a52ed",
+      "status": "STALE"
+    }
+  ],
+  "snapshot_coverage": {
+    "active_required": {
+      "available": 1,
+      "expected": 13
+    },
+    "blocked": {
+      "available": 0,
+      "expected": 3
+    },
+    "grade": "PARTIAL",
+    "optional": {
+      "available": 1,
+      "expected": 2
+    },
+    "qualifiers": [
+      "TRUE_BREADTH_UNAVAILABLE",
+      "CONCENTRATION_UNAVAILABLE",
+      "USD_MACRO_NOT_IMPLEMENTED"
+    ],
+    "registered": {
+      "available": 2,
+      "expected": 18
+    }
+  },
+  "snapshot_id": "b51c2156e78227828d3c25f0e3f7036a4be8f431c0d91662bfc47932588509d3",
+  "snapshot_status": "DEGRADED",
+  "source_results": [
+    {
+      "capture_id": "f62a49ed358a5a83358612c8e53c4325df4d7fa9a9a61b39c1007fa5b46520a9",
+      "feed_id": "rsp",
+      "first_seen_at": "2026-10-07T14:40:44.328728+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "22712d79d0ce97f005161b358777e63587dba14c2a4ae6eb99c0adc28bb975d1",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "90d3f9c80ba6e3e255c7fb47d2a8e4ff4a584b1ab961ddf0365db314b289a9b1",
+      "feed_id": "xlf",
+      "first_seen_at": "2026-10-07T14:40:44.347692+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "27b352ba678e43f141aca49301a012c803b3e7a990df6232fdc7a0fcbd5141be",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "559a3512798c077d7bf18d57ec613a952ff814b8905108d01f4957faf86f1685",
+      "feed_id": "iwm",
+      "first_seen_at": "2026-10-07T14:40:44.374634+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "c969fa8cc1835095978a892ce3c0804f5b37911129ab9df209069a1dbc5bf7d2",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "c5e249c09773aeaccf532c8c57dd3e1b960bd57617b30a3604b2dc3a3f76d82b",
+      "feed_id": "qqq",
+      "first_seen_at": "2026-10-07T14:40:44.375263+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "111d5da1c6f830abd60363f8b37aca78e1daa840beea8cf86707ed719bf8afc4",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "91dbefc0bc207fff29fc495d2341b5d7e897a925795131e0bf8a5ba6eaa6a629",
+      "feed_id": "spy",
+      "first_seen_at": "2026-10-07T14:40:44.378125+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "e0540cc807f50a44510440efddf79848014cc2a905a6a1de3169caf7f6f568a2",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "782a0dd241bdc95374beccc441e696e2335005d0acc6c216e164e7a0aad659dd",
+      "feed_id": "xlk",
+      "first_seen_at": "2026-10-07T14:40:44.380921+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "b34ae0d45c4656cc39f061e2529352b220af77a7fb09751e43cfeb952ef222e2",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "3d0a43267eb98405f6d0a448bf2e512336f7dec9a9f492b3dad42826f694e67f",
+      "feed_id": "xli",
+      "first_seen_at": "2026-10-07T14:40:44.520467+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "fc2022cfe6509ae0a5d16edb012156d1c478f1444f3966f5eb85ffe54e5f5ece",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "1dd19b16b89de5bec57b095c7178342011dbd99614062ea9412d3ca1032fc8e0",
+      "feed_id": "xlp",
+      "first_seen_at": "2026-10-07T14:40:44.556470+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "1a095e2832f09849789b907cea5eb2ea444fc93efeeffab40aa5d85dd22ee0c4",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "8ab4b5dc218e0be85a9f502569fe4b10ede851bc09896ac815fda08fe33e31e1",
+      "feed_id": "xlu",
+      "first_seen_at": "2026-10-07T14:40:44.576191+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "ebe3419f61775961431d15e96e6261a26e16bbcc520542bad66dd51e2dd572eb",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "bd3c8a603e027c27b79b91bd4d01ccc31ba1ea74fa32a3dde652bdb96b41c9bc",
+      "feed_id": "xle",
+      "first_seen_at": "2026-10-07T14:40:44.596783+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "6ae55d197c8820981547343cd3452aa53d2bf47728a1f4a06981b34229bdf44a",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "4907b65cfbd5765a194957464345f89a29e8e0da1b280c8b2fc7ecc28c2f215c",
+      "feed_id": "xlb",
+      "first_seen_at": "2026-10-07T14:40:44.664032+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "c34a08cf663e9fa5516ec6a9b7cb6541cce845ce0a7e4ed764b632cc88b03756",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "1344948e57f2383bf65dcf0b56ed79f7719a1975157262ce5d611027a6553a7f",
+      "feed_id": "xlv",
+      "first_seen_at": "2026-10-07T14:40:44.701897+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "e7f995281d46eae35816afed017a53c2fab020fd3b2c6786a48ed126fc4a063a",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "1b0678f206838394556773593f8ad328058f5f62deac435567994365c6baa79d",
+      "feed_id": "xly",
+      "first_seen_at": "2026-10-07T14:40:44.758090+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "b4257af79654dd29bf7a719ffdce6a7356fa7a55fcafe8866fbb4cc18fac458e",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "762dbc5523d96f8620db54f43cfb0200eccaaf1bc5b5a3ccd8c9d51f5cf59692",
+      "feed_id": "hy_oas",
+      "first_seen_at": "2026-10-07T14:40:44.830513+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 792,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "04639cc3a881b1d5c65ada740b3191004e29efb1d4f2368d93560a902ca9a408",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "f11d74d3fca03f2943c63b83e3372252de5e31253ef1b0d96797b730b4c1f46b",
+      "feed_id": "ust_10y",
+      "first_seen_at": "2026-10-07T14:40:45.035811+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6199,
+      "out_of_scope_rows": 10696,
+      "payload_sha256": "b4f07ee2c644f43a0abf293499a2bc4ad479bb6656d1ccb6c9d7dd33b01f82ae",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "f5cf85d4b35298b672bd1381fb1d198d2f3b8ad489d118696b9804020d171b7f",
+      "feed_id": "ust_2y",
+      "first_seen_at": "2026-10-07T14:40:45.111064+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6199,
+      "out_of_scope_rows": 6936,
+      "payload_sha256": "acc55db8e7e82a0719afb685dd422752569d806be362fb3340985486d7d4ecd0",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "51736681ec8e43dcc0e1aef7e9e2edb8aa7da10fd99e1aae4614c9203eba2ab0",
+      "feed_id": "sofr",
+      "first_seen_at": "2026-10-07T14:40:45.188222+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 2221,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "0882b956d4213ac35f17b9d9e7ada420a40c29d3bea9e9905f9f739ce64b41d9",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS",
+        "REF-NYFED-SOFR-PUBLICATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "bc240e4748555bed5e74ad1ab28f7ba8ea441109fdbc12f0c312c0dea357a8f3",
+      "feed_id": "vix",
+      "first_seen_at": "2026-10-07T14:40:45.261359+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6012,
+      "out_of_scope_rows": 3276,
+      "payload_sha256": "cfcb9dce25bbbbd83aedca9a1480468bb25db2e988b3e893a4eebabb1905e1ab",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-CBOE-VIX-DAILY-CAPTURE"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "9ecf8b4977ee5c0f1f399f6ed6547f85526cac21a3bbad74b4b46dbfcc8cd76e",
+      "feed_id": "effr",
+      "first_seen_at": "2026-10-07T14:40:45.507531+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6200,
+      "out_of_scope_rows": 652,
+      "payload_sha256": "a848859dfee97a35eb8df25756b3ae477cb101bf60b514a94d4ddccea53e45f7",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "8fcef7d8f8a74519724cf0014ab4917cfb896cb893cfbb25e8b3817332a0bdb7",
+      "feed_id": "xlk",
+      "first_seen_at": "2026-10-07T14:41:18.009599+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "3a88690f4f0fd58125be7e4399035e009282dd062d936bf9241525da214e420c",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "00cc215e5d81cf9c0bbcbd6582e2b2ef4066474c58ba42ade40938c52d3fa5c9",
+      "feed_id": "iwm",
+      "first_seen_at": "2026-10-07T14:41:18.048058+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "5ce1b7e0d279cb76f767ade5836deb981f738081dfa1bb50224eeafd6cd41de6",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "3508b4b9104320927160761ad09215bb0084840f9237d70bba7f97de709e55ac",
+      "feed_id": "rsp",
+      "first_seen_at": "2026-10-07T14:41:18.055002+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "74a1117a413ff58658b529d4549d1119d90a390e96f3415df941aed6cd8b9b4e",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "3bb999f8b17481a6b68cb0e9d5c14bdaa8393b75f16325b64f3061112b2c1aea",
+      "feed_id": "qqq",
+      "first_seen_at": "2026-10-07T14:41:18.057316+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "686ba6e9f7888fc9037b748cbfe26fda5685a2c57a2f6d27a60784e278b206b9",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "cc75b02f3ba5b68343e583116dfa73dc44fbbd2a83b29fcd14d1c414b6f18c37",
+      "feed_id": "spy",
+      "first_seen_at": "2026-10-07T14:41:18.103582+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "0f568091ec0a96f0770e91ae7191e794b856ac4cb92c95daa52ff19b70c3c49f",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "c29255ca5e77345e7226ba3148d36a2e7fb4c9207e47f9ee83ad241f4a8780f7",
+      "feed_id": "xlf",
+      "first_seen_at": "2026-10-07T14:41:18.133376+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "439aa60551ba6956326f3c4dd22e1c781c58c0cf142c232ab517d9b591b1a9b9",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "4d07f2a140e64bfa3c4fa38d084310b1c99f123adfa875694eb21781f40900f6",
+      "feed_id": "xle",
+      "first_seen_at": "2026-10-07T14:41:18.216150+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "d173aa822b9eab461b3ad762b625aa9e913566d83d83cb6b3901adbe6ca1bb00",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "7764db514a28e7b41a33856df0343c5d4188c7e6d0c247bb44867abeeffdddc8",
+      "feed_id": "xlv",
+      "first_seen_at": "2026-10-07T14:41:18.243313+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "191e89cbaafb231fb3b0aaa58159f2cd211a9b6cb9b169d4db60aeb8a0bc0334",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "5b2ef8becdfcf8e6f6765f4a43222f589e1771945a8f25790e0e5bc4417cb4e6",
+      "feed_id": "xli",
+      "first_seen_at": "2026-10-07T14:41:18.273847+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "0c38015e583151bfffceecfe34974d0592bbf891e4f6f9c0cc5605a557f1e912",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "03d5741e348ecf2b8ec7fc65fcb57a58525b2d3a4e7a12d6025e81bd6449056f",
+      "feed_id": "xlp",
+      "first_seen_at": "2026-10-07T14:41:18.310224+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "ee01bb6cab068808ed652472164fef02a7ab4ab13e8539e0091ddf3cf60d3714",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "fc35d666229d33ad6c4aef9123da93511e0ec9f11509b32663e56d71fa8b64db",
+      "feed_id": "xlu",
+      "first_seen_at": "2026-10-07T14:41:18.330679+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "5738ec833feb78bce324dcf7e880f5523812807b7809b442ca3f86995c6d0368",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "f53026d0b8c075a26c76956dabf1cde201c78bd672ea0694a199fd904787cbde",
+      "feed_id": "hy_oas",
+      "first_seen_at": "2026-10-07T14:41:18.362772+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 792,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "04639cc3a881b1d5c65ada740b3191004e29efb1d4f2368d93560a902ca9a408",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "e19e8a18616add665ccd02bca3e2a1eb75c278bedaf284f85873db136833d90c",
+      "feed_id": "xly",
+      "first_seen_at": "2026-10-07T14:41:18.367441+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "2b84032feb2d4308982fde94fd1e8da4a539d4b2ca3341f996cd54e348797364",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "f2d5225557497d98eae53f1875b13a65bfbfc2a956ba0b13c5bac192c8add0a8",
+      "feed_id": "ust_2y",
+      "first_seen_at": "2026-10-07T14:41:18.463553+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6199,
+      "out_of_scope_rows": 6936,
+      "payload_sha256": "acc55db8e7e82a0719afb685dd422752569d806be362fb3340985486d7d4ecd0",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "e1b99faefce1c266c45949c82b39ac2377e6252c76e502646d4590f5fd5008ae",
+      "feed_id": "vix",
+      "first_seen_at": "2026-10-07T14:41:18.534492+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6012,
+      "out_of_scope_rows": 3276,
+      "payload_sha256": "cfcb9dce25bbbbd83aedca9a1480468bb25db2e988b3e893a4eebabb1905e1ab",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-CBOE-VIX-DAILY-CAPTURE"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "d71e6476168347eebbe366068cafb9195728582f35f8bed5b7ef4d1e7b29a5c3",
+      "feed_id": "xlb",
+      "first_seen_at": "2026-10-07T14:41:18.574319+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 1,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "66fde852162772e82f8dae0f6b74433ca7e6989195bca13f8857ffbefc183ad9",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "2f3b65912aabe369aab8e37b61aa906b6f1f91ae21c24b3732c01b023703011a",
+      "feed_id": "sofr",
+      "first_seen_at": "2026-10-07T14:41:18.611561+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 2221,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "0882b956d4213ac35f17b9d9e7ada420a40c29d3bea9e9905f9f739ce64b41d9",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS",
+        "REF-NYFED-SOFR-PUBLICATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "e11e768be592f6d62844491ae869de0d163f2ab3287d1cb08f17be877610b20d",
+      "feed_id": "ust_10y",
+      "first_seen_at": "2026-10-07T14:41:18.699602+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6199,
+      "out_of_scope_rows": 10696,
+      "payload_sha256": "b4f07ee2c644f43a0abf293499a2bc4ad479bb6656d1ccb6c9d7dd33b01f82ae",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "8fd8a4c93edbe096667ee14e7f8ac50fd0d5c4728f2f77f1be10e9114898fea4",
+      "feed_id": "effr",
+      "first_seen_at": "2026-10-07T14:41:18.710120+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6200,
+      "out_of_scope_rows": 652,
+      "payload_sha256": "a848859dfee97a35eb8df25756b3ae477cb101bf60b514a94d4ddccea53e45f7",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "63632de365d89f439af70408245878aa9c45c6ff027597f4f8f70ed61be2d907",
+      "feed_id": "iwm",
+      "first_seen_at": "2026-10-08T05:46:58.763554+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "6e7a83a280315e660baabed60662ae3f9b7ee96994c05548d9a1fec6dbea1108",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "fbefda142e351cf6f44145920270b934392dd20a6ef1507462c3949c5986a7bf",
+      "feed_id": "xlk",
+      "first_seen_at": "2026-10-08T05:46:58.917338+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "0a6d773f8f0238cc931b0a5350f5cccad9f127e7959a1791a4de5434611034ce",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "a34213acd46efe21216e569d5879bc6cf5681cbca4ea2e30790e2ef2d9e3adef",
+      "feed_id": "rsp",
+      "first_seen_at": "2026-10-08T05:46:58.934042+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "cd71794c3a849df16443f1b7d173ccfa973b7995a3c5ed06d9b13e62603c3eed",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "425e0130e46958885b27d3aa9dedcfed4ef5df1bafae103b14c62c403ae962e8",
+      "feed_id": "qqq",
+      "first_seen_at": "2026-10-08T05:46:58.943062+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "234fe971609edc19af1fd7576f600c788437f362e7eaded08b1d39c28b93450f",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "6988f1a205bc2d3718cd09d3416ed2987bce4694154042bf2dced4321d874a1c",
+      "feed_id": "xlf",
+      "first_seen_at": "2026-10-08T05:46:58.961329+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "3c2c42ae34aa9a494282fdda9c84434a91373b446e8ed36624858155d66e5115",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "2932058fdc75a766d1faf614ef5be53122455d5cc9fbfa134643093b4c4a1df5",
+      "feed_id": "spy",
+      "first_seen_at": "2026-10-08T05:46:58.988061+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "c2132615b486a4d197a1d155425e5be9230aa3c5615f397df8aae8af0f42330e",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "e7022c178ed800833a31d8c111078b2291e60799b1a5c908e94b9d74cd1a044b",
+      "feed_id": "xle",
+      "first_seen_at": "2026-10-08T05:46:59.011117+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "c86216618d9f42d36ecf252488e7ea1eea4a4bce531a4479ff5828fd03702c37",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "00e56574806ad9ddac21ecc4f85264d1227f341bb825796d02944b184df9f745",
+      "feed_id": "xlv",
+      "first_seen_at": "2026-10-08T05:46:59.063916+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "ec260b43bd62f8799ebf1a0118bfe0ab2694b233c28a2aa539e315a682da779f",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "5011e087adb097018adeaa4f0a57a019ce7eee2c5f377656d65ac5caf405c1c5",
+      "feed_id": "xlu",
+      "first_seen_at": "2026-10-08T05:46:59.136221+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "be79ba676f2c0591c2d01042fe0d4d13a77321a4c7f96bd8e11298f763c83498",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "f8349e338172b7fa7177648619264f97c1762f30dda0005f1946184ffd23ce14",
+      "feed_id": "xli",
+      "first_seen_at": "2026-10-08T05:46:59.137035+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "a10cd6abfecf85d38d2ceff57af59726e923879496072ee5ae9ebbff5ac1e6a4",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "d5b93a96f21ce86d69ae4e4baafb3b8d0ea4a40777590c33c1aa57ba301559a2",
+      "feed_id": "xlp",
+      "first_seen_at": "2026-10-08T05:46:59.232574+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "bde32ee938f6479ae6db575e16b923e115dafa7b99ec93d543773bba7a7f9f76",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "49ced9853c1aa4fe68525262f6e60fc05790acb01d09600d7e9e9321a133ec3d",
+      "feed_id": "xlb",
+      "first_seen_at": "2026-10-08T05:46:59.270321+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "67245f78cd3554701d6e3737529e508624e4da4f98a2169a6a735bbb91f48b60",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "cbfaa19d349c41a845200dabfa9cf6b43458f9126aef5498ef7c140f66c4c310",
+      "feed_id": "xly",
+      "first_seen_at": "2026-10-08T05:46:59.322297+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 501,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "4870c40092d30c239da030ef5ea21cbb5531fabce838855dcabe69ee4fa6dc67",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "ADJUSTED_PRICE_AS_CAPTURED_NOT_HISTORIC_VINTAGE"
+      ],
+      "reference_ids": [
+        "REF-YAHOO-ADJUSTMENT-IMPLEMENTATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "fd2dccb5bbb89b09a8419cf8cbfcba3293016e177e9299518854df7ea1b2fb78",
+      "feed_id": "ust_2y",
+      "first_seen_at": "2026-10-08T05:46:59.625955+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6200,
+      "out_of_scope_rows": 6936,
+      "payload_sha256": "18245f9fc7b57d908f5181970d1243f720d374f1bd294f1e6920bc84a6b5e3a5",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "5a4d056f28d69b6ea8890d0161d85806b3885e93ee9822666749ba90e202fe1f",
+      "feed_id": "hy_oas",
+      "first_seen_at": "2026-10-08T05:46:59.626044+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 793,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "bdcc75849281bd918233ff1d076ad4725722b2ef5d51f7ff04bad8ffb81942f6",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "631851ba6d6a4036247a32ef6675b3316a8d9a95bbbf1393f9b2a9ac516cb077",
+      "feed_id": "vix",
+      "first_seen_at": "2026-10-08T05:46:59.733200+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6013,
+      "out_of_scope_rows": 3276,
+      "payload_sha256": "5c2f2ed585842efb26eb040cd18a1f7f092e92f6db94fc68756d48078b15bb32",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-CBOE-VIX-DAILY-CAPTURE"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "ebd2b6478a050d183eceefd3a125e2d81dcc3607d2daf9caadd24571cefb6c1a",
+      "feed_id": "ust_10y",
+      "first_seen_at": "2026-10-08T05:47:00.055488+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6200,
+      "out_of_scope_rows": 10696,
+      "payload_sha256": "422b1048a3b3eebec2e9cdd0847893112e96f266b85b29314df950a85b942232",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "c0e06ff8a7afc843b8b316d57a06c40975fb61033d5df31dbe1e01210718f017",
+      "feed_id": "effr",
+      "first_seen_at": "2026-10-08T05:47:00.284846+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 6200,
+      "out_of_scope_rows": 652,
+      "payload_sha256": "a848859dfee97a35eb8df25756b3ae477cb101bf60b514a94d4ddccea53e45f7",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    },
+    {
+      "capture_id": "b2c3687a5b4c938113ec6a3572b12fc862885accc3f2aef99e0bdba138f2e13a",
+      "feed_id": "sofr",
+      "first_seen_at": "2026-10-08T05:47:00.346887+00:00",
+      "http_status": 200,
+      "incomplete_observations_excluded": 0,
+      "normalized_points": 2221,
+      "out_of_scope_rows": 0,
+      "payload_sha256": "0882b956d4213ac35f17b9d9e7ada420a40c29d3bea9e9905f9f739ce64b41d9",
+      "qualifiers": [
+        "PUBLICATION_TIME_UNKNOWN",
+        "RECORDED_FIRST_SEEN_ONLY",
+        "RESEARCH_BINDING_ONLY",
+        "CONSERVATIVE_FULL_DATE_WINDOW_NO_VERIFIED_CLOSE_CLOCK"
+      ],
+      "reference_ids": [
+        "REF-FRED-CAPTURE-UNITS",
+        "REF-NYFED-SOFR-PUBLICATION"
+      ],
+      "source_error_rows": 0,
+      "status": "RESEARCH_PROFILE_VALIDATED",
+      "unsupported_clock_rows_excluded": 0
+    }
+  ],
+  "task_id": "6B-2I-2"
+}
