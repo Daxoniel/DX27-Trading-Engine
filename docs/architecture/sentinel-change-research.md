@@ -80,8 +80,9 @@ Track A continues the fixed October 8–November 4 coverage pilot and subsequent
 126/252-session history. User-reported Windows reboot recovery and actual mail
 receipt are archived in `deployment_acceptance.json`; process observations and
 hash-preserving single-writer handoff are recorded separately. October 8's four
-MISSED slots remain unchanged. PASS_USER_REPORTED_ACCEPTANCE for infrastructure
-does not imply source coverage PASS or data admission.
+MISSED slots remain unchanged. Infrastructure remains NOT_READY until every frozen recovery/email requirement
+is evidenced; neither protocol preparation nor pilot operation implies coverage
+PASS or data admission.
 
 Track B can prepare and test synthetic implementations now. No additional live
 collector is launched and no runtime health file is rewritten to certify research.

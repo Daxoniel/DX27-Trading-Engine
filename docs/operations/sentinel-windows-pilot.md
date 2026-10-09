@@ -84,6 +84,18 @@ Get-ScheduledTask -TaskName 'DX27-Sentinel-Pilot'
 Get-ScheduledTaskInfo -TaskName 'DX27-Sentinel-Pilot'
 ```
 
+脚本要求显式填写任务账户，不能从当前 `DESKTOP\USER` 猜测 Microsoft 登录身份。
+Microsoft 登录填写 `MicrosoftAccount\你的邮箱`；本地账户填写 `电脑名\用户名`，
+域账户填写 `域名\用户名`。可在命令中明确指定：
+
+```powershell
+.\deploy\sentinel\install-windows.ps1 -Repo "$Root\repo" -Store "$Root\data" -MonitorConfig "$Root\monitoring.json" -TaskUser 'MicrosoftAccount\your-email@example.com'
+```
+
+注册、账户解析或启动失败会返回非零退出码并停止，不会打印成功。
+只有注册读回且账户匹配、任务实际观察到 `Running` 才输出有限的成功信息。
+已经在运行的采集任务不要为测试重复安装；先安排受控停止并确认无旧 worker。
+
 脚本在 Windows 凭据窗口中询问你的 **Windows 账户密码**，不是 Windows Hello PIN。
 任务配置为开机启动、未登录也运行、失败后 1 分钟重启、单实例、无默认三日运行上限。
 账户密码只交给 Windows 任务计划程序，不写入 JSON，也不要发给 Codex。

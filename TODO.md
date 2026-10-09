@@ -184,8 +184,9 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
 
 ## Next
 
-- [x] **6B-2I-3A — Durable Pilot Runner & Recovery Validation** — Windows
-  reboot recovery and email delivery accepted on user-reported evidence;
+- [ ] **6B-2I-3A — Durable Pilot Runner & Recovery Validation** — Windows
+  reboot recovery and email receipt reported; required logged-out startup,
+  forced worker recovery and distinct recovery email evidence pending (NOT_READY);
   final single-writer handoff verified, 102 captures / 353 files unchanged.
   See [acceptance record](research/sentinel/6b-2i-3a-durable-runner/deployment_acceptance.json).
 - [x] **6B-2J-A — Change Detection Protocol Pre-registration** — design prepared

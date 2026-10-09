@@ -1,8 +1,10 @@
 # 6B-2I-3A — Durable Pilot Runner & Recovery Validation
 
-Windows deployment is **PASS_USER_REPORTED_ACCEPTANCE** as of 2026-10-09.
-The user confirmed reboot recovery and actual email delivery; native tests were
-not independently observed by Codex. See the archived deployment acceptance record.
+Windows deployment remains **NOT_READY_REQUIRED_ACCEPTANCE_EVIDENCE_PENDING**.
+The user reported reboot recovery and actual email receipt, but logged-out startup,
+forced worker termination recovery and distinct recovery email receipt are frozen
+required tests without separate evidence. They are not optional. See the archived
+acceptance record; the prior PASS interpretation was withdrawn after review.
 
 The existing 2026-10-08 through 2026-11-04 protocol, clock profile, four polling
 slots, 20-session denominator and coverage thresholds remain byte-identical.
@@ -64,7 +66,7 @@ scientific polling grace or observation eligibility.
 The Linux workspace can test migration, lock release after process death,
 atomic publication and causal polling. It cannot prove Windows task registration,
 reboot survival or email delivery on the user's computer. Native recovery/email
-acceptance is user-reported in deployment_acceptance.json; optional diagnostic
+acceptance remains pending in deployment_acceptance.json; required
 subtests without distinct evidence are listed there. 6B-2J real validation remains blocked.
 
 See [Windows operation guide](../operations/sentinel-windows-pilot.md). After 3A

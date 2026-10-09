@@ -14,5 +14,6 @@ No frozen research protocol, polling rule, denominator, source availability time
 ## Deployment acceptance update — 2026-10-09
 
 Historical preparation/pending files above are preserved. Current status is
-PASS_USER_REPORTED_ACCEPTANCE; see deployment_acceptance.json for evidence scope,
-verified final handoff and remaining optional diagnostics. Data admission stays blocked.
+NOT_READY_REQUIRED_ACCEPTANCE_EVIDENCE_PENDING; the previous PASS interpretation
+is withdrawn. See deployment_acceptance.json for reported evidence, verified handoff
+and required remaining tests. None became optional. Data admission stays blocked.

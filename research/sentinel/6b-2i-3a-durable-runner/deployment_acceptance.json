@@ -1,6 +1,6 @@
 {
   "task_id": "6B-2I-3A",
-  "deployment_verdict": "PASS_USER_REPORTED_ACCEPTANCE",
+  "deployment_verdict": "NOT_READY_REQUIRED_ACCEPTANCE_EVIDENCE_PENDING",
   "evidence_source": "user_chat_2026-10-09",
   "independent_native_observation": false,
   "verified_locally": [
@@ -14,12 +14,7 @@
     "email received",
     "automatic recovery after shutdown/reboot"
   ],
-  "not_separately_evidenced": [
-    "forced worker termination recovery",
-    "logged-out startup test",
-    "distinct recovery email receipt"
-  ],
-  "acceptance_basis": "User confirmed reboot recovery and actual email delivery after instructed tests; no claim all optional diagnostic subtests independently witnessed.",
+  "acceptance_basis": "User reported reboot recovery and email receipt; required logged-out startup, forced worker termination recovery, and distinct recovery email evidence remain outstanding. Frozen acceptance requirements are unchanged.",
   "archive_sha256": "20ff7375a070d99bf1c0f8cc681a79e3cc11b4c2179e93a42b08db4d5f5089fb",
   "final_checkpoint_capture_count": 102,
   "final_checkpoint_files": 353,
@@ -37,5 +32,11 @@
   ],
   "coverage_verdict": "PENDING",
   "data_admission": "BLOCKED_DATA",
-  "host_outage_policy": "retain MISSED; never reset dates or backdate evidence"
+  "host_outage_policy": "retain MISSED; never reset dates or backdate evidence",
+  "required_acceptance_pending": [
+    "forced worker termination recovery",
+    "logged-out startup test",
+    "distinct recovery email receipt"
+  ],
+  "known_installer_defect": "MicrosoftAccount identity resolution and false success reporting reproduced by user; fix prepared, native retest pending"
 }
