@@ -9,8 +9,7 @@ Describe 'Sentinel installer failure handling' {
         $Monitor = Join-Path $TestDrive 'monitoring.json'
         New-Item -ItemType Directory -Path "$Repo\.venv\Scripts", $Store -Force | Out-Null
         New-Item -ItemType File -Path "$Repo\.venv\Scripts\python.exe", $Monitor -Force | Out-Null
-        $script:Credential = [PSCredential]::new('MicrosoftAccount\test@example.com', (ConvertTo-SecureString 'fake-test-password' -AsPlainText -Force))
-        Mock Get-Credential { $script:Credential }
+        Mock Get-Credential { [PSCredential]::new('MicrosoftAccount\test@example.com', (ConvertTo-SecureString 'fake-test-password' -AsPlainText -Force)) }
         Mock New-Object {
             $Account = [PSCustomObject]@{}
             $Account | Add-Member -MemberType ScriptMethod -Name Translate -Value { param($Type) [PSCustomObject]@{Value='S-1-5-21-100'} }
