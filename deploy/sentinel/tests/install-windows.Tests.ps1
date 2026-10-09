@@ -22,7 +22,7 @@ Describe 'Sentinel installer failure handling' {
         Mock Get-ScheduledTask { [PSCustomObject]@{State='Running';Principal=[PSCustomObject]@{UserId='MicrosoftAccount\test@example.com'}} }
         Mock Start-ScheduledTask {}
         Mock Start-Sleep {}
-        Mock Write-Error { Write-Host $Message }
+        Mock Write-Error { Write-Host $Message; Write-Host $global:Error[0].Exception.Message }
     }
     It 'uses the explicit MicrosoftAccount identity and verifies Running' {
         $Output = & $Installer -Repo $Repo -Store $Store -MonitorConfig $Monitor -TaskUser 'MicrosoftAccount\test@example.com'
