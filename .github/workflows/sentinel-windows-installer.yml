@@ -1,0 +1,42 @@
+name: Sentinel Windows installer tests
+on:
+  pull_request:
+    paths:
+      - 'deploy/sentinel/**'
+      - '.github/workflows/sentinel-windows-installer.yml'
+  push:
+    branches: ['codex/sentinel-6b-2j-a-change-protocol']
+    paths:
+      - 'deploy/sentinel/**'
+      - '.github/workflows/sentinel-windows-installer.yml'
+permissions:
+  contents: read
+jobs:
+  pester:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Pester
+        shell: pwsh
+        run: |
+          Install-Module Pester -RequiredVersion 5.7.1 -Scope CurrentUser -Force -SkipPublisherCheck
+      - name: Run isolated mock tests
+        shell: pwsh
+        run: |
+          Import-Module Pester -RequiredVersion 5.7.1 -Force
+          $Config = New-PesterConfiguration
+          $Config.Run.Path = './deploy/sentinel/tests/install-windows.Tests.ps1'
+          $Config.Run.PassThru = $true
+          $Config.Output.Verbosity = 'Detailed'
+          $Config.TestResult.Enabled = $true
+          $Config.TestResult.OutputPath = './pester-results.xml'
+          $Result = Invoke-Pester -Configuration $Config
+          if ($Result.TotalCount -ne 5 -or $Result.PassedCount -ne 5 -or $Result.FailedCount -ne 0) {
+              throw "Expected 5/5 pass; total=$($Result.TotalCount), passed=$($Result.PassedCount), failed=$($Result.FailedCount)"
+          }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sentinel-pester-results
+          path: pester-results.xml
