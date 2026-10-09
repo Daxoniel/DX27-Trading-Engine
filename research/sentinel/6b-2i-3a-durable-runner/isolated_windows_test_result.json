@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "runner": "GitHub Actions windows-latest ephemeral",
+  "pester_version": "5.7.1",
+  "tested_commit": "583002d76dceb26ade5ad35fe6570e707f1f738f",
+  "run_url": "https://github.com/Daxoniel/DX27-Trading-Engine/actions/runs/37901495795",
+  "passed": 5,
+  "failed": 0,
+  "skipped": 0,
+  "not_run": 0,
+  "artifact": "sentinel-pester-results",
+  "live_host_modified": false,
+  "full_native_acceptance": "NOT_READY"
+}

@@ -2,7 +2,6 @@
 
 import argparse
 from datetime import date, datetime, timedelta, timezone
-import fcntl
 import hashlib
 import json
 import os
@@ -10,6 +9,8 @@ from pathlib import Path
 import time
 
 from dx27.adapters.calendars.xnys import load_xnys_calendar
+from dx27.adapters.sentinel.atomic_store import exclusive_write
+from dx27.adapters.sentinel.file_lock import exclusive_lock
 from dx27.adapters.sentinel.capture_store import CaptureStore, encoded
 from dx27.adapters.sentinel.recorded_runner import capture_sources
 from dx27.adapters.sentinel.recorded_sources import binding_for, normalize_capture, CORE
@@ -347,8 +348,7 @@ def coverage_report(store, protocol, pilot, clock, as_of):
 
 
 def write_once(path, value):
-    with path.open("xb") as stream:
-        stream.write(encoded(value))
+    exclusive_write(path, encoded(value))
 
 
 def read_job(path):
@@ -449,8 +449,7 @@ def main():
     validate_clock_profile(clock, store)
     calendar = load_xnys_calendar(date(2003, 1, 1), date(2027, 12, 31))
     validate_pilot(pilot, calendar)
-    with (store.root / "worker.lock").open("a") as lock:
-        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    with exclusive_lock(store.root / "worker.lock"):
         if args.capture_now:
             capture_sources(store)
         while True:

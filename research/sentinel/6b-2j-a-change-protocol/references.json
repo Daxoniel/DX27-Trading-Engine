@@ -1,0 +1,19 @@
+{
+  "schema_version": "sentinel-change-reference-supplement-v1",
+  "frozen_library_modified": false,
+  "references": [
+    {
+      "reference_id": "REF-JA-NIST-CUSUM",
+      "title": "NIST Dataplot: Cusum Control Chart",
+      "url": "https://www.itl.nist.gov/div898/software/dataplot/refman1/auxillar/cusum.htm",
+      "verification_status": "PRIMARY_PAGE_VERIFIED",
+      "verified_on": "2026-10-09",
+      "supported_claim": "two-sided tabular CUSUM recursion; does not establish trading efficacy or our normalization/threshold choice"
+    },
+    {
+      "reference_id": "REF-JA-FROZEN-G-EVALUATION",
+      "path": "research/sentinel/6b-2g-contracts/protocol.json",
+      "supported_claim": "existing surrogate targets, causal baseline definitions, matching and acceptance thresholds"
+    }
+  ]
+}

@@ -1,0 +1,370 @@
+{
+  "protocol_id": "sentinel-change-research-v1",
+  "task_id": "6B-2J-A",
+  "status": "PREREGISTERED_DESIGN_PENDING_REVIEW",
+  "scope": "protocol only; implementation and synthetic execution belong to 6B-2J-B",
+  "production_enabled": false,
+  "real_validation": "BLOCKED_DATA",
+  "confirmation_started": false,
+  "parent": {
+    "path": "research/sentinel/6b-2g-contracts/protocol.json",
+    "file_sha256": "803bb9fde48966df52fd791d455828680dc0ce194f737cb2d526452cd9ede6b7"
+  },
+  "evaluation": {
+    "development_period": [
+      "2005-01-01",
+      "2026-09-30"
+    ],
+    "development_role": "PREVIOUSLY_OBSERVED_NOT_FRESH_HOLDOUT",
+    "development_selection_end": "2019-12-31",
+    "development_audit_start": "2020-01-01",
+    "confirmation": "PROSPECTIVE_ONLY_AFTER_CANDIDATE_FREEZE",
+    "confirmation_start_rule": "first_full_XNYS_session_after_final_candidate_protocol_commit_timestamp",
+    "minimum_confirmation_sessions": 252,
+    "maximum_followup_sessions": 40,
+    "purge_sessions": 40,
+    "embargo_sessions": 40,
+    "resampling": "joint_all_subjects_40_session_blocks_1000_replicates_seed_627",
+    "labels_evaluation_only": true,
+    "targets": {
+      "trend_shift": {
+        "subject": "SPY_AND_RSP_SEPARATELY",
+        "baseline_sessions": 20,
+        "future_blocks_sessions": [
+          20,
+          20
+        ],
+        "rule": "previous20_mean_and_both_future20_means_have_opposite_sign_with_each_absolute_mean_at_least_previous20_sample_std/sqrt(20)",
+        "refractory_sessions": 40,
+        "horizon_sessions": 40,
+        "event_type": "TREND_CHANGE"
+      },
+      "volatility_shift": {
+        "subject": "SPY",
+        "baseline_sessions": 20,
+        "future_blocks_sessions": [
+          5,
+          5
+        ],
+        "rule": "both_future5_sample_RV_to_prior20_RV_ratios_are_at_least_1.5_or_both_at_most_2/3",
+        "refractory_sessions": 10,
+        "horizon_sessions": 10,
+        "event_type": "VOLATILITY_CHANGE"
+      },
+      "relationship_shift": {
+        "subject": "RSP/SPY_AND_QQQ/SPY_SEPARATELY",
+        "baseline_sessions": 20,
+        "future_blocks_sessions": [
+          10,
+          10
+        ],
+        "rule": "both_future10_daily_log_spread_means_differ_from_previous20_mean_in_same_direction_by_at_least_2*previous20_sample_std/sqrt(10)",
+        "refractory_sessions": 20,
+        "horizon_sessions": 20,
+        "event_type": "RELATIONSHIP_CHANGE"
+      }
+    },
+    "matching": {
+      "window_sessions": [
+        0,
+        5
+      ],
+      "order": "chronological_targets_then_earliest_unused_same_subject_family_direction_alarm",
+      "one_to_one": true,
+      "alarms_before_anchor": "UNMATCHED_NOT_RETROACTIVE_DETECTIONS",
+      "label_refractory": "greedy_earliest_anchor_per_subject_family_ignoring_direction",
+      "availability_exclusions": "count_as_abstentions_not_dropped_from_miss_denominator",
+      "missing_target_outcome": "EXCLUDE_FROM_LABEL_DENOMINATOR_AND_REPORT_SEPARATELY",
+      "cooldown_sessions": 5
+    },
+    "baselines": [
+      "NO_CHANGE",
+      "FIXED_CAUSAL_THRESHOLD_V1",
+      "EWMAC_64_256_RESEARCH_ONLY"
+    ],
+    "change_gate": {
+      "minimum_labels_per_target_subject_direction": 30,
+      "minimum_precision": 0.6,
+      "minimum_recall": 0.6,
+      "maximum_median_delay_sessions": 3,
+      "maximum_p90_delay_sessions": 5,
+      "maximum_unmatched_alarms_per_252_eligible_sessions": 12,
+      "minimum_evaluation_availability": 0.95,
+      "minimum_absolute_f1_improvement_over_fixed_baseline": 0.05,
+      "f1_improvement_95pct_block_interval_lower_bound": 0.0,
+      "pooled_results_cannot_override_failed_stratum": true
+    },
+    "state_gate": {
+      "formula_tolerance_absolute": 1e-10,
+      "allowed_causal_violations": 0,
+      "deterministic_replay_mismatches": 0,
+      "missing_or_stale_as_zero_violations": 0,
+      "proxy_as_authoritative_violations": 0,
+      "required_feed_operational_coverage_min": 0.95,
+      "no_accuracy_claim_from_contract_checks": true
+    },
+    "reference_gate": {
+      "runtime_enabled": false,
+      "incremental_auc_min": 0.02,
+      "auc_increment_95pct_block_interval_lower_bound": 0.0,
+      "comparison": "fixed_logistic_regression_on_dimension_vector_vs_same_vector_plus_S_D",
+      "target": "next_20_sessions_SPY_max_close_to_close_drawdown_at_least_5_percent",
+      "minimum_nonoverlap_positive_outcomes": 30,
+      "minimum_nonoverlap_negative_outcomes": 30,
+      "coefficient_selection": "development_only_no_confirmation_refit",
+      "pressure_divergence_sensitivity": "leave_one_sensor_out_and_20pct_weight_perturbation_reported_no_result_driven_selection",
+      "new_correlation_model_requires_new_version": true,
+      "drawdown_definition": "max_{k=1..20}(1-P[t+k]/max(P[t],...,P[t+k]))>=0.05",
+      "anchor_grid": "first_eligible_confirmation_session_then_every_20_XNYS_sessions_no_shift_on_missing_data",
+      "paired_model_inputs": [
+        "spy_return_20",
+        "rsp_return_20",
+        "qqq_spy_relative_20",
+        "iwm_spy_relative_20",
+        "rsp_spy_relative_20",
+        "spy_rv_20",
+        "spy_rv_5_over_20",
+        "vix_level",
+        "vix_minus_rv_20",
+        "hy_oas_level",
+        "ust_2y_level",
+        "ust_10y_level",
+        "ust_10y_minus_2y"
+      ]
+    },
+    "forecast_gate": {
+      "runtime_enabled": false,
+      "target": "next_20_sessions_SPY_max_close_to_close_drawdown_at_least_5_percent",
+      "horizon_sessions": 20,
+      "baselines": [
+        "DEVELOPMENT_UNCONDITIONAL_FREQUENCY",
+        "DEVELOPMENT_LOGISTIC_RV20_VIX"
+      ],
+      "minimum_brier_skill_over_each_baseline": 0.05,
+      "brier_skill_95pct_block_interval_lower_bound": 0.0,
+      "minimum_nonoverlap_positive_outcomes": 30,
+      "minimum_nonoverlap_negative_outcomes": 30,
+      "calibration_bins": 5,
+      "maximum_expected_calibration_error": 0.05
+    },
+    "decision_states": [
+      "PASS",
+      "FAIL",
+      "INSUFFICIENT_EVIDENCE",
+      "BLOCKED_DATA"
+    ],
+    "unavailable_required_metric_policy": "NO_PASS",
+    "thresholds_are": "ENGINEERING_RESEARCH_ACCEPTANCE_CHOICES_NOT_ESTABLISHED_MARKET_LAWS",
+    "baseline_definitions": {
+      "NO_CHANGE": {
+        "formula": "no_alarms",
+        "precision_when_no_alarms": null
+      },
+      "FIXED_CAUSAL_THRESHOLD_V1": {
+        "trend": "mean(last20_returns)/(sample_std(previous20_before_last20,ddof=1)/sqrt(20));cross_+2_or_-2",
+        "volatility": "RV5_current/RV20_current;cross_1.5_or_2/3",
+        "relationship": "(mean(last5_daily_spreads)-mean(previous20_before_last5))/(sample_std(previous20_before_last5,ddof=1)/sqrt(5));cross_+2_or_-2",
+        "crossing": "previous_available_consecutive_evaluation_on_nontrigger_side",
+        "gap_policy": "break_crossing_continuity",
+        "cooldown_sessions": 5
+      },
+      "EWMAC_64_256_RESEARCH_ONLY": {
+        "method": "archived_ewmac_64_256",
+        "production_approved": false,
+        "neutral_to_directional": "counts_as_transition",
+        "directional_to_neutral": "not_a_directional_alarm",
+        "directional_flip": "counts_as_transition",
+        "initial_warmup_state": "not_an_alarm",
+        "cooldown_sessions": 5
+      }
+    },
+    "quantiles": "linear_interpolation",
+    "bootstrap": {
+      "block_sessions": 40,
+      "replicates": 1000,
+      "seed": 627,
+      "interval_percentiles": [
+        2.5,
+        97.5
+      ],
+      "joint_subjects": true,
+      "rematch_at_block_joins": false,
+      "unit": "fixed_chronology_session_sufficient_statistics",
+      "reference_and_forecast_unit": "paired_fixed_grid_outcomes_and_prediction_scores_grouped_by_XNYS_session"
+    },
+    "decision_precedence": [
+      "FAIL_INTEGRITY",
+      "BLOCKED_DATA",
+      "INSUFFICIENT_EVIDENCE",
+      "FAIL_NUMERIC",
+      "PASS"
+    ]
+  },
+  "subjects": {
+    "trend": [
+      "SPY",
+      "RSP"
+    ],
+    "volatility": [
+      "SPY"
+    ],
+    "relationship": [
+      "RSP/SPY",
+      "QQQ/SPY"
+    ],
+    "participation": "BLOCKED_PIT_AND_VERSIONED_TARGET"
+  },
+  "input_contract": {
+    "returns": "natural log(close_t/close_previous_XNYS); authoritative PIT-adjustment contract required for real data",
+    "spreads": "same-session constituent log return difference; both feeds available",
+    "available_at": "actual firstSeen <= decision cutoff; never historical observation date alone",
+    "revisions": "immutable original-cutoff snapshots; revisions apply only to later decisions",
+    "missing": "ABSTAIN; no forward fill; break crossing continuity and reset candidate state",
+    "warmup": "252 consecutive eligible past primitive observations before first decision; excludes current decision; same warmup shared by all comparators",
+    "zero_variance": "ABSTAIN; no epsilon substitution",
+    "S_D": "context-only; do not gate primitive detection or inject unvalidated composite into candidates",
+    "sensor_context": "VIX, HY, yield and dimension vector may be attached with lineage/quality; no voting or fitted co-factor in v1"
+  },
+  "candidates": [
+    {
+      "id": "FIXED_THRESHOLD_PERSISTENCE_2",
+      "reference_ids": [
+        "REF-JA-FROZEN-G-EVALUATION"
+      ],
+      "formula": "Use frozen FIXED_CAUSAL_THRESHOLD_V1 statistics; emit after two consecutive valid evaluations on same trigger side, on entry only. Rearm only after one valid nontrigger evaluation. Opposite side resets run. Initial eligible evaluation initializes state, never emits.",
+      "cooldown_sessions": 5
+    },
+    {
+      "id": "CAUSAL_CUSUM_K05_H5",
+      "reference_ids": [
+        "REF-JA-NIST-CUSUM"
+      ],
+      "features": {
+        "trend": "daily log return",
+        "volatility": "log(abs(daily log return)); zero return -> ABSTAIN",
+        "relationship": "daily constituent log return spread"
+      },
+      "normalization": "z_t=(x_t-mean(x[t-252:t]))/sample_std(x[t-252:t],ddof=1); excludes x_t; require consecutive valid sessions",
+      "recursion": "Cplus=max(0,Cplus+z_t-0.5); Cminus=max(0,Cminus-z_t-0.5); initial Cplus=Cminus=0",
+      "trigger": "Cplus>=5 => increase; Cminus>=5 => decrease; if both trigger choose larger accumulator, exact tie ABSTAIN and reset both",
+      "reset": "after any raw trigger reset both accumulators, including suppressed cooldown triggers; on gaps reset both; no retrospective estimated onset",
+      "cooldown_sessions": 5,
+      "caution": "CUSUM indicates distributional drift; trend direction is change direction and may fail frozen sign-reversal labels. Volatility uses absolute-return log surrogate, not RV itself. Empirical success is unclaimed."
+    }
+  ],
+  "direction_mapping": {
+    "trend": "increase -> positive future-return direction; decrease -> negative; retain frozen sign-reversal targets",
+    "volatility": "increase/decrease",
+    "relationship": "increase/decrease in daily spread mean"
+  },
+  "candidate_budget": {
+    "count": 2,
+    "parameter_search": false,
+    "new_candidate": "new version and review before viewing its evaluation results",
+    "selection": "per declared subject/family/direction, development selection period only; highest F1 among all-gate pass candidates; tie lower unmatched rate, then lower median delay, then lexical candidate ID",
+    "no_winner": "FAIL or INSUFFICIENT_EVIDENCE; never relax gates",
+    "audit_role": "2020-2026 audit previously observed; no refit/reselect from audit; no fresh OOS claim"
+  },
+  "synthetic_plan": {
+    "generator": "numpy PCG64; record numpy version and seed; 1200 XNYS-indexed sessions; changes start at index 600; indices zero-based",
+    "seeds": {
+      "development": [
+        62700,
+        62701,
+        62702,
+        62703,
+        62704,
+        62705,
+        62706,
+        62707,
+        62708,
+        62709,
+        62710,
+        62711,
+        62712,
+        62713,
+        62714,
+        62715,
+        62716,
+        62717,
+        62718,
+        62719
+      ],
+      "locked_acceptance": [
+        62800,
+        62801,
+        62802,
+        62803,
+        62804,
+        62805,
+        62806,
+        62807,
+        62808,
+        62809,
+        62810,
+        62811,
+        62812,
+        62813,
+        62814,
+        62815,
+        62816,
+        62817,
+        62818,
+        62819
+      ]
+    },
+    "base": "multivariate normal daily log returns SPY/RSP/QQQ: mean [0,0,0], sigma .01, correlation diagonal1 offdiagonal .6",
+    "cases": [
+      "stationary Gaussian",
+      "stationary Student-t df5 scaled to variance1 with same covariance",
+      "trend SPY/RSP mean +.005 before600 and -.005 after600; reverse as separate case",
+      "volatility all return sigmas multiply by1.5 or2 at600; decrease reciprocal; correlation fixed",
+      "relationship RSP or QQQ mean shift +.01 or-.01 at600 while SPY unchanged; not participation",
+      "five-session transient mean impulse .03 from600; report alarms without inventing persistent labels",
+      "linear trend mean ramp +.005 to-.005 over100 sessions from600",
+      "simultaneous trend/volatility/relationship shifts",
+      "missing input 600..604; delayed arrivals after original cutoff",
+      "late correction to historical close; prefix outputs must not change",
+      "zero variance warmup; no valid normalization"
+    ],
+    "claims": "known injected boundaries used for diagnostics only; inherited future-label scoring remains primary and separately reported",
+    "correctness_gates": {
+      "future_perturbation_changes_past_outputs": 0,
+      "prefix_replay_mismatches": 0,
+      "late_revision_changes_original_snapshot": 0,
+      "missing_as_zero_or_participation_mislabel": 0,
+      "duplicate_one_to_one_matches": 0,
+      "warmup_or_gap_violations": 0
+    },
+    "effectiveness": "Report every case/seed/stratum with inherited thresholds; insufficient label counts never PASS; aggregate per-case independent replicate statistics do not masquerade as real chronological confirmation",
+    "execution_status": "NOT_RUN",
+    "generation_details": "Draw correlated normal innovations by Cholesky of stated covariance using numpy Generator(PCG64(seed)). For df5 case divide each session vector by sqrt(independent chi-square(5)/5), then multiply sqrt(3/5). Start log prices at log(100), cumulative returns define closes. Reuse same innovations per seed across cases. Trend/ramp means change SPY and RSP; transient affects SPY/RSP; relationship changes only named numerator. Index600 is first post-change observation. Linear ramp has 100 equally spaced means including both endpoints and remains -.005 afterward. Joint case: SPY/RSP trend reversal, all sigma x2, QQQ mean +.01 relative to unchanged base. Missing case removes constituent SPY observations 600..604. Delayed case withholds these original observations until index605 cutoff. Revision case multiplies close at590 by1.01 but delivers revision only at650 cutoff; retain original snapshots. Zero variance case first300 returns are zero."
+  },
+  "confirmation": {
+    "candidate_freeze_commit": "NOT_YET_FROZEN",
+    "start": "first full XNYS session after FINAL candidate freeze commit; this design commit does not start confirmation",
+    "minimum_sessions": 252,
+    "outcome_followup_sessions": 40,
+    "real_gate": "requires admitted PIT data plus validated S/D research effectiveness under existing G/I gates; 20-day source coverage alone insufficient"
+  },
+  "outputs": [
+    "immutable per-session input lineage and eligibility",
+    "raw and cooldown-suppressed alarms with reset reasons",
+    "ABSTAIN reasons and coverage denominator",
+    "targets with completed followup and unscorable reasons",
+    "one-to-one matches and delays",
+    "per-stratum metrics and paired bootstrap intervals",
+    "candidate-selection record and freeze commit",
+    "integrity/effectiveness verdicts separately"
+  ],
+  "next_tasks": {
+    "6B-2J-B": "synthetic implementation and causal conformance; no live detector integration",
+    "6B-2J-C": "real development validation only after data/research gates",
+    "6B-2J-D": "prospective confirmation after final freeze; production disabled until own review"
+  },
+  "alarm_semantics": {
+    "cooldown": "retain first raw alarm; suppress alarms at session distances 1..5 after last retained alarm per subject/family regardless of direction; first permitted distance is 6; suppressed alarms do not extend cooldown",
+    "persistence_boundaries": "trend/relationship trigger >=+2 or <=-2; volatility >=1.5 or <=2/3; first eligible sample initializes only; same-side second valid sample emits if armed; gaps require fresh warmup and reinitialization",
+    "selection_stream": "each selected direction uses its selected candidate raw stream; merge directions chronologically then apply common family cooldown before evaluating final frozen configuration; if merged configuration fails any selected stratum, no promotion or result-driven replacement"
+  }
+}
