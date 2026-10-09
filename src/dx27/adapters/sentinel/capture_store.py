@@ -3,6 +3,9 @@
 from datetime import datetime
 import hashlib
 import json
+import os
+from uuid import uuid4
+from dx27.adapters.sentinel.atomic_store import exclusive_write
 from pathlib import Path
 
 
@@ -53,7 +56,12 @@ class CaptureStore:
             "bytes": len(raw),
         }
         capture_id = hashlib.sha256(encoded(record)).hexdigest()
-        path = self.root / "captures" / capture_id
+        final = self.root / "captures" / capture_id
+        if final.exists():
+            raise FileExistsError(final)
+        staging = self.root / "staging"
+        staging.mkdir(exist_ok=True)
+        path = staging / (capture_id + "-" + uuid4().hex)
         path.mkdir(exist_ok=False)
         for name, data in [
             ("payload.bin", raw),
@@ -62,6 +70,9 @@ class CaptureStore:
         ]:
             with (path / name).open("xb") as stream:
                 stream.write(data)
+                stream.flush()
+                os.fsync(stream.fileno())
+        path.rename(final)
         return {"capture_id": capture_id, **record}
 
     def get(self, capture_id):
@@ -101,15 +112,15 @@ class CaptureStore:
         path = self.root / "bindings" / (feed_id + ".json")
         if record is not None and not path.exists():
             try:
-                with path.open("xb") as stream:
-                    stream.write(
-                        encoded(
-                            {
-                                "record": record,
-                                "sha256": hashlib.sha256(encoded(record)).hexdigest(),
-                            }
-                        )
-                    )
+                exclusive_write(
+                    path,
+                    encoded(
+                        {
+                            "record": record,
+                            "sha256": hashlib.sha256(encoded(record)).hexdigest(),
+                        }
+                    ),
+                )
             except FileExistsError:
                 pass
         if not path.exists():

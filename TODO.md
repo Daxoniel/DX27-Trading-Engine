@@ -187,6 +187,8 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
 - [ ] **6B-2I-3A — Durable Pilot Runner & Recovery Validation** — mandatory
   infrastructure gate: persistent host/store, restart, monitoring/alerting and
   verified migration. Preserve original protocol, dates and all records.
+  Windows tools and [operation guide](docs/operations/sentinel-windows-pilot.md)
+  prepared; native reboot, email delivery and final handoff remain NOT_READY.
 - [ ] Complete the frozen pilot and review each source's actual cutoff coverage;
   resolve provisional source clocks/HY delivery and plan continuous S/D warmup.
   Do not open 6B-2J or claim effectiveness based on schema checks or pilot setup.
