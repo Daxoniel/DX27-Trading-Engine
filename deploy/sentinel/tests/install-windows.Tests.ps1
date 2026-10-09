@@ -15,9 +15,7 @@ Describe 'Sentinel installer failure handling' {
             $Account | Add-Member -MemberType ScriptMethod -Name Translate -Value { param($Type) [PSCustomObject]@{Value='S-1-5-21-100'} }
             $Account
         } -ParameterFilter { $TypeName -eq 'System.Security.Principal.NTAccount' }
-        Mock New-ScheduledTaskAction { [PSCustomObject]@{} }
-        Mock New-ScheduledTaskTrigger { [PSCustomObject]@{} }
-        Mock New-ScheduledTaskSettingsSet { [PSCustomObject]@{} }
+        # Construct real in-memory CIM definitions; never register a real task.
         Mock Register-ScheduledTask { [PSCustomObject]@{TaskName='DX27-Sentinel-Pilot'} }
         Mock Get-ScheduledTask { [PSCustomObject]@{State='Running';Principal=[PSCustomObject]@{UserId='MicrosoftAccount\test@example.com'}} }
         Mock Start-ScheduledTask {}
