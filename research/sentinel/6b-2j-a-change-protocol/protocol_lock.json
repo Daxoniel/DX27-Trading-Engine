@@ -1,0 +1,7 @@
+{
+  "protocol_file_sha256": "ccf815ce7837daedb9c0663a5587943b99d2c48928bff80751befaec2c55e92f",
+  "references_file_sha256": "f4e19f2ea3221c9e78d5f8ed03ce8556c19b921a574e187fd5f5176e6233caad",
+  "parent_protocol_file_sha256": "803bb9fde48966df52fd791d455828680dc0ce194f737cb2d526452cd9ede6b7",
+  "confirmation_started": false,
+  "candidate_freeze_commit": "NOT_YET_FROZEN"
+}

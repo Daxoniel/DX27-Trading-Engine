@@ -1,0 +1,41 @@
+{
+  "task_id": "6B-2I-3A",
+  "deployment_verdict": "PASS_USER_REPORTED_ACCEPTANCE",
+  "evidence_source": "user_chat_2026-10-09",
+  "independent_native_observation": false,
+  "verified_locally": [
+    "old collector stopped",
+    "102 captures / 353 preserved files unchanged",
+    "final archive SHA256 unchanged"
+  ],
+  "user_reported": [
+    "Windows preflight and calendar match",
+    "Scheduled Task Running with worker_healthy=true and monitor_delivery=[true]",
+    "email received",
+    "automatic recovery after shutdown/reboot"
+  ],
+  "not_separately_evidenced": [
+    "forced worker termination recovery",
+    "logged-out startup test",
+    "distinct recovery email receipt"
+  ],
+  "acceptance_basis": "User confirmed reboot recovery and actual email delivery after instructed tests; no claim all optional diagnostic subtests independently witnessed.",
+  "archive_sha256": "20ff7375a070d99bf1c0f8cc681a79e3cc11b4c2179e93a42b08db4d5f5089fb",
+  "final_checkpoint_capture_count": 102,
+  "final_checkpoint_files": 353,
+  "old_writer_stopped_at_utc": "2026-10-08T13:14:19.014608+00:00",
+  "old_writer_rechecked_stopped_at_utc": "2026-10-09T05:51:16.530695+00:00",
+  "pilot_window": [
+    "2026-10-08",
+    "2026-11-04"
+  ],
+  "first_session_missed_slots": [
+    20,
+    60,
+    100,
+    115
+  ],
+  "coverage_verdict": "PENDING",
+  "data_admission": "BLOCKED_DATA",
+  "host_outage_policy": "retain MISSED; never reset dates or backdate evidence"
+}

@@ -184,14 +184,18 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
 
 ## Next
 
-- [ ] **6B-2I-3A — Durable Pilot Runner & Recovery Validation** — mandatory
-  infrastructure gate: persistent host/store, restart, monitoring/alerting and
-  verified migration. Preserve original protocol, dates and all records.
-  Windows tools and [operation guide](docs/operations/sentinel-windows-pilot.md)
-  prepared; native reboot, email delivery and final handoff remain NOT_READY.
+- [x] **6B-2I-3A — Durable Pilot Runner & Recovery Validation** — Windows
+  reboot recovery and email delivery accepted on user-reported evidence;
+  final single-writer handoff verified, 102 captures / 353 files unchanged.
+  See [acceptance record](research/sentinel/6b-2i-3a-durable-runner/deployment_acceptance.json).
+- [x] **6B-2J-A — Change Detection Protocol Pre-registration** — design prepared
+  for review; parent targets/gates unchanged, two candidates and synthetic plan.
+  See [change research](docs/architecture/sentinel-change-research.md).
+- [ ] **6B-2J-B — Synthetic Implementation & Causal Conformance** — next task;
+  no real efficacy claim or production integration.
 - [ ] Complete the frozen pilot and review each source's actual cutoff coverage;
   resolve provisional source clocks/HY delivery and plan continuous S/D warmup.
-  Do not open 6B-2J or claim effectiveness based on schema checks or pilot setup.
+  6B-2J real validation remains blocked; protocol/synthetic work may proceed.
 
 ## Subsequent 6B-2 tasks — gated sequence
 
@@ -205,7 +209,8 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
 
 These tasks follow the [multi-sensor architecture](docs/architecture/sentinel-multi-sensor-design.md).
 6B-2G design verification and 6B-2H implementation conformance are complete.
-6B-2H live operation is not approved; 6B-2I–6B-2K remain unstarted and individually gated.
+6B-2I collection is active; 6B-2J-A design is prepared. Real 6B-2J validation and
+6B-2K remain individually gated; collection does not enable production.
 
 ## Planned
 

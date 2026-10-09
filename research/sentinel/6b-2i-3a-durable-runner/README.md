@@ -10,3 +10,9 @@ Validation: full regression 547 passed, 1 network test deselected (134.00 s). Af
 The private raw journal archive is not committed. `migration_checkpoint.json` records its checksums and local verification; it is a preparatory checkpoint, not final deployment evidence. The temporary environment collector remains a best-effort fallback until the target is ready for final handoff.
 
 No frozen research protocol, polling rule, denominator, source availability timestamp or pilot date is reset. Pilot coverage remains pending; historical S/D support is insufficient; data admission remains BLOCKED_DATA.
+
+## Deployment acceptance update — 2026-10-09
+
+Historical preparation/pending files above are preserved. Current status is
+PASS_USER_REPORTED_ACCEPTANCE; see deployment_acceptance.json for evidence scope,
+verified final handoff and remaining optional diagnostics. Data admission stays blocked.

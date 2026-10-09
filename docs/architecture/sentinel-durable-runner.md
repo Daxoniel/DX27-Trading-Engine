@@ -1,8 +1,8 @@
 # 6B-2I-3A — Durable Pilot Runner & Recovery Validation
 
-Implementation preparation is complete; **target deployment acceptance remains
-NOT_READY**. This PR supplies a Windows 10/11 operation guide and migration tools,
-not a claim that the user's computer is already a durable runner.
+Windows deployment is **PASS_USER_REPORTED_ACCEPTANCE** as of 2026-10-09.
+The user confirmed reboot recovery and actual email delivery; native tests were
+not independently observed by Codex. See the archived deployment acceptance record.
 
 The existing 2026-10-08 through 2026-11-04 protocol, clock profile, four polling
 slots, 20-session denominator and coverage thresholds remain byte-identical.
@@ -64,7 +64,8 @@ scientific polling grace or observation eligibility.
 The Linux workspace can test migration, lock release after process death,
 atomic publication and causal polling. It cannot prove Windows task registration,
 reboot survival or email delivery on the user's computer. Native recovery/email
-acceptance is therefore explicitly pending; 6B-2J real validation remains blocked.
+acceptance is user-reported in deployment_acceptance.json; optional diagnostic
+subtests without distinct evidence are listed there. 6B-2J real validation remains blocked.
 
 See [Windows operation guide](../operations/sentinel-windows-pilot.md). After 3A
 acceptance, a separate 6B-2J-A protocol/synthetic task can proceed while Track A
