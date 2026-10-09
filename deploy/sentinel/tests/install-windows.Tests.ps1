@@ -23,10 +23,11 @@ Describe 'Sentinel installer failure handling' {
         Mock Get-ScheduledTask { [PSCustomObject]@{State='Running';Principal=[PSCustomObject]@{UserId='MicrosoftAccount\test@example.com'}} }
         Mock Start-ScheduledTask {}
         Mock Start-Sleep {}
-        Mock Write-Error {}
+        Mock Write-Error { Write-Host $Message }
     }
     It 'uses the explicit MicrosoftAccount identity and verifies Running' {
         $Output = & $Installer -Repo $Repo -Store $Store -MonitorConfig $Monitor -TaskUser 'MicrosoftAccount\test@example.com'
+        Should -Invoke Write-Error -Times 0
         $Output | Should -Match 'task observed Running'
         Should -Invoke Register-ScheduledTask -Times 1 -ParameterFilter { $User -eq 'MicrosoftAccount\test@example.com' }
         Should -Invoke Start-ScheduledTask -Times 1
@@ -36,6 +37,7 @@ Describe 'Sentinel installer failure handling' {
         $Output = & $Installer -Repo $Repo -Store $Store -MonitorConfig $Monitor -TaskUser 'MicrosoftAccount\test@example.com'
         $LASTEXITCODE | Should -Be 1
         ($Output -join '\n') | Should -Not -Match 'task observed Running'
+        Should -Invoke Register-ScheduledTask -Times 1
         Should -Invoke Start-ScheduledTask -Times 0
     }
     It 'does not claim success when start fails' {
@@ -43,12 +45,14 @@ Describe 'Sentinel installer failure handling' {
         $Output = & $Installer -Repo $Repo -Store $Store -MonitorConfig $Monitor -TaskUser 'MicrosoftAccount\test@example.com'
         $LASTEXITCODE | Should -Be 1
         ($Output -join '\n') | Should -Not -Match 'task observed Running'
+        Should -Invoke Start-ScheduledTask -Times 1
     }
     It 'does not claim success when the task never reaches Running' {
         Mock Get-ScheduledTask { [PSCustomObject]@{State='Ready';Principal=[PSCustomObject]@{UserId='MicrosoftAccount\test@example.com'}} }
         $Output = & $Installer -Repo $Repo -Store $Store -MonitorConfig $Monitor -TaskUser 'MicrosoftAccount\test@example.com'
         $LASTEXITCODE | Should -Be 1
         ($Output -join '\n') | Should -Not -Match 'task observed Running'
+        Should -Invoke Start-ScheduledTask -Times 1
     }
     It 'rejects cancelled credentials before registration' {
         Mock Get-Credential { $null }
