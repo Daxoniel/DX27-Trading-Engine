@@ -85,6 +85,96 @@ _GROUPS = (
         ("ust_2y_level", "ust_10y_level", "ust_10y_minus_2y", "sofr_minus_effr"),
     ),
 )
+_FEED_LABELS = {
+    "hy_oas": "高收益债利差",
+    "ust_2y": "2 年国债",
+    "ust_10y": "10 年国债",
+    "sofr": "SOFR",
+    "effr": "EFFR",
+}
+
+
+def _latest_failed_feeds(report: dict) -> list[str]:
+    feeds = {
+        feed
+        for feed in report.get("latest_fetch_failed_feeds", [])
+        if isinstance(feed, str)
+    }
+    for source in report.get("source_results", []):
+        if (
+            source.get("is_latest_attempt", True)
+            and source.get("status") == "SOURCE_ERROR"
+        ):
+            feed = source.get("feed_id")
+            if isinstance(feed, str):
+                feeds.add(feed)
+    return sorted(feeds)
+
+
+def _degraded(report: dict) -> bool:
+    return report.get("freshness_status") == "DEGRADED_LATEST_FETCH_FAILED" or bool(
+        _latest_failed_feeds(report)
+    )
+
+
+def _synthetic(report: dict) -> bool:
+    return report.get("report_kind") == "SYNTHETIC_DEMO"
+
+
+def _failure_notice(report: dict) -> str:
+    feeds = _latest_failed_feeds(report)
+    labels = (
+        "、".join(_FEED_LABELS.get(feed, feed.upper()) for feed in feeds) or "部分输入"
+    )
+    return f"最新采集失败：{labels}。相关观察暂不可用；先前成功的数据不代替本次采集。"
+
+
+def _source_status(source: dict) -> str:
+    status = _STATUSES.get(source.get("status"), source.get("status", "未提供"))
+    latest = source.get("is_latest_attempt")
+    prefix = (
+        "最新尝试 · " if latest is True else "较早尝试 · " if latest is False else ""
+    )
+    details = []
+    http_status = source.get("http_status")
+    if isinstance(http_status, int) and not isinstance(http_status, bool):
+        details.append("HTTP " + str(http_status))
+    reason = source.get("reason")
+    if source.get("status") == "SOURCE_ERROR" and isinstance(reason, str) and reason:
+        metadata_http = source.get("latest_metadata_http_status")
+        if "metadata" in reason.lower() and isinstance(metadata_http, int):
+            details.append("来源说明 HTTP " + str(metadata_http))
+        details.append(reason)
+    if source.get("used_for_report") is False:
+        details.append("未用于本次计算")
+    return prefix + str(status) + ("（" + "；".join(details) + "）" if details else "")
+
+
+def _latest_attempt(source: dict) -> tuple[object, object]:
+    timestamp = source.get("latest_attempt_at") or source.get("first_seen_at")
+    capture_id = source.get("latest_attempt_capture_id") or source.get("capture_id")
+    metadata_time = source.get("latest_metadata_attempt_at")
+    if "metadata" in str(source.get("reason", "")).lower() and isinstance(
+        metadata_time, str
+    ):
+        try:
+            if not timestamp or datetime.fromisoformat(
+                metadata_time
+            ) > datetime.fromisoformat(str(timestamp)):
+                return metadata_time, source.get("latest_metadata_attempt_capture_id")
+        except (TypeError, ValueError):
+            pass
+    return timestamp, capture_id
+
+
+def _last_success(source: dict) -> str:
+    timestamp = source.get("last_success_at") or source.get(
+        "last_success_first_seen_at"
+    )
+    capture_id = source.get("last_success_capture_id")
+    if not timestamp and not capture_id:
+        return "暂无成功记录" if source.get("status") == "SOURCE_ERROR" else "未提供"
+    return _time(timestamp) + (" · " + str(capture_id) if capture_id else "")
 
 
 def _entries(market: dict | None) -> dict[str, dict]:
@@ -298,7 +388,13 @@ def observation_facts(report: dict) -> list[str]:
             pressure.append(label + " " + _format_value(entry) + comparison)
     if pressure:
         facts.append("；".join(pressure) + "。")
-    return facts or ["当前可用观测不足，暂时无法描述股票分化或波动、信用变化。"]
+    facts = facts or ["当前可用观测不足，暂时无法描述股票分化或波动、信用变化。"]
+    prefix = []
+    if _synthetic(report):
+        prefix.append("合成示例：以下数值仅演示展示方式，不代表真实行情。")
+    if _degraded(report):
+        prefix.append(_failure_notice(report))
+    return prefix + facts
 
 
 def _sector_members(market: dict | None) -> dict[str, dict]:
@@ -441,6 +537,8 @@ def _gaps(report: dict) -> list[str]:
         )
     if not isinstance(report.get("previous_market_now"), dict):
         gaps.append("暂无前次完整观察，所有前次变化均留空，不推断为没有变化。")
+    if _degraded(report):
+        gaps.insert(0, _failure_notice(report))
     return gaps
 
 
@@ -456,6 +554,12 @@ def _safe_url(value: object) -> str:
             character.isalnum() or character == "_" for character in series_id
         ):
             return "https://fred.stlouisfed.org/series/" + quote(series_id, safe="")
+    if parts.hostname in {
+        "query1.finance.yahoo.com",
+        "query2.finance.yahoo.com",
+    } and parts.path.startswith("/v8/finance/chart/"):
+        symbol = parts.path.removeprefix("/v8/finance/chart/").split("/", 1)[0]
+        return "https://finance.yahoo.com/quote/" + quote(symbol, safe="") + "/history/"
     # Retrieval parameters can contain credentials; provenance needs only origin/path.
     return urlunsplit((parts.scheme, parts.hostname, parts.path, "", ""))
 
@@ -466,8 +570,12 @@ def _coverage(report: dict) -> str:
     required = coverage.get("active_required", {})
     available, expected = required.get("available"), required.get("expected")
     if isinstance(available, int) and isinstance(expected, int):
-        return f"必要测量 {available} / {expected} 可用"
-    return "按各项实际可用性展示"
+        text = f"必要测量 {available} / {expected} 可用"
+    else:
+        text = "按各项实际可用性展示"
+    if _degraded(report):
+        text = "采集不完整；" + text
+    return ("合成示例；" if _synthetic(report) else "") + text
 
 
 def _method_notes() -> list[str]:
@@ -478,21 +586,32 @@ def _method_notes() -> list[str]:
         "数值中的 % 表示回报、年化波动率或年化利率，具体由行名区分；bp 表示基点，100 bp = 1 个百分点。",
         "对比按本次取得的历史版本重算，不是昨天当时已知的报告；历史可包含供应商修订。观测日期使用明确的来源标签；未提供标签时显示窗口结束时点。",
         "只描述观测，不发布变化告警、综合风险等级或未来概率。原有研究的数据准入状态仍未通过。",
+        "来源最新尝试失败时，相关观察留空，不退回较早成功采集伪装为最新值；来源记录分别保留最新尝试与上次成功的时间。",
     ]
 
 
 def _md(value: object) -> str:
-    return str(value).replace("\\", "\\\\").replace("|", "\\|").replace("\n", " ")
+    return (
+        escape(str(value), quote=False)
+        .replace("\\", "\\\\")
+        .replace("|", "\\|")
+        .replace("\n", " ")
+    )
 
 
 def render_markdown(report: dict) -> str:
     """Return a Chinese observation report suitable for ordinary Markdown readers."""
     previous = report.get("previous_session_id") or "暂无"
+    title = "# Sentinel · 市场观察" + ("（采集不完整）" if _degraded(report) else "")
+    freshness = "最新采集存在失败" if _degraded(report) else "最新数据取回版本"
+    if _synthetic(report):
+        title += "（合成示例 · 非真实行情）"
+        freshness = "合成数据示例，非真实行情"
     lines = [
-        "# Sentinel · 市场观察",
+        title,
         "",
         f"观察交易日：**{_md(report.get('session_id', '未提供'))}** · 前次对比交易日：{_md(previous)}",
-        f"生成时间：{_md(_time(report.get('generated_at')))} · 最新数据取回版本",
+        f"生成时间：{_md(_time(report.get('generated_at')))} · {freshness}",
         "",
         _coverage(report) + "。本页描述市场，不输出预测或综合风险等级。",
         "",
@@ -526,8 +645,8 @@ def render_markdown(report: dict) -> str:
             "",
             "数据观测时间与取回时间分开记录；取回时间不是数据发布或市场发生时间。",
             "",
-            "| 输入 | 来源 | 取回时间（柏林） | 采集结果 |",
-            "| --- | --- | --- | --- |",
+            "| 输入 | 来源 | 本条取回（柏林） | 采集结果 | 最新尝试（柏林） | 上次成功（柏林） |",
+            "| --- | --- | --- | --- | --- | --- |",
         ]
     )
     for source in report.get("source_results", []):
@@ -539,7 +658,9 @@ def render_markdown(report: dict) -> str:
                     source.get("feed_id", "未提供"),
                     source.get("source_id", "未提供"),
                     _time(source.get("first_seen_at")),
-                    _STATUSES.get(source.get("status"), source.get("status", "未提供")),
+                    _source_status(source),
+                    _time(_latest_attempt(source)[0]),
+                    _last_success(source),
                 )
             )
             + " |"
@@ -551,6 +672,16 @@ def render_html(report: dict) -> str:
     """Return a standalone, dependency-free HTML page with escaped evidence."""
     e = lambda value: escape(str(value), quote=True)
     previous = report.get("previous_session_id") or "暂无"
+    heading = "市场观察 · 采集不完整" if _degraded(report) else "市场现在是什么样"
+    badge = (
+        "最新采集失败 · 部分观察不可用"
+        if _degraded(report)
+        else "最新版本 · 描述性观察"
+    )
+    badge_class = "badge degraded" if _degraded(report) else "badge"
+    if _synthetic(report):
+        heading = "市场观察 · 合成示例" + (" · 采集不完整" if _degraded(report) else "")
+        badge = "合成示例 · 非真实行情" + (" · 采集不完整" if _degraded(report) else "")
     facts = "".join(
         f'<li><span class="fact-index">{index:02d}</span><p>{e(fact)}</p></li>'
         for index, fact in enumerate(observation_facts(report), 1)
@@ -581,7 +712,9 @@ def render_html(report: dict) -> str:
             "<tr>"
             f'<td>{e(source.get("feed_id", "未提供"))}</td><td>{source_link}</td>'
             f'<td>{e(_time(source.get("first_seen_at")))}</td>'
-            f'<td>{e(_STATUSES.get(source.get("status"), source.get("status", "未提供")))}</td>'
+            f"<td>{e(_source_status(source))}</td>"
+            f'<td>{e(_time(_latest_attempt(source)[0]))}<br><code>{e(_latest_attempt(source)[1] or "未提供")}</code></td>'
+            f'<td class="last-success">{e(_last_success(source))}</td>'
             f'<td><code>{e(source.get("capture_id", "未提供"))}</code></td></tr>'
         )
     evidence_rows = []
@@ -616,25 +749,27 @@ main{{max-width:1180px;margin:auto;padding:42px 32px 70px}}header{{display:flex;
 .eyebrow{{font-size:11px;letter-spacing:.18em;color:var(--accent);font-weight:700}}h1{{font-size:38px;line-height:1.3;letter-spacing:-.04em;margin:12px 0}}h2{{font-size:21px;margin:0 0 18px;line-height:1.4}}
 .subtitle,.meta,.scope{{color:var(--muted);font-size:13px}}.meta{{text-align:right;padding-top:24px;min-width:225px}}.session{{font-size:21px;color:var(--ink);font-variant-numeric:tabular-nums}}
 .badge{{display:inline-block;border:1px solid #b2cac3;border-radius:4px;color:var(--accent);padding:3px 9px;font-size:11px;letter-spacing:.04em;margin-bottom:14px}}
+.badge.degraded{{border-color:#b79c75;color:#815523;background:#f8efe1}}
 .summary{{background:var(--ink);color:#eff7f4;border-radius:8px;padding:28px 30px;margin:26px 0 12px}}.summary h2{{font-size:18px;color:#b9d8cc}}.facts{{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:23px 34px}}
 .facts li{{display:flex;gap:14px;align-items:baseline}}.fact-index{{color:#80b4a3;font-size:12px;font-variant-numeric:tabular-nums}}.facts p{{margin:0;font-size:15px}}
 .scope{{margin:0 0 30px;padding:0 2px}}.measurement{{margin:30px 0;background:var(--white);border:1px solid var(--line);border-radius:8px;padding:25px 28px}}
 .table-wrap{{overflow:auto}}table{{width:100%;border-collapse:collapse;font-size:13px}}th{{font-weight:500;text-align:left;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}}
+.last-success{{overflow-wrap:anywhere}}
 td{{padding:13px 12px;border-bottom:1px solid #eef0ec;vertical-align:top}}td:first-child,th:first-child{{padding-left:0}}td:nth-child(2){{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}}td:nth-child(3){{font-variant-numeric:tabular-nums;color:#53646c}}tr:last-child td{{border-bottom:0}}
 .gaps{{padding:24px 28px;border-left:3px solid #a99772;background:#efede4;border-radius:0 6px 6px 0}}.gaps h2{{font-size:17px}}.gaps ul,.notes{{margin:0;padding-left:20px}}.gaps li,.notes li{{margin:8px 0}}
 details{{margin-top:26px;border-top:1px solid var(--line);padding-top:20px;color:var(--muted);font-size:13px}}summary{{cursor:pointer;font-weight:600;color:var(--ink)}}details .table-wrap{{margin-top:20px}}details h3{{font-size:14px;color:var(--ink);margin:24px 0 8px}}code{{font-size:10px;overflow-wrap:anywhere}}a{{color:var(--accent)}}footer{{margin-top:30px;font-size:11px;letter-spacing:.06em;color:var(--muted)}}
 @media(max-width:720px){{main{{padding:25px 18px 45px}}header{{display:block}}h1{{font-size:32px}}.meta{{text-align:left;padding-top:12px}}.facts{{grid-template-columns:1fr}}.summary{{padding:23px}}.measurement{{padding:20px 18px}}table{{min-width:660px}}}}
 @media print{{body{{background:white}}main{{padding:15px}}.summary{{background:#eee;color:var(--ink)}}.summary h2,.fact-index{{color:var(--ink)}}details{{display:block}}section{{break-inside:avoid}}}}
 </style></head><body><main>
-<header><div><div class="eyebrow">SENTINEL / MARKET OBSERVATION</div><h1>市场现在是什么样</h1><div class="subtitle">股票分化 · 波动 · 信用 · 利率</div></div>
-<div class="meta"><span class="badge">最新版本 · 描述性观察</span><div class="session">{e(report.get("session_id", "未提供"))}</div><div>观察交易日 · 对比 {e(previous)}</div><div>生成 {e(_time(report.get("generated_at")))}</div></div></header>
+<header><div><div class="eyebrow">SENTINEL / MARKET OBSERVATION</div><h1>{e(heading)}</h1><div class="subtitle">股票分化 · 波动 · 信用 · 利率</div></div>
+<div class="meta"><span class="{badge_class}">{e(badge)}</span><div class="session">{e(report.get("session_id", "未提供"))}</div><div>观察交易日 · 对比 {e(previous)}</div><div>生成 {e(_time(report.get("generated_at")))}</div></div></header>
 <section class="summary"><h2>一分钟观察</h2><ol class="facts">{facts}</ol></section>
 <p class="scope">{e(_coverage(report))}。以下变化是各项观测的事实比较，不是转折预警或未来概率。</p>
 {''.join(sections)}
 <section class="gaps"><h2>尚不能回答的部分</h2><ul>{gaps}</ul></section>
 <details><summary>展开口径、取回时间与来源记录</summary><h3>如何阅读</h3><ul class="notes">{notes}</ul>
 <h3>输入来源与取回时间</h3><p>观测日期显示市场或指标对应的时间；取回时间显示我们何时收到数据，两者不能互相替代。</p>
-<div class="table-wrap"><table><thead><tr><th>输入</th><th>来源</th><th>取回时间（柏林）</th><th>采集结果</th><th>原始记录</th></tr></thead><tbody>{''.join(source_rows)}</tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>输入</th><th>来源</th><th>本条取回（柏林）</th><th>采集结果</th><th>最新尝试（柏林）</th><th>上次成功（柏林）</th><th>本条记录</th></tr></thead><tbody>{''.join(source_rows)}</tbody></table></div>
 <h3>观测时点与测量记录</h3><div class="table-wrap"><table><thead><tr><th>观察项</th><th>观测时点（柏林）</th><th>方法记录</th><th>测量记录</th></tr></thead><tbody>{''.join(evidence_rows)}</tbody></table></div>
 </details><footer>SENTINEL · 可核对的市场观察 · {e(_time(report.get("generated_at")))}</footer>
 </main></body></html>"""

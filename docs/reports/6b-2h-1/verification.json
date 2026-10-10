@@ -6,7 +6,7 @@
   "independent_date_label_checks": 25,
   "independent_mismatches": 0,
   "http_200_responses": 24,
-  "visual_browser_acceptance": "FINAL_REGENERATED_VERSION_PENDING",
+  "visual_browser_acceptance": "PASS_LAYOUT_AND_DISCLOSURE_ONLY",
   "frozen_research_files_modified": false,
   "existing_core_measurements_modified": false,
   "pilot_store_accessed": false,
@@ -14,8 +14,8 @@
   "real_validation": "BLOCKED_DATA",
   "predictive_effectiveness": "NOT_TESTED",
   "scope": "Arithmetic, timing, source isolation and report content; practical usefulness requires user assessment.",
-  "report_sha256_private_audit": "9daf13df93f4ddcff4beb0d637a32c679ec875b64554fe1497655a6e0ee81cb9",
-  "public_source_responses": 24,
+  "report_sha256_private_audit": "d967a91cc1b7f8f346872a8d9239d7f4890de858896b056f2d1d1e1b0809759a",
+  "public_source_responses": 0,
   "public_capture_payloads_included": false,
   "public_market_values_included": false,
   "full_suite_before_review_fix": {
@@ -23,5 +23,21 @@
     "deselected_network": 1,
     "seconds": 187.9
   },
-  "report_specific_checks_before_review_fix": 21
+  "report_specific_checks_before_review_fix": 21,
+  "report_specific_checks": 38,
+  "latest_attempt_handling": "FAIL_CLOSED_NO_CACHED_VALUE_FALLBACK",
+  "public_example_kind": "SYNTHETIC_DEMO",
+  "public_synthetic_archive_sha256": "8850bca401cede0f35f1f0a068249e248c2accb37e77d4d5674d0288e0c1e82c",
+  "private_provider_responses": 24,
+  "branch_raw_history_cleanup": "PASS_UNMERGED_BRANCH_REPLACED",
+  "hosted_withdrawn_object_erasure": "PENDING_GITHUB_SUPPORT",
+  "current_branch_withdrawn_link_http_status": 404,
+  "withdrawn_commit_pinned_link_http_status": 200,
+  "full_suite": {
+    "passed": 620,
+    "deselected_network": 1,
+    "seconds": 219.36
+  },
+  "private_real_layout_acceptance": "PASS_PRIVATE_SCREENSHOTS_NOT_PUBLISHED",
+  "public_visual_evidence": "visual/acceptance.json"
 }

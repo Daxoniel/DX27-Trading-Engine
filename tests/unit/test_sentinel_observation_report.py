@@ -185,6 +185,187 @@ def test_http_failure_stays_null_without_fabricated_market_value(
     assert source["status"] == "SOURCE_ERROR"
 
 
+def successful_equity_captures(store, calendar, seen):
+    prices = [100 + i + i * i / 100 for i in range(22)]
+    captures = {
+        feed: put_yahoo(store, calendar, [p * scale for p in prices], seen, feed)
+        for feed, scale in (("spy", 1), ("rsp", 0.9), ("qqq", 1.2))
+    }
+    return prices, captures
+
+
+def assert_spy_and_dependencies_unavailable(report):
+    for market in (report["market_now"], report["previous_market_now"]):
+        for dimension, sensor_id in (
+            ("broad_equity", "spy_return_20"),
+            ("volatility", "spy_rv_20"),
+            ("volatility", "spy_rv_5_over_20"),
+            ("participation", "rsp_spy_relative_20"),
+            ("leadership", "qqq_spy_relative_20"),
+        ):
+            state = sensor(market, dimension, sensor_id)
+            assert state["value"] is None
+            assert state["data_status"] != "AVAILABLE"
+        assert sensor(market, "broad_equity", "rsp_return_20")["value"] is not None
+
+
+def test_later_failed_fetch_blocks_previous_success_for_both_compared_dates(
+    tmp_path, calendar, protocol
+):
+    store = CaptureStore(tmp_path)
+    first = datetime(2026, 10, 10, 10, tzinfo=timezone.utc)
+    failed_at = first + timedelta(hours=1)
+    _, captures = successful_equity_captures(store, calendar, first)
+    original = build_report(store, protocol, first, calendar)
+    failed = store.put(
+        "spy",
+        "yahoo-chart-v8",
+        "https://example.test/spy",
+        b"unavailable",
+        failed_at,
+        status=503,
+        error="HTTP_ERROR",
+    )
+
+    degraded = build_report(store, protocol, failed_at, calendar)
+
+    assert_spy_and_dependencies_unavailable(degraded)
+    assert degraded["freshness_status"] == "DEGRADED_LATEST_FETCH_FAILED"
+    assert degraded["latest_fetch_failed_feeds"] == ["spy"]
+    assert (
+        degraded["market_now"]["coverage"]["active_required"]["available"]
+        < original["market_now"]["coverage"]["active_required"]["available"]
+    )
+    assert (
+        degraded["previous_market_now"]["coverage"]["active_required"]["available"]
+        < original["previous_market_now"]["coverage"]["active_required"]["available"]
+    )
+    latest = next(
+        r for r in degraded["source_results"] if r["capture_id"] == failed["capture_id"]
+    )
+    previous = next(
+        r
+        for r in degraded["source_results"]
+        if r["capture_id"] == captures["spy"]["capture_id"]
+    )
+    assert latest["is_latest_attempt"] is True
+    assert latest["latest_attempt_at"] == failed_at.isoformat()
+    assert latest["latest_attempt_capture_id"] == failed["capture_id"]
+    assert latest["last_success_capture_id"] == captures["spy"]["capture_id"]
+    assert latest["last_success_at"] == first.isoformat()
+    assert latest["used_for_report"] is False
+    assert previous["used_for_report"] is False
+    assert previous["is_latest_attempt"] is False
+    assert (
+        store.get(captures["spy"]["capture_id"])[0]["first_seen_at"]
+        == first.isoformat()
+    )
+    assert len(store.records()) == 4
+
+
+def test_future_failed_fetch_cannot_degrade_earlier_asof(tmp_path, calendar, protocol):
+    store = CaptureStore(tmp_path)
+    first = datetime(2026, 10, 10, 10, tzinfo=timezone.utc)
+    successful_equity_captures(store, calendar, first)
+    original = build_report(store, protocol, first, calendar)
+    future = store.put(
+        "spy",
+        "yahoo-chart-v8",
+        "https://example.test/spy",
+        b"unavailable",
+        first + timedelta(hours=1),
+        status=503,
+        error="HTTP_ERROR",
+    )
+
+    replayed = build_report(store, protocol, first, calendar)
+
+    assert replayed["freshness_status"] == "LATEST_ATTEMPTS_SUCCEEDED"
+    assert replayed["latest_fetch_failed_feeds"] == []
+    assert replayed["market_now"] == original["market_now"]
+    assert replayed["previous_market_now"] == original["previous_market_now"]
+    assert replayed["source_results"] == original["source_results"]
+    assert future["capture_id"] not in replayed["input_capture_ids"]
+
+
+def test_successful_recovery_restores_measurements_after_failed_attempt(
+    tmp_path, calendar, protocol
+):
+    store = CaptureStore(tmp_path)
+    first = datetime(2026, 10, 10, 10, tzinfo=timezone.utc)
+    prices, _ = successful_equity_captures(store, calendar, first)
+    store.put(
+        "spy",
+        "yahoo-chart-v8",
+        "https://example.test/spy",
+        b"unavailable",
+        first + timedelta(hours=1),
+        status=503,
+        error="HTTP_ERROR",
+    )
+    recovery_at = first + timedelta(hours=2)
+    changed = prices[:-1] + [prices[-1] * 1.01]
+    recovered = put_yahoo(store, calendar, changed, recovery_at)
+
+    report = build_report(store, protocol, recovery_at, calendar)
+
+    assert report["freshness_status"] == "LATEST_ATTEMPTS_SUCCEEDED"
+    assert report["latest_fetch_failed_feeds"] == []
+    current = sensor(report["market_now"], "broad_equity", "spy_return_20")
+    prior = sensor(report["previous_market_now"], "broad_equity", "spy_return_20")
+    assert current["value"]["amount"] == pytest.approx(
+        math.log(changed[21] / changed[1])
+    )
+    assert prior["value"]["amount"] == pytest.approx(math.log(changed[20] / changed[0]))
+    assert current["captured_at"] == recovery_at.isoformat()
+    assert sensor(report["market_now"], "volatility", "spy_rv_20")["value"] is not None
+    assert (
+        sensor(report["market_now"], "participation", "rsp_spy_relative_20")["value"]
+        is not None
+    )
+    latest = next(
+        r
+        for r in report["source_results"]
+        if r["capture_id"] == recovered["capture_id"]
+    )
+    assert latest["is_latest_attempt"] is True
+    assert latest["used_for_report"] is True
+
+
+@pytest.mark.parametrize("invalid_kind", ["schema", "completed_value", "empty_history"])
+def test_latest_http_200_invalid_payload_blocks_cached_measurements(
+    tmp_path, calendar, protocol, invalid_kind
+):
+    store = CaptureStore(tmp_path)
+    first = datetime(2026, 10, 10, 10, tzinfo=timezone.utc)
+    prices, _ = successful_equity_captures(store, calendar, first)
+    if invalid_kind == "schema":
+        raw = b'{"chart":{"error":null,"result":[]}}'
+    elif invalid_kind == "completed_value":
+        payload = json.loads(yahoo_payload(calendar, prices))
+        payload["chart"]["result"][0]["indicators"]["adjclose"][0]["adjclose"][-1] = -1
+        raw = json.dumps(payload).encode()
+    else:
+        payload = json.loads(yahoo_payload(calendar, []))
+        raw = json.dumps(payload).encode()
+    failed_at = first + timedelta(hours=1)
+    invalid = store.put(
+        "spy", "yahoo-chart-v8", "https://example.test/spy", raw, failed_at
+    )
+
+    report = build_report(store, protocol, failed_at, calendar)
+
+    assert_spy_and_dependencies_unavailable(report)
+    assert report["freshness_status"] == "DEGRADED_LATEST_FETCH_FAILED"
+    assert report["latest_fetch_failed_feeds"] == ["spy"]
+    latest = next(
+        r for r in report["source_results"] if r["capture_id"] == invalid["capture_id"]
+    )
+    assert latest["http_status"] == 200
+    assert latest["status"] == "SOURCE_ERROR"
+    assert latest["used_for_report"] is False
+
+
 def test_future_metadata_cannot_validate_current_series(tmp_path, calendar, protocol):
     store = CaptureStore(tmp_path)
     actual_seen = datetime(2026, 10, 10, 12, tzinfo=timezone.utc)
@@ -241,6 +422,64 @@ def test_full_day_observation_label_is_not_next_midnight_date(
     assert credit["state_as_of"] == "2026-10-09T04:00:00+00:00"
     assert credit["observation_label"] == "2026-10-08"
     assert credit["captured_at"] == actual_seen.isoformat()
+
+
+@pytest.mark.parametrize("metadata_failure", ["http", "units"])
+def test_latest_failed_metadata_cannot_reuse_earlier_valid_units(
+    tmp_path, calendar, protocol, metadata_failure
+):
+    store = CaptureStore(tmp_path)
+    first = datetime(2026, 10, 10, 10, tzinfo=timezone.utc)
+    raw_metadata = (
+        b'BAMLH0A0HYM2 <span class="series-meta-value-units">Percent</span>'
+        b'<span class="series-meta-value-frequency">Daily</span>'
+    )
+    initial_capture = store.put(
+        "hy_oas",
+        "fred-public-csv",
+        "https://example.test/hy_oas",
+        b"observation_date,BAMLH0A0HYM2\n2026-10-08,3.2\n",
+        first,
+    )
+    store.put(
+        "hy_oas_metadata",
+        "fred-series-metadata",
+        "https://example.test/metadata",
+        raw_metadata,
+        first,
+    )
+    original = build_report(store, protocol, first, calendar)
+    assert (
+        sensor(original["market_now"], "credit", "hy_oas_level")["value"]["amount"]
+        == 320
+    )
+    failed_at = first + timedelta(hours=1)
+    failed = store.put(
+        "hy_oas_metadata",
+        "fred-series-metadata",
+        "https://example.test/metadata",
+        (
+            b"unavailable"
+            if metadata_failure == "http"
+            else raw_metadata.replace(b"Percent", b"Dollars")
+        ),
+        failed_at,
+        status=503 if metadata_failure == "http" else 200,
+        error="HTTP_ERROR" if metadata_failure == "http" else None,
+    )
+
+    report = build_report(store, protocol, failed_at, calendar)
+
+    assert report["freshness_status"] == "DEGRADED_LATEST_FETCH_FAILED"
+    assert report["latest_fetch_failed_feeds"] == ["hy_oas"]
+    for market in (report["market_now"], report["previous_market_now"]):
+        assert sensor(market, "credit", "hy_oas_level")["value"] is None
+    source = next(r for r in report["source_results"] if r["feed_id"] == "hy_oas")
+    assert source["status"] == "SOURCE_ERROR"
+    assert source["latest_metadata_attempt_at"] == failed_at.isoformat()
+    assert source["latest_metadata_attempt_capture_id"] == failed["capture_id"]
+    assert source["last_success_capture_id"] == initial_capture["capture_id"]
+    assert source["last_success_at"] == first.isoformat()
 
 
 def test_intraday_bar_is_excluded_from_closed_session_report(
