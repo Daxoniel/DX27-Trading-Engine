@@ -1,0 +1,27 @@
+{
+  "task_id": "6B-2H-1",
+  "observation_session": "2026-10-09",
+  "base_commit": "30aedeb",
+  "independent_numeric_checks": 25,
+  "independent_date_label_checks": 25,
+  "independent_mismatches": 0,
+  "http_200_responses": 24,
+  "visual_browser_acceptance": "FINAL_REGENERATED_VERSION_PENDING",
+  "frozen_research_files_modified": false,
+  "existing_core_measurements_modified": false,
+  "pilot_store_accessed": false,
+  "production_enabled": false,
+  "real_validation": "BLOCKED_DATA",
+  "predictive_effectiveness": "NOT_TESTED",
+  "scope": "Arithmetic, timing, source isolation and report content; practical usefulness requires user assessment.",
+  "report_sha256_private_audit": "9daf13df93f4ddcff4beb0d637a32c679ec875b64554fe1497655a6e0ee81cb9",
+  "public_source_responses": 24,
+  "public_capture_payloads_included": false,
+  "public_market_values_included": false,
+  "full_suite_before_review_fix": {
+    "passed": 603,
+    "deselected_network": 1,
+    "seconds": 187.9
+  },
+  "report_specific_checks_before_review_fix": 21
+}
