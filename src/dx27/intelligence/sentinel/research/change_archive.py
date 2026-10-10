@@ -8,9 +8,15 @@ import shutil
 import collections
 import zlib
 from pathlib import Path
+from dataclasses import asdict
 import numpy as np
 from dx27.intelligence.sentinel.research.change_detection import replay, METHODS
-from dx27.intelligence.sentinel.research.change_inputs import generate, subjects, CASES
+from dx27.intelligence.sentinel.research.change_inputs import (
+    generate,
+    subjects,
+    CASES,
+    history_changes,
+)
 from dx27.intelligence.sentinel.research.change_synthetic import (
     encoded,
     gzip_lines,
@@ -34,6 +40,7 @@ def archive(src, dst):
     shutil.copy2(src / "report.json", dst / "source_execution_report.json")
     shutil.copy2(src / "artifact_hashes.json", dst / "full_execution_hashes.json")
     shutil.copy2(src / "session_grid.json", dst / "session_grid.json")
+    shutil.copy2(src / "revision_oracle.json", dst / "revision_oracle.json")
     replay_inputs = {}
     summary = collections.defaultdict(list)
     failures = []
@@ -74,8 +81,19 @@ def archive(src, dst):
                     key = (case, v["seed"])
                     if key not in replay_inputs:
                         online, _, _ = generate(case, v["seed"])
-                        replay_inputs[key] = subjects(online)
-                    x = replay_inputs[key][v["subject"]]
+                        replay_inputs[key] = (
+                            subjects(online),
+                            {
+                                subject: history_changes(online, subject)
+                                for subject in subjects(online)
+                            },
+                        )
+                    x = replay_inputs[key][0][v["subject"]]
+                    updates = replay_inputs[key][1][v["subject"]]
+                    if v["history_updates"] != [
+                        asdict(u) | {"lineage": list(u.lineage)} for u in updates
+                    ]:
+                        raise ValueError("historical revision provenance mismatch")
                     columns = v["decision_columns"]
                     n = len(x)
                     missing = np.r_[0, np.cumsum(~np.isfinite(x))]
@@ -89,11 +107,17 @@ def archive(src, dst):
                     violations["missing_as_zero_or_participation_mislabel"] += int(
                         np.sum((available | (alarm != 0)) & ~np.isfinite(x))
                     )
-                    decisions = replay(x, v["subject"].split(":")[0], v["method"])
-                    prefix = replay(x[:650], v["subject"].split(":")[0], v["method"])
+                    decisions = replay(
+                        x, v["subject"].split(":")[0], v["method"], updates
+                    )
+                    prefix = replay(
+                        x[:650], v["subject"].split(":")[0], v["method"], updates
+                    )
                     changed = x.copy()
                     changed[650:] += 1
-                    future = replay(changed, v["subject"].split(":")[0], v["method"])
+                    future = replay(
+                        changed, v["subject"].split(":")[0], v["method"], updates
+                    )
                     violations["prefix_replay_mismatches"] += sum(
                         a != b for a, b in zip(prefix, decisions[:650])
                     )

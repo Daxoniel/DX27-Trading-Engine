@@ -1,9 +1,9 @@
 {
+  "pyproject.toml": "0e90990dc9460553c0d7e2cee0d1d20491e24d17dff2345c5f3917c28c4acfe0",
+  "src/dx27/intelligence/sentinel/research/change_archive.py": "0ceedb73eecee7f6e37f75db64fe72f606d26d5ab76e548877145982a774e943",
+  "src/dx27/intelligence/sentinel/research/change_detection.py": "14d0581348e81a1c5c1305468684e2d74cd43b395c4c3265e3a5f5c5d2b12845",
+  "src/dx27/intelligence/sentinel/research/change_inputs.py": "74bd70a973638f7a54960d56b0e59f065bbb1fe79e6d31b5da3d5309a19e0e3d",
   "src/dx27/intelligence/sentinel/research/change_scoring.py": "86db6f44c1b8a577030d17be92deb129eb889be27a63039a2b7f822745821dd3",
-  "src/dx27/intelligence/sentinel/research/change_synthetic.py": "f698881e2ba31364393bbb28505aaacfac35dd85b4d8ee1be4c969178b50b354",
-  "src/dx27/intelligence/sentinel/research/change_inputs.py": "7cddf389f98c72291d3d17fa6f2bd783adb6412a70831ffde4faa91e2d911f0b",
-  "src/dx27/intelligence/sentinel/research/change_archive.py": "cb7c5d28cc7220a381b90d23ad3eb4bd952ea1f1199616209792d28a9171c2c0",
-  "src/dx27/intelligence/sentinel/research/change_detection.py": "0c8fdf5c42097ba54363d952c5329b5ab0a4cb46721c4bd3a547c341d9d026f6",
-  "tests/unit/test_sentinel_change_research.py": "430a912db8206f90519ea7cba5230c5dd029b9e93bcd624564225674808c4d8e",
-  "pyproject.toml": "0e90990dc9460553c0d7e2cee0d1d20491e24d17dff2345c5f3917c28c4acfe0"
+  "src/dx27/intelligence/sentinel/research/change_synthetic.py": "d4714c9363faa40ace1ff09e20a58231ffab66bbfd17a846aa39d65baf5079f9",
+  "tests/unit/test_sentinel_change_research.py": "903fa132b234b6f37c5816615ac01cd741364d45122ddf2223430830b0612a44"
 }

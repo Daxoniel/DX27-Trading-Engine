@@ -15,30 +15,94 @@ class Capture:
 
 
 @dataclass(frozen=True)
-class Snapshot:
+class ReturnUpdate:
     session: int
     returns: tuple[float | None, ...]
     lineage: tuple[tuple[str, ...], ...]
 
 
+@dataclass(frozen=True)
+class Snapshot:
+    session: int
+    returns: tuple[float | None, ...]
+    lineage: tuple[tuple[str, ...], ...]
+    history_updates: tuple[ReturnUpdate, ...] = ()
+
+
+@dataclass(frozen=True)
+class HistoryChange:
+    cutoff: int
+    session: int
+    value: float | None
+    lineage: tuple[str, ...]
+
+
 def snapshots(captures, count):
-    """Arrival order, never observation-date order; earlier snapshots immutable."""
+    """Latch original decisions; publish historical deltas only at arrival cutoff."""
     arrivals = sorted(captures, key=lambda c: (c.first_seen, c.capture_id))
-    latest, cursor, result = {}, 0, []
-    for t in range(count):
-        while cursor < len(arrivals) and arrivals[cursor].first_seen <= t:
-            c = arrivals[cursor]
-            if not np.isfinite(c.close) or c.close <= 0:
-                raise ValueError("finite positive close required")
-            latest[c.subject, c.session] = c
-            cursor += 1
+    latest, cursor, result, history = {}, 0, [], {}
+
+    def point(t):
         values, ids = [], []
         for subject in ("SPY", "RSP", "QQQ"):
             a, b = latest.get((subject, t - 1)), latest.get((subject, t))
             values.append(log(b.close / a.close) if a and b else None)
             ids.append(tuple(c.capture_id for c in (a, b) if c))
-        result.append(Snapshot(t, tuple(values), tuple(ids)))
+        return ReturnUpdate(t, tuple(values), tuple(ids))
+
+    for t in range(count):
+        affected = set()
+        while cursor < len(arrivals) and arrivals[cursor].first_seen <= t:
+            c = arrivals[cursor]
+            if not np.isfinite(c.close) or c.close <= 0:
+                raise ValueError("finite positive close required")
+            latest[c.subject, c.session] = c
+            affected.update((c.session, c.session + 1))
+            cursor += 1
+        updates = []
+        for h in sorted(i for i in affected if 0 <= i < t):
+            current = point(h)
+            if current != history[h]:
+                updates.append(current)
+                history[h] = current
+        current = point(t)
+        history[t] = current
+        result.append(Snapshot(t, current.returns, current.lineage, tuple(updates)))
     return tuple(result)
+
+
+def history_changes(values, subject):
+    """Sparse as-of historical overlays, including constituent provenance."""
+    indices = {
+        "trend:SPY": (0,),
+        "trend:RSP": (1,),
+        "volatility:SPY": (0,),
+        "relationship:RSP/SPY": (1, 0),
+        "relationship:QQQ/SPY": (2, 0),
+    }[subject]
+    latest = {}
+    changes = []
+
+    def measurement(row):
+        selected = [row.returns[i] for i in indices]
+        value = (
+            None
+            if any(v is None for v in selected)
+            else selected[0] if len(indices) == 1 else selected[0] - selected[1]
+        )
+        ids = tuple(c for i in indices for c in row.lineage[i])
+        return value, ids
+
+    for snapshot in values:
+        for update in snapshot.history_updates:
+            prior = latest.get(update.session, values[update.session])
+            current = measurement(update)
+            if current != measurement(prior):
+                changes.append(
+                    HistoryChange(snapshot.session, update.session, *current)
+                )
+            latest[update.session] = update
+    return tuple(changes)
 
 
 CASES = (

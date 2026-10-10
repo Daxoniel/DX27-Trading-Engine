@@ -17,3 +17,10 @@ rescues an insufficient/failed stratum or selects a production model.
 `numeric_failures.json` enumerates all 14 failures. Injected-boundary diagnostic
 alarm times are separate from the frozen future-label scoring and give no extra
 matching credit. See the architecture document for limitations and reproduction.
+
+Historical revisions now update later-cutoff numerical windows and constituent
+provenance without replaying original snapshots, accumulators or past alarms.
+`revision_oracle.json` records 160 independent capture-journal cutoff checks over
+all 40 registered revision seeds. `revision_comparison.json` counts changed metric
+rows against the preceding reviewed execution: 6 revision rows and 80 delayed
+rows changed, while candidate verdict totals remain unchanged.

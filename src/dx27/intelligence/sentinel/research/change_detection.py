@@ -23,6 +23,7 @@ class Decision:
     alarm: int
     suppressed: bool
     reset: str | None
+    history_vintage: int | None = None
 
 
 def rolling(x, width):
@@ -100,16 +101,14 @@ def ewmac_states(x):
     return out
 
 
-def replay(x, family, method):
-    if method not in METHODS:
-        raise ValueError("unregistered method")
-    x = np.asarray(x, dtype=float)
+def measurements(x, family, method):
     stat = fixed_statistic(x, family)
     feature = x.copy()
     if family == "volatility":
         feature[:] = np.nan
         mask = np.isfinite(x) & (x != 0)
         feature[mask] = np.log(np.abs(x[mask]))
+    mean = std = None
     if method == "CAUSAL_CUSUM_K05_H5":
         mean, std = rolling(feature, 252)
         mean, std = shifted(mean, 1), shifted(std, 1)
@@ -117,6 +116,45 @@ def replay(x, family, method):
         ewmac_states(x)
         if method == "EWMAC_64_256_RESEARCH_ONLY" and family == "trend"
         else None
+    )
+    return stat, feature, mean, std, states
+
+
+def asof_measurements(x, family, method, history_updates):
+    """Recompute numerical features per vintage, never replay emitted state."""
+    base = measurements(x, family, method)
+    columns = [None if v is None else v.copy() for v in base]
+    vintage = [None] * len(x)
+    groups = {}
+    for change in history_updates:
+        if change.cutoff >= len(x):
+            continue
+        if change.session < 0 or change.session >= change.cutoff or change.cutoff < 0:
+            raise ValueError("historical overlay must precede its arrival cutoff")
+        if change.value is not None and not np.isfinite(change.value):
+            raise ValueError("finite historical return required")
+        if change.cutoff < len(x):
+            groups.setdefault(change.cutoff, []).append(change)
+    cutoffs = sorted(groups)
+    view = x.copy()
+    for i, cutoff in enumerate(cutoffs):
+        for change in groups[cutoff]:
+            view[change.session] = np.nan if change.value is None else change.value
+        end = cutoffs[i + 1] if i + 1 < len(cutoffs) else len(x)
+        current = measurements(view, family, method)
+        for dest, source in zip(columns, current):
+            if dest is not None:
+                dest[cutoff:end] = source[cutoff:end]
+        vintage[cutoff:end] = [cutoff] * (end - cutoff)
+    return (*columns, vintage)
+
+
+def replay(x, family, method, history_updates=()):
+    if method not in METHODS:
+        raise ValueError("unregistered method")
+    x = np.asarray(x, dtype=float)
+    stat, feature, mean, std, states, vintage = asof_measurements(
+        x, family, method, history_updates
     )
     consecutive = 0
     previous = None
@@ -201,6 +239,16 @@ def replay(x, family, method):
         if alarm:
             last_alarm = t
         decisions.append(
-            Decision(t, reason == "OK", reason, score, raw, alarm, suppressed, reset)
+            Decision(
+                t,
+                reason == "OK",
+                reason,
+                score,
+                raw,
+                alarm,
+                suppressed,
+                reset,
+                vintage[t],
+            )
         )
     return tuple(decisions)

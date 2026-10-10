@@ -193,6 +193,8 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
   See [change research](docs/architecture/sentinel-change-research.md).
 - [x] **6B-2J-B — Synthetic Implementation & Causal Conformance** — implemented
   and executed for review: 760 trials, zero causal violations; no candidate PASS.
+  Historical revisions update later cutoff features/provenance with independent
+  as-of oracle checks; original snapshots, decisions and gap eligibility remain fixed.
   15,186 strata insufficient, 14 FAIL; real validation stays BLOCKED_DATA.
   See [synthetic research](docs/architecture/sentinel-change-synthetic.md).
 - [ ] **6B-2J-C — Real Development Validation** — BLOCKED_DATA; requires admitted

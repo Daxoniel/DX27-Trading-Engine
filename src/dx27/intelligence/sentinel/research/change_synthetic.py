@@ -8,11 +8,12 @@ from datetime import date
 import gzip
 import hashlib
 import json
+from math import log
 from pathlib import Path
 import platform
 import numpy as np
 from dx27.adapters.calendars.xnys import load_xnys_calendar
-from .change_inputs import CASES, generate, subjects, snapshots
+from .change_inputs import CASES, generate, subjects, snapshots, history_changes
 from .change_detection import replay, METHODS
 from .change_scoring import (
     targets,
@@ -85,6 +86,39 @@ def gzip_lines(path):
             yield stream
 
 
+def revision_oracle(captures, subject, cutoff=650):
+    """Independent full cutoff query; no incremental snapshot/overlay helpers."""
+    known = {}
+    for c in captures:
+        key = (c.subject, c.session)
+        if c.first_seen <= cutoff and (
+            key not in known
+            or (c.first_seen, c.capture_id)
+            > (known[key].first_seen, known[key].capture_id)
+        ):
+            known[key] = c
+    rows = []
+    for t in range(cutoff + 1):
+        rows.append(
+            [
+                log(known[s, t].close / known[s, t - 1].close)
+                for s in ("SPY", "RSP", "QQQ")
+            ]
+        )
+    values = np.asarray(rows)
+    series = (
+        values[:, 0]
+        if subject in ("trend:SPY", "volatility:SPY")
+        else values[:, 1 if subject == "relationship:RSP/SPY" else 2] - values[:, 0]
+    )
+    feature = np.log(np.abs(series)) if subject == "volatility:SPY" else series
+    z = float(
+        (feature[cutoff] - np.mean(feature[cutoff - 252 : cutoff]))
+        / np.std(feature[cutoff - 252 : cutoff], ddof=1)
+    )
+    return series, z, known["SPY", 590].capture_id
+
+
 def run(root, output):
     p, lock = verify_protocol(root)
     output.mkdir(parents=True, exist_ok=False)
@@ -95,6 +129,7 @@ def run(root, output):
     integrity = Counter({k: 0 for k in p["synthetic_plan"]["correctness_gates"]})
     checked = Counter()
     runs = 0
+    revision_checks = []
     diagnostic = []
     for case in CASES:
         with gzip_lines(output / f"{case}-evidence.jsonl.gz") as evidence, gzip_lines(
@@ -134,11 +169,68 @@ def run(root, output):
                         )
                         checked["snapshot_prefix"] += 1
                     for subject, x in rows.items():
+                        updates = history_changes(online, subject)
                         family = subject.split(":")[0]
                         valid, labels = targets(outcomes[subject], family)
                         streams = {
-                            method: replay(x, family, method) for method in METHODS
+                            method: replay(x, family, method, updates)
+                            for method in METHODS
                         }
+                        if case == "revision":
+                            for method, decisions in streams.items():
+                                if decisions[:650] != replay(x, family, method)[:650]:
+                                    raise ValueError(
+                                        "revision changed a pre-arrival decision"
+                                    )
+                                checked["revision_decision_prefix"] += 1
+                            if subject != "trend:RSP":
+                                expected, z, revision_id = revision_oracle(
+                                    captures, subject
+                                )
+                                actual = streams["CAUSAL_CUSUM_K05_H5"][650]
+                                baseline = replay(x, family, "CAUSAL_CUSUM_K05_H5")[650]
+                                if (
+                                    len(updates) != 2
+                                    or [u.session for u in updates] != [590, 591]
+                                    or any(
+                                        revision_id not in u.lineage for u in updates
+                                    )
+                                ):
+                                    raise ValueError(
+                                        "post-arrival revision provenance missing"
+                                    )
+                                if any(
+                                    not np.isclose(
+                                        u.value, expected[u.session], rtol=0, atol=1e-10
+                                    )
+                                    for u in updates
+                                ) or not np.isclose(
+                                    actual.statistic, z, rtol=0, atol=1e-10
+                                ):
+                                    raise ValueError("post-arrival PIT oracle mismatch")
+                                if (
+                                    actual.statistic == baseline.statistic
+                                    or actual.history_vintage != 650
+                                ):
+                                    raise ValueError(
+                                        "revision ignored in later normalization"
+                                    )
+                                revision_checks.append(
+                                    {
+                                        "seed": seed,
+                                        "split": split,
+                                        "subject": subject,
+                                        "cutoff": 650,
+                                        "history_sessions": [590, 591],
+                                        "revision_capture_id": revision_id,
+                                        "updated_values": [u.value for u in updates],
+                                        "actual_score": actual.statistic,
+                                        "asof_oracle_score": z,
+                                        "unrevised_score": baseline.statistic,
+                                        "historical_feature_changed": True,
+                                        "prearrival_decisions_unchanged": True,
+                                    }
+                                )
                         scored = {}
                         for method, decisions in streams.items():
                             for direction in (-1, 1):
@@ -173,10 +265,10 @@ def run(root, output):
                                     or len({m[1] for m in matches}) != len(matches)
                                 )
                             if seed == seeds[0]:
-                                prefix = replay(x[:650], family, method)
+                                prefix = replay(x[:650], family, method, updates)
                                 changed = x.copy()
                                 changed[650:] += 1
-                                altered = replay(changed, family, method)
+                                altered = replay(changed, family, method, updates)
                                 integrity["prefix_replay_mismatches"] += sum(
                                     a != b for a, b in zip(prefix, decisions[:650])
                                 )
@@ -195,6 +287,7 @@ def run(root, output):
                                         "split": split,
                                         "subject": subject,
                                         "method": method,
+                                        "history_updates": [asdict(u) for u in updates],
                                         "decision_columns": {
                                             key: [getattr(d, key) for d in decisions]
                                             for key in (
@@ -205,6 +298,7 @@ def run(root, output):
                                                 "alarm",
                                                 "suppressed",
                                                 "reset",
+                                                "history_vintage",
                                             )
                                         },
                                         "valid_label_sessions": np.flatnonzero(
@@ -312,6 +406,12 @@ def run(root, output):
         "verdict_counts": dict(counts),
         "integrity_violations": dict(integrity),
         "integrity_checks": dict(checked),
+        "pit_history_policy": "available revisions update later numerical features and provenance; original snapshots, accumulator state and past alarms are not replayed",
+        "revision_visibility_audit": {
+            "oracle_features_checked": len(revision_checks),
+            "mismatches": 0,
+            "all_registered_revision_seeds": 40,
+        },
         "implementation_conformance": (
             "PASS" if not any(integrity.values()) else "FAIL_INTEGRITY"
         ),
@@ -336,6 +436,7 @@ def run(root, output):
             "Native 3A acceptance remains separate and NOT_READY",
         ],
     }
+    write_json(output / "revision_oracle.json", revision_checks)
     write_json(output / "report.json", report)
     write_json(
         output / "session_grid.json",

@@ -11,8 +11,14 @@ synthetic close journal. Immutable original-cutoff snapshots store both constitu
 capture IDs for each daily log return. The numerical firstSeen coordinate is a
 synthetic decision-cutoff index, mapped to the pinned XNYS schedule; it is not
 historical evidence from a market provider. A late revision is retained in the
-journal and does not rebuild old primitive snapshots. Missing constituent closes
-prevent return/spread calculation; delayed closes become usable only after arrival.
+journal and does not rebuild old primitive snapshots. Each arrival cutoff also
+publishes sparse historical return updates: revising close(t) recomputes returns
+at t and t+1, with both constituent capture IDs. Subject-level overlays include
+both legs of a spread. Later decisions use the latest history available at their
+own cutoff; prior snapshots and decisions remain immutable. Missing constituent
+closes prevent return/spread calculation; delayed closes become usable only after
+arrival. Historical repairs never relabel an original missing observation as timely
+or erase its continuity reset and fresh-warmup requirement.
 
 `change_detection` implements the frozen two-session threshold persistence and
 two-sided CUSUM, fixed threshold and NO_CHANGE controls, and archived EWMAC 64/256
@@ -25,6 +31,17 @@ Threshold persistence rearms only on a valid nontrigger evaluation. CUSUM resets
 both accumulators after every raw trigger, including suppressed ones. Cooldown
 retains the first alarm, suppresses distances 1..5 and permits distance 6, shared
 across directions. Missing inputs break continuity and require a fresh warmup.
+
+Numerical windows and EMA features are recomputed from each as-of historical
+vintage. Candidate accumulators, persistence state, cooldown and emitted alarms
+continue from the original decision stream; revisions do not replay old detector
+state or create retrospective matching credit. Evidence records sparse overlays,
+constituent provenance and each decision's latest historical-vintage pointer.
+The revision fixture additionally checks all 40 seeds against an independent
+cutoff query of the capture journal: 160 affected-subject feature checks and
+1,000 unchanged pre-arrival method/subject prefixes. Unit tests also verify
+sequential scalar CUSUM state, later window expiry, recent-window threshold/EMA
+changes, and delayed-history visibility without repairing original eligibility.
 
 `change_scoring` separately generates the frozen future surrogate labels and
 chronologically matches alarms once. Future targets are never supplied to replay.
@@ -76,7 +93,7 @@ preventing a roundoff pseudo-return in the zero-variance fixture.
 Artifacts reside in `research/sentinel/6b-2j-b-synthetic/`: canonical and original
 reports, all per-case per-seed metrics, representative input/lineage/decision
 columns, matching details, bootstrap intervals, explicit failures, session grid,
-full execution hashes and descriptive summaries. The gzip header is deterministic.
+full execution hashes, independent revision oracle records and descriptive summaries. The gzip header is deterministic.
 Run at the repository root with recorded Python/NumPy/calendar versions:
 
 ```bash

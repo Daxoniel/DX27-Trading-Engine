@@ -36,7 +36,10 @@ def test_delay_revision_journal_retains_original_cutoff():
     late = Capture("SPY", 590, 650, 120.0, "late-revision")
     revised = snapshots((*captures, late), 1200)
     assert revised[:650] == base[:650]
-    assert revised == base  # no contemporaneous return uses the old 590 close at 650
+    assert revised[650].history_updates
+    assert [u.session for u in revised[650].history_updates] == [590, 591]
+    assert all(a.returns == b.returns for a, b in zip(revised, base))
+    assert revised != base  # current returns stable, later history/provenance revised
     delayed, _, events = generate("delayed", 62700)
     assert all(delayed[t].returns[0] is None for t in range(600, 605))
     assert any(e.first_seen == 605 and e.session == 600 for e in events)
@@ -328,3 +331,194 @@ def test_nonzero_constant_history_is_exact_zero_variance_without_epsilon():
     ):
         rows = replay(x, "trend", method)
         assert not any(d.available or d.alarm for d in rows)
+
+
+def asof_close_oracle(captures, cutoff):
+    """Independent cutoff query; never uses Snapshot.history_updates or replay helpers."""
+    from math import log
+
+    latest = {}
+    for c in captures:
+        key = (c.subject, c.session)
+        if c.first_seen <= cutoff and (
+            key not in latest
+            or (c.first_seen, c.capture_id)
+            > (latest[key].first_seen, latest[key].capture_id)
+        ):
+            latest[key] = c
+    values = []
+    lineage = []
+    for t in range(cutoff + 1):
+        row = []
+        ids = []
+        for subject in ("SPY", "RSP", "QQQ"):
+            a = latest.get((subject, t - 1))
+            b = latest.get((subject, t))
+            row.append(log(b.close / a.close) if a and b else np.nan)
+            ids.append(tuple(c.capture_id for c in (a, b) if c))
+        values.append(row)
+        lineage.append(ids)
+    return np.asarray(values), lineage
+
+
+@pytest.mark.parametrize(
+    "subject",
+    ["trend:SPY", "volatility:SPY", "relationship:RSP/SPY", "relationship:QQQ/SPY"],
+)
+def test_registered_revision_features_against_asof_oracle(subject):
+    from dx27.intelligence.sentinel.research.change_inputs import history_changes
+
+    online, _, captures = generate("revision", 62700)
+    x = subjects(online)[subject]
+    updates = history_changes(online, subject)
+    family = subject.split(":")[0]
+    base = replay(x, family, "CAUSAL_CUSUM_K05_H5")
+    revised = replay(x, family, "CAUSAL_CUSUM_K05_H5", updates)
+    assert revised[:650] == base[:650]
+    assert revised[650].history_vintage == 650
+    assert revised[650].statistic != base[650].statistic
+    assert [u.session for u in updates] == [590, 591]
+    revision_id = next(
+        c.capture_id for c in captures if c.first_seen == 650 and c.session == 590
+    )
+    assert all(revision_id in u.lineage for u in updates)
+    for t in (649, 650, 651, 700, 842, 843, 844, 900):
+        values, _ = asof_close_oracle(captures, t)
+        series = (
+            values[:, 0]
+            if family != "relationship"
+            else values[:, 1 if subject.startswith("relationship:RSP") else 2]
+            - values[:, 0]
+        )
+        if family == "volatility":
+            series = np.log(np.abs(series))
+        history = series[t - 252 : t]
+        expected = (series[t] - np.mean(history)) / np.std(history, ddof=1)
+        assert revised[t].statistic == pytest.approx(expected, rel=1e-12, abs=1e-12)
+    # After both corrected returns leave the 252-session window, the score agrees,
+    # but retained accumulators/cooldown are deliberately not rewound or discarded.
+    assert revised[844].statistic == base[844].statistic
+
+
+def test_revision_cusum_retains_original_state_and_never_retrocredits():
+    from dx27.intelligence.sentinel.research.change_inputs import history_changes
+    from dx27.intelligence.sentinel.research.change_detection import Decision
+
+    online, _, captures = generate("revision", 62800)
+    x = subjects(online)["trend:SPY"]
+    updates = history_changes(online, "trend:SPY")
+    actual = replay(x, "trend", "CAUSAL_CUSUM_K05_H5", updates)
+    plus = minus = 0.0
+    last = -10000
+    for t in range(252, len(x)):
+        values, _ = asof_close_oracle(captures, t)
+        history = values[t - 252 : t, 0]
+        z = (values[t, 0] - np.mean(history)) / np.std(history, ddof=1)
+        plus = max(0.0, plus + z - 0.5)
+        minus = max(0.0, minus - z - 0.5)
+        raw = (
+            (1 if plus > minus else -1 if minus > plus else 0)
+            if max(plus, minus) >= 5
+            else 0
+        )
+        if max(plus, minus) >= 5:
+            plus = minus = 0.0
+        alarm = raw if t - last > 5 else 0
+        if alarm:
+            last = t
+        assert (
+            actual[t].statistic == pytest.approx(z)
+            and actual[t].raw_alarm == raw
+            and actual[t].alarm == alarm
+        )
+    rows = [Decision(i, True, "OK", None, 0, 0, False, None) for i in range(700)]
+    rows[650] = Decision(650, True, "OK", None, 1, 1, False, None, 650)
+    assert match(((590, 1),), rows, np.ones(700, dtype=bool))[1] == ()
+
+
+def test_revision_ewmac_is_measured_from_current_vintage_not_replayed_alarms():
+    from dx27.intelligence.sentinel.research.change_inputs import history_changes
+    from dx27.intelligence.sentinel.research.trend_models import lean_ema, qc_ewmstd
+
+    online, _, captures = generate("revision", 62700)
+    x = subjects(online)["trend:SPY"]
+    u = history_changes(online, "trend:SPY")
+    base = replay(x, "trend", "EWMAC_64_256_RESEARCH_ONLY")
+    actual = replay(x, "trend", "EWMAC_64_256_RESEARCH_ONLY", u)
+    assert actual[:650] == base[:650]
+    for t in (650, 651, 700):
+        values, _ = asof_close_oracle(captures, t)
+        prices = np.r_[100.0, 100 * np.exp(np.cumsum(values[:, 0]))]
+        score = (lean_ema(prices, 64)[-1] - lean_ema(prices, 256)[-1]) / (
+            prices[-1] * qc_ewmstd(prices)[-1]
+        )
+        assert actual[t].statistic == float(np.sign(score))
+        assert actual[t].history_vintage == 650
+
+
+@pytest.mark.parametrize(
+    "family,subject,observation",
+    [
+        ("trend", "trend:SPY", 620),
+        ("volatility", "volatility:SPY", 640),
+        ("relationship", "relationship:RSP/SPY", 630),
+    ],
+)
+def test_threshold_features_use_recent_revisions_in_normalization(
+    family, subject, observation
+):
+    from dx27.intelligence.sentinel.research.change_inputs import history_changes
+
+    online, _, captures = generate("gaussian", 62700)
+    original = next(
+        c for c in captures if c.subject == "SPY" and c.session == observation
+    )
+    corrected = Capture(
+        "SPY", observation, 650, original.close * 1.1, "recent-correction"
+    )
+    revised = snapshots((*captures, corrected), 1200)
+    updates = history_changes(revised, subject)
+    x = subjects(revised)[subject]
+    for method in (
+        "FIXED_CAUSAL_THRESHOLD_V1",
+        "FIXED_THRESHOLD_PERSISTENCE_2",
+        "NO_CHANGE",
+    ):
+        a = replay(x, family, method)
+        b = replay(x, family, method, updates)
+        assert b[:650] == a[:650]
+        values, _ = asof_close_oracle((*captures, corrected), 650)
+        series = (
+            values[:, 0] if family != "relationship" else values[:, 1] - values[:, 0]
+        )
+        if family == "trend":
+            expected = np.mean(series[-20:]) / (
+                np.std(series[-40:-20], ddof=1) / np.sqrt(20)
+            )
+        elif family == "volatility":
+            expected = np.std(series[-5:], ddof=1) / np.std(series[-20:], ddof=1)
+        else:
+            expected = (np.mean(series[-5:]) - np.mean(series[-25:-5])) / (
+                np.std(series[-25:-5], ddof=1) / np.sqrt(5)
+            )
+        assert (
+            b[650].statistic == pytest.approx(expected)
+            and b[650].statistic != a[650].statistic
+        )
+
+
+def test_delayed_history_visible_later_but_does_not_repair_original_eligibility():
+    from dx27.intelligence.sentinel.research.change_inputs import history_changes
+
+    online, _, captures = generate("delayed", 62700)
+    updates = history_changes(online, "trend:SPY")
+    assert len(updates) == 5 and all(u.cutoff == 605 for u in updates)
+    original = online[600]
+    assert original.returns[0] is None
+    values, ids = asof_close_oracle(captures, 605)
+    assert updates[0].value == values[600, 0] and updates[0].lineage == ids[600][0]
+    actual = replay(
+        subjects(online)["trend:SPY"], "trend", "CAUSAL_CUSUM_K05_H5", updates
+    )
+    assert not any(d.available or d.alarm for d in actual[600:857])
+    assert online[600] == original
