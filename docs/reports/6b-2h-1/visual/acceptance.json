@@ -1,0 +1,386 @@
+{
+  "acceptance": "PASS_LAYOUT_AND_DISCLOSURE_ONLY",
+  "public_evidence_synthetic_only": true,
+  "no_real_market_values_in_this_summary": true,
+  "market_effectiveness_claim": false,
+  "normal_synthetic": {
+    "source_sha256": "a7ca6967b6b0530d7c4d732ffc3911269627fde1edcfba9924ef225d76a586b1",
+    "layout": {
+      "render_status": "RENDERED",
+      "desktop": {
+        "width": 1440,
+        "bodyWidth": 1425,
+        "htmlWidth": 1425,
+        "bodyHeight": 2876,
+        "factsColumns": "511px 511px",
+        "wraps": [
+          {
+            "clientWidth": 1058,
+            "scrollWidth": 1058,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 1058,
+            "scrollWidth": 1058,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 1058,
+            "scrollWidth": 1058,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 1058,
+            "scrollWidth": 1058,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 1116,
+            "scrollWidth": 1116,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 1116,
+            "scrollWidth": 1116,
+            "overflow": "auto"
+          }
+        ],
+        "fontsReady": "loaded"
+      },
+      "mobile": {
+        "width": 390,
+        "bodyWidth": 390,
+        "htmlWidth": 390,
+        "bodyHeight": 3394,
+        "factsColumns": "308px",
+        "wraps": [
+          {
+            "clientWidth": 316,
+            "scrollWidth": 660,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 316,
+            "scrollWidth": 660,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 316,
+            "scrollWidth": 660,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 316,
+            "scrollWidth": 660,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 354,
+            "scrollWidth": 749,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 354,
+            "scrollWidth": 660,
+            "overflow": "auto"
+          }
+        ],
+        "fontsReady": "loaded"
+      },
+      "fonts": [
+        {
+          "familyName": "Noto Sans CJK SC",
+          "postScriptName": "NotoSansCJKsc-Bold",
+          "isCustomFont": false,
+          "glyphCount": 8
+        },
+        {
+          "familyName": "Noto Sans",
+          "postScriptName": "NotoSans-Bold",
+          "isCustomFont": false,
+          "glyphCount": 3
+        }
+      ],
+      "policy_unchanged": true,
+      "proxy_unchanged": true
+    },
+    "scroll": {
+      "before": {
+        "left": 0,
+        "width": 316,
+        "scrollWidth": 660
+      },
+      "after": {
+        "left": 260
+      }
+    },
+    "details_open": true,
+    "source_table_mobile": {
+      "headers": [
+        "输入",
+        "来源",
+        "本条取回（柏林）",
+        "采集结果",
+        "最新尝试（柏林）",
+        "上次成功（柏林）",
+        "本条记录"
+      ],
+      "rowCells": 7,
+      "tableWidth": 749,
+      "wrapWidth": 354,
+      "codes": [
+        {
+          "fontSize": "10px",
+          "width": 102.359375,
+          "parentWidth": 128,
+          "rects": 4
+        },
+        {
+          "fontSize": "10px",
+          "width": 48.171875,
+          "parentWidth": 76,
+          "rects": 8
+        },
+        {
+          "fontSize": "10px",
+          "width": 102.359375,
+          "parentWidth": 128,
+          "rects": 4
+        },
+        {
+          "fontSize": "10px",
+          "width": 48.171875,
+          "parentWidth": 76,
+          "rects": 8
+        },
+        {
+          "fontSize": "10px",
+          "width": 102.359375,
+          "parentWidth": 128,
+          "rects": 4
+        },
+        {
+          "fontSize": "10px",
+          "width": 48.171875,
+          "parentWidth": 76,
+          "rects": 8
+        }
+      ]
+    },
+    "source_table_desktop": {
+      "headers": [
+        "输入",
+        "来源",
+        "本条取回（柏林）",
+        "采集结果",
+        "最新尝试（柏林）",
+        "上次成功（柏林）",
+        "本条记录"
+      ],
+      "tableWidth": 1116,
+      "wrapWidth": 1116,
+      "codes": [
+        {
+          "fontSize": "10px",
+          "width": 174.609375,
+          "parentWidth": 203,
+          "rects": 3
+        },
+        {
+          "fontSize": "10px",
+          "width": 138.484375,
+          "parentWidth": 165,
+          "rects": 3
+        },
+        {
+          "fontSize": "10px",
+          "width": 174.609375,
+          "parentWidth": 203,
+          "rects": 3
+        },
+        {
+          "fontSize": "10px",
+          "width": 138.484375,
+          "parentWidth": 165,
+          "rects": 3
+        },
+        {
+          "fontSize": "10px",
+          "width": 174.609375,
+          "parentWidth": 203,
+          "rects": 3
+        },
+        {
+          "fontSize": "10px",
+          "width": 138.484375,
+          "parentWidth": 165,
+          "rects": 3
+        }
+      ]
+    },
+    "screenshots": [
+      "desktop.png",
+      "mobile.png",
+      "mobile-table-scroll.png",
+      "mobile-details.png",
+      "desktop-sources.png"
+    ]
+  },
+  "degraded_synthetic": {
+    "source_sha256": "10e9e67da8d95a6e0f283e1380277820641bf6114bcc7577510181d25ed3fdce",
+    "layout": {
+      "render_status": "RENDERED",
+      "desktop": {
+        "width": 1440,
+        "bodyWidth": 1425,
+        "htmlWidth": 1425,
+        "bodyHeight": 2918,
+        "factsColumns": "511px 511px",
+        "wraps": [
+          {
+            "clientWidth": 1058,
+            "scrollWidth": 1058,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 1058,
+            "scrollWidth": 1058,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 1058,
+            "scrollWidth": 1058,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 1058,
+            "scrollWidth": 1058,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 1116,
+            "scrollWidth": 1116,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 1116,
+            "scrollWidth": 1116,
+            "overflow": "auto"
+          }
+        ],
+        "fontsReady": "loaded"
+      },
+      "mobile": {
+        "width": 390,
+        "bodyWidth": 390,
+        "htmlWidth": 390,
+        "bodyHeight": 3406,
+        "factsColumns": "308px",
+        "wraps": [
+          {
+            "clientWidth": 316,
+            "scrollWidth": 660,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 316,
+            "scrollWidth": 660,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 316,
+            "scrollWidth": 660,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 316,
+            "scrollWidth": 660,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 354,
+            "scrollWidth": 776,
+            "overflow": "auto"
+          },
+          {
+            "clientWidth": 354,
+            "scrollWidth": 660,
+            "overflow": "auto"
+          }
+        ],
+        "fontsReady": "loaded"
+      },
+      "fonts": [
+        {
+          "familyName": "Noto Sans CJK SC",
+          "postScriptName": "NotoSansCJKsc-Bold",
+          "isCustomFont": false,
+          "glyphCount": 13
+        },
+        {
+          "familyName": "Noto Sans",
+          "postScriptName": "NotoSans-Bold",
+          "isCustomFont": false,
+          "glyphCount": 6
+        }
+      ],
+      "policy_unchanged": true,
+      "proxy_unchanged": true
+    },
+    "h1": "市场观察 · 合成示例 · 采集不完整",
+    "badge": "合成示例 · 非真实行情 · 采集不完整",
+    "scope": "合成示例；采集不完整；必要测量 6 / 13 可用。以下变化是各项观测的事实比较，不是转折预警或未来概率。",
+    "latest_failure_fact": true,
+    "old_success_not_substituted": true,
+    "spy_dependent_rows": [
+      {
+        "name": "SPY · 标普 500 市值加权",
+        "value": "— · 缺少数据"
+      },
+      {
+        "name": "RSP / SPY · 等权相对表现",
+        "value": "— · 缺少数据"
+      },
+      {
+        "name": "QQQ / SPY · 纳指相对表现",
+        "value": "— · 缺少数据"
+      },
+      {
+        "name": "IWM / SPY · 小盘相对表现",
+        "value": "— · 缺少数据"
+      },
+      {
+        "name": "SPY · 20 日实现波动率",
+        "value": "— · 缺少数据"
+      },
+      {
+        "name": "SPY · 5 日 / 20 日波动率",
+        "value": "— · 缺少数据"
+      },
+      {
+        "name": "VIX − SPY 20 日实现波动率",
+        "value": "— · 缺少数据"
+      }
+    ],
+    "all_spy_dependent_rows_missing": true,
+    "screenshots": [
+      "degraded-desktop.png",
+      "degraded-mobile.png"
+    ]
+  },
+  "private_layout_check": {
+    "status": "RENDERED",
+    "desktop_horizontal_overflow": false,
+    "mobile_horizontal_overflow": false,
+    "details_open": true,
+    "chinese_font_present": true,
+    "screenshots_retained_locally_only": true
+  },
+  "inspection_notes": [
+    "Desktop source table uses seven columns and fits1116px; capture IDs wrap without crossing cell boundaries.",
+    "Mobile main report tables scroll at660px; seven-column source table scrolls at749px within354px.",
+    "Capture IDs are10px trace details and wrap4-8lines on mobile; density is a minor usability limitation, not a layout blocker.",
+    "Healthy and degraded Chinese text rendered with Noto Sans CJK SC; no missing glyphs or overlap observed.",
+    "All Chromium and loopback server processes started by these checks terminated after completion."
+  ]
+}
