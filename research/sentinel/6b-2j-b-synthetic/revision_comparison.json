@@ -1,0 +1,13 @@
+{
+  "rows": 38000,
+  "counts": {
+    "BASELINE_ONLY": 18240,
+    "INSUFFICIENT_EVIDENCE": 15186,
+    "NOT_APPLICABLE": 4560,
+    "FAIL": 14
+  },
+  "changed_metric_rows_by_case": {
+    "delayed": 80,
+    "revision": 6
+  }
+}

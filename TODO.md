@@ -189,11 +189,16 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
   forced worker recovery and distinct recovery email evidence pending (NOT_READY);
   final single-writer handoff verified, 102 captures / 353 files unchanged.
   See [acceptance record](research/sentinel/6b-2i-3a-durable-runner/deployment_acceptance.json).
-- [x] **6B-2J-A — Change Detection Protocol Pre-registration** — design prepared
-  for review; parent targets/gates unchanged, two candidates and synthetic plan.
+- [x] **6B-2J-A — Change Detection Protocol Pre-registration** — reviewed/merged; parent targets/gates unchanged, two candidates and synthetic plan.
   See [change research](docs/architecture/sentinel-change-research.md).
-- [ ] **6B-2J-B — Synthetic Implementation & Causal Conformance** — next task;
-  no real efficacy claim or production integration.
+- [x] **6B-2J-B — Synthetic Implementation & Causal Conformance** — implemented
+  and executed for review: 760 trials, zero causal violations; no candidate PASS.
+  Historical revisions update later cutoff features/provenance with independent
+  as-of oracle checks; original snapshots, decisions and gap eligibility remain fixed.
+  15,186 strata insufficient, 14 FAIL; real validation stays BLOCKED_DATA.
+  See [synthetic research](docs/architecture/sentinel-change-synthetic.md).
+- [ ] **6B-2J-C — Real Development Validation** — BLOCKED_DATA; requires admitted
+  PIT evidence and existing S/D research gates, not synthetic or source coverage PASS.
 - [ ] Complete the frozen pilot and review each source's actual cutoff coverage;
   resolve provisional source clocks/HY delivery and plan continuous S/D warmup.
   6B-2J real validation remains blocked; protocol/synthetic work may proceed.
@@ -210,7 +215,7 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
 
 These tasks follow the [multi-sensor architecture](docs/architecture/sentinel-multi-sensor-design.md).
 6B-2G design verification and 6B-2H implementation conformance are complete.
-6B-2I collection is active; 6B-2J-A design is prepared. Real 6B-2J validation and
+6B-2I collection is active; 6B-2J-A is merged and 6B-2J-B synthetic execution complete. Real 6B-2J validation and
 6B-2K remain individually gated; collection does not enable production.
 
 ## Planned
