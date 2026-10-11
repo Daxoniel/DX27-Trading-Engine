@@ -17,6 +17,7 @@ dependencies = [
 
 [project.optional-dependencies]
 test = ["pytest>=8.0"]
+forecast = ["chronos-forecasting==2.3.2", "transformers==4.57.1", "torch>=2.2,<3"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

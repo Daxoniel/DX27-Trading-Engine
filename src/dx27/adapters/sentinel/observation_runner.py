@@ -362,6 +362,14 @@ def main():
         default=Path("research/sentinel/6b-2g-contracts/protocol.json"),
     )
     parser.add_argument("--replay-only", action="store_true")
+    parser.add_argument(
+        "--forecast", action="store_true",
+        help="Attach fixed Chronos-2 five-session experimental forecasts; no production promotion",
+    )
+    parser.add_argument(
+        "--forecast-cache", type=Path, default=Path("work/forecast-model-cache"),
+        help="Local checkpoint cache, separate from the pilot",
+    )
     args = parser.parse_args()
     if (args.store / "configuration.json").exists() or (
         args.store / "profiles"
@@ -387,6 +395,13 @@ def main():
     report = build_report(
         store, json.loads(args.protocol.read_bytes()), datetime.now(timezone.utc)
     )
+    if args.forecast:
+        from dx27.adapters.sentinel.forecast_model import ChronosBackend, build_forecast
+
+        report["experimental_forecast"] = build_forecast(
+            store, report, ChronosBackend(args.forecast_cache)
+        )
+        report["generated_at"] = datetime.now(timezone.utc).isoformat()
     from dx27.adapters.sentinel.observation_report import render_html, render_markdown
 
     args.output.mkdir(parents=True, exist_ok=False)
@@ -404,6 +419,7 @@ def main():
                 "source_results": [
                     (r["feed_id"], r["status"]) for r in report["source_results"]
                 ],
+                "forecast_status": (report.get("experimental_forecast") or {}).get("status", "NOT_REQUESTED"),
             },
             ensure_ascii=False,
         )

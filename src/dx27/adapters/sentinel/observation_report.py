@@ -1,7 +1,7 @@
 """Readable, static market observations from existing typed sensor projections.
 
-This renderer compares measured values; it does not classify a global regime,
-run a detector, forecast outcomes, or promote descriptive data to causal proof.
+This renderer compares measurements and separately displays optional model
+forecasts. It does not compute predictions or promote them to validated evidence.
 """
 
 from __future__ import annotations
@@ -573,21 +573,318 @@ def _coverage(report: dict) -> str:
         text = f"必要测量 {available} / {expected} 可用"
     else:
         text = "按各项实际可用性展示"
+    blocked = coverage.get("blocked", {})
+    if (
+        isinstance(blocked.get("available"), int)
+        and isinstance(blocked.get("expected"), int)
+        and blocked["expected"]
+    ):
+        text += f"；成分结构测量 {blocked['available']} / {blocked['expected']} 可用（输入尚未具备）"
     if _degraded(report):
         text = "采集不完整；" + text
     return ("合成示例；" if _synthetic(report) else "") + text
 
 
-def _method_notes() -> list[str]:
-    return [
+def _method_notes(report: dict | None = None) -> list[str]:
+    notes = [
         "股票及行业表现覆盖最近 20 个交易日。对比列是这项滚动指标相对前次观察的变化，不是当天收益。",
         "相对表现按两个组合的回报倍数之比计算，再减去 1；不是两个普通收益率直接相减。QQQ/IWM 的绝对表现由 SPY 与相对表现同日观测推导。",
         "VIX 是约 30 日预期波动率；实现波动率来自过去 20 个交易日。两者期限和含义不同，差值只是代理观察。",
         "数值中的 % 表示回报、年化波动率或年化利率，具体由行名区分；bp 表示基点，100 bp = 1 个百分点。",
         "对比按本次取得的历史版本重算，不是昨天当时已知的报告；历史可包含供应商修订。观测日期使用明确的来源标签；未提供标签时显示窗口结束时点。",
-        "只描述观测，不发布变化告警、综合风险等级或未来概率。原有研究的数据准入状态仍未通过。",
+        "观察区不发布变化告警或综合风险等级。原有研究的数据准入状态仍未通过。",
         "来源最新尝试失败时，相关观察留空，不退回较早成功采集伪装为最新值；来源记录分别保留最新尝试与上次成功的时间。",
+        "窗口结束是数据覆盖边界；采用保守全日窗口的指标，其结束时点不是来源发布时间。没有输入证据的 ID 仅标识缺失记录，不代表存在真实测量。",
     ]
+    if isinstance((report or {}).get("experimental_forecast"), dict):
+        notes.extend(
+            [
+                "模型预测是从起点收盘到第 5 个交易日收盘的累计回报分位数；相对表现单独预测，不由两个 ETF 的边际分位数相减，也不累计每天的分位数。",
+                "模型 10%–90% 分位区间的名义覆盖为 80%，尚未校准，不是已验证的 80% 把握。当前预测有效性尚未测试。随机游走基准独立展示，不替代模型结果。",
+            ]
+        )
+    return notes
+
+
+_FORECAST_REASONS = {
+    "MODEL_NOT_INSTALLED": "模型运行依赖尚未安装",
+    "MODEL_FAILED": "模型运行失败",
+    "FAILED": "模型运行失败",
+    "INSUFFICIENT_HISTORY": "可用历史长度不足",
+    "INPUT_SOURCE_FAILED": "输入来源最新采集失败",
+    "MISSING_REQUIRED_ETF_HISTORY": "缺少所需 ETF 历史",
+    "UNAVAILABLE": "本次未取得模型预测",
+}
+
+
+def _forecast_reason(value: object) -> str:
+    if value is None or value == "":
+        return "未提供具体原因"
+    return _FORECAST_REASONS.get(str(value), str(value))
+
+
+def _forecast_quantiles(value: dict) -> tuple[float, float, float] | None:
+    values = tuple(value.get(key) for key in ("q10_return", "q50_return", "q90_return"))
+    if not all(
+        isinstance(v, (float, int)) and not isinstance(v, bool) and math.isfinite(v)
+        for v in values
+    ):
+        return None
+    if not values[0] <= values[1] <= values[2]:
+        return None
+    return tuple(float(v) for v in values)
+
+
+def _forecast_percent(value: float) -> str:
+    return _signed(value * 100) + "%"
+
+
+def _forecast_interval(values: tuple[float, float, float]) -> str:
+    return _forecast_percent(values[0]) + " 至 " + _forecast_percent(values[2])
+
+
+def _forecast_view(report: dict) -> dict | None:
+    forecast = report.get("experimental_forecast")
+    if not isinstance(forecast, dict):
+        return None
+    status = forecast.get("status", "UNAVAILABLE")
+    usable = status in {"AVAILABLE_EXPERIMENTAL", "PARTIAL"}
+    status_label = {
+        "AVAILABLE_EXPERIMENTAL": "模型实验输出 · 尚未验证",
+        "PARTIAL": "部分预测不可用 · 尚未验证",
+        "UNAVAILABLE": "本次预测不可用",
+        "MODEL_NOT_INSTALLED": "模型尚未安装",
+        "FAILED": "模型运行失败",
+    }.get(status, "本次预测不可用")
+    rows, unavailable = [], []
+    raw_predictions = forecast.get("predictions")
+    for prediction in raw_predictions if isinstance(raw_predictions, list) else []:
+        if not isinstance(prediction, dict):
+            continue
+        subject = str(
+            prediction.get("subject") or prediction.get("target_id") or "未提供对象"
+        )
+        relative = prediction.get("target_type") == "RELATIVE_CUMULATIVE_RETURN"
+        label = subject + (" · 相对表现" if relative else " · 累计回报")
+        quantiles = (
+            _forecast_quantiles(prediction)
+            if usable and prediction.get("status") == "AVAILABLE"
+            else None
+        )
+        if quantiles is None:
+            reason = prediction.get("reason") or forecast.get("reason")
+            if usable and prediction.get("status") == "AVAILABLE":
+                reason = "分位数缺失、非有限数值或顺序异常"
+            unavailable.append(label + "：" + _forecast_reason(reason))
+        baseline = prediction.get("baseline")
+        baseline_quantiles = (
+            _forecast_quantiles(baseline) if isinstance(baseline, dict) else None
+        )
+        baseline_text = (
+            (
+                _forecast_percent(baseline_quantiles[1])
+                + " / "
+                + _forecast_interval(baseline_quantiles)
+            )
+            if baseline_quantiles
+            else "— · 基准不可用"
+        )
+        rows.append(
+            (
+                label,
+                _forecast_percent(quantiles[1]) if quantiles else "—",
+                _forecast_interval(quantiles) if quantiles else "—",
+                baseline_text,
+            )
+        )
+    if not usable:
+        unavailable.insert(0, _forecast_reason(forecast.get("reason") or status))
+    elif not rows:
+        unavailable.append("模型没有返回可展示的预测。")
+    model_id = str(forecast.get("model_id") or "未提供")
+    model_url = _safe_url(forecast.get("model_source_url") or forecast.get("model_url"))
+    if not model_url and model_id == "amazon/chronos-2":
+        model_url = "https://huggingface.co/amazon/chronos-2"
+    references = []
+    raw_references = forecast.get("references")
+    if isinstance(raw_references, list):
+        for reference in raw_references:
+            if isinstance(reference, dict):
+                label = reference.get("reference_id") or reference.get("title")
+                if label:
+                    references.append((str(label), _safe_url(reference.get("url"))))
+    raw_reference_ids = forecast.get("reference_ids")
+    for reference_id in (
+        raw_reference_ids if isinstance(raw_reference_ids, list) else []
+    ):
+        if isinstance(reference_id, str) and reference_id not in {
+            ref[0] for ref in references
+        }:
+            references.append((reference_id, ""))
+    details = [
+        "模型：" + model_id,
+        "权重版本：" + str(forecast.get("model_revision") or "未提供"),
+        "输入数据取得截止：" + _time(forecast.get("as_of")),
+        "预测生成：" + _time(forecast.get("issued_at")),
+        "校准：未验证；预测有效性：尚未测试。",
+    ]
+    if forecast.get("model_package_version"):
+        details.append("运行包要求版本：" + str(forecast["model_package_version"]))
+    if forecast.get("forecast_id"):
+        details.append("预测记录：" + str(forecast["forecast_id"]))
+    if forecast.get("input_context_digest"):
+        details.append("输入上下文摘要：" + str(forecast["input_context_digest"]))
+    input_sources = forecast.get("input_sources")
+    if isinstance(input_sources, dict):
+        for feed, source in sorted(input_sources.items()):
+            if isinstance(source, dict):
+                details.append(
+                    str(feed).upper()
+                    + " 输入："
+                    + _time(source.get("first_seen_at"))
+                    + "；记录 "
+                    + str(source.get("capture_id") or "未提供")
+                    + "；响应摘要 "
+                    + str(source.get("payload_sha256") or "未提供")
+                )
+    captures = forecast.get("input_capture_ids")
+    if isinstance(captures, list) and captures:
+        details.append(
+            "输入记录引用：" + "、".join(str(capture) for capture in captures)
+        )
+    notice = "模型 10%–90% 分位区间：名义覆盖 80%，尚未校准，不是已验证的 80% 把握。预测有效性尚未测试。"
+    if _synthetic(report):
+        status_label += " · 合成输入"
+        notice = "合成输入演示，不代表真实市场。" + notice
+    return {
+        "heading": "未来 "
+        + str(forecast.get("horizon_sessions", 5))
+        + " 个交易日 · 模型实验",
+        "status": status_label,
+        "period": "起点 "
+        + str(forecast.get("origin_session") or "未提供")
+        + " 收盘 → 目标 "
+        + str(forecast.get("target_session") or "未提供")
+        + " 收盘",
+        "notice": notice,
+        "rows": rows,
+        "unavailable": unavailable,
+        "details": details,
+        "model_url": model_url,
+        "references": references,
+    }
+
+
+def _forecast_markdown(view: dict | None) -> list[str]:
+    if view is None:
+        return []
+    lines = [
+        "## " + _md(view["heading"]),
+        "",
+        "**" + _md(view["status"]) + "**",
+        "",
+        _md(view["period"]),
+        "",
+        _md(view["notice"]),
+        "",
+    ]
+    if view["rows"]:
+        lines.extend(
+            [
+                "| 预测对象 | 模型中位数 | 模型 10%–90% 分位区间 | 随机游走：中位数 / 区间 |",
+                "| --- | ---: | --- | --- |",
+            ]
+        )
+        lines.extend(
+            "| " + " | ".join(_md(value) for value in row) + " |"
+            for row in view["rows"]
+        )
+        lines.append("")
+    if view["unavailable"]:
+        lines.extend(
+            [
+                "不可用项目：",
+                "",
+                *["- " + _md(reason) for reason in view["unavailable"]],
+                "",
+            ]
+        )
+    lines.extend([*["- " + _md(detail) for detail in view["details"]], ""])
+    if view["model_url"]:
+        lines.extend(["模型来源：" + _md(view["model_url"]), ""])
+    if view["references"]:
+        lines.extend(
+            [
+                "参考 ID："
+                + "；".join(
+                    _md(label) + ("（" + _md(url) + "）" if url else "")
+                    for label, url in view["references"]
+                ),
+                "",
+            ]
+        )
+    return lines
+
+
+def _forecast_html(view: dict | None) -> str:
+    if view is None:
+        return ""
+    e = lambda value: escape(str(value), quote=True)
+    table = ""
+    if view["rows"]:
+        body = "".join(
+            "<tr>" + "".join("<td>" + e(value) + "</td>" for value in row) + "</tr>"
+            for row in view["rows"]
+        )
+        table = (
+            '<div class="table-wrap"><table><thead><tr><th>预测对象</th><th>模型中位数</th><th>模型 10%–90% 分位区间</th><th>随机游走：中位数 / 区间</th></tr></thead><tbody>'
+            + body
+            + "</tbody></table></div>"
+        )
+    unavailable = (
+        "<ul>"
+        + "".join("<li>" + e(reason) + "</li>" for reason in view["unavailable"])
+        + "</ul>"
+        if view["unavailable"]
+        else ""
+    )
+    model_link = (
+        '<p>模型来源：<a href="'
+        + e(view["model_url"])
+        + '" rel="noreferrer">'
+        + e(view["model_url"])
+        + "</a></p>"
+        if view["model_url"]
+        else ""
+    )
+    references = []
+    for label, url in view["references"]:
+        references.append(
+            '<a href="' + e(url) + '" rel="noreferrer">' + e(label) + "</a>"
+            if url
+            else e(label)
+        )
+    refs = "<p>参考 ID：" + "；".join(references) + "</p>" if references else ""
+    details = "".join("<li>" + e(detail) + "</li>" for detail in view["details"])
+    return (
+        '<section class="measurement forecast"><span class="badge">'
+        + e(view["status"])
+        + "</span><h2>"
+        + e(view["heading"])
+        + '</h2><p class="forecast-period">'
+        + e(view["period"])
+        + '</p><p class="forecast-notice">'
+        + e(view["notice"])
+        + "</p>"
+        + table
+        + unavailable
+        + '<details><summary>模型版本、输入时间与参考资料</summary><ul class="forecast-provenance">'
+        + details
+        + "</ul>"
+        + model_link
+        + refs
+        + "</details></section>"
+    )
 
 
 def _md(value: object) -> str:
@@ -607,19 +904,26 @@ def render_markdown(report: dict) -> str:
     if _synthetic(report):
         title += "（合成示例 · 非真实行情）"
         freshness = "合成数据示例，非真实行情"
+    forecast = _forecast_view(report)
+    scope = (
+        "观察区描述市场；预测区为尚未验证的模型实验，不设置综合风险等级。"
+        if forecast
+        else "本页描述市场，不输出预测或综合风险等级。"
+    )
     lines = [
         title,
         "",
         f"观察交易日：**{_md(report.get('session_id', '未提供'))}** · 前次对比交易日：{_md(previous)}",
         f"生成时间：{_md(_time(report.get('generated_at')))} · {freshness}",
         "",
-        _coverage(report) + "。本页描述市场，不输出预测或综合风险等级。",
+        _coverage(report) + "。" + scope,
         "",
         "## 一分钟观察",
         "",
         *["- " + _md(fact) for fact in observation_facts(report)],
         "",
     ]
+    lines.extend(_forecast_markdown(forecast))
     for title, rows in _rows(report):
         lines.extend(
             [
@@ -641,7 +945,7 @@ def render_markdown(report: dict) -> str:
             "",
             "## 口径与来源",
             "",
-            *["- " + note for note in _method_notes()],
+            *["- " + note for note in _method_notes(report)],
             "",
             "数据观测时间与取回时间分开记录；取回时间不是数据发布或市场发生时间。",
             "",
@@ -682,6 +986,13 @@ def render_html(report: dict) -> str:
     if _synthetic(report):
         heading = "市场观察 · 合成示例" + (" · 采集不完整" if _degraded(report) else "")
         badge = "合成示例 · 非真实行情" + (" · 采集不完整" if _degraded(report) else "")
+    forecast = _forecast_view(report)
+    forecast_section = _forecast_html(forecast)
+    scope = (
+        "观察区是事实比较；预测区是尚未验证的模型实验，不设置综合风险等级。"
+        if forecast
+        else "以下变化是各项观测的事实比较，不是转折预警或未来概率。"
+    )
     facts = "".join(
         f'<li><span class="fact-index">{index:02d}</span><p>{e(fact)}</p></li>'
         for index, fact in enumerate(observation_facts(report), 1)
@@ -698,7 +1009,7 @@ def render_html(report: dict) -> str:
             f"</tr></thead><tbody>{body}</tbody></table></div></section>"
         )
     gaps = "".join(f"<li>{e(gap)}</li>" for gap in _gaps(report))
-    notes = "".join(f"<li>{e(note)}</li>" for note in _method_notes())
+    notes = "".join(f"<li>{e(note)}</li>" for note in _method_notes(report))
     source_rows = []
     for source in report.get("source_results", []):
         url = _safe_url(source.get("url"))
@@ -735,9 +1046,10 @@ def render_html(report: dict) -> str:
         evidence_rows.append(
             "<tr>"
             f"<td>{e(label)}</td>"
-            f'<td>{e(_time(state.get("state_as_of")))}</td>'
+            f'<td>{e(_time(state.get("state_as_of")) if state.get("evidence_refs") else "—")}</td>'
+            f'<td>{e(_STATUSES.get(state.get("data_status"), "不可用"))}</td>'
             f'<td><code>{e(state.get("method_id", "未提供"))}</code></td>'
-            f'<td><code>{e(entry.get("measurement_ref", "未提供"))}</code></td></tr>'
+            f'<td>{"缺失记录 · " if not state.get("evidence_refs") else ""}<code>{e(entry.get("measurement_ref", "未提供"))}</code></td></tr>'
         )
     return f"""<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -753,6 +1065,7 @@ main{{max-width:1180px;margin:auto;padding:42px 32px 70px}}header{{display:flex;
 .summary{{background:var(--ink);color:#eff7f4;border-radius:8px;padding:28px 30px;margin:26px 0 12px}}.summary h2{{font-size:18px;color:#b9d8cc}}.facts{{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:23px 34px}}
 .facts li{{display:flex;gap:14px;align-items:baseline}}.fact-index{{color:#80b4a3;font-size:12px;font-variant-numeric:tabular-nums}}.facts p{{margin:0;font-size:15px}}
 .scope{{margin:0 0 30px;padding:0 2px}}.measurement{{margin:30px 0;background:var(--white);border:1px solid var(--line);border-radius:8px;padding:25px 28px}}
+.forecast{{border:2px solid #5d8e85;background:#f6fbf8}}.forecast h2{{margin-bottom:8px}}.forecast-period{{font-weight:600;margin:8px 0}}.forecast-notice{{font-size:13px;background:#e9eee2;border-left:3px solid #a38c58;padding:12px 14px;color:#4c584e}}.forecast-provenance{{overflow-wrap:anywhere;padding-left:20px}}.forecast td:nth-child(2){{white-space:normal}}
 .table-wrap{{overflow:auto}}table{{width:100%;border-collapse:collapse;font-size:13px}}th{{font-weight:500;text-align:left;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}}
 .last-success{{overflow-wrap:anywhere}}
 td{{padding:13px 12px;border-bottom:1px solid #eef0ec;vertical-align:top}}td:first-child,th:first-child{{padding-left:0}}td:nth-child(2){{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}}td:nth-child(3){{font-variant-numeric:tabular-nums;color:#53646c}}tr:last-child td{{border-bottom:0}}
@@ -764,12 +1077,13 @@ details{{margin-top:26px;border-top:1px solid var(--line);padding-top:20px;color
 <header><div><div class="eyebrow">SENTINEL / MARKET OBSERVATION</div><h1>{e(heading)}</h1><div class="subtitle">股票分化 · 波动 · 信用 · 利率</div></div>
 <div class="meta"><span class="{badge_class}">{e(badge)}</span><div class="session">{e(report.get("session_id", "未提供"))}</div><div>观察交易日 · 对比 {e(previous)}</div><div>生成 {e(_time(report.get("generated_at")))}</div></div></header>
 <section class="summary"><h2>一分钟观察</h2><ol class="facts">{facts}</ol></section>
-<p class="scope">{e(_coverage(report))}。以下变化是各项观测的事实比较，不是转折预警或未来概率。</p>
+<p class="scope">{e(_coverage(report))}。{e(scope)}</p>
+{forecast_section}
 {''.join(sections)}
 <section class="gaps"><h2>尚不能回答的部分</h2><ul>{gaps}</ul></section>
 <details><summary>展开口径、取回时间与来源记录</summary><h3>如何阅读</h3><ul class="notes">{notes}</ul>
 <h3>输入来源与取回时间</h3><p>观测日期显示市场或指标对应的时间；取回时间显示我们何时收到数据，两者不能互相替代。</p>
 <div class="table-wrap"><table><thead><tr><th>输入</th><th>来源</th><th>本条取回（柏林）</th><th>采集结果</th><th>最新尝试（柏林）</th><th>上次成功（柏林）</th><th>本条记录</th></tr></thead><tbody>{''.join(source_rows)}</tbody></table></div>
-<h3>观测时点与测量记录</h3><div class="table-wrap"><table><thead><tr><th>观察项</th><th>观测时点（柏林）</th><th>方法记录</th><th>测量记录</th></tr></thead><tbody>{''.join(evidence_rows)}</tbody></table></div>
+<h3>窗口结束与记录状态</h3><p>保守全日窗口的结束端点不是来源发布时间。没有输入证据的记录只表示缺失，时间留空。</p><div class="table-wrap"><table><thead><tr><th>观察项</th><th>窗口结束（柏林）</th><th>记录状态</th><th>方法记录</th><th>测量或缺失记录</th></tr></thead><tbody>{''.join(evidence_rows)}</tbody></table></div>
 </details><footer>SENTINEL · 可核对的市场观察 · {e(_time(report.get("generated_at")))}</footer>
 </main></body></html>"""

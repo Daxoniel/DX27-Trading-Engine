@@ -1,0 +1,87 @@
+{
+  "schema_version": "sentinel-reference-appendix-v1",
+  "task_id": "6B-2K-A",
+  "parent_library_sha256": "2009acc5605ae30969ae05a6cb1add0ced0fd4c98ba7ff7f0725d626bbf27ea9",
+  "purpose": "User-authorized experimental forecast attachment; no frozen research promotion",
+  "checked_on": "2026-10-11",
+  "model_identity": {
+    "model_id": "amazon/chronos-2",
+    "revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+    "license": "Apache-2.0",
+    "weight_file": "model.safetensors",
+    "weight_bytes": 477930472,
+    "weight_sha256": "ddcda3c7508bf2528087723e98a20707cc04b7f370ae275a9fd88078ddba4f42",
+    "chronos_forecasting_version": "2.3.2",
+    "transformers_version": "4.57.1",
+    "device": "cpu",
+    "dtype": "float32",
+    "context_closes": 253,
+    "horizon_xnys_sessions": 5,
+    "quantile_levels": [0.1, 0.5, 0.9]
+  },
+  "references": [
+    {
+      "reference_id": "REF-CHRONOS2-MODEL",
+      "title": "Amazon Chronos-2 official model card",
+      "url": "https://huggingface.co/amazon/chronos-2",
+      "feed_ids": ["spy", "rsp", "qqq", "iwm"],
+      "verification_scope": "Official model-card metadata reviewed; pinned runtime checks the expected weight digest before loading.",
+      "supports": "120M-parameter pretrained model, joint quantile forecasting, CPU support and Apache-2.0 model license.",
+      "does_not_establish": "ETF return accuracy, interval calibration, clean training/test separation or a third-party market-data redistribution license."
+    },
+    {
+      "reference_id": "REF-CHRONOS2-PAPER",
+      "title": "Chronos-2: From Univariate to Universal Forecasting",
+      "url": "https://arxiv.org/abs/2510.15821",
+      "feed_ids": ["spy", "rsp", "qqq", "iwm"],
+      "verification_scope": "Primary paper title, authorship and abstract reviewed; no independent benchmark reproduction.",
+      "supports": "Architecture motivation for zero-shot multivariate and covariate-informed inference using related series.",
+      "does_not_establish": "Sentinel's 253-close window, five-session target, Gaussian baseline or predictive usefulness on these ETFs."
+    },
+    {
+      "reference_id": "REF-TSFM-FINANCIAL-RETURNS-2026",
+      "title": "Pretrained Time-Series Foundation Models for Financial Return Forecasting",
+      "url": "https://arxiv.org/abs/2606.27100",
+      "feed_ids": ["spy", "rsp", "qqq", "iwm"],
+      "verification_scope": "Primary paper abstract reviewed; five individual US equities, rolling-origin comparison, no reproduction.",
+      "supports": "Reason to include random-walk comparisons and distinguish model ranking from a reliable financial advantage.",
+      "does_not_establish": "Universal alpha, Chronos-2 superiority or validation of Sentinel's ETF/relative targets."
+    },
+    {
+      "reference_id": "REF-CHRONOS-MULTIVARIATE-FINANCE-2026",
+      "title": "Multivariate Financial Forecasting using the Chronos Time Series Foundation Models",
+      "url": "https://arxiv.org/abs/2605.21504",
+      "feed_ids": ["spy", "rsp", "qqq", "iwm"],
+      "verification_scope": "Primary paper abstract reviewed; equity, rate and combined panels with rolling monthly evaluations; no reproduction.",
+      "supports": "Motivation to group related equity series; reported loss of accuracy when combining equities and rates.",
+      "does_not_establish": "Causal five-session ETF return accuracy, calibrated relative-return intervals or an approved macro feature set."
+    },
+    {
+      "reference_id": "REF-TIMESFM3-OFFICIAL-RELEASE",
+      "title": "TimesFM-3: A zero-shot foundation model for multivariate forecasting",
+      "url": "https://www.research.google/blog/timesfm-3-a-zero-shot-foundation-model-for-multivariate-forecasting/",
+      "feed_ids": [],
+      "verification_scope": "Official Google Research release reviewed; published August 31, 2026.",
+      "supports": "Awareness of a newer, 330M-parameter multivariate alternative.",
+      "does_not_establish": "A tested model comparison or financial performance advantage for this integration."
+    },
+    {
+      "reference_id": "REF-TIMESFM3-MODEL-LICENSE",
+      "title": "Official Google TimesFM 3.0 PyTorch model card",
+      "url": "https://huggingface.co/google/timesfm-3.0-pytorch",
+      "feed_ids": [],
+      "verification_scope": "Official model-card license label and license section reviewed.",
+      "supports": "TimesFM Non-Commercial License v1.0 for the alternative model weights; distinct from Chronos-2 Apache-2.0.",
+      "does_not_establish": "Legal clearance for any particular deployment or a license over source-market data."
+    },
+    {
+      "reference_id": "REF-LOCAL-FORECAST-EXPERIMENT-V1",
+      "title": "DX27 6B-2K-A fixed experimental forecast specification",
+      "url": "docs/architecture/sentinel-experimental-forecast.md",
+      "feed_ids": ["spy", "rsp", "qqq", "iwm"],
+      "verification_scope": "Local engineering choices, separate from published model or finance results.",
+      "supports": "253-close anchored log-level inputs, seven related targets, fifth-step expm1 transforms, five-session Gaussian random-walk comparator and isolated report attachment.",
+      "does_not_establish": "Pre-registered predictive promotion, nominal-interval calibration, independent holdout performance or production approval."
+    }
+  ]
+}

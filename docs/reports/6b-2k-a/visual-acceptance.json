@@ -1,0 +1,47 @@
+{
+  "schema_version": "sentinel-forecast-browser-acceptance-v1",
+  "browser": "Chromium",
+  "checked_displays": {
+    "healthy": {
+      "source_sha256": "d066a6ce3bea84831d512595852dcbb8f3ccb48b0383a15f441bf1327386cb4a",
+      "status": "RENDERED",
+      "desktop_width": 1440,
+      "mobile_width": 390,
+      "mobile_body_width": 390,
+      "forecast_rows": 7,
+      "mobile_table_scrolls": true,
+      "forecast_details_open": true,
+      "browser_policy_untouched": true,
+      "proxy_untouched": true,
+      "model_number_origin": "DISPLAY_STUB"
+    },
+    "degraded": {
+      "source_sha256": "cdeea548035bd1ce8bb8b9fa454cf3cd84e3e91f02c711e1d447ebb80f30812b",
+      "status": "RENDERED",
+      "desktop_width": 1440,
+      "mobile_width": 390,
+      "mobile_body_width": 390,
+      "forecast_rows": 7,
+      "mobile_table_scrolls": true,
+      "forecast_details_open": true,
+      "browser_policy_untouched": true,
+      "proxy_untouched": true,
+      "model_number_origin": "DISPLAY_STUB"
+    },
+    "private": {
+      "source_sha256": "79b85faebc5f2367dab5648324ddfcdb15809d668abc3b01cb4069e782c33662",
+      "status": "RENDERED",
+      "desktop_width": 1440,
+      "mobile_width": 390,
+      "mobile_body_width": 390,
+      "forecast_rows": 7,
+      "mobile_table_scrolls": true,
+      "forecast_details_open": true,
+      "browser_policy_untouched": true,
+      "proxy_untouched": true,
+      "model_number_origin": "PINNED_CHRONOS2_PRIVATE_RUN"
+    }
+  },
+  "public_images": "SYNTHETIC_DISPLAY_STUB_ONLY",
+  "real_page_images_published": false
+}

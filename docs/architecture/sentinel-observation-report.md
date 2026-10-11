@@ -1,15 +1,19 @@
 # 6B-2H-1 — Readable Market Observation Report
 
 This delivers a one-shot, descriptive report from the existing 6B-2H measurements.
-It does not select a new model or certify forecasting/alert effectiveness. The
+The observation section does not select a model or certify forecasting/alert
+effectiveness. A separately authorized [6B-2K-A experimental attachment](sentinel-experimental-forecast.md)
+is opt-in with `--forecast`; it is visibly separated from observed facts. The
 original protocols, pilot dates, source-admission gates and production switches
 remain unchanged.
 
 The report shows cap-weighted/equal-weight/technology/small-cap basket performance,
 relative performance, realized/implied volatility, credit, rates and nine existing
 sector proxies. It compares each rolling measurement with the preceding completed
-session, lists missing coverage and retains source/capture identities. No new risk
-threshold, composite score, prediction, Priority or Discovery engine is added.
+session, lists missing coverage and retains source/capture identities. The
+observation path adds no new risk threshold, composite score, Priority or Discovery
+engine. Experimental predictions occupy `report.experimental_forecast`, while
+`market_now.conditional_forecasts` remains empty and data admission stays blocked.
 
 ## Time and comparison semantics
 
@@ -70,11 +74,33 @@ python -m dx27.adapters.sentinel.observation_runner \
 ```
 
 Open `市场观察.html` directly in a browser. Markdown and a JSON evidence report
-are emitted alongside it; the page has no scripts, CDN assets or model/API fees.
+are emitted alongside it; the page has no scripts or CDN assets. Observation-only
+operation does not download a model or incur hosted model/API fees.
 `--replay-only` reuses the dedicated captures without provider calls. Each output
 directory must be new. Nonempty unmarked stores and pilot/configuration stores
 are refused. No scheduler is started, no alert is sent and no pilot journal is
 updated. Provider access is still necessary for a fresh local report.
+
+To request the fixed five-session Chronos-2 experimental forecast, install the
+`forecast` extra in a separate observation environment and add:
+
+```bash
+python -m dx27.adapters.sentinel.observation_runner \
+  --store work/forecast-observation-captures \
+  --output work/forecast-observation-output-001 \
+  --forecast --forecast-cache work/forecast-model-cache
+```
+
+The model and PyTorch dependencies require substantial first-time downloads;
+subsequent inference uses the local cache on CPU. Each usable ETF needs 253
+consecutive closes, independently of this page's shorter measurement windows.
+The attachment shows a median, nominal uncalibrated 80% interval and fixed
+random-walk comparator for four ETF returns and three direct relative targets.
+It provides no numerical probability of an increase. Model/input failure leaves
+the forecast unavailable without hiding separately valid observations.
+See the [configuration, time boundary and Windows guide](sentinel-experimental-forecast.md).
+`--replay-only` can use dedicated sealed captures, but a forecast is issued now,
+never backdated, and must finish before the next session close.
 
 ## Verification and stopping point
 
@@ -84,9 +110,10 @@ missing/error propagation and pilot-store refusal. Renderer checks protect units
 escaping, cross-date derived values and partial sector context. The first real
 capture is separately checked against raw provider rows.
 
-The deliverable is one usable observation report and its reproducible entry point.
-If it does not make market differences easier to understand than manually reading
-the underlying charts, no further model or research expansion follows automatically.
+The observation deliverable is one usable report and its reproducible entry point.
+The later forecast attachment is a new, explicit experimental authorization;
+observation usefulness does not establish its predictive value or promote it to
+production. Neither path automatically starts a new model tournament.
 
 ### Private factual audit, 2026-10-09
 
@@ -137,7 +164,7 @@ exposes only source pages/hashes and aggregate verification information.
 
 ## Review-fix acceptance
 
-The final revised suite passed **620 tests**, with one network test deselected.
+The observation-only review-fix suite passed **620 tests**, with one network test deselected.
 The 38 report-specific checks include newer failures, HTTP-200 bad/empty data,
 failed units metadata, recovery, past-as-of isolation, renderer disclosure and
 offline synthetic-only packaging. The private original-capture calculation still
@@ -151,3 +178,9 @@ research files and existing production/pilot implementations remain unchanged.
 The old current-branch archive link returns 404, but the withdrawn commit-pinned
 link still returns 200. Hosted-object erasure is PENDING_GITHUB_SUPPORT; the PR
 remains on hold despite passing implementation and display checks.
+
+Those historical checks and the existing public observation ZIP do not certify
+the later forecast renderer or forecast numerics. New experimental forecasts need
+their own software checks and synthetic display evidence. Incomplete values keep
+their unavailable status and actual contributing window end; observation labels
+must not make a missing or lagged measurement appear current.
