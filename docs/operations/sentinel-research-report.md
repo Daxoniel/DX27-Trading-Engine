@@ -5,6 +5,12 @@
 
 ## 第一次设置
 
+可以使用仓库代码，或下载
+[仅含报告运行源码的压缩包](../releases/sentinel-final-report-source.zip)，
+解压后进入 `DX27-Sentinel-Final`。校验值见
+[SHA256](../releases/sentinel-final-report-source.sha256)。该包不含采集记录、
+虚拟环境或个人配置；原有 pilot 部署保留在原目录。
+
 在含 `pyproject.toml` 的新代码项目根目录打开 PowerShell。保留原有采集
 任务及其数据目录；此报告会另外使用 `work\sentinel-research-live`。
 
@@ -82,8 +88,9 @@ work/sentinel-research-live/
 
 打开两次：第二次应显示上次实际保存的时间；没有新资料就显示未发现变化。
 重启后再打开：上次快照应保留。来源故障时不应把旧值充当新值。
-此功能已经在 Linux 的真实来源与浏览器中核验；Windows 启动脚本需在目标
-机器执行确认，Linux 检查不代替 Windows 实机验收。
+此功能已经在 Linux 的真实来源与浏览器中核验，Linux 与 Windows CI
+均通过报告路径的 139 项检查，Windows PowerShell 语法检查通过。
+启动脚本仍需在目标机器执行确认；CI 不代替家中电脑的实际部署。
 
 后续仅修复影响这份报告的错误、来源格式和兼容问题。它提供研究解读，
 不直接控制账户、下单或认证预测有效性。

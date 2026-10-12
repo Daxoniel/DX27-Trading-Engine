@@ -12,9 +12,15 @@
 - Review fixes cover target-period switches, unavailable latest sources,
   atomic latest publication, concurrent writers/startup, source-store isolation,
   source/page identities, date precision and Windows launcher success checks.
-- Separate Linux/Windows CI checks are provided for the new report path and the
-  PowerShell launcher parser. Target-machine execution remains a user deployment
-  check; Linux checks alone are not Windows operational acceptance.
+- Linux and Windows report CI both passed all 139 focused checks; Windows
+  PowerShell launcher syntax parsing also passed. The existing Windows installer
+  Pester checks passed. Target-machine execution remains a user deployment check;
+  CI does not certify the user's home-machine installation.
+
+The software-only source ZIP has an exact per-file manifest and no capture store,
+virtual environment or personal configuration. An isolated extraction successfully
+imported its own code, validated PDF/OCR dependencies and rebuilt observations
+from the private replay store. The package is independently downloadable.
 
 ## Private actual-source execution
 
