@@ -1,0 +1,62 @@
+{
+  "schema_version": "sentinel-public-research-references-v1",
+  "task_id": "6B-2K-B",
+  "scope": "Independent report evidence catalog; frozen sensor library unchanged",
+  "sources": [
+    {
+      "source_id": "factset",
+      "title": "FactSet Earnings Insight",
+      "url": "https://www.factset.com/earningsinsight",
+      "kind": "official-public-weekly-research",
+      "reference_id_pattern": "REF-FACTSET-EI-YYYYMMDD",
+      "verification_status": "PUBLIC_ENDPOINT_AND_CURRENT_PDF_TEXT_VERIFIED",
+      "verified_on": "2026-10-12",
+      "supported_claim": "Published analyst-consensus revisions, forecasts, sector comparisons and valuation; exact issue/page required",
+      "not_supported": "Free historical estimate API, validated stock-return forecast or admitted original-cutoff data"
+    },
+    {
+      "source_id": "yardeni",
+      "title": "Yardeni Research: Magnificent-7",
+      "url": "https://yardeni.com/charts/us-stock-market/stock-market-investment-styles/magnificent-7",
+      "kind": "official-public-chart-library",
+      "reference_id_pattern": "REF-YARDENI-MEGA7-SHARES-CONTENTHASH",
+      "verification_status": "PUBLIC_PAGE_CHART_ID_AND_PRINTED_LEGENDS_VERIFIED",
+      "verified_on": "2026-10-12",
+      "supported_claim": "Figure 2 Mega7 market-cap, forward-earnings and revenue shares; date labels retained",
+      "not_supported": "True stock-level market breadth or contribution to an index return"
+    },
+    {
+      "source_id": "yardeni",
+      "title": "Yardeni Research: S&P 500 Sectors Forward Metrics & Fundamentals",
+      "url": "https://yardeni.com/charts/us-stock-market/stock-market-forward-metrics/sp-500-sectors-forward-metrics-fundamentals",
+      "kind": "official-public-chart-library",
+      "reference_id_pattern": "REF-YARDENI-SECTOR-NERI-CONTENTHASH",
+      "verification_status": "PUBLIC_PAGE_CHART_ID_PRINTED_LEGENDS_AND_FOOTNOTE_VERIFIED",
+      "verified_on": "2026-10-12",
+      "supported_claim": "Figure 10 NERI three-month moving average, sector net estimate revision counts as a proportion of total",
+      "not_supported": "Quarterly dollar earnings revision magnitude or stock-price prediction"
+    },
+    {
+      "source_id": "yardeni",
+      "title": "Yardeni Research: S&P & MSCI Forward Earnings",
+      "url": "https://yardeni.com/charts/yardeni-university/in-10-charts/sp-msci-forward-earnings",
+      "kind": "official-public-chart-library",
+      "reference_id_pattern": "REF-YARDENI-SP500-EPS-CONTENTHASH",
+      "verification_status": "PUBLIC_PAGE_CHART_ID_PRINTED_LEGENDS_AND_FOOTNOTE_VERIFIED",
+      "verified_on": "2026-10-12",
+      "supported_claim": "Figure 1 fixed-calendar consensus EPS, finalized EPS and time-weighted forward EPS have distinct semantics",
+      "not_supported": "Rising rolling EPS alone proving an analyst upgrade or future equity return"
+    },
+    {
+      "source_id": "yardeni",
+      "title": "Yardeni Research: S&P500, S&P493 and Magnificent-7 Forward Earnings",
+      "url": "https://yardeni.com/charts/yardeni-university/in-10-charts/sp-msci-forward-earnings",
+      "kind": "official-public-chart-library",
+      "reference_id_pattern": "REF-YARDENI-GROUP-FORWARD-EARNINGS-CONTENTHASH",
+      "verification_status": "PUBLIC_PAGE_CHART_ID_PRINTED_LEGENDS_AND_UNITS_VERIFIED",
+      "verified_on": "2026-10-12",
+      "supported_claim": "Figure 6 group forward total earnings in billion dollars, with separate group observation dates",
+      "not_supported": "Group EPS, return contribution or dividing differently dated group earnings into a share"
+    }
+  ]
+}

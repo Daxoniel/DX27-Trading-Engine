@@ -1,7 +1,10 @@
 # DX27 Sentinel Roadmap
 
-DX27's active development path is Sentinel-first. This roadmap distinguishes
-working repository state from frozen architecture and future work:
+Sentinel development is **FROZEN / MAINTENANCE ONLY** after the final
+6B-2K-B public-research report integration. The user's next direction is DX27
+intraday automated quantitative trading; its implementation is a separate next
+task. This roadmap distinguishes working repository state from frozen
+architecture and future work:
 
 - **IMPLEMENTED / COMPLETED** — present as working contracts or behavior with
   tests.
@@ -184,6 +187,26 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
 
 ## Next
 
+- [x] **6B-2K-B — Public Research Report Refresh & Sentinel Freeze** — the
+  local report checks FactSet Earnings Insight and four Yardeni charts
+  on each page opening, saves each visit independently, and briefly compares
+  like-for-like research values with the last saved visit. Forecast-period or
+  coverage switches are incomparable, not confirmed trend changes. Missing
+  research and price data remain explicit. The browser entry point is local
+  HTTP with a Windows launcher; no additional model or trading capability.
+  See [scope and architecture](docs/architecture/sentinel-research-live-report.md)
+  and [Windows setup](docs/operations/sentinel-research-report.md).
+- [ ] **NEXT DIRECTION — Intraday automated quantitative trading** — assess
+  the existing trading/backtest/paper-execution foundation in a separate task.
+  This report change implements no strategy, broker operation or live execution.
+
+The older Sentinel research tasks below are retained as historical work and
+**DEFERRED UNDER THE FREEZE**, with their existing outcomes and incomplete gates.
+Only operation of the delivered report and necessary correctness/security/source
+compatibility fixes are in scope. Existing pilot collection is not stopped or
+reset by this change; no new validation, model tournament or Sentinel expansion
+starts automatically.
+
 - [x] **6B-2H-1 — Readable Market Observation Report** — reuse current multi-sensor
   measurements for a real, latest-vintage descriptive report with explicit as-of,
   same-vintage prior comparison, gaps and provenance. No new model, detector,
@@ -265,9 +288,9 @@ GPT Analyst is future and interpretive, not part of deterministic detection.
 - [ ] Autonomous position sizing.
 - [ ] Live autonomous trading.
 
-Sentinel remains read-only. Existing historical replay, simulated execution,
-ORB bot, and Yahoo/LEAN adapter work is retained as **LEGACY / EXISTING
-CAPABILITY**; it is not the active Sentinel development frontier.
+Sentinel remains read-only and frozen. Existing historical replay, simulated
+execution, ORB bot, and Yahoo/LEAN adapter work is retained as **EXISTING
+CAPABILITY** for the next separately scoped intraday task.
 
 
 # Historical / Legacy Roadmap

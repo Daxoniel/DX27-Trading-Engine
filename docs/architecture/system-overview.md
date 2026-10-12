@@ -2,10 +2,16 @@
 
 ## 1. What DX27 is now
 
-DX27 is currently being developed **Sentinel-first**: a deterministic, read-only
-market observation system that turns completed market data into explicit,
-replayable evidence for a human. Sentinel describes material changes; it does
-not produce trading signals or control a portfolio.
+Sentinel development is now **FROZEN / MAINTENANCE ONLY**. Its final scope is
+the [6B-2K-B local research report](sentinel-research-live-report.md): refresh
+public FactSet/Yardeni evidence when the page opens, compare actual saved visits,
+and retain existing read-only market observations. The user's next development
+direction is intraday automated quantitative trading, separately scoped after
+this report delivery. No broker action or strategy is introduced here.
+
+The Sentinel architecture below remains a record of implemented foundations,
+frozen designs and unfinished research gates. Freezing work does not promote
+any unfinished research, forecast, or live-data admission result to PASS.
 
 The status labels in this document are deliberate:
 
