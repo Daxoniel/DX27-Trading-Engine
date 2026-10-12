@@ -112,8 +112,10 @@ def _latest_failed_feeds(report: dict) -> list[str]:
 
 
 def _degraded(report: dict) -> bool:
-    return report.get("freshness_status") == "DEGRADED_LATEST_FETCH_FAILED" or bool(
-        _latest_failed_feeds(report)
+    return (
+        report.get("freshness_status") == "DEGRADED_LATEST_FETCH_FAILED"
+        or bool(_latest_failed_feeds(report))
+        or bool(report.get("market_refresh_error"))
     )
 
 
@@ -122,6 +124,8 @@ def _synthetic(report: dict) -> bool:
 
 
 def _failure_notice(report: dict) -> str:
+    if report.get("market_refresh_error"):
+        return "行情采集失败：本次未取得市场观察；上次成功的数据不代替本次采集。"
     feeds = _latest_failed_feeds(report)
     labels = (
         "、".join(_FEED_LABELS.get(feed, feed.upper()) for feed in feeds) or "部分输入"
@@ -596,6 +600,14 @@ def _method_notes(report: dict | None = None) -> list[str]:
         "来源最新尝试失败时，相关观察留空，不退回较早成功采集伪装为最新值；来源记录分别保留最新尝试与上次成功的时间。",
         "窗口结束是数据覆盖边界；采用保守全日窗口的指标，其结束时点不是来源发布时间。没有输入证据的 ID 仅标识缺失记录，不代表存在真实测量。",
     ]
+    if isinstance((report or {}).get("research_trends"), dict):
+        notes[4] = "市场观察的对比按本次取得的历史版本重算，不是昨天当时已知的报告；历史可包含供应商修订。观测日期使用明确的来源标签；未提供标签时显示窗口结束时点。"
+        notes.extend(
+            [
+                "趋势简报的变化与上次实际保存快照比较；首期没有比较基准，不据此推断趋势没有变化。",
+                "趋势简报是基于盈利预期的趋势解读，尚未验证为预测，不发布变化告警或概率判断。来源发布日期、数据观察期和取回时间分别展示。",
+            ]
+        )
     if isinstance((report or {}).get("experimental_forecast"), dict):
         notes.extend(
             [
@@ -896,6 +908,253 @@ def _md(value: object) -> str:
     )
 
 
+def _research_md(value: object) -> str:
+    # Research text is external prose, including Markdown metacharacters.
+    text = _md(value).replace("\r", " ")
+    for character in "`*_[]()#!~":
+        text = text.replace(character, "\\" + character)
+    return text
+
+
+def _research_view(report: dict) -> dict | None:
+    research = report.get("research_trends")
+    if not isinstance(research, dict):
+        return None
+    status = research.get("status", "UNAVAILABLE")
+    usable = status in {"AVAILABLE", "PARTIAL"}
+    status_label = {
+        "AVAILABLE": "研究来源可用",
+        "PARTIAL": "研究来源部分可用",
+    }.get(status, "本次研究来源不可用")
+    sources = []
+    raw_sources = research.get("sources")
+    for source in raw_sources if isinstance(raw_sources, list) else []:
+        if not isinstance(source, dict):
+            continue
+        source_status = source.get("status", "UNAVAILABLE")
+        try:
+            url = _safe_url(source.get("url"))
+        except ValueError:
+            url = ""
+        locator = (
+            source.get("locator")
+            or source.get("reference_locator")
+            or source.get("page")
+            or "未提供"
+        )
+        errors = source.get("errors")
+        sources.append(
+            {
+                "name": str(source.get("name") or "未提供来源"),
+                "status": {
+                    "AVAILABLE": "可用",
+                    "SOURCE_ERROR": "来源采集失败",
+                    "FAILED": "来源采集失败",
+                    "UNAVAILABLE": "本次不可用",
+                    "PARTIAL": "部分可用",
+                }.get(source_status, str(source_status)),
+                "failed": source_status not in {"AVAILABLE", "PARTIAL", "NORMALIZED_DESCRIPTIVE"},
+                "publication_date": str(source.get("publication_date") or "未提供"),
+                "retrieved_at": _time(source.get("retrieved_at")),
+                "reference_id": str(source.get("reference_id") or "未提供"),
+                "document_id": str(source.get("document_id") or "未提供"),
+                "locator": str(locator),
+                "errors": [str(error) for error in errors] if isinstance(errors, list) else [],
+                "url": url,
+            }
+        )
+    compared_to = research.get("compared_to")
+    try:
+        parsed = datetime.fromisoformat(str(compared_to).replace("Z", "+00:00"))
+        saved_comparison = bool(parsed.tzinfo)
+    except (TypeError, ValueError):
+        saved_comparison = False
+    change_status = research.get("change_status", "UNAVAILABLE")
+    if not usable or change_status == "UNAVAILABLE":
+        change_label = "本次无法判断趋势有无变化"
+        comparison = "本次没有可比较的研究结果。"
+    elif change_status == "INCOMPARABLE":
+        change_label = "口径或覆盖更新 · 暂不能比较"
+        comparison = (
+            "上次实际保存快照（柏林）：" + _time(compared_to) + "。"
+            if saved_comparison else ""
+        ) + "本次口径或覆盖不同，暂不能直接比较。"
+    elif change_status == "INITIAL" or not saved_comparison:
+        change_label = "首期无比较 · 尚无上次保存快照"
+        comparison = "本次作为首期快照，后续更新再比较趋势变化。"
+    else:
+        change_label = {
+            "CHANGED": "发现变化",
+            "UNCHANGED": "未发现变化",
+        }.get(change_status, "本次无法判断趋势有无变化")
+        if status == "PARTIAL":
+            change_label += " · 仅限本次可用资料"
+        comparison = "与上次实际保存快照比较（柏林）：" + _time(compared_to) + "。"
+    notices = []
+    if usable and change_status == "UNCHANGED":
+        notices.append("未发现变化指本次取得的可比指标与上次相同；资料未更新不代表市场没有变化。")
+    failed_names = [source["name"] for source in sources if source["failed"]]
+    if not usable:
+        notices.append("本次研究来源不可用，暂不提供趋势解读；上次保存的数据不代替本次采集。")
+    elif status == "PARTIAL":
+        notices.append("部分指标未取得，仅展示本次可用资料；缺失项的旧值不作为本次数据。")
+    if failed_names:
+        notices.append("本次来源缺口：" + "、".join(failed_names) + "。")
+    if _synthetic(report):
+        notices.insert(0, "合成研究输入演示，不代表真实市场。")
+    brief = research.get("brief_lines")
+    changes = research.get("changes")
+    rows, sector_evidence = [], []
+    raw_rows = research.get("sector_rows")
+    for row in raw_rows if usable and isinstance(raw_rows, list) else []:
+        if isinstance(row, dict):
+            rows.append(
+                tuple(
+                    str(row.get(key) or "—")
+                    for key in (
+                        "sector", "earnings_revision", "price_change", "breadth",
+                        "interpretation", "period",
+                    )
+                )
+            )
+            if row.get("evidence"):
+                sector_evidence.append(str(row.get("sector") or "未提供行业") + "：" + str(row["evidence"]))
+    structure, structure_evidence = [], []
+    raw_structure = research.get("structure_rows")
+    for row in raw_structure if usable and isinstance(raw_structure, list) else []:
+        if isinstance(row, dict):
+            structure.append(
+                tuple(
+                    str(row.get(key) or "—")
+                    for key in ("metric", "value", "change", "observed_on")
+                )
+            )
+            if row.get("evidence"):
+                structure_evidence.append(str(row.get("metric") or "未提供结构项") + "：" + str(row["evidence"]))
+    reading_notes = research.get("notices")
+    return {
+        "status": status_label,
+        "degraded": status != "AVAILABLE",
+        "change": change_label,
+        "comparison": comparison,
+        "headline": str(research.get("headline") or "") if usable else "",
+        "brief": [str(line) for line in brief[:3]] if usable and isinstance(brief, list) else [],
+        "changes": (
+            [str(line) for line in changes[:3]]
+            if usable and saved_comparison and change_status == "CHANGED" and isinstance(changes, list)
+            else []
+        ),
+        "notices": notices,
+        "sector_rows": rows,
+        "sector_evidence": sector_evidence,
+        "structure_rows": structure,
+        "structure_evidence": structure_evidence,
+        "sources": sources,
+        "reading_notes": [str(note) for note in reading_notes] if isinstance(reading_notes, list) else [],
+    }
+
+
+def _research_markdown(view: dict | None) -> list[str]:
+    if view is None:
+        return []
+    m = _research_md
+    lines = [
+        "## 本次趋势简报", "", "**" + m(view["change"]) + "** · " + m(view["status"]),
+        "", m(view["comparison"]), "",
+    ]
+    lines.extend([*["- " + m(notice) for notice in view["notices"]], ""] if view["notices"] else [])
+    if view["headline"]:
+        lines.extend([m(view["headline"]), ""])
+    if view["brief"]:
+        lines.extend([*["- " + m(line) for line in view["brief"]], ""])
+    if view["changes"]:
+        lines.extend(["本次变化：", "", *["- " + m(line) for line in view["changes"]], ""])
+    if view["sector_rows"] or view["structure_rows"]:
+        lines.extend(["<details>", "<summary>行业对照、盈利预期与市场结构</summary>", ""])
+        if view["sector_rows"]:
+            lines.extend([
+                "### 行业对照", "",
+                "| 行业 | 盈利预期修订 | 价格表现 | 广度 | 趋势解读 | 数据期 |",
+                "| --- | --- | --- | --- | --- | --- |",
+                *["| " + " | ".join(m(cell) for cell in row) + " |" for row in view["sector_rows"]], "",
+            ])
+            if view["sector_evidence"]:
+                lines.extend(["数据依据：", "", *["- " + m(evidence) for evidence in view["sector_evidence"]], ""])
+        if view["structure_rows"]:
+            lines.extend([
+                "### 盈利预期与市场结构", "",
+                "| 结构项 | 当前资料 | 相对保存快照变化 | 数据观察日期 |",
+                "| --- | --- | --- | --- |",
+                *["| " + " | ".join(m(cell) for cell in row) + " |" for row in view["structure_rows"]], "",
+            ])
+            if view["structure_evidence"]:
+                lines.extend(["数据依据：", "", *["- " + m(evidence) for evidence in view["structure_evidence"]], ""])
+        lines.extend(["</details>", ""])
+    lines.extend(["<details>", "<summary>研究来源、发布日期与页码</summary>", ""])
+    if view["reading_notes"]:
+        lines.extend(["阅读口径：", "", *["- " + m(note) for note in view["reading_notes"]], ""])
+    if not view["sources"]:
+        lines.extend(["未提供当次研究来源记录。", ""])
+    for source in view["sources"]:
+        lines.extend([
+            "- **" + m(source["name"]) + " · " + m(source["status"]) + "**",
+            "  发布日期：" + m(source["publication_date"]) + "；取回（柏林）：" + m(source["retrieved_at"]),
+            "  参考 ID：" + m(source["reference_id"]) + "；文档 ID：" + m(source["document_id"]) + "；页码 / 定位：" + m(source["locator"]),
+        ])
+        if source["url"]:
+            lines.append("  来源链接：" + m(source["url"]))
+        if source["errors"]:
+            lines.append("  本次来源问题：" + "；".join(m(error) for error in source["errors"]))
+        lines.append("")
+    lines.extend(["</details>", ""])
+    return lines
+
+
+def _research_html(view: dict | None) -> str:
+    if view is None:
+        return ""
+    e = lambda value: escape(str(value), quote=True)
+    notices = "".join('<p class="research-notice">' + e(notice) + "</p>" for notice in view["notices"])
+    brief = "<ul>" + "".join("<li>" + e(line) + "</li>" for line in view["brief"]) + "</ul>" if view["brief"] else ""
+    changes = '<div class="research-changes"><strong>本次变化</strong><ul>' + "".join("<li>" + e(line) + "</li>" for line in view["changes"]) + "</ul></div>" if view["changes"] else ""
+    contexts = []
+    for title, headers, rows, evidence in (
+        ("行业对照", ("行业", "盈利预期修订", "价格表现", "广度", "趋势解读", "数据期"), view["sector_rows"], view["sector_evidence"]),
+        ("盈利预期与市场结构", ("结构项", "当前资料", "相对保存快照变化", "数据观察日期"), view["structure_rows"], view["structure_evidence"]),
+    ):
+        if rows:
+            contexts.append(
+                "<h3>" + title + '</h3><div class="table-wrap"><table><thead><tr>'
+                + "".join("<th>" + header + "</th>" for header in headers)
+                + "</tr></thead><tbody>"
+                + "".join("<tr>" + "".join("<td>" + e(cell) + "</td>" for cell in row) + "</tr>" for row in rows)
+                + "</tbody></table></div>"
+                + ('<ul class="research-row-evidence">' + "".join("<li>" + e(item) + "</li>" for item in evidence) + "</ul>" if evidence else "")
+            )
+    context = '<details class="research-context"><summary>行业对照、盈利预期与市场结构</summary>' + "".join(contexts) + "</details>" if contexts else ""
+    sources = []
+    for source in view["sources"]:
+        name = '<a href="' + e(source["url"]) + '" rel="noreferrer">' + e(source["name"]) + "</a>" if source["url"] else e(source["name"])
+        errors = '<p class="research-notice">本次来源问题：' + "；".join(e(error) for error in source["errors"]) + "</p>" if source["errors"] else ""
+        sources.append(
+            "<li><strong>" + name + " · " + e(source["status"]) + "</strong><p>发布日期："
+            + e(source["publication_date"]) + "；取回（柏林）：" + e(source["retrieved_at"])
+            + "</p><p>参考 ID：<code>" + e(source["reference_id"]) + "</code>；文档 ID：<code>"
+            + e(source["document_id"]) + "</code>；页码 / 定位：" + e(source["locator"]) + "</p>" + errors + "</li>"
+        )
+    reading_notes = "<h3>阅读口径</h3><ul>" + "".join("<li>" + e(note) + "</li>" for note in view["reading_notes"]) + "</ul>" if view["reading_notes"] else ""
+    source_details = '<details class="research-sources"><summary>研究来源、发布日期与页码</summary>' + reading_notes + ("<ul>" + "".join(sources) + "</ul>" if sources else "<p>未提供当次研究来源记录。</p>") + "</details>"
+    return (
+        '<section class="measurement research-brief" aria-labelledby="research-heading"><span class="badge'
+        + (" degraded" if view["degraded"] else "") + '">' + e(view["status"])
+        + '</span><h2 id="research-heading">本次趋势简报</h2><p class="research-change">'
+        + e(view["change"]) + '</p><p class="research-comparison">' + e(view["comparison"])
+        + "</p>" + notices
+        + ('<p class="research-headline">' + e(view["headline"]) + "</p>" if view["headline"] else "")
+        + brief + changes + context + source_details + "</section>\n"
+    )
+
+
 def render_markdown(report: dict) -> str:
     """Return a Chinese observation report suitable for ordinary Markdown readers."""
     previous = report.get("previous_session_id") or "暂无"
@@ -905,11 +1164,16 @@ def render_markdown(report: dict) -> str:
         title += "（合成示例 · 非真实行情）"
         freshness = "合成数据示例，非真实行情"
     forecast = _forecast_view(report)
+    research = _research_view(report)
     scope = (
         "观察区描述市场；预测区为尚未验证的模型实验，不设置综合风险等级。"
         if forecast
         else "本页描述市场，不输出预测或综合风险等级。"
     )
+    if research:
+        scope = "市场观察是数据事实；趋势简报是基于盈利预期的趋势解读，尚未验证为预测，不发布变化告警或综合风险等级。"
+        if forecast:
+            scope += "模型实验见页末折叠附录。"
     lines = [
         title,
         "",
@@ -918,12 +1182,14 @@ def render_markdown(report: dict) -> str:
         "",
         _coverage(report) + "。" + scope,
         "",
-        "## 一分钟观察",
-        "",
-        *["- " + _md(fact) for fact in observation_facts(report)],
-        "",
     ]
-    lines.extend(_forecast_markdown(forecast))
+    lines.extend(_research_markdown(research))
+    lines.extend([
+        "## 一分钟观察", "",
+        *["- " + _md(fact) for fact in observation_facts(report)], "",
+    ])
+    if not research:
+        lines.extend(_forecast_markdown(forecast))
     for title, rows in _rows(report):
         lines.extend(
             [
@@ -969,6 +1235,11 @@ def render_markdown(report: dict) -> str:
             )
             + " |"
         )
+    if research and forecast:
+        lines.extend([
+            "", "<details>", "<summary>实验附录 · 模型预测（尚未验证）</summary>", "",
+            *_forecast_markdown(forecast), "</details>",
+        ])
     return "\n".join(lines) + "\n"
 
 
@@ -987,12 +1258,27 @@ def render_html(report: dict) -> str:
         heading = "市场观察 · 合成示例" + (" · 采集不完整" if _degraded(report) else "")
         badge = "合成示例 · 非真实行情" + (" · 采集不完整" if _degraded(report) else "")
     forecast = _forecast_view(report)
-    forecast_section = _forecast_html(forecast)
+    research = _research_view(report)
+    research_section = _research_html(research)
+    forecast_section = _forecast_html(forecast) if not research else ""
+    forecast_appendix = (
+        '<details class="experimental-appendix"><summary>实验附录 · 模型预测（尚未验证）</summary>'
+        + _forecast_html(forecast) + "</details>"
+        if research and forecast else ""
+    )
     scope = (
         "观察区是事实比较；预测区是尚未验证的模型实验，不设置综合风险等级。"
         if forecast
         else "以下变化是各项观测的事实比较，不是转折预警或未来概率。"
     )
+    research_styles = ""
+    if research:
+        scope = "市场观察是数据事实；趋势简报是基于盈利预期的趋势解读，尚未验证为预测，不发布变化告警或综合风险等级。"
+        if forecast:
+            scope += "模型实验见页末折叠附录。"
+        research_styles = """
+.research-brief{border-top:3px solid var(--accent);margin:26px 0 12px}.research-brief h2{margin-bottom:10px}.research-change{font-size:23px;line-height:1.4;font-weight:700;color:var(--accent);margin:8px 0}.research-comparison{color:var(--muted);font-size:12px;margin:8px 0 16px}.research-headline{font-size:17px;font-weight:600;margin:16px 0 10px}.research-brief ul{padding-left:20px;margin:10px 0}.research-brief li{margin:7px 0}.research-notice{border-left:3px solid #a99772;background:#f8efe1;color:#725324;font-size:13px;padding:9px 12px}.research-changes{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:13px}.research-context,.research-sources{margin-top:18px;padding-top:13px}.research-context table{font-size:12px}.research-context td:nth-child(2){white-space:normal}.research-sources p{margin:4px 0;overflow-wrap:anywhere}.experimental-appendix{margin-top:30px}.experimental-appendix .forecast{margin-bottom:0}
+""".rstrip()
     facts = "".join(
         f'<li><span class="fact-index">{index:02d}</span><p>{e(fact)}</p></li>'
         for index, fact in enumerate(observation_facts(report), 1)
@@ -1065,7 +1351,7 @@ main{{max-width:1180px;margin:auto;padding:42px 32px 70px}}header{{display:flex;
 .summary{{background:var(--ink);color:#eff7f4;border-radius:8px;padding:28px 30px;margin:26px 0 12px}}.summary h2{{font-size:18px;color:#b9d8cc}}.facts{{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:23px 34px}}
 .facts li{{display:flex;gap:14px;align-items:baseline}}.fact-index{{color:#80b4a3;font-size:12px;font-variant-numeric:tabular-nums}}.facts p{{margin:0;font-size:15px}}
 .scope{{margin:0 0 30px;padding:0 2px}}.measurement{{margin:30px 0;background:var(--white);border:1px solid var(--line);border-radius:8px;padding:25px 28px}}
-.forecast{{border:2px solid #5d8e85;background:#f6fbf8}}.forecast h2{{margin-bottom:8px}}.forecast-period{{font-weight:600;margin:8px 0}}.forecast-notice{{font-size:13px;background:#e9eee2;border-left:3px solid #a38c58;padding:12px 14px;color:#4c584e}}.forecast-provenance{{overflow-wrap:anywhere;padding-left:20px}}.forecast td:nth-child(2){{white-space:normal}}
+.forecast{{border:2px solid #5d8e85;background:#f6fbf8}}.forecast h2{{margin-bottom:8px}}.forecast-period{{font-weight:600;margin:8px 0}}.forecast-notice{{font-size:13px;background:#e9eee2;border-left:3px solid #a38c58;padding:12px 14px;color:#4c584e}}.forecast-provenance{{overflow-wrap:anywhere;padding-left:20px}}.forecast td:nth-child(2){{white-space:normal}}{research_styles}
 .table-wrap{{overflow:auto}}table{{width:100%;border-collapse:collapse;font-size:13px}}th{{font-weight:500;text-align:left;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}}
 .last-success{{overflow-wrap:anywhere}}
 td{{padding:13px 12px;border-bottom:1px solid #eef0ec;vertical-align:top}}td:first-child,th:first-child{{padding-left:0}}td:nth-child(2){{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}}td:nth-child(3){{font-variant-numeric:tabular-nums;color:#53646c}}tr:last-child td{{border-bottom:0}}
@@ -1076,7 +1362,7 @@ details{{margin-top:26px;border-top:1px solid var(--line);padding-top:20px;color
 </style></head><body><main>
 <header><div><div class="eyebrow">SENTINEL / MARKET OBSERVATION</div><h1>{e(heading)}</h1><div class="subtitle">股票分化 · 波动 · 信用 · 利率</div></div>
 <div class="meta"><span class="{badge_class}">{e(badge)}</span><div class="session">{e(report.get("session_id", "未提供"))}</div><div>观察交易日 · 对比 {e(previous)}</div><div>生成 {e(_time(report.get("generated_at")))}</div></div></header>
-<section class="summary"><h2>一分钟观察</h2><ol class="facts">{facts}</ol></section>
+{research_section}<section class="summary"><h2>一分钟观察</h2><ol class="facts">{facts}</ol></section>
 <p class="scope">{e(_coverage(report))}。{e(scope)}</p>
 {forecast_section}
 {''.join(sections)}
@@ -1085,5 +1371,5 @@ details{{margin-top:26px;border-top:1px solid var(--line);padding-top:20px;color
 <h3>输入来源与取回时间</h3><p>观测日期显示市场或指标对应的时间；取回时间显示我们何时收到数据，两者不能互相替代。</p>
 <div class="table-wrap"><table><thead><tr><th>输入</th><th>来源</th><th>本条取回（柏林）</th><th>采集结果</th><th>最新尝试（柏林）</th><th>上次成功（柏林）</th><th>本条记录</th></tr></thead><tbody>{''.join(source_rows)}</tbody></table></div>
 <h3>窗口结束与记录状态</h3><p>保守全日窗口的结束端点不是来源发布时间。没有输入证据的记录只表示缺失，时间留空。</p><div class="table-wrap"><table><thead><tr><th>观察项</th><th>窗口结束（柏林）</th><th>记录状态</th><th>方法记录</th><th>测量或缺失记录</th></tr></thead><tbody>{''.join(evidence_rows)}</tbody></table></div>
-</details><footer>SENTINEL · 可核对的市场观察 · {e(_time(report.get("generated_at")))}</footer>
+</details>{forecast_appendix}<footer>SENTINEL · 可核对的市场观察 · {e(_time(report.get("generated_at")))}</footer>
 </main></body></html>"""

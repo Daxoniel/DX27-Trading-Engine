@@ -1,5 +1,11 @@
 # 6B-2H-1 — Readable Market Observation Report
 
+The final user-authorized [6B-2K-B local live report](sentinel-research-live-report.md)
+adds FactSet/Yardeni trend context and refresh-on-open through loopback HTTP.
+This original one-shot static entry point remains supported; opening its saved
+HTML file does not perform a refresh. Sentinel development is now frozen to
+maintenance of the delivered report.
+
 This delivers a one-shot, descriptive report from the existing 6B-2H measurements.
 The observation section does not select a model or certify forecasting/alert
 effectiveness. A separately authorized [6B-2K-A experimental attachment](sentinel-experimental-forecast.md)

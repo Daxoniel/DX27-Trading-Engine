@@ -1,2 +1,13 @@
 # DX27-Trading-Engine
-带你赚钱
+
+Trading-system foundations with a local Sentinel market/research report.
+Sentinel feature development is frozen; the next separately scoped direction
+is intraday automated quantitative trading.
+
+- [Open the final Sentinel report on Windows](docs/operations/sentinel-research-report.md):
+  FactSet/Yardeni refresh when the page opens, with a brief saved-visit comparison.
+- [Current roadmap and freeze](TODO.md).
+- [System architecture](docs/architecture/system-overview.md).
+
+The report is read-only research context. It does not place trades or certify
+predictive effectiveness.
