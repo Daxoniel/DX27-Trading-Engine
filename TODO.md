@@ -191,6 +191,20 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
   Latest-attempt failures now block old-value reuse; public examples are synthetic
   only. Withdrawn GitHub object purge remains PENDING_GITHUB_SUPPORT.
 
+- [x] **6B-2K-A — Experimental Forecast Attachment** — explicit user-authorized,
+  opt-in Chronos-2 integration: one pinned Apache-2.0 checkpoint, CPU inference,
+  five-session ETF and direct relative returns, nominal uncalibrated intervals
+  and fixed random-walk comparison. Actual private model run produced all seven
+  targets; software and synthetic browser evidence are recorded with the change.
+  No fine-tuning or tournament. A separate report attachment leaves
+  `market_now.conditional_forecasts` empty and `production_enabled=false`.
+  See [experimental forecast scope](docs/architecture/sentinel-experimental-forecast.md).
+- [x] **6B-2K-A bounded retrospective diagnostic** — executed 24 fixed
+  nonoverlapping rolling origins and 168 valid paired outcomes from latest-vintage
+  captures; seven targets compared with the fixed baseline, with mixed results.
+  Real outcomes remain private; this is
+  not admitted PIT, untouched OOS, prospective confirmation or research PASS.
+
 - [ ] **6B-2I-3A — Durable Pilot Runner & Recovery Validation** — Windows
   reboot recovery and email receipt reported; required logged-out startup,
   forced worker recovery and distinct recovery email evidence pending (NOT_READY);
@@ -218,12 +232,15 @@ See [the research archive](research/sentinel/6b-2e-6b-2f-ewmac/README.md).
   detectors, using the existing nine event primitives.
 - [ ] **6B-2K — Conditional Forecast Research** — separately specify future
   targets and horizons, compare simple baselines, and validate calibration and
-  incremental OOS value. Forecast output stays disabled until its own gate passes.
+  incremental OOS value. Validated operational forecast output stays disabled
+  until its own gate passes. The explicitly experimental 6B-2K-A attachment does
+  not satisfy or lower that gate.
 
 These tasks follow the [multi-sensor architecture](docs/architecture/sentinel-multi-sensor-design.md).
 6B-2G design verification and 6B-2H implementation conformance are complete.
 6B-2I collection is active; 6B-2J-A is merged and 6B-2J-B synthetic execution complete. Real 6B-2J validation and
-6B-2K remain individually gated; collection does not enable production.
+6B-2K remain individually gated; collection and the opt-in 6B-2K-A experiment do
+not enable production.
 
 ## Planned
 

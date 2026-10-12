@@ -1,0 +1,83 @@
+{
+  "schema_version": "sentinel-experimental-forecast-verification-v1",
+  "task_id": "6B-2K-A",
+  "verified_on": "2026-10-11",
+  "implementation": "VERIFIED",
+  "predictive_effectiveness": "NOT_TESTED",
+  "calibration_status": "NOT_VALIDATED",
+  "production_enabled": false,
+  "admission_status": "BLOCKED_DATA",
+  "tests": {
+    "command": "python -m pytest -q",
+    "passed": 699,
+    "deselected_network": 1,
+    "seconds": 199.53,
+    "log_sha256": "28d355e4a2f0380d60fdd5d1b3c9abe9fc1f022008127f65d1acb00d073579c4",
+    "new_forecast_checks": 79
+  },
+  "execution_environment": {
+    "platform": "Linux",
+    "python": "3.12.14",
+    "chronos-forecasting": "2.3.2",
+    "transformers": "4.57.1",
+    "torch": "2.8.0+cpu",
+    "device": "cpu",
+    "dtype": "float32",
+    "download_transport": "standard HTTP, HF_HUB_DISABLE_XET=1"
+  },
+  "actual_private_model_run": {
+    "model_id": "amazon/chronos-2",
+    "model_revision": "29ec3766d36d6f73f0696f85560a422f50e8498c",
+    "weight_sha256_expected": "ddcda3c7508bf2528087723e98a20707cc04b7f370ae275a9fd88078ddba4f42",
+    "weight_sha256_verified": "ddcda3c7508bf2528087723e98a20707cc04b7f370ae275a9fd88078ddba4f42",
+    "input_capture_count": 24,
+    "source_rows": 19,
+    "source_rows_http_200": 19,
+    "context_closes_per_etf": 253,
+    "origin_session": "2026-10-09",
+    "target_session": "2026-10-16",
+    "issued_at": "2026-10-11T07:25:10.157480+00:00",
+    "available_targets": 7,
+    "cached_load_and_inference_seconds": 3.924,
+    "first_download_included": false,
+    "report_sha256": "158450541d02f2930ef4003d41320178d2f2a38a003b2f5355f620280739c3d4",
+    "forecast_id": "ee69e2e32de8a3f277b220587810fd55d0dbec3d110f832a5298245b19cc8d69",
+    "real_values_published": false
+  },
+  "actual_private_diagnostic": {
+    "status": "COMPLETED_DIAGNOSTIC_ONLY",
+    "evaluation_kind": "RETROSPECTIVE_LATEST_VINTAGE_NOT_ADMITTED_OOS",
+    "planned_origins_per_target": 24,
+    "planned_target_count": 7,
+    "paired_valid": 168,
+    "failed_forecasts": 0,
+    "nonoverlapping_outcome_windows": 24,
+    "mean_quantile_loss_vs_baseline": {
+      "lower_targets": 4,
+      "higher_targets": 3,
+      "statistical_significance": "NOT_ASSESSED"
+    },
+    "training_overlap": "NOT_AUDITED",
+    "historical_availability": "NOT_CERTIFIED",
+    "prospective_observations": 0,
+    "diagnostic_sha256": "7433023b58d385bf325ccc1775dbfe214fc80e3743d8e6e0c55084b8f45f6145",
+    "real_outcomes_published": false
+  },
+  "public_display": {
+    "package": "synthetic-forecast-demo.zip",
+    "forecast_number_source": "SYNTHETIC_DISPLAY_STUB_NOT_CHRONOS2",
+    "source_requests": 0,
+    "raw_capture_files": 0,
+    "archive_file_count": 7,
+    "healthy_available_targets": 7,
+    "latest_spy_503_available_targets": 3,
+    "byte_determinism_tested": true,
+    "browser_evidence": "visual-acceptance.json"
+  },
+  "remaining_evidence": [
+    "2026-10-16 outcome comparison of preserved real issuance",
+    "prospective calibration and baseline advantage",
+    "unchanged real-data and production admission gates"
+  ],
+  "prior_publication_cleanup": "PENDING_GITHUB_SUPPORT; previous 6B-2H-1 record unchanged"
+}
