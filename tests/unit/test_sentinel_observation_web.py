@@ -290,6 +290,32 @@ def test_absent_server_is_not_reported_as_ready(tmp_path):
     assert not web.existing_server(port, tmp_path, tmp_path / "protocol.json")
 
 
+def test_timed_out_loopback_probe_can_start_only_when_port_is_free(tmp_path, monkeypatch):
+    class TimedOut:
+        def __init__(self, *args, **kwargs): pass
+        def request(self, *args, **kwargs): raise TimeoutError("synthetic loopback timeout")
+        def close(self): pass
+    monkeypatch.setattr(web, "HTTPConnection", TimedOut)
+    with socket.socket() as reserved:
+        reserved.bind(("127.0.0.1", 0))
+        port = reserved.getsockname()[1]
+    assert not web.existing_server(port, tmp_path, tmp_path / "protocol.json")
+
+
+def test_timed_out_unresponsive_port_is_not_treated_as_free(tmp_path, monkeypatch):
+    class TimedOut:
+        def __init__(self, *args, **kwargs): pass
+        def request(self, *args, **kwargs): raise TimeoutError("synthetic loopback timeout")
+        def close(self): pass
+    monkeypatch.setattr(web, "HTTPConnection", TimedOut)
+    with socket.socket() as occupied:
+        if hasattr(socket, "SO_EXCLUSIVEADDRUSE"):
+            occupied.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+        occupied.bind(("127.0.0.1", 0))
+        with pytest.raises(RuntimeError, match="occupied"):
+            web.existing_server(occupied.getsockname()[1], tmp_path, tmp_path / "protocol.json")
+
+
 def test_reopening_cli_reuses_server_and_opens_browser(live, monkeypatch):
     server, service = live
     opened = []

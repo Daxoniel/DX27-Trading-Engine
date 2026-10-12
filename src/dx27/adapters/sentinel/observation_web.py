@@ -13,6 +13,7 @@ from http.client import HTTPConnection, HTTPException
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 from pathlib import Path
+import socket
 import sys
 from typing import Callable, Protocol
 import webbrowser
@@ -297,6 +298,18 @@ def existing_server(port: int, data_directory: Path, protocol_path: Path) -> boo
             )
         return True
     except ConnectionRefusedError:
+        return False
+    except TimeoutError as error:
+        # Windows may time out a connection to an unused loopback port rather
+        # than returning ECONNREFUSED. Prove it is free before permitting a
+        # start; an unresponsive occupied port must still be rejected.
+        try:
+            with socket.socket() as probe:
+                if hasattr(socket, "SO_EXCLUSIVEADDRUSE"):
+                    probe.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+                probe.bind(("127.0.0.1", port))
+        except OSError as bind_error:
+            raise RuntimeError(f"Cannot verify the occupied service on port {port}: {error}") from bind_error
         return False
     except OSError as error:
         if error.errno == errno.ECONNREFUSED:

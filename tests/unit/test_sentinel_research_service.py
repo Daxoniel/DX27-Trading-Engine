@@ -99,7 +99,7 @@ def test_corrupt_latest_is_reported_without_clearing_archive(tmp_path):
     (runner.root / "latest.json").write_text('{"invalid":true}')
     with pytest.raises(ValueError, match="invalid"):
         runner.refresh()
-    assert json.loads(snapshot.read_text())["report_id"] == original["report_id"]
+    assert json.loads(snapshot.read_text(encoding="utf-8"))["report_id"] == original["report_id"]
 
 
 def test_child_pilot_is_rejected_before_capture(tmp_path, monkeypatch):

@@ -4,7 +4,8 @@
 
 - Repository suite: 832 passed, one live-network test deselected.
 - Final focused parsing, comparison, persistence, rendering and HTTP checks:
-  137 passed after the direct S&P500/S&P493/Mega7 total-earnings addition.
+  139 passed after the direct S&P500/S&P493/Mega7 total-earnings addition and
+  the Windows unused-loopback-port timeout correction.
 - Desktop/mobile headless Chromium: the real page issued one refresh POST,
   loaded both source records and the brief/valuation section, displayed Berlin
   time and had no horizontal page overflow. The report iframe permits no scripts.

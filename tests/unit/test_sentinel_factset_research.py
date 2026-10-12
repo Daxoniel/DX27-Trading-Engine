@@ -2,6 +2,7 @@
 
 from datetime import datetime, timezone
 from hashlib import sha256
+import os
 from io import BytesIO
 import stat
 
@@ -192,7 +193,9 @@ def test_capture_is_exact_private_and_refetch_is_not_replaced_by_old_success(tmp
     path = capture_dir / capture["relative_path"]
     assert path.read_bytes() == payload
     assert capture["sha256"] == first["document_id"] == sha256(payload).hexdigest()
-    assert stat.S_IMODE(path.stat().st_mode) == 0o600
+    if os.name != "nt":
+        # Windows exposes readonly bits here; file access is controlled by ACLs.
+        assert stat.S_IMODE(path.stat().st_mode) == 0o600
     assert capture["url"] == first["source_url"] == resolved
 
     def failed(url):
