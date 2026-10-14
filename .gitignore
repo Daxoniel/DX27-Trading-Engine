@@ -209,6 +209,10 @@ tempCodeRunnerFile.py
 # PyPI configuration file
 .pypirc
 
+# Private intraday input caches, runtime reports and scratch outputs
+/work/
+/data/intraday/
+
 # Marimo
 marimo/_static/
 marimo/_lsp/

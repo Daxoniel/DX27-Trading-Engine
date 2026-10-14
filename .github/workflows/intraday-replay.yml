@@ -1,0 +1,60 @@
+name: Intraday replay and ledger
+
+on:
+  pull_request:
+    paths:
+      - "src/dx27/application/**"
+      - "src/dx27/adapters/intraday/**"
+      - "src/dx27/adapters/simulated/**"
+      - "src/dx27/adapters/calendars/**"
+      - "src/dx27/core/**"
+      - "src/dx27/domains/intraday/**"
+      - "tests/unit/test_intraday*"
+      - "tests/unit/test_streaming_breakout.py"
+      - "tests/unit/test_simulated_execution.py"
+      - "tests/integration/test_intraday*"
+      - "pyproject.toml"
+      - ".github/workflows/intraday-replay.yml"
+  push:
+    branches: [main]
+    paths:
+      - "src/dx27/**"
+      - "tests/**"
+      - "pyproject.toml"
+      - ".github/workflows/intraday-replay.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  offline:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[test]"
+      - name: Validate baseline, causality, costs, calendars and ledgers
+        run: >-
+          python -m pytest -q
+          tests/unit/test_intraday_data.py
+          tests/unit/test_streaming_breakout.py
+          tests/unit/test_simulated_execution.py
+          tests/unit/test_historical_replay.py
+          tests/unit/test_intraday_breakout_bot.py
+          tests/unit/test_intraday_breakout_features.py
+          tests/unit/test_trade_manager.py
+          tests/unit/test_target_to_intent.py
+          tests/integration/test_intraday_breakout_flow.py
+          tests/integration/test_intraday_ledger.py
+      - name: Run labeled synthetic demo
+        run: python -m dx27.adapters.intraday.cli demo --output work/intra-1a-demo
+      - uses: actions/upload-artifact@v4
+        with:
+          name: intra-1a-synthetic-${{ matrix.os }}
+          path: work/intra-1a-demo/report

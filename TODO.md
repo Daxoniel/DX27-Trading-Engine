@@ -1,4 +1,22 @@
-# DX27 Sentinel Roadmap
+# DX27 Roadmap
+
+## Intraday automation — active direction
+
+- [x] **INTRA-1A implementation / offline conformance** — minute CSV/SIP adapter,
+  synchronized ORB baseline, complete opening range, calendar exits, modeled
+  costs, account risk and fill/trade/equity ledgers with causal/accounting tests.
+  See [architecture](docs/architecture/intraday-replay-ledger.md) and
+  [run instructions](docs/operations/intraday-replay.md).
+- [ ] **INTRA-1A authenticated real-data run** — environment credentials absent;
+  synthetic/mock success does not prove provider access or market effectiveness.
+- [ ] **INTRA-1B — Opening Relative Volume Selection** — not started; retain
+  the 30-minute baseline for the first paired selection experiment.
+- [ ] **INTRA-1C — Fixed Paired Historical Comparison** — not started;
+  net-of-cost validation on declared data/universe and untouched time period.
+- [ ] **INTRA-1D — Paper Execution Conformance** — not started; shared decision
+  logic, persistent orders/recovery and actual execution-deviation checks.
+
+## Sentinel — frozen history
 
 Sentinel development is **FROZEN / MAINTENANCE ONLY** after the final
 6B-2K-B public-research report integration. The user's next direction is DX27
