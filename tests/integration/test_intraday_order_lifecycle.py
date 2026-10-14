@@ -366,3 +366,38 @@ def test_pending_sell_fees_cannot_be_spent_by_an_already_prepared_buy(tmp_path):
         execution.cancel(sell)
         execution.submit(buy)
         assert book.order(buy)["state"] == "ACCEPTED"
+
+
+def test_failed_report_storage_pauses_until_broker_fill_is_reconciled(tmp_path, monkeypatch):
+    with session(tmp_path) as (book, broker, execution):
+        execution.reconcile()
+        cid = place(book, execution)
+        partial = broker.advance(cid, "partial", 4, 400, "0.35")
+        original = book.journal.save
+        monkeypatch.setattr(book.journal, "save", lambda *args: (_ for _ in ()).throw(sqlite3.OperationalError("storage unavailable")))
+        with pytest.raises(sqlite3.OperationalError):
+            book.apply(partial)
+        assert not book.ready
+        assert book.snapshot()["cash"] == "10000" and book.snapshot()["positions"] == {}
+        monkeypatch.setattr(book.journal, "save", original)
+        with pytest.raises(ValueError, match="paused"):
+            book.prepare(request("after-storage-failure"))
+        assert execution.reconcile()["ready"]
+        assert book.snapshot()["cash"] == "9599.65" and book.snapshot()["positions"] == {"SPY": 4}
+        assert broker.journal.state["submit_calls"] == 1
+
+
+def test_terminal_order_late_fee_budget_cannot_be_reallocated_to_another_buy(tmp_path):
+    with session(tmp_path, cash="2001.35") as (book, broker, execution):
+        execution.reconcile()
+        first = place(book, execution)
+        book.apply(broker.advance(first, "filled", 10, 1000, "0.35"))
+        assert book.snapshot()["cash"] == "1001"
+        with pytest.raises(ValueError, match="unreserved cash"):
+            book.prepare(request("double-spend-late-fee"))
+        second = book.prepare(request("fully-budgeted", fee="0.35"))["client_order_id"]
+        book.apply(broker.advance(first, "filled", 10, 1000, 1))
+        execution.submit(second)
+        book.apply(broker.advance(second, "filled", 10, 1000, "0.35"))
+        assert book.snapshot()["cash"] == "0" and book.snapshot()["positions"] == {"SPY": 20}
+        assert execution.reconcile()["ready"]

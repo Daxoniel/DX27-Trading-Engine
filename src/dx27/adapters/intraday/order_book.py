@@ -2,6 +2,7 @@
 
 from copy import deepcopy
 from decimal import Decimal
+import sqlite3
 
 from dx27.adapters.intraday.lifecycle_journal import LifecycleJournal, canonical, seal
 from dx27.domains.intraday.order_lifecycle import (
@@ -41,11 +42,14 @@ class OfflineOrderBook:
     def _reservations(state):
         cash, shares = Decimal(0), {}
         for order in state["orders"].values():
-            if order["state"].lower() in TERMINAL or order["state"] == "ABANDONED":
+            terminal = order["state"].lower() in TERMINAL
+            if order["state"] == "ABANDONED" or (terminal and not order["filled_quantity"]):
                 continue
             request = order["request"]
-            remaining = request["quantity"] - order["filled_quantity"]
             cash += max(Decimal(0), Decimal(request["fee_budget"]) - Decimal(order["fee"]))
+            if terminal:
+                continue  # Late fill commissions still consume this fee budget.
+            remaining = request["quantity"] - order["filled_quantity"]
             if request["side"] == "buy":
                 cash += remaining * Decimal(request["reservation_price"])
             else:
@@ -119,6 +123,9 @@ class OfflineOrderBook:
     def apply(self, report: OrderReport):
         try:
             return self._apply(report)
+        except (OSError, sqlite3.Error):
+            self.reconciled = False
+            raise
         except (ValueError, KeyError, TypeError, AttributeError):
             self.halt("invalid_or_conflicting_report")
             raise ValueError("invalid or conflicting cumulative order report; new intents paused") from None

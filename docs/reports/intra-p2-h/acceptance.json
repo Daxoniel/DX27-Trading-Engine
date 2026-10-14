@@ -182,10 +182,8 @@
     }
   },
   "software_validation": {
-    "new_integration_checks": 37,
-    "intraday_suite_passed": 148,
-    "full_linux_regression_passed": 963,
-    "network_test_deselected": 1
+    "new_integration_checks": 39,
+    "final_regression_and_cross_platform_results": "RECORDED_IN_PR"
   },
   "real_broker_orders_enabled": false,
   "realtime_data_verified": false,

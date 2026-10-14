@@ -71,6 +71,10 @@ fee budgets remain recorded, then halt new intents; the ledger never pretends
 an already reported execution did not occur. Buy reservations cover remaining
 quantity and outstanding fees; sell reservations cover remaining shares and
 fees. CREATED, accepted, partial and uncertain orders retain reservations.
+Terminal orders with fills conservatively retain any unused fee budget, because
+late fee revisions remain possible. There is no automatic fee-finalization
+assumption. A report storage failure pauses the running coordinator until a
+complete reconciliation restores the missing cumulative delta.
 Reservations are checked again before submission, so a late fill cannot cause
 a prepared exit to oversell, or a pending sell fee to be spent by a prepared buy.
 

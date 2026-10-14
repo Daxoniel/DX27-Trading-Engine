@@ -16,7 +16,7 @@ A partial cancel retains four filled shares and $9,599.65 of the original
 $10,000. Rejection/expiry leave account balances unchanged. A valid budget-breach
 report is recorded as -$9.35 cash / ten shares and remains halted, not discarded.
 
-37 new integration checks additionally cover exact cumulative accounting,
+39 new integration checks additionally cover exact cumulative accounting,
 duplicate/stale/same-revision handling, conflicting report refusal, source/config
 identity, unsent intent abandonment, reservations, late fees, late fills after
 cancel, snapshot failures, state corruption and the single-writer lease. Two
@@ -25,6 +25,9 @@ remote acceptance or after an independently committed remote partial fill.
 Restart respectively stays UNKNOWN or recovers PARTIAL without blindly resending.
 A prepared exit is not submitted if a late fill consumed its reserved shares.
 Pending sell fees cannot consume an already prepared buy's cash allocation.
+A failed report write pauses new intents until the separately committed broker
+fill is reconciled. Terminal orders retain unused late-fee budget, preventing
+that money from being reused by another buy.
 
 ## Authentic historical trace
 
@@ -52,8 +55,8 @@ strategy's subsequent decisions under delayed/partial execution.
 
 ## Software checks and remaining gates
 
-Local Linux regression: **963 passed, 1 network test deselected**. Intraday suite:
-**148 passed**, including 37 new checks. Existing Sentinel Yahoo empty-slice
+Local regression and cross-platform final results are recorded in the PR. The
+intraday suite contains **150 checks**, including 39 new lifecycle/source checks. Existing Sentinel Yahoo empty-slice
 warnings remain unchanged. Ubuntu/Windows CI runs the same intraday suite, a
 historical Shadow demo and the offline lifecycle/partial-fill trace demo. Final
 cross-platform CI status is recorded in the PR.
