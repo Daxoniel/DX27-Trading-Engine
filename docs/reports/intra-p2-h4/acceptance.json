@@ -1,0 +1,108 @@
+{
+  "task": "P2-H4",
+  "source_csv_sha256": "67cef18fb985a749bc333713cc99e737032e89c714257dc87b45f83aea559f91",
+  "event_file_seal": {
+    "contract": "P2-H4:1",
+    "events_file_sha256": "ca4b76550d183382a29727cb2f0d585a8c2f4f02232cc87586fc33f8b8cd192a",
+    "original_cutoff_verified": false,
+    "real_broker_orders_enabled": false,
+    "realtime_data_verified": false,
+    "receipt_times": "ASSUMED_AT_MINUTE_END",
+    "source_csv_sha256": "67cef18fb985a749bc333713cc99e737032e89c714257dc87b45f83aea559f91"
+  },
+  "source_input_bars": 145553,
+  "frozen_regular_session_bars": 70200,
+  "sessions": 60,
+  "active_sessions": 40,
+  "market_ingress": {
+    "task": "P2-H4",
+    "status": "COMPLETE_INGRESS",
+    "contract": "P2-H4:1",
+    "cutoff_policy": "EXACT_MINUTE_END_ZERO_GRACE",
+    "event_count": 70201,
+    "feed_scope": "REGULAR_XNYS_SESSIONS",
+    "input_event_sha256": "b850bcdcc02e8a31aace72ca50b764c13448142de075de32e89e7f87af7e6e78",
+    "original_cutoff_verified": false,
+    "receipt_times": "DECLARED_HISTORICAL_NOT_VERIFIED_REALTIME",
+    "records_sha256": "641bb5400dc05a655b1ef4fdda94c915b1f94d2687bbd4ef9dd2a0331d844c2a",
+    "source_csv_sha256": "67cef18fb985a749bc333713cc99e737032e89c714257dc87b45f83aea559f91",
+    "source_input_bars": 145553,
+    "states_sha256": "545cf4bb3650d88c08292936fe4a061d1f2660c98a6477b9adf2d41c23498876",
+    "dispositions": {
+      "ACCEPTED": 70200,
+      "CONNECTED": 1
+    },
+    "frozen_bars": 70200,
+    "real_broker_orders_enabled": false,
+    "realtime_data_verified": false,
+    "algorithm_optimization_performed": false
+  },
+  "runs": {
+    "paused": {
+      "status": "PAUSED",
+      "receipt": {
+        "algorithm_optimization_performed": false,
+        "appended_frames": 1002,
+        "effectiveness": "NOT_EVALUATED",
+        "frames": 1002,
+        "journal_chain_sha256": "f92f16c7471306a9cc7213c032b04ec27b99e64ba7e809e706e2b06210eb2173",
+        "manifest_sha256": "7864427f41398e2d419b94ce17869849f32269406960e4c72852d303ef7841f1",
+        "real_broker_orders_enabled": false,
+        "realtime_data_verified": false,
+        "recovery": "DETERMINISTIC_OFFLINE_REBUILD",
+        "simulator_rebuilt_from_start": true,
+        "status": "PAUSED",
+        "task": "P2-H4",
+        "verified_prefix_frames": 0
+      }
+    },
+    "resumed": {
+      "status": "COMPLETED",
+      "receipt": {
+        "algorithm_optimization_performed": false,
+        "appended_frames": 22459,
+        "as_of": "2025-03-31T20:00:00+00:00",
+        "effectiveness": "NOT_EVALUATED",
+        "frames": 23461,
+        "journal_chain_sha256": "733489ef8577d9e76b6e92ff324b89f9f05a7c7693dde5b2ddcc2d20f4e13d08",
+        "manifest_sha256": "7864427f41398e2d419b94ce17869849f32269406960e4c72852d303ef7841f1",
+        "real_broker_orders_enabled": false,
+        "realtime_data_verified": false,
+        "recovery": "DETERMINISTIC_OFFLINE_REBUILD",
+        "simulator_rebuilt_from_start": true,
+        "status": "COMPLETE_CLOSED_LOOP",
+        "task": "P2-H4",
+        "verified_prefix_frames": 1002
+      }
+    },
+    "repeat": {
+      "status": "COMPLETED",
+      "receipt": {
+        "algorithm_optimization_performed": false,
+        "appended_frames": 0,
+        "as_of": "2025-03-31T20:00:00+00:00",
+        "effectiveness": "NOT_EVALUATED",
+        "frames": 23461,
+        "journal_chain_sha256": "733489ef8577d9e76b6e92ff324b89f9f05a7c7693dde5b2ddcc2d20f4e13d08",
+        "manifest_sha256": "7864427f41398e2d419b94ce17869849f32269406960e4c72852d303ef7841f1",
+        "real_broker_orders_enabled": false,
+        "realtime_data_verified": false,
+        "recovery": "DETERMINISTIC_OFFLINE_REBUILD",
+        "simulator_rebuilt_from_start": true,
+        "status": "COMPLETE_CLOSED_LOOP",
+        "task": "P2-H4",
+        "verified_prefix_frames": 23461
+      }
+    }
+  },
+  "prior_fixed_profile_fills_match": true,
+  "modeled_fills": 60,
+  "ending_cash": 99322.90005194,
+  "completed_round_trips": 15,
+  "realized_exit_fragments": 30,
+  "broker_ending_positions": {},
+  "active_orders": 0,
+  "real_broker_orders_enabled": false,
+  "algorithm_optimization_performed": false,
+  "effectiveness": "NOT_EVALUATED"
+}

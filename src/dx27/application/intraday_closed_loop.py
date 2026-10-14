@@ -41,8 +41,9 @@ class ClosedLoopReplay(IntradayLedgerReplay):
     execution, quantities and actual-position accounting, not strategy rules.
     """
 
-    def __init__(self, config, profile, book: OfflineOrderBook, broker: ScriptedBroker):
+    def __init__(self, config, profile, book: OfflineOrderBook, broker: ScriptedBroker, *, ingress=None):
         super().__init__(config)
+        self.ingress = ingress
         self.profile = profile or HistoricalExecutionProfile()
         self.book, self.broker = book, broker
         self.coordinator = OfflineOrderExecution(book, broker)
@@ -67,8 +68,11 @@ class ClosedLoopReplay(IntradayLedgerReplay):
                 result.append((cid, meta, order))
         return result
 
-    def _entries_paused(self):
-        return not self.book.ready
+    def _entry_data_ready(self, symbol, at):
+        return self.ingress is None or self.ingress.ready(symbol, at)
+
+    def _entries_paused(self, at=None, symbol=None):
+        return not self.book.ready or (at is not None and not self._entry_data_ready(symbol, at))
 
     def _maximum_price(self, reference):
         return self.config.costs.price(reference, TradeSide.BUY) * (1 + self.profile.entry_reservation_buffer_bps / 10_000)
@@ -298,6 +302,10 @@ class ClosedLoopReplay(IntradayLedgerReplay):
         self.session_now, self.as_of = session, at
         self.marks.update({s: b.open for s, b in current.items()})
         self._reconcile_due(at)
+        if self.ingress is not None:
+            for cid, meta, _ in self._active(side="buy"):
+                if not self._entry_data_ready(meta["symbol"], at):
+                    self._cancel(cid, at)
         loss_halted = loss_halted or self.account.get_account_snapshot().total_equity <= day_start * (1 - self.config.daily_loss_limit)
         for cid, meta, _ in self._active(side="buy"):
             position, bar = self.positions.get(meta["symbol"]), current.get(meta["symbol"])
@@ -335,6 +343,11 @@ class ClosedLoopReplay(IntradayLedgerReplay):
                    reported_open_risk=sum(p["planned_risk"] for p in self.positions.values()),
                    entry_reserved_risk=sum(m["planned_risk"] * (o["request"]["quantity"] - o["filled_quantity"]) / o["request"]["quantity"]
                                            for _, m, o in self._active(side="buy")))
+        if self.ingress is not None:
+            state_at = self.ingress.state_at(at)
+            row["ingress_connected"] = bool(state_at and state_at.connected)
+            row["ingress_recovering"] = bool(not state_at or state_at.recovering)
+            row["ingress_blocked_symbols"] = state_at.blocked_symbols if state_at else tuple()
         row["marks_complete"] = row["marks_complete"] and reconciled and all(s in current for s in truth["positions"])
         if reconciled and not isclose(row["equity"], row["broker_equity"], abs_tol=1e-6):
             raise AssertionError("strategy account and independent simulated broker differ")
@@ -349,7 +362,7 @@ class ClosedLoopReplay(IntradayLedgerReplay):
             self._issue(session, meta["symbol"], "UNRESOLVED_ORDER_AT_CLOSE", session.closes_at)
 
     def _execution_complete(self):
-        return not self._active() and self.book.ready and not self.broker.journal.state["positions"]
+        return not self._active() and self.book.ready and not self.broker.journal.state["positions"] and (self.ingress is None or self.ingress.complete)
 
     def run(self, dataset, *, observer=None):
         result = super().run(dataset, observer=observer)
@@ -369,4 +382,9 @@ class ClosedLoopReplay(IntradayLedgerReplay):
             peak = max(peak, row["broker_equity"])
             drawdown = max(drawdown, (peak - row["broker_equity"]) / peak)
         result.summary["broker_maximum_drawdown"] = drawdown if result.summary["status"] == "COMPLETE_REPLAY" else None
+        if self.ingress is not None:
+            result.summary.update(task="P2-H4", runner_version="P2-H4:1", market_ingress=self.ingress.receipt())
+            result.quality.extend(dict(session=None, symbol=r.symbol, code="INGRESS_" + r.disposition,
+                first_at=r.as_of.isoformat(), last_at=r.as_of.isoformat(), count=1)
+                for r in self.ingress.records if r.critical)
         return result
