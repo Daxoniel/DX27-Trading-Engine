@@ -43,10 +43,11 @@ INTRA-1B 产生 180 条 symbol/session 筛选记录：60 条历史不足、53 �
 
 ## P0 账户访问
 
-行情 key 已验证可用。独立只读 `/v2/account`、`/v2/clock`、`/v2/positions`
-均返回 HTTP 401，状态 NOT_VERIFIED。环境 secret bindings 当前仅覆盖
-`data.alpaca.markets`，不覆盖 `paper-api.alpaca.markets`。需要核对预期 paper
-账户凭据和域名绑定；单凭 401 不推断具体失败原因。
+环境域名绑定更新后，2026-10-14 重新执行仓库只读 P0 probe，
+`/v2/account`、`/v2/clock`、`/v2/positions` 全部成功，状态
+CONNECTED_READ_ONLY。账户 ACTIVE，account_blocked=false、trading_blocked=false，
+持仓数 0。原先 HTTP 401 已不再复现。脱敏原始诊断见
+[p0-account-connectivity.json](p0-account-connectivity.json)。
 
 本次没有提交订单，未验证订单权限、实时 SIP、持仓恢复或真实成交。
 只读诊断程序和错误脱敏/拒绝重定向测试已实现，自动下单开关保持关闭。
@@ -58,8 +59,7 @@ INTRA-1A 针对性测试：39 passed。全量回归：900 passed、1 deselected�
 最后增加的 5 项安全边界测试与修订纳入最终日内测试：90 passed。
 详见随包 `final-pytest.log`、`intraday-targeted-pytest.log` 和 `acceptance.json`。
 
-日内 CI 已增加 RVOL 与账户诊断离线测试，覆盖 Ubuntu/Windows；本次仅实际执行
-Linux 验证，未声称 Windows CI 成功。
+日内 CI 已增加 RVOL 与账户诊断离线测试，覆盖 Ubuntu/Windows；Ubuntu 与 Windows CI 均通过（run 38536872619）；全量本地回归仅在 Linux 执行。
 
 后续按 [P0–P3 路线](../../architecture/intraday-delivery-roadmap.md)：先完成账户
 连通验收，然后 P1 分钟行情 Shadow Mode，再做默认关闭的 P2 自动模拟交易和

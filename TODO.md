@@ -26,12 +26,11 @@
 - [x] **P0 read-only diagnostic code / offline checks** — explicit paper account,
   clock and positions GETs, redacted results, no order path. Historical SIP
   access is verified independently.
-- [ ] **P0 account connection acceptance** — all three paper endpoints returned
-  HTTP 401 in this cloud environment on 2026-10-14. Configured secret bindings
-  cover `data.alpaca.markets` only. Validate the intended paper credentials and
-  binding for `paper-api.alpaca.markets`, then run the local probe. Cause is not
-  inferred from the HTTP code alone; no account verification is claimed.
-- [ ] **P1 realtime data + Shadow Mode — NEXT after P0** — receive minute bars,
+- [x] **P0 account connection acceptance** — 2026-10-14 after updating domain
+  bindings, all three GET probes succeeded. Account ACTIVE, account/trading
+  unblocked, no positions; redacted evidence is committed. Order submission and
+  realtime market-data entitlement remain separate gates.
+- [ ] **P1 realtime data + Shadow Mode — NEXT; SIP entitlement blocked** — receive minute bars,
   run the shared ORB/optional RVOL decision logic, persist hypothetical decisions
   and stream quality. Never submit orders. Verify entitlement, late/revised bars,
   calendar boundaries, warmup, reconnect/replay and restart deduplication.

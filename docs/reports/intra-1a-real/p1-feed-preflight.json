@@ -1,0 +1,27 @@
+{
+  "task": "P1_FEED_PREFLIGHT",
+  "checked_at": "2026-10-14T09:08:58.028146+00:00",
+  "endpoint": "https://data.alpaca.markets/v2/stocks/bars/latest",
+  "symbols": [
+    "SPY",
+    "QQQ",
+    "IWM"
+  ],
+  "checks": {
+    "sip": {
+      "http_status": 403
+    },
+    "iex": {
+      "http_status": 200,
+      "latest_bar_timestamps": {
+        "SPY": "2026-10-13T20:07:00Z",
+        "IWM": "2026-10-13T20:16:00Z",
+        "QQQ": "2026-10-13T20:51:00Z"
+      }
+    }
+  },
+  "websocket_subscription_verified": false,
+  "realtime_data_verified": false,
+  "automatic_orders_enabled": false,
+  "status": "SIP_LATEST_ACCESS_BLOCKED"
+}
