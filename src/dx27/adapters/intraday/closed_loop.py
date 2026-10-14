@@ -18,14 +18,19 @@ from dx27.domains.intraday.execution_profile import HistoricalExecutionProfile
 from dx27.domains.intraday.replay_config import IntradayReplayConfig
 
 
-def run_closed_loop(dataset, journal, config=None, profile=None, *, stop_after_minutes=None):
+def closed_loop_manifest(dataset, config, profile):
+    manifest = dict(manifest_for(dataset, config), contract_version="P2-H2:1",
+                    mode="HISTORICAL_CLOSED_LOOP", profile=asdict(profile),
+                    recovery="DETERMINISTIC_OFFLINE_REBUILD")
+    return manifest
+
+
+def run_closed_loop(dataset, journal, config=None, profile=None, *, stop_after_minutes=None, control=None):
     config = config or IntradayReplayConfig()
     profile = profile or HistoricalExecutionProfile()
     if stop_after_minutes is not None and (isinstance(stop_after_minutes, bool) or not isinstance(stop_after_minutes, int) or stop_after_minutes < 1):
         raise ValueError("stop_after_minutes requires a positive integer")
-    manifest = dict(manifest_for(dataset, config), contract_version="P2-H2:1",
-                    mode="HISTORICAL_CLOSED_LOOP", profile=asdict(profile),
-                    recovery="DETERMINISTIC_OFFLINE_REBUILD")
+    manifest = closed_loop_manifest(dataset, config, profile)
     identity = _hash(_json(manifest))
 
     class Paused(Exception):
@@ -37,9 +42,10 @@ def run_closed_loop(dataset, journal, config=None, profile=None, *, stop_after_m
                 with ScriptedBroker(Path(temporary) / "broker.sqlite3", "p2h2:" + identity, config.initial_cash) as broker:
                     engine = ClosedLoopReplay(config, profile, book, broker)
                     minutes, events, prior_orders = 0, 0, {}
+                    stopped = False
 
                     def record(frame):
-                        nonlocal minutes, events, prior_orders
+                        nonlocal minutes, events, prior_orders, stopped
                         current = book.journal.state["orders"]
                         frame["orders"] = [deepcopy(order) for cid, order in current.items() if prior_orders.get(cid) != order]
                         # Book mutations replace state, so retained old rows are
@@ -49,6 +55,14 @@ def run_closed_loop(dataset, journal, config=None, profile=None, *, stop_after_m
                         events = len(engine.execution_events)
                         new = store.sequence >= store.existing
                         store.append(frame)
+                        if control is not None:
+                            stopped = bool(control(dict(kind=frame["kind"], as_of=frame["as_of"],
+                                frames=store.sequence, committed_frames=max(store.sequence, store.existing),
+                                existing_frames=store.existing, verified_prefix_frames=store.verified,
+                                appended_frames=store.appended, journal_chain_sha256=store.chain,
+                                account=deepcopy(frame.get("equity", [])[-1]) if frame.get("equity") else None)))
+                            if stopped:
+                                raise Paused()
                         if new and frame["kind"] == "MINUTE_COMPLETED":
                             minutes += 1
                             if stop_after_minutes is not None and minutes >= stop_after_minutes:
@@ -63,7 +77,7 @@ def run_closed_loop(dataset, journal, config=None, profile=None, *, stop_after_m
                             raise ValueError("closed-loop journal has unexpected trailing frames")
                         status = "COMPLETE_CLOSED_LOOP" if result.summary["status"] == "COMPLETE_REPLAY" else "INCOMPLETE_CLOSED_LOOP"
                     except Paused:
-                        status = "PAUSED"
+                        status = "STOPPED" if stopped else "PAUSED"
                     receipt = dict(task="P2-H2", status=status, manifest_sha256=identity,
                                    frames=store.sequence, verified_prefix_frames=store.verified,
                                    appended_frames=store.appended, journal_chain_sha256=store.chain,

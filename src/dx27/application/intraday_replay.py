@@ -25,6 +25,30 @@ from dx27.execution_planning.target_to_intent import TargetToIntentPlanner
 MINUTE = timedelta(minutes=1)
 
 
+def replay_sessions(dataset):
+    """Shared bounded session selection for replay and operational preflight."""
+    ny = ZoneInfo("America/New_York")
+    dates = [bar.timestamp.astimezone(ny).date() for bar in dataset.bars]
+    requested_start = dataset.provenance.get("start")
+    requested_end = dataset.provenance.get("end_exclusive")
+    if bool(requested_start) != bool(requested_end):
+        raise ValueError("source metadata must provide both start and end_exclusive")
+    if requested_start:
+        requested_start, requested_end = aware_time(requested_start), aware_time(requested_end)
+        if requested_end <= requested_start:
+            raise ValueError("invalid source request period")
+        dates.extend((requested_start.astimezone(ny).date(), requested_end.astimezone(ny).date()))
+    # The calendar library requires start < end, including one-session runs.
+    # Pad its construction only, then select the actual requested sessions.
+    first_day, last_day = min(dates), max(dates)
+    calendar = load_xnys_calendar(first_day - timedelta(days=1), last_day + timedelta(days=1))
+    sessions = tuple(s for s in calendar.sessions if first_day <= s.opens_at.astimezone(ny).date() <= last_day
+                     and (not requested_start or (s.opens_at >= requested_start and s.closes_at <= requested_end)))
+    if not sessions:
+        raise ValueError("dataset contains no XNYS sessions")
+    return calendar, sessions
+
+
 @dataclass
 class ReplayResult:
     summary: dict
@@ -178,24 +202,7 @@ class IntradayLedgerReplay:
             previous_quality.update({key: dict(row) for key, row in self.issues.items()})
             observer(dict(kind=kind, as_of=at.isoformat(), session=session.session_id,
                           hypothetical=True, **rows))
-        dates = [bar.timestamp.astimezone(ny).date() for bar in dataset.bars]
-        requested_start = dataset.provenance.get("start")
-        requested_end = dataset.provenance.get("end_exclusive")
-        if bool(requested_start) != bool(requested_end):
-            raise ValueError("source metadata must provide both start and end_exclusive")
-        if requested_start:
-            requested_start, requested_end = aware_time(requested_start), aware_time(requested_end)
-            if requested_end <= requested_start:
-                raise ValueError("invalid source request period")
-            dates.extend((requested_start.astimezone(ny).date(), requested_end.astimezone(ny).date()))
-        # The calendar library requires start < end, including one-session runs.
-        # Pad its construction only, then select the actual requested sessions.
-        first_day, last_day = min(dates), max(dates)
-        calendar = load_xnys_calendar(first_day - timedelta(days=1), last_day + timedelta(days=1))
-        sessions = tuple(s for s in calendar.sessions if first_day <= s.opens_at.astimezone(ny).date() <= last_day
-                         and (not requested_start or (s.opens_at >= requested_start and s.closes_at <= requested_end)))
-        if not sessions:
-            raise ValueError("dataset contains no XNYS sessions")
+        calendar, sessions = replay_sessions(dataset)
         for symbol in symbols:
             self.bots[symbol] = IntradayBreakoutBot(cfg.adx_threshold)
             self.features[symbol] = StreamingBreakoutFeatures(cfg.atr_period, cfg.adx_period)

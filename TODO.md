@@ -47,9 +47,14 @@
   reports feed actual inventory, sizing, reserved risk, stops and flattening.
   Deterministic journal rebuild, independent cash/equity checks and historical
   acceptance; see [operations](docs/operations/intraday-closed-loop.md).
-- [ ] **P2-H3 operational runner hardening — NEXT** — explicit preflight,
-  supervision, health/recovery reporting and provider-independent event ingress.
-  Continue framework work before algorithm evaluation; real orders remain OFF.
+- [x] **P2-H3 operational runner hardening** — read-only preflight,
+  one supervisor per run directory, atomic heartbeats, cooperative stop,
+  interrupted/stalled status and bounded offline reconstruction on transient
+  storage failures. See [operations](docs/operations/intraday-runner.md).
+- [ ] **P2-H4 provider-independent event ingress — NEXT** — sealed event
+  envelopes, bar availability, deduplication/revisions, reconnect/replay and
+  data-quality gates; continue historical tests before paid realtime access.
+  Keep strategy parameters unchanged and real orders OFF.
 - [ ] **P2 automated paper trading** — default order switch OFF, paper endpoint
   only, durable order IDs, partial fills, cancel/reject handling, recovery and
   broker-position reconciliation before enabling automation. Historical simulated
