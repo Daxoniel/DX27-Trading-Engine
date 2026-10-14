@@ -97,163 +97,206 @@ def session_grid(dataset):
     return symbols, tuple(grid)
 
 
-def compile_ingress(source, deliveries):
-    """Source CSV supplies universe/calendar only; accepted event OHLCV is authoritative.
+class MinuteIngress:
+    """Incremental H4 policy with interchangeable memory/durable maps.
 
-    Input is in receipt order. A full same-clock delivery group precedes freezing
-    that deadline, with zero grace. Late data is retained in audit/coverage only.
+    The caller closes a receipt-time group with a watermark only after every
+    delivery in that group has been consumed. No full trace is required here.
     """
-    events = tuple(deliveries)
-    symbols, grid = session_grid(source)
-    expected = set(grid)
-    declared_source = source.provenance.get("source", "LOCAL_CSV_UNVERIFIED")
-    for index, event in enumerate(events):
-        if not isinstance(event, MarketEvent) or event.source != declared_source:
-            raise ValueError("event source/type mismatch")
-        if index and event.received_at < events[index - 1].received_at:
-            raise ValueError("receipt clock regressed")
-        if event.bar is not None and (event.bar.symbol not in symbols or event.bar.timestamp not in expected):
-            raise ValueError("bar outside declared regular-session universe")
-    candidates, raw_seen, identities, cursors, versions = {}, set(), {}, {}, {}
-    frozen, records, states, invalid, gaps = [], [], [], set(), set()
-    processed = set()
-    connected, recovering, ever_connected, active_connection = False, False, False, None
-    anchor = None
-    cursor = 0
 
-    def record(at, kind, disposition, event=None, symbol=None, start=None, critical=False):
-        records.append(IngressRecord(at, kind, disposition, event.event_id if event else None,
+    SCALARS = ("connected", "recovering", "ever_connected", "active_connection",
+               "anchor", "cursor", "last_received_at", "watermark", "event_count",
+               "record_count", "critical_count")
+
+    def __init__(self, source, symbols, grid, *, maps=None, state=None,
+                 frozen=None, records=None, states=None):
+        self.source = source.provenance.get("source", "LOCAL_CSV_UNVERIFIED")
+        self.symbols, self.grid, self.expected = symbols, grid, set(grid)
+        defaults = dict(candidates={}, raw_seen=set(), identities={}, cursors={},
+                        versions={}, invalid=set(), gaps=set(), processed=set())
+        for name, value in (defaults if maps is None else maps).items():
+            setattr(self, name, value)
+        self.frozen = [] if frozen is None else frozen
+        self.records = [] if records is None else records
+        self.states = [] if states is None else states
+        self.connected = self.recovering = self.ever_connected = False
+        self.active_connection = self.anchor = self.last_received_at = self.watermark = None
+        self.cursor = self.event_count = self.record_count = self.critical_count = 0
+        if state is not None:
+            for name in self.SCALARS:
+                value = state[name]
+                if name in {"anchor", "last_received_at", "watermark"} and value is not None:
+                    value = datetime.fromisoformat(value)
+                setattr(self, name, value)
+
+    def checkpoint(self):
+        return {name: getattr(self, name) for name in self.SCALARS}
+
+    def advance_before(self, at):
+        if self.watermark is not None and at < self.watermark:
+            raise ValueError("receipt watermark regressed")
+        while self.cursor < len(self.grid) and self.grid[self.cursor] + MINUTE < at:
+            self.freeze(self.grid[self.cursor])
+            self.watermark = self.grid[self.cursor] + MINUTE
+            self.cursor += 1
+
+    def close_group(self, at):
+        self.advance_before(at)
+        if self.cursor < len(self.grid) and self.grid[self.cursor] + MINUTE == at:
+            self.freeze(self.grid[self.cursor])
+            self.cursor += 1
+        else:
+            self._snapshot(at)
+        self.watermark = at
+
+    def finish(self):
+        while self.cursor < len(self.grid):
+            self.freeze(self.grid[self.cursor])
+            self.watermark = self.grid[self.cursor] + MINUTE
+            self.cursor += 1
+
+    def _record(self, at, kind, disposition, event=None, symbol=None, start=None, critical=False):
+        self.record_count += 1
+        self.critical_count += int(critical)
+        self.records.append(IngressRecord(at, kind, disposition, event.event_id if event else None,
             symbol if symbol is not None else event.bar.symbol if event and event.bar else None,
             start if start is not None else event.bar.timestamp if event and event.bar else None,
             event.revision if event else 0, critical,
             _hash(_json(asdict(event))) if event else None))
 
-    def snapshot(at, missing=()):
-        blocked = set(symbols) if not connected or recovering else invalid | set(missing)
-        value = IngressState(at, connected, recovering, tuple(sorted(blocked)))
-        if states and states[-1].as_of == at:
-            states[-1] = value
+    def _snapshot(self, at, missing=()):
+        blocked = set(self.symbols) if not self.connected or self.recovering else self.invalid | set(missing)
+        value = IngressState(at, self.connected, self.recovering, tuple(sorted(blocked)))
+        if self.states and self.states[-1].as_of == at:
+            self.states[-1] = value
         else:
-            states.append(value)
+            self.states.append(value)
 
-    def freeze(start):
-        nonlocal recovering, anchor
+    def freeze(self, start):
         missing = []
-        for symbol in symbols:
+        for symbol in self.symbols:
             key = (symbol, start)
-            event = candidates.pop(key, None)
+            event = self.candidates.pop(key, None)
             if event is None:
                 missing.append(symbol)
-                gaps.add(key)
-                recovering = True
-                anchor = start if anchor is None else min(anchor, start)
-                record(start + MINUTE, "CUTOFF", "MISSING_BAR", symbol=symbol, start=start, critical=True)
+                self.gaps.add(key)
+                self.recovering = True
+                self.anchor = start if self.anchor is None else min(self.anchor, start)
+                self._record(start + MINUTE, "CUTOFF", "MISSING_BAR", symbol=symbol, start=start, critical=True)
             else:
-                frozen.append(event.bar)
-        snapshot(start + MINUTE, missing)
+                self.frozen.append(event.bar)
+        self._snapshot(start + MINUTE, missing)
 
-    def consume(event):
-        nonlocal connected, recovering, ever_connected, active_connection, anchor
+    def consume(self, event):
+        if not isinstance(event, MarketEvent) or event.source != self.source:
+            raise ValueError("event source/type mismatch")
+        if self.last_received_at is not None and event.received_at < self.last_received_at:
+            raise ValueError("receipt clock regressed")
+        if self.watermark is not None and event.received_at <= self.watermark:
+            raise ValueError("delivery at or before a closed receipt watermark")
+        if event.bar is not None and (event.bar.symbol not in self.symbols or event.bar.timestamp not in self.expected):
+            raise ValueError("bar outside declared regular-session universe")
+        self.last_received_at = event.received_at
+        self.event_count += 1
         content = dict(kind=event.kind, source=event.source, available_at=event.available_at,
                        bar=asdict(event.bar) if event.bar else None, revision=event.revision, through=event.through)
         identity = _hash(_json(content))
-        prior = identities.get(event.event_id)
+        prior = self.identities.get(event.event_id)
         if prior is not None and prior != identity:
             raise ValueError("event identity conflict")
-        last_seq, _ = cursors.get(event.connection, (0, None))
-        if event.event_id in processed and event.sequence <= last_seq:
-            record(event.received_at, event.kind, "DUPLICATE_DELIVERY", event)
+        last_seq, _ = self.cursors.get(event.connection, (0, None))
+        if event.event_id in self.processed and event.sequence <= last_seq:
+            self._record(event.received_at, event.kind, "DUPLICATE_DELIVERY", event)
             return
         if event.sequence <= last_seq:
             raise ValueError("connection sequence regressed or conflicted")
         if event.sequence != last_seq + 1:
-            recovering = True
-            anchor = grid[0] if anchor is None else anchor
-            record(event.received_at, event.kind, "SEQUENCE_GAP", event, critical=True)
-        cursors[event.connection] = (event.sequence, event.event_id)
-        identities[event.event_id] = identity
-        if event.event_id in processed:
-            record(event.received_at, event.kind, "DUPLICATE_DELIVERY", event)
+            self.recovering = True
+            self.anchor = self.grid[0] if self.anchor is None else self.anchor
+            self._record(event.received_at, event.kind, "SEQUENCE_GAP", event, critical=True)
+        self.cursors[event.connection] = (event.sequence, event.event_id)
+        self.identities[event.event_id] = identity
+        if event.event_id in self.processed:
+            self._record(event.received_at, event.kind, "DUPLICATE_DELIVERY", event)
             return
         if event.kind == "CONNECT":
-            processed.add(event.event_id)
-            if connected and active_connection != event.connection:
-                recovering = True
-                record(event.received_at, event.kind, "UNANNOUNCED_CONNECTION_CHANGE", event, critical=True)
-            if ever_connected:
-                recovering = True
-            connected, ever_connected, active_connection = True, True, event.connection
-            record(event.received_at, event.kind, "CONNECTED", event)
+            self.processed.add(event.event_id)
+            if self.connected and self.active_connection != event.connection:
+                self.recovering = True
+                self._record(event.received_at, event.kind, "UNANNOUNCED_CONNECTION_CHANGE", event, critical=True)
+            if self.ever_connected:
+                self.recovering = True
+            self.connected, self.ever_connected, self.active_connection = True, True, event.connection
+            self._record(event.received_at, event.kind, "CONNECTED", event)
             return
-        if event.connection != active_connection or not connected:
-            record(event.received_at, event.kind, "INACTIVE_CONNECTION", event, critical=True)
-            recovering = True
+        if event.connection != self.active_connection or not self.connected:
+            self._record(event.received_at, event.kind, "INACTIVE_CONNECTION", event, critical=True)
+            self.recovering = True
             return
-        processed.add(event.event_id)
+        self.processed.add(event.event_id)
         if event.kind == "DISCONNECT":
-            connected, recovering = False, True
-            anchor = event.received_at.replace(second=0, microsecond=0)
-            record(event.received_at, event.kind, "DISCONNECTED", event, critical=True)
+            self.connected, self.recovering = False, True
+            self.anchor = event.received_at.replace(second=0, microsecond=0)
+            self._record(event.received_at, event.kind, "DISCONNECTED", event, critical=True)
             return
         if event.kind == "SYNC":
-            required = {(s, t) for t in grid if t + MINUTE <= event.through and (anchor is None or t >= anchor) for s in symbols}
-            required |= {key for key in gaps if key[1] + MINUTE <= event.through}
-            if event.through < event.received_at.replace(second=0, microsecond=0) or not required.issubset(raw_seen):
-                recovering = True
-                record(event.received_at, event.kind, "SYNC_INCOMPLETE", event, critical=True)
+            required = {(s, t) for t in self.grid if t + MINUTE <= event.through and (self.anchor is None or t >= self.anchor) for s in self.symbols}
+            required |= {key for key in self.gaps if key[1] + MINUTE <= event.through}
+            if event.through < event.received_at.replace(second=0, microsecond=0) or not required.issubset(self.raw_seen):
+                self.recovering = True
+                self._record(event.received_at, event.kind, "SYNC_INCOMPLETE", event, critical=True)
             else:
-                recovering, anchor = False, None
-                record(event.received_at, event.kind, "SYNCHRONIZED", event)
+                self.recovering, self.anchor = False, None
+                self._record(event.received_at, event.kind, "SYNCHRONIZED", event)
             return
         key = (event.bar.symbol, event.bar.timestamp)
-        prior_bar = versions.get(key)
+        prior_bar = self.versions.get(key)
         bar_hash = _hash(_json(asdict(event.bar)))
         if prior_bar is not None:
             revision, prior_hash = prior_bar
             if event.revision < revision:
-                record(event.received_at, event.kind, "STALE_REVISION", event)
+                self._record(event.received_at, event.kind, "STALE_REVISION", event)
                 return
             if event.revision == revision:
                 if prior_hash != bar_hash:
-                    invalid.add(event.bar.symbol)
-                    candidates.pop(key, None)
-                    record(event.received_at, event.kind, "REVISION_CONFLICT", event, critical=True)
+                    self.invalid.add(event.bar.symbol)
+                    self.candidates.pop(key, None)
+                    self._record(event.received_at, event.kind, "REVISION_CONFLICT", event, critical=True)
                 else:
-                    record(event.received_at, event.kind, "DUPLICATE_BAR", event)
+                    self._record(event.received_at, event.kind, "DUPLICATE_BAR", event)
                 return
-        raw_seen.add(key)
-        gaps.discard(key)
-        versions[key] = (event.revision, bar_hash)
+        self.raw_seen.add(key)
+        self.gaps.discard(key)
+        self.versions[key] = (event.revision, bar_hash)
         if event.received_at > event.bar.timestamp + MINUTE:
             if prior_bar is not None:
-                invalid.add(event.bar.symbol)
+                self.invalid.add(event.bar.symbol)
                 disposition = "POST_CUTOFF_REVISION"
             else:
-                recovering = True
-                anchor = event.bar.timestamp if anchor is None else min(anchor, event.bar.timestamp)
+                self.recovering = True
+                self.anchor = event.bar.timestamp if self.anchor is None else min(self.anchor, event.bar.timestamp)
                 disposition = "LATE_BAR"
-            record(event.received_at, event.kind, disposition, event, critical=True)
+            self._record(event.received_at, event.kind, disposition, event, critical=True)
             return
-        candidates[key] = event
-        record(event.received_at, event.kind, "REVISED_BEFORE_FREEZE" if prior_bar else "ACCEPTED", event)
+        self.candidates[key] = event
+        self._record(event.received_at, event.kind, "REVISED_BEFORE_FREEZE" if prior_bar else "ACCEPTED", event)
 
+
+def compile_ingress(source, deliveries):
+    """Compatibility compiler using the same incremental policy as P2-H5."""
+    events = tuple(deliveries)
+    symbols, grid = session_grid(source)
+    machine = MinuteIngress(source, symbols, grid)
     index = 0
     while index < len(events):
         at = events[index].received_at
-        while cursor < len(grid) and grid[cursor] + MINUTE < at:
-            freeze(grid[cursor])
-            cursor += 1
+        machine.advance_before(at)
         while index < len(events) and events[index].received_at == at:
-            consume(events[index])
+            machine.consume(events[index])
             index += 1
-        if cursor < len(grid) and grid[cursor] + MINUTE == at:
-            freeze(grid[cursor])
-            cursor += 1
-        else:
-            snapshot(at)
-    while cursor < len(grid):
-        freeze(grid[cursor])
-        cursor += 1
+        machine.close_group(at)
+    machine.finish()
+    frozen, records, states = machine.frozen, machine.records, machine.states
     # All records are in receipt/cutoff order, including events after the last close.
     context = dict(contract="P2-H4:1", event_count=len(events), input_event_sha256=_hash(_json([asdict(e) for e in events])),
                    states_sha256=_hash(_json([asdict(s) for s in states])),

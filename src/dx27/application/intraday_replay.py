@@ -163,7 +163,10 @@ class IntradayLedgerReplay:
     def _execution_complete(self):
         return True
 
-    def run(self, dataset: IntradayDataset, *, observer=None) -> ReplayResult:
+    def _after_replay(self):
+        pass
+
+    def run(self, dataset: IntradayDataset, *, observer=None, minute_source=None) -> ReplayResult:
         """Optionally publish detached records after each completed minute/session.
 
         The observer records historical shadow evidence; it cannot change the
@@ -178,14 +181,19 @@ class IntradayLedgerReplay:
             raise ValueError("opening volume replay requires declared SIP data or a labeled synthetic fixture")
         if not dataset.bars:
             raise ValueError("replay requires minute data")
-        by_time, keys = {}, set()
-        for bar in dataset.bars:
-            validate_bar(bar)
-            key = (bar.timestamp, bar.symbol)
-            if key in keys:
-                raise ValueError("duplicate symbol/timestamp")
-            keys.add(key)
-            by_time.setdefault(bar.timestamp, {})[bar.symbol] = bar
+        if minute_source is None:
+            by_time, keys = {}, set()
+            for bar in dataset.bars:
+                validate_bar(bar)
+                key = (bar.timestamp, bar.symbol)
+                if key in keys:
+                    raise ValueError("duplicate symbol/timestamp")
+                keys.add(key)
+                by_time.setdefault(bar.timestamp, {})[bar.symbol] = bar
+        else:
+            # Calendar/universe come from sealed source context. Prices are
+            # supplied only by the incremental receiver's completed minute.
+            by_time = minute_source
         symbols = sorted(set(b.symbol for b in dataset.bars) | set(dataset.provenance.get("symbols", ())))
         selector = OpeningVolumeSelector(symbols, cfg.opening_volume) if cfg.opening_volume else None
         offsets, previous_quality = {}, {}
@@ -379,6 +387,7 @@ class IntradayLedgerReplay:
                                    cash=ending.cash, open_positions=len(self.positions), data_complete=complete,
                                    daily_loss_halted=loss_halted, decision_period=active))
             emit("SESSION_COMPLETED", session.closes_at, session)
+        self._after_replay()
         snapshot = self.account.get_account_snapshot()
         commissions = sum(f["commission"] for f in self.fills)
         cash_flow = sum(f["cash_delta"] for f in self.fills)
