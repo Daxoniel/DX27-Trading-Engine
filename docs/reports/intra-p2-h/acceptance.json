@@ -1,0 +1,193 @@
+{
+  "task": "P2-H1",
+  "contract": "P2-H:1",
+  "date": "2026-10-14",
+  "status": "PASS_OFFLINE_CONFORMANCE",
+  "source_csv_sha256": "67cef18fb985a749bc333713cc99e737032e89c714257dc87b45f83aea559f91",
+  "source_archive_sha256": "81fd4f1658e47ec0d6e812bc20d866f28c3f54abca19b2f9e92882af9ba43a38",
+  "scripted_fault_cases": {
+    "partial_cancel": {
+      "passed": true,
+      "cash": "9599.65",
+      "positions": {
+        "SPY": 4
+      },
+      "ready": true,
+      "orders": 1,
+      "submit_calls": 1,
+      "cancel_calls": 1,
+      "integrity_halt": null,
+      "order_audit_chain": "85d9bfaf6f6e99f4fb7248c815388350fdd4d11694855d22b2d0f7e10302f7ca",
+      "broker_audit_chain": "c50b9a2a6922468ca1afab9a3279b4d279aa062eebdcc66986ecb346a0db7081"
+    },
+    "reject_expire": {
+      "passed": true,
+      "cash": "10000",
+      "positions": {},
+      "ready": true,
+      "orders": 2,
+      "submit_calls": 2,
+      "cancel_calls": 0,
+      "integrity_halt": null,
+      "order_audit_chain": "81b81c0547c0ff59a44814512bf383b39a1eab81bbf8a5badc71b0841a4be1ad",
+      "broker_audit_chain": "6361242a935e0029ffd611bb2acab649c2bdc91693eaa0656affef4c724afc6d"
+    },
+    "submit_reply_lost": {
+      "passed": true,
+      "cash": "10000",
+      "positions": {},
+      "ready": true,
+      "orders": 1,
+      "submit_calls": 1,
+      "cancel_calls": 0,
+      "integrity_halt": null,
+      "order_audit_chain": "2f35bc65593d58b9053edfdfdb49f5b29cde80856ae85a3bf53b0dc8bfa3172a",
+      "broker_audit_chain": "af6fcbbc2f5da1588669e019b153ecb78f2f71e476ffbb9f6937b99d2a75253d"
+    },
+    "submit_not_found": {
+      "passed": true,
+      "cash": "10000",
+      "positions": {},
+      "ready": false,
+      "orders": 1,
+      "submit_calls": 0,
+      "cancel_calls": 0,
+      "integrity_halt": null,
+      "order_audit_chain": "c15e5f232519964b7b3a787db24fdaf1f2abdb0ea75cc9b99d124e7691683ec0",
+      "broker_audit_chain": "71a5b47ca75fd32e1d11c7902027974a0ab28f5fd158e61a2330b982c21450ff"
+    },
+    "cancel_reply_lost": {
+      "passed": true,
+      "cash": "9599.65",
+      "positions": {
+        "SPY": 4
+      },
+      "ready": true,
+      "orders": 1,
+      "submit_calls": 1,
+      "cancel_calls": 1,
+      "integrity_halt": null,
+      "order_audit_chain": "b671b67408df2672293134fb1a763a1e6a623358a29182dec2699579784bfd58",
+      "broker_audit_chain": "0ed00800be9684e5238105610c7b22e3114fdcec004edb94c85eaf17bd4f7684"
+    },
+    "fill_cancel_race": {
+      "passed": true,
+      "cash": "8999.65",
+      "positions": {
+        "SPY": 10
+      },
+      "ready": true,
+      "orders": 1,
+      "submit_calls": 1,
+      "cancel_calls": 1,
+      "integrity_halt": null,
+      "order_audit_chain": "41f288f34543fa42877a90c7317190ed27e88f33ced9079ca2718b611922c5a7",
+      "broker_audit_chain": "eac2b9e4eb3f0033e25f0ad5a02ce86bdd9cac007cfe13d8d1b60fcada135086"
+    },
+    "cash_mismatch": {
+      "passed": true,
+      "cash": "10000",
+      "positions": {},
+      "ready": true,
+      "orders": 1,
+      "submit_calls": 1,
+      "cancel_calls": 0,
+      "integrity_halt": null,
+      "order_audit_chain": "f4e12a5e381cd2f787dc754b677aa87618361b2d8a9437e6914deddbb13ca33c",
+      "broker_audit_chain": "c865ca10ce1591f88a6c692d169e12787de1dd8e56188580984d87327823e69f"
+    },
+    "budget_breach": {
+      "passed": true,
+      "cash": "-9.35",
+      "positions": {
+        "SPY": 10
+      },
+      "ready": false,
+      "orders": 1,
+      "submit_calls": 1,
+      "cancel_calls": 0,
+      "integrity_halt": "reported_execution_exceeds_local_budget",
+      "order_audit_chain": "6ae7c0a0238bce1af0f7f83eaf41dac4f2b557e5ced313eca77d321d0ccd1991",
+      "broker_audit_chain": "8e50607817050e1898530e845532b02b3af83c8cb8d32eb68a1cfee77a4b1600"
+    },
+    "restart_after_remote_partial": {
+      "passed": true,
+      "cash": "9599.65",
+      "positions": {
+        "SPY": 4
+      },
+      "ready": true,
+      "orders": 1,
+      "submit_calls": 1,
+      "cancel_calls": 0,
+      "integrity_halt": null,
+      "order_audit_chain": "e00e6469ef229e5238d1974bd597b693e86fe42dbff5517f992d0b5220076c6c",
+      "broker_audit_chain": "0ae0e4625f9d53e8daec17ef0c7f317d10c3b46b05724e9a51537c3611ed9cf7"
+    }
+  },
+  "historical_traces": {
+    "INTRA-1A": {
+      "source_trace_sha256": "1452f30b352811ad49870e1d750d416861857303a07eb474db4563204bd249e9",
+      "source_task": "INTRA-1A",
+      "source_fills": 92,
+      "partial_reports_in_this_run": 92,
+      "new_submit_calls": 92,
+      "modeled_cash_residual": "-0.00000000002",
+      "same_final_modeled_account": true,
+      "cash": "98293.37199075",
+      "positions": {},
+      "ready": true,
+      "orders": 92,
+      "submit_calls": 92,
+      "cancel_calls": 0,
+      "integrity_halt": null,
+      "order_audit_chain": "a1bd76a9a4b3c0b25fbd06808cff88c3141a5fef957214166527de1a50a5bb71",
+      "broker_audit_chain": "8db31299281c2039bf1c82b27cac9863c2650c1ee0686d4020689b4d07672552"
+    },
+    "INTRA-1B": {
+      "source_trace_sha256": "473954ca9309a2dcb1f942ca59e47ac2148741d229b6ce3fa3dfa5701e9a623b",
+      "source_task": "INTRA-1B",
+      "source_fills": 30,
+      "partial_reports_in_this_run": 30,
+      "new_submit_calls": 30,
+      "modeled_cash_residual": "-0.00000000901",
+      "same_final_modeled_account": true,
+      "cash": "99194.33766854",
+      "positions": {},
+      "ready": true,
+      "orders": 30,
+      "submit_calls": 30,
+      "cancel_calls": 0,
+      "integrity_halt": null,
+      "order_audit_chain": "1ef5795f896cffbba1391044a650ee6f2622f4a78be91f292afae37621493521",
+      "broker_audit_chain": "b13baab434360bb3c4e39f877f386b19bb168e0756f2475ea991a1991b73fe97"
+    },
+    "INTRA-1B_REPEAT": {
+      "source_trace_sha256": "473954ca9309a2dcb1f942ca59e47ac2148741d229b6ce3fa3dfa5701e9a623b",
+      "source_task": "INTRA-1B",
+      "source_fills": 30,
+      "partial_reports_in_this_run": 0,
+      "new_submit_calls": 0,
+      "modeled_cash_residual": "-0.00000000901",
+      "same_final_modeled_account": true,
+      "cash": "99194.33766854",
+      "positions": {},
+      "ready": true,
+      "orders": 30,
+      "submit_calls": 30,
+      "cancel_calls": 0,
+      "integrity_halt": null,
+      "order_audit_chain": "7529d60eaecf2482cdd48fe142d30c33cb90ca51f256746852fd187377358a00",
+      "broker_audit_chain": "b13baab434360bb3c4e39f877f386b19bb168e0756f2475ea991a1991b73fe97"
+    }
+  },
+  "software_validation": {
+    "new_integration_checks": 39,
+    "final_regression_and_cross_platform_results": "RECORDED_IN_PR"
+  },
+  "real_broker_orders_enabled": false,
+  "realtime_data_verified": false,
+  "strategy_execution_feedback_verified": false,
+  "effectiveness": "NOT_EVALUATED",
+  "untouched_evaluation_period": false
+}

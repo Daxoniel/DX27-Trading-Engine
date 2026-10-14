@@ -59,6 +59,8 @@ jobs:
           tests/integration/test_intraday_ledger.py
           tests/integration/test_intraday_volume_selection.py
           tests/integration/test_intraday_recorded_shadow.py
+          tests/integration/test_intraday_order_lifecycle.py
+          tests/integration/test_intraday_execution_conformance.py
       - name: Run labeled synthetic demo
         run: python -m dx27.adapters.intraday.cli demo --output work/intra-1a-demo
       - name: Record and replay historical shadow journal without credentials
@@ -67,9 +69,16 @@ jobs:
           --input work/intra-1a-demo/synthetic-minute-bars.csv
           --journal work/intra-1a-demo/shadow.sqlite3
           --output work/intra-1a-demo/shadow-report
+      - name: Validate offline order lifecycle and historical partial-fill trace
+        run: >-
+          python -m dx27.adapters.intraday.execution_conformance
+          --source-journal work/intra-1a-demo/shadow.sqlite3
+          --output work/intra-1a-demo/lifecycle-report
       - uses: actions/upload-artifact@v4
         with:
           name: intra-1a-synthetic-${{ matrix.os }}
           path: |
             work/intra-1a-demo/report
             work/intra-1a-demo/shadow-report
+            work/intra-1a-demo/lifecycle-report/acceptance.json
+            work/intra-1a-demo/lifecycle-report/report.md
