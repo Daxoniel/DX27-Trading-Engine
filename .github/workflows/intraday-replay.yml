@@ -58,9 +58,18 @@ jobs:
           tests/integration/test_intraday_breakout_flow.py
           tests/integration/test_intraday_ledger.py
           tests/integration/test_intraday_volume_selection.py
+          tests/integration/test_intraday_recorded_shadow.py
       - name: Run labeled synthetic demo
         run: python -m dx27.adapters.intraday.cli demo --output work/intra-1a-demo
+      - name: Record and replay historical shadow journal without credentials
+        run: >-
+          python -m dx27.adapters.intraday.recorded_shadow
+          --input work/intra-1a-demo/synthetic-minute-bars.csv
+          --journal work/intra-1a-demo/shadow.sqlite3
+          --output work/intra-1a-demo/shadow-report
       - uses: actions/upload-artifact@v4
         with:
           name: intra-1a-synthetic-${{ matrix.os }}
-          path: work/intra-1a-demo/report
+          path: |
+            work/intra-1a-demo/report
+            work/intra-1a-demo/shadow-report

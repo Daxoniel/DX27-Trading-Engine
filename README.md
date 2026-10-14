@@ -12,6 +12,8 @@ is intraday automated quantitative trading.
 
 - [Open the final Sentinel report on Windows](docs/operations/sentinel-research-report.md):
   FactSet/Yardeni refresh when the page opens, with a brief saved-visit comparison.
+- [Historical Shadow Mode and restart recovery](docs/operations/intraday-recorded-shadow.md):
+  reuse sealed old minute bars offline; no realtime subscription or broker orders.
 - [Current roadmap and freeze](TODO.md).
 - [System architecture](docs/architecture/system-overview.md).
 
