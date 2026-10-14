@@ -64,6 +64,7 @@ jobs:
           tests/integration/test_intraday_closed_loop.py
           tests/integration/test_intraday_runner.py
           tests/integration/test_intraday_market_ingress.py
+          tests/integration/test_intraday_incremental_shadow.py
       - name: Run labeled synthetic demo
         run: python -m dx27.adapters.intraday.cli demo --output work/intra-1a-demo
       - name: Record and replay historical shadow journal without credentials
@@ -121,6 +122,25 @@ jobs:
           --run-directory work/intra-1a-demo/event-runtime
           --profile examples/intraday/p2h2-partial-delayed.json
           --output work/intra-1a-demo/event-report
+      - name: Run bounded incremental historical shadow
+        run: >-
+          python -m dx27.adapters.intraday.incremental_shadow run
+          --input work/intra-1a-demo/synthetic-minute-bars.csv
+          --events work/intra-1a-demo/events.jsonl
+          --journal work/intra-1a-demo/incremental.sqlite3
+          --run-directory work/intra-1a-demo/incremental-runtime
+          --queue-capacity 2
+          --profile examples/intraday/p2h2-partial-delayed.json
+          --output work/intra-1a-demo/incremental-report
+      - name: Verify completed incremental shadow without reparsing events
+        run: >-
+          python -m dx27.adapters.intraday.incremental_shadow run
+          --input work/intra-1a-demo/synthetic-minute-bars.csv
+          --events work/intra-1a-demo/events.jsonl
+          --journal work/intra-1a-demo/incremental.sqlite3
+          --run-directory work/intra-1a-demo/incremental-runtime
+          --queue-capacity 2
+          --profile examples/intraday/p2h2-partial-delayed.json
       - uses: actions/upload-artifact@v4
         with:
           name: intra-1a-synthetic-${{ matrix.os }}
@@ -133,3 +153,5 @@ jobs:
             work/intra-1a-demo/runtime/health.json
             work/intra-1a-demo/event-report
             work/intra-1a-demo/event-runtime/health.json
+            work/intra-1a-demo/incremental-report
+            work/intra-1a-demo/incremental-runtime/health.json

@@ -55,10 +55,15 @@
   envelopes, receipt-cutoff freezing, delivery/bar deduplication, revisions and
   reconnect/SYNC quality gates; feeds shared replay and supervisor. See
   [operations](docs/operations/intraday-market-ingress.md).
-- [ ] **P2-H5 incremental historical Shadow loop — NEXT** — process normalized
-  events incrementally, persist receiver cursors, bound queues/watermarks and
-  verify restart/backpressure without full-trace compilation. Continue old-data
-  tests with strategy parameters unchanged and real orders OFF.
+- [x] **P2-H5 incremental historical Shadow input** — shared per-event
+  policy, durable byte/line/prefix cursors and on-disk deduplication state,
+  bounded queues with backpressure, atomic receiver/minute checkpoints;
+  restore receiver directly and rebuild strategy from stored minute snapshots.
+  See [operations](docs/operations/intraday-incremental-shadow.md).
+- [ ] **P2-H6 paper adapter contract and disabled execution gateway — NEXT** —
+  normalize broker query/update IDs, reconciliation and admission gates using
+  recorded/fake responses before any actual submission. Keep real orders OFF,
+  defer paid realtime and continue framework checks before algorithm tuning.
 - [ ] **P2 automated paper trading** — default order switch OFF, paper endpoint
   only, durable order IDs, partial fills, cancel/reject handling, recovery and
   broker-position reconciliation before enabling automation. Historical simulated

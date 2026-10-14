@@ -1,0 +1,111 @@
+{
+  "task": "P2-H5",
+  "source_csv_sha256": "67cef18fb985a749bc333713cc99e737032e89c714257dc87b45f83aea559f91",
+  "source_context_bars": 145553,
+  "regular_session_bars": 70200,
+  "sessions": 60,
+  "normalized_deliveries": 70201,
+  "queue_capacity": 16,
+  "runs": {
+    "paused": {
+      "status": "PAUSED",
+      "receipt": {
+        "algorithm_optimization_performed": false,
+        "appended_frames": 1002,
+        "backpressure_signals": 188,
+        "events_parsed_this_attempt": 3009,
+        "frames": 1002,
+        "journal_chain_sha256": "68575e3fac011f703674ac25ca719c33902f179bd73cc0af4128828cb81f2924",
+        "queue_capacity": 16,
+        "queue_peak": 16,
+        "real_broker_orders_enabled": false,
+        "realtime_data_verified": false,
+        "receiver_events": 3001,
+        "source_cursor": {
+          "byte_offset": 1243814,
+          "line_number": 3001,
+          "prefix_sha256": "ef9f1a27b1b590a70e295693129d6da060fa3c3cf8e071135c854297e534c40f"
+        },
+        "source_cursor_at_start": {
+          "byte_offset": 0,
+          "line_number": 0,
+          "prefix_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "source_eof": false,
+        "status": "PAUSED",
+        "task": "P2-H5",
+        "verified_prefix_frames": 0
+      }
+    },
+    "resumed": {
+      "status": "COMPLETED",
+      "receipt": {
+        "algorithm_optimization_performed": false,
+        "appended_frames": 22459,
+        "backpressure_signals": 4199,
+        "events_parsed_this_attempt": 67200,
+        "frames": 23461,
+        "journal_chain_sha256": "d3f6c1c485de71d264dc043c2067a66d05ca32c49ca64d6a1673b158eb267136",
+        "queue_capacity": 16,
+        "queue_peak": 16,
+        "real_broker_orders_enabled": false,
+        "realtime_data_verified": false,
+        "receiver_events": 70201,
+        "source_cursor": {
+          "byte_offset": 29188946,
+          "line_number": 70201,
+          "prefix_sha256": "ca4b76550d183382a29727cb2f0d585a8c2f4f02232cc87586fc33f8b8cd192a"
+        },
+        "source_cursor_at_start": {
+          "byte_offset": 1243814,
+          "line_number": 3001,
+          "prefix_sha256": "ef9f1a27b1b590a70e295693129d6da060fa3c3cf8e071135c854297e534c40f"
+        },
+        "source_eof": true,
+        "status": "COMPLETED",
+        "task": "P2-H5",
+        "verified_prefix_frames": 1002
+      }
+    },
+    "repeat": {
+      "status": "COMPLETED",
+      "receipt": {
+        "algorithm_optimization_performed": false,
+        "appended_frames": 0,
+        "backpressure_signals": 0,
+        "events_parsed_this_attempt": 0,
+        "frames": 23461,
+        "journal_chain_sha256": "d3f6c1c485de71d264dc043c2067a66d05ca32c49ca64d6a1673b158eb267136",
+        "queue_capacity": 16,
+        "queue_peak": 0,
+        "real_broker_orders_enabled": false,
+        "realtime_data_verified": false,
+        "receiver_events": 70201,
+        "source_cursor": {
+          "byte_offset": 29188946,
+          "line_number": 70201,
+          "prefix_sha256": "ca4b76550d183382a29727cb2f0d585a8c2f4f02232cc87586fc33f8b8cd192a"
+        },
+        "source_cursor_at_start": {
+          "byte_offset": 29188946,
+          "line_number": 70201,
+          "prefix_sha256": "ca4b76550d183382a29727cb2f0d585a8c2f4f02232cc87586fc33f8b8cd192a"
+        },
+        "source_eof": true,
+        "status": "COMPLETED",
+        "task": "P2-H5",
+        "verified_prefix_frames": 23461
+      }
+    }
+  },
+  "fixed_profile_fills_match": true,
+  "modeled_fills": 60,
+  "completed_round_trips": 15,
+  "realized_exit_fragments": 30,
+  "ending_cash": 99322.90005194,
+  "broker_ending_positions": {},
+  "active_orders": 0,
+  "real_broker_orders_enabled": false,
+  "algorithm_optimization_performed": false,
+  "effectiveness": "NOT_EVALUATED"
+}

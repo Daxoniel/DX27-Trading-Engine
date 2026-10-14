@@ -364,8 +364,8 @@ class ClosedLoopReplay(IntradayLedgerReplay):
     def _execution_complete(self):
         return not self._active() and self.book.ready and not self.broker.journal.state["positions"] and (self.ingress is None or self.ingress.complete)
 
-    def run(self, dataset, *, observer=None):
-        result = super().run(dataset, observer=observer)
+    def run(self, dataset, *, observer=None, minute_source=None):
+        result = super().run(dataset, observer=observer, minute_source=minute_source)
         result.summary.update(task="P2-H2", runner_version="P2-H2:1", execution_profile=asdict(self.profile),
                               underlying_strategy="INTRA-1B" if self.config.opening_volume else "INTRA-1A",
                               order_count=len(self.orders), active_orders=len(self._active()),
