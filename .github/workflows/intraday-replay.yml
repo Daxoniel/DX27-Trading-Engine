@@ -63,6 +63,7 @@ jobs:
           tests/integration/test_intraday_execution_conformance.py
           tests/integration/test_intraday_closed_loop.py
           tests/integration/test_intraday_runner.py
+          tests/integration/test_intraday_market_ingress.py
       - name: Run labeled synthetic demo
         run: python -m dx27.adapters.intraday.cli demo --output work/intra-1a-demo
       - name: Record and replay historical shadow journal without credentials
@@ -101,6 +102,25 @@ jobs:
         run: >-
           python -m dx27.adapters.intraday.runner status
           --run-directory work/intra-1a-demo/runtime
+      - name: Convert synthetic closed-bar event trace
+        run: >-
+          python -m dx27.adapters.intraday.market_ingress convert
+          --input work/intra-1a-demo/synthetic-minute-bars.csv
+          --output work/intra-1a-demo/events.jsonl
+      - name: Inspect declared event cutoffs and quality
+        run: >-
+          python -m dx27.adapters.intraday.market_ingress inspect
+          --input work/intra-1a-demo/synthetic-minute-bars.csv
+          --events work/intra-1a-demo/events.jsonl
+      - name: Run supervised historical event feedback
+        run: >-
+          python -m dx27.adapters.intraday.runner run
+          --input work/intra-1a-demo/synthetic-minute-bars.csv
+          --events work/intra-1a-demo/events.jsonl
+          --journal work/intra-1a-demo/event-loop.sqlite3
+          --run-directory work/intra-1a-demo/event-runtime
+          --profile examples/intraday/p2h2-partial-delayed.json
+          --output work/intra-1a-demo/event-report
       - uses: actions/upload-artifact@v4
         with:
           name: intra-1a-synthetic-${{ matrix.os }}
@@ -111,3 +131,5 @@ jobs:
             work/intra-1a-demo/lifecycle-report/report.md
             work/intra-1a-demo/closed-loop-report
             work/intra-1a-demo/runtime/health.json
+            work/intra-1a-demo/event-report
+            work/intra-1a-demo/event-runtime/health.json

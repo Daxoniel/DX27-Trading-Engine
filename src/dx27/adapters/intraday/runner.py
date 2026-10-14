@@ -105,7 +105,7 @@ def _journal_snapshot(path, manifest):
         connection.close()
 
 
-def preflight(dataset, journal, run_directory, config=None, profile=None, *, output=None, protected_paths=()):
+def preflight(dataset, journal, run_directory, config=None, profile=None, *, output=None, protected_paths=(), ingress=None):
     """Read-only validation; neither reports nor lease databases are created."""
     config, profile = config or IntradayReplayConfig(), profile or HistoricalExecutionProfile()
     journal, directory = Path(journal).resolve(), Path(run_directory).resolve()
@@ -123,7 +123,7 @@ def preflight(dataset, journal, run_directory, config=None, profile=None, *, out
     try:
         if config.opening_volume and dataset.provenance.get("feed") != "sip" and dataset.provenance.get("source") != "SYNTHETIC_DEMO":
             raise RunnerError("OPENING_VOLUME_SOURCE_UNSUPPORTED")
-        manifest = closed_loop_manifest(dataset, config, profile)
+        manifest = closed_loop_manifest(dataset, config, profile, ingress)
         _, sessions = replay_sessions(dataset)
         opens = [s.opens_at for s in sessions]
         symbols = set(b.symbol for b in dataset.bars) | set(dataset.provenance.get("symbols", ()))
@@ -155,7 +155,8 @@ def preflight(dataset, journal, run_directory, config=None, profile=None, *, out
                 active_sessions=active, regular_session_bars=regular, missing_regular_bars=expected - regular,
                 zero_volume_bars=zero, data_quality_complete=regular == expected and zero == 0,
                 real_broker_orders_enabled=False, realtime_data_verified=False,
-                algorithm_optimization_performed=False)
+                algorithm_optimization_performed=False,
+                market_ingress=ingress.receipt() if ingress is not None else None)
 
 
 @contextmanager
@@ -207,13 +208,13 @@ def _retryable(exc):
 
 
 def run_managed(dataset, journal, run_directory, config=None, profile=None, *, output=None,
-                protected_paths=(), stop_after_minutes=None, max_restarts=0, control=None):
+                protected_paths=(), stop_after_minutes=None, max_restarts=0, control=None, ingress=None):
     if isinstance(max_restarts, bool) or not isinstance(max_restarts, int) or not 0 <= max_restarts <= 3:
         raise RunnerError("INVALID_RESTART_LIMIT")
     if stop_after_minutes is not None and (isinstance(stop_after_minutes, bool) or not isinstance(stop_after_minutes, int) or stop_after_minutes < 1):
         raise RunnerError("INVALID_PAUSE_LIMIT")
     config, profile = config or IntradayReplayConfig(), profile or HistoricalExecutionProfile()
-    check = preflight(dataset, journal, run_directory, config, profile, output=output, protected_paths=protected_paths)
+    check = preflight(dataset, journal, run_directory, config, profile, output=output, protected_paths=protected_paths, ingress=ingress)
     directory = Path(run_directory).resolve()
     with _owner(directory):
         # Recheck identity after ownership: concurrent starters cannot overwrite status.
@@ -257,14 +258,14 @@ def run_managed(dataset, journal, run_directory, config=None, profile=None, *, o
                 persist()
                 # Writable SQLite rollback is authorized only in run, under
                 # both ownership leases. No frames are appended here.
-                with ShadowJournal(journal, closed_loop_manifest(dataset, config, profile)):
+                with ShadowJournal(journal, closed_loop_manifest(dataset, config, profile, ingress)):
                     pass
                 state["storage_recovery_performed"] = True
                 persist()
             for attempt in range(max_restarts + 1):
                 try:
                     receipt, result = run_closed_loop(dataset, journal, config, profile,
-                        stop_after_minutes=stop_after_minutes, control=observe)
+                        stop_after_minutes=stop_after_minutes, control=observe, ingress=ingress)
                     break
                 except Exception as exc:
                     if attempt >= max_restarts or not _retryable(exc):
@@ -281,6 +282,8 @@ def run_managed(dataset, journal, run_directory, config=None, profile=None, *, o
                 state["progress"]["committed_frames"] = max(state["progress"]["committed_frames"], receipt["frames"])
                 if result is not None:
                     state["progress"]["kind"] = "RUN_COMPLETED"
+                    if receipt.get("as_of"):
+                        state["progress"]["as_of"] = receipt["as_of"]
             if output is not None and result is not None:
                 try:
                     write_report(result, output)
@@ -314,6 +317,7 @@ def main(argv=None):
         p.add_argument("--config")
         p.add_argument("--decision-start")
         p.add_argument("--profile")
+        p.add_argument("--events", help="declared historical event JSONL; freezes receipt cutoffs and applies feed gates")
         p.add_argument("--output")
         if command == "run":
             p.add_argument("--stop-after-minutes", type=int)
@@ -337,7 +341,14 @@ def main(argv=None):
         profile = HistoricalExecutionProfile(**values)
         protected = [args.input, str(args.input) + ".metadata.json", str(args.input) + ".raw.jsonl"]
         protected.extend(p for p in (args.config, args.profile) if p)
-        options = dict(output=args.output, protected_paths=protected)
+        ingress = None
+        if args.events:
+            from dx27.adapters.intraday.market_ingress import load_events
+            from dx27.application.market_ingress import compile_ingress
+            ingress = compile_ingress(dataset, load_events(args.events, dataset))
+            dataset = ingress.dataset
+            protected.extend((args.events, args.events + ".metadata.json"))
+        options = dict(output=args.output, protected_paths=protected, ingress=ingress)
         if args.command == "preflight":
             check = preflight(dataset, args.journal, args.run_directory, config, profile, **options)
             print(_json(check))

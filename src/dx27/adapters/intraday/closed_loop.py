@@ -3,6 +3,7 @@
 import argparse
 from copy import deepcopy
 from dataclasses import asdict
+from datetime import datetime
 import json
 from pathlib import Path
 import sqlite3
@@ -18,19 +19,24 @@ from dx27.domains.intraday.execution_profile import HistoricalExecutionProfile
 from dx27.domains.intraday.replay_config import IntradayReplayConfig
 
 
-def closed_loop_manifest(dataset, config, profile):
+def closed_loop_manifest(dataset, config, profile, ingress=None):
     manifest = dict(manifest_for(dataset, config), contract_version="P2-H2:1",
                     mode="HISTORICAL_CLOSED_LOOP", profile=asdict(profile),
                     recovery="DETERMINISTIC_OFFLINE_REBUILD")
+    if ingress is not None:
+        ingress.validate(dataset)
+        manifest.update(contract_version="P2-H4:1", mode="HISTORICAL_MARKET_EVENT_CLOSED_LOOP", market_ingress=ingress.manifest)
+    elif dataset.provenance.get("market_ingress") is not None:
+        raise ValueError("frozen event input requires its ingress gates")
     return manifest
 
 
-def run_closed_loop(dataset, journal, config=None, profile=None, *, stop_after_minutes=None, control=None):
+def run_closed_loop(dataset, journal, config=None, profile=None, *, stop_after_minutes=None, control=None, ingress=None):
     config = config or IntradayReplayConfig()
     profile = profile or HistoricalExecutionProfile()
     if stop_after_minutes is not None and (isinstance(stop_after_minutes, bool) or not isinstance(stop_after_minutes, int) or stop_after_minutes < 1):
         raise ValueError("stop_after_minutes requires a positive integer")
-    manifest = closed_loop_manifest(dataset, config, profile)
+    manifest = closed_loop_manifest(dataset, config, profile, ingress)
     identity = _hash(_json(manifest))
 
     class Paused(Exception):
@@ -40,12 +46,13 @@ def run_closed_loop(dataset, journal, config=None, profile=None, *, stop_after_m
         with TemporaryDirectory(prefix=".p2h2-rebuild-", dir=store.path.parent) as temporary:
             with OfflineOrderBook(Path(temporary) / "orders.sqlite3", "p2h2:" + identity, config.initial_cash) as book:
                 with ScriptedBroker(Path(temporary) / "broker.sqlite3", "p2h2:" + identity, config.initial_cash) as broker:
-                    engine = ClosedLoopReplay(config, profile, book, broker)
+                    engine = ClosedLoopReplay(config, profile, book, broker, ingress=ingress)
                     minutes, events, prior_orders = 0, 0, {}
                     stopped = False
+                    ingress_at = None
 
                     def record(frame):
-                        nonlocal minutes, events, prior_orders, stopped
+                        nonlocal minutes, events, prior_orders, stopped, ingress_at
                         current = book.journal.state["orders"]
                         frame["orders"] = [deepcopy(order) for cid, order in current.items() if prior_orders.get(cid) != order]
                         # Book mutations replace state, so retained old rows are
@@ -53,6 +60,10 @@ def run_closed_loop(dataset, journal, config=None, profile=None, *, stop_after_m
                         prior_orders = dict(current)
                         frame["execution_events"] = deepcopy(engine.execution_events[events:])
                         events = len(engine.execution_events)
+                        if ingress is not None:
+                            at = datetime.fromisoformat(frame["as_of"])
+                            frame["market_events"] = ingress.between(ingress_at, at)
+                            ingress_at = at
                         new = store.sequence >= store.existing
                         store.append(frame)
                         if control is not None:
@@ -71,19 +82,26 @@ def run_closed_loop(dataset, journal, config=None, profile=None, *, stop_after_m
                     result = None
                     try:
                         result = engine.run(dataset, observer=record)
-                        store.append(dict(kind="RUN_COMPLETED", as_of=result.daily[-1]["session_close"],
-                                          hypothetical=True, summary=result.summary))
+                        final = dict(kind="RUN_COMPLETED", as_of=result.daily[-1]["session_close"],
+                                     hypothetical=True, summary=result.summary)
+                        if ingress is not None:
+                            final_at = max(datetime.fromisoformat(final["as_of"]), ingress.record_times[-1])
+                            final["as_of"] = final_at.isoformat()
+                            final["market_events"] = ingress.between(ingress_at, final_at)
+                        store.append(final)
                         if store.sequence < store.existing:
                             raise ValueError("closed-loop journal has unexpected trailing frames")
                         status = "COMPLETE_CLOSED_LOOP" if result.summary["status"] == "COMPLETE_REPLAY" else "INCOMPLETE_CLOSED_LOOP"
                     except Paused:
                         status = "STOPPED" if stopped else "PAUSED"
-                    receipt = dict(task="P2-H2", status=status, manifest_sha256=identity,
+                    receipt = dict(task="P2-H4" if ingress is not None else "P2-H2", status=status, manifest_sha256=identity,
                                    frames=store.sequence, verified_prefix_frames=store.verified,
                                    appended_frames=store.appended, journal_chain_sha256=store.chain,
                                    recovery="DETERMINISTIC_OFFLINE_REBUILD", simulator_rebuilt_from_start=True,
                                    real_broker_orders_enabled=False, realtime_data_verified=False,
                                    algorithm_optimization_performed=False, effectiveness="NOT_EVALUATED")
+    if ingress is not None and result is not None:
+        receipt["as_of"] = final["as_of"]
     return receipt, result
 
 

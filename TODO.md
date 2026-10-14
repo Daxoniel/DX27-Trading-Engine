@@ -51,10 +51,14 @@
   one supervisor per run directory, atomic heartbeats, cooperative stop,
   interrupted/stalled status and bounded offline reconstruction on transient
   storage failures. See [operations](docs/operations/intraday-runner.md).
-- [ ] **P2-H4 provider-independent event ingress — NEXT** — sealed event
-  envelopes, bar availability, deduplication/revisions, reconnect/replay and
-  data-quality gates; continue historical tests before paid realtime access.
-  Keep strategy parameters unchanged and real orders OFF.
+- [x] **P2-H4 provider-independent historical event ingress** — closed-bar
+  envelopes, receipt-cutoff freezing, delivery/bar deduplication, revisions and
+  reconnect/SYNC quality gates; feeds shared replay and supervisor. See
+  [operations](docs/operations/intraday-market-ingress.md).
+- [ ] **P2-H5 incremental historical Shadow loop — NEXT** — process normalized
+  events incrementally, persist receiver cursors, bound queues/watermarks and
+  verify restart/backpressure without full-trace compilation. Continue old-data
+  tests with strategy parameters unchanged and real orders OFF.
 - [ ] **P2 automated paper trading** — default order switch OFF, paper endpoint
   only, durable order IDs, partial fills, cancel/reject handling, recovery and
   broker-position reconciliation before enabling automation. Historical simulated

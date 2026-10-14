@@ -145,7 +145,10 @@ class IntradayLedgerReplay:
                              open_risk=sum(p["planned_risk"] for p in self.positions.values()),
                              reference=reference, atr=atr, prior_volume=prior_volume)
 
-    def _entries_paused(self):
+    def _entry_data_ready(self, symbol, at):
+        return True
+
+    def _entries_paused(self, at=None, symbol=None):
         return False
 
     def _before_minute(self, at, current, session, day_start, loss_halted, cutoff, flatten):
@@ -253,6 +256,8 @@ class IntradayLedgerReplay:
                     reason = None
                     if symbol not in current:
                         reason = "missing_execution_bar"
+                    elif not self._entry_data_ready(symbol, t):
+                        reason = "market_ingress_gate"
                     elif loss_halted or missing_held:
                         reason = "account_halted"
                     elif symbol in blocked or order["session"] != session.session_id or t >= cutoff:
@@ -323,7 +328,7 @@ class IntradayLedgerReplay:
                                               max(b.high for b in window), min(b.low for b in window),
                                               window[-1].close, sum(b.volume for b in window))
                     features = self.features[symbol].add(aggregate, as_of=end)
-                    if not active or loss_halted or missing_held or symbol in blocked or symbol in self.positions or end >= cutoff or self._entries_paused():
+                    if not active or loss_halted or missing_held or symbol in blocked or symbol in self.positions or end >= cutoff or self._entries_paused(end, symbol):
                         continue
                     if selector and symbol not in selector.selected:
                         continue
