@@ -3,6 +3,10 @@
 Offline transaction ledger; no broker orders. Keys are needed for real downloads,
 not the synthetic acceptance run.
 
+Historical SIP and Q1 replay have now passed [real-data acceptance](../reports/intra-1a-real/validation.md).
+Paper-account connectivity is separately NOT_VERIFIED (HTTP 401 in the current
+cloud environment). See the [P0–P3 roadmap](../architecture/intraday-delivery-roadmap.md).
+
 ## Install and demo
 
 From a checkout, with Python 3.11 or newer:
@@ -64,6 +68,41 @@ approval. Config defaults are engineering assumptions to review against the
 account/broker. Gaps can exceed risk budgets; NBBO queues/impact are not modeled.
 
 ## Offline verification
+
+### Optional opening volume filter — INTRA-1B
+
+Use the same sealed minute CSV and declared decision period:
+
+```powershell
+.\.venv\Scripts\python.exe -m dx27.adapters.intraday.cli replay --input work\intraday-data\2025-q1.csv --config examples\intraday\intra-1b-config.json --decision-start 2025-02-01 --output work\intra-1b-2025-q1
+```
+
+The example enables `opening_volume` with `lookback_sessions=20` and
+`minimum_rvol=1.0`. Selection is available only after all 30 opening minutes;
+the preceding 20 scheduled openings must all be valid. Inspect selection.csv
+for all eligible and rejected symbol/session rows, including warmup. This
+threshold is not calibrated to the Q1 result. Baseline config leaves it disabled.
+See [the precise selection contract](../architecture/intraday-opening-volume.md).
+
+### P0 paper-account probe
+
+Configure the intended paper-account credentials for `paper-api.alpaca.markets`
+as well as the separate data binding. Never copy key values into config or chat.
+Run locally on Windows or with `.venv/bin/python` on Linux:
+
+```powershell
+.\.venv\Scripts\python.exe -m dx27.adapters.intraday.account_probe --output work\p0-paper-account.json
+```
+
+This issues only GET /v2/account, /v2/clock and /v2/positions. It never submits
+orders and omits credential/account identifiers from its JSON. Exit 0 means
+all three read-only responses validated; exit 2 means missing credentials,
+authentication/network/schema failure. Existing output paths are refused.
+CONNECTED_READ_ONLY does not verify live feed or order permission. HTTP 401
+requires checking account credentials/domain binding; it does not prove which
+one failed. Automatic ordering remains disabled.
+
+### Tests
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -q tests/unit/test_intraday_data.py tests/unit/test_streaming_breakout.py tests/unit/test_simulated_execution.py tests/integration/test_intraday_ledger.py

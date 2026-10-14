@@ -1,0 +1,28 @@
+{
+  "initial_cash": 100000.0,
+  "risk_per_trade": 0.0025,
+  "max_open_risk": 0.01,
+  "max_position_fraction": 0.25,
+  "daily_loss_limit": 0.01,
+  "max_positions": 3,
+  "max_volume_participation": 0.01,
+  "execution_delay_minutes": 1,
+  "flatten_minutes_before_close": 5,
+  "last_entry_minutes_before_close": 10,
+  "adx_threshold": 25.0,
+  "atr_period": 14,
+  "adx_period": 14,
+  "stop_atr": 1.0,
+  "target_atr": 2.0,
+  "decision_start": null,
+  "costs": {
+    "commission_per_share": 0.0035,
+    "minimum_commission": 0.35,
+    "spread_bps": 2.0,
+    "slippage_bps": 1.0
+  },
+  "opening_volume": {
+    "lookback_sessions": 20,
+    "minimum_rvol": 1.0
+  }
+}

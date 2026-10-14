@@ -1,0 +1,28 @@
+{
+  "task": "P0",
+  "environment": "paper",
+  "base_url": "https://paper-api.alpaca.markets",
+  "checked_at": "2026-10-14T09:07:48.455893+00:00",
+  "credentials_present": true,
+  "checks": {
+    "account": {
+      "status": "PASS",
+      "account_status": "ACTIVE",
+      "trading_blocked": false,
+      "account_blocked": false
+    },
+    "clock": {
+      "status": "PASS",
+      "market_is_open": false,
+      "broker_timestamp": "2026-10-14T05:07:48.847750-04:00"
+    },
+    "positions": {
+      "status": "PASS",
+      "position_count": 0
+    }
+  },
+  "automatic_orders_enabled": false,
+  "order_submission_tested": false,
+  "realtime_data_verified": false,
+  "status": "CONNECTED_READ_ONLY"
+}

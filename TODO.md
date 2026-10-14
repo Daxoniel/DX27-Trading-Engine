@@ -7,14 +7,43 @@
   costs, account risk and fill/trade/equity ledgers with causal/accounting tests.
   See [architecture](docs/architecture/intraday-replay-ledger.md) and
   [run instructions](docs/operations/intraday-replay.md).
-- [ ] **INTRA-1A authenticated real-data run** — environment credentials absent;
-  synthetic/mock success does not prove provider access or market effectiveness.
-- [ ] **INTRA-1B — Opening Relative Volume Selection** — not started; retain
-  the 30-minute baseline for the first paired selection experiment.
+- [x] **INTRA-1A authenticated historical SIP / ledger acceptance** — SPY/QQQ/IWM,
+  2025 Q1, 145,553 source minutes, 70,200 regular-session minutes, 60 complete
+  sessions; cash/cost/equity reconcile, no unresolved positions. Strategy
+  effectiveness and original-cutoff availability remain unverified. See
+  [acceptance record](docs/reports/intra-1a-real/validation.md).
+- [x] **INTRA-1B — Opening Relative Volume Selection implementation** — opt-in
+  30-minute opening volume / preceding 20 scheduled opening means, engineering
+  threshold 1.0, causal publication at 10:00 New York, explicit missing/history
+  rejection, separate selection ledger. No fitted threshold or effectiveness claim.
 - [ ] **INTRA-1C — Fixed Paired Historical Comparison** — not started;
   net-of-cost validation on declared data/universe and untouched time period.
 - [ ] **INTRA-1D — Paper Execution Conformance** — not started; shared decision
   logic, persistent orders/recovery and actual execution-deviation checks.
+
+### Active delivery priorities — P0–P3
+
+- [x] **P0 read-only diagnostic code / offline checks** — explicit paper account,
+  clock and positions GETs, redacted results, no order path. Historical SIP
+  access is verified independently.
+- [x] **P0 account connection acceptance** — 2026-10-14 after updating domain
+  bindings, all three GET probes succeeded. Account ACTIVE, account/trading
+  unblocked, no positions; redacted evidence is committed. Order submission and
+  realtime market-data entitlement remain separate gates.
+- [ ] **P1 realtime data + Shadow Mode — NEXT; SIP entitlement blocked** — receive minute bars,
+  run the shared ORB/optional RVOL decision logic, persist hypothetical decisions
+  and stream quality. Never submit orders. Verify entitlement, late/revised bars,
+  calendar boundaries, warmup, reconnect/replay and restart deduplication.
+- [ ] **P2 automated paper trading** — default order switch OFF, paper endpoint
+  only, durable order IDs, partial fills, cancel/reject handling, recovery and
+  broker-position reconciliation before enabling automation. Historical simulated
+  fills do not establish this capability.
+- [ ] **P3 strategy evaluation** — fixed, declared historical comparisons
+  (INTRA-1C), shadow decisions and paper fills. Compare net return, drawdown,
+  slippage and data quality on untouched periods. INTRA-1B is research preparation;
+  Q1 acceptance is not a parameter-selection or profitability approval.
+
+See [the detailed delivery gates](docs/architecture/intraday-delivery-roadmap.md).
 
 ## Sentinel — frozen history
 

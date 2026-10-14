@@ -13,12 +13,15 @@ from dx27.adapters.intraday.data import CSV_FIELDS, aware_time, download_alpaca,
 from dx27.application.intraday_replay import IntradayLedgerReplay
 from dx27.core.models.execution_costs import ExecutionCosts
 from dx27.domains.intraday.replay_config import IntradayReplayConfig
+from dx27.domains.intraday.selection.opening_volume import OpeningVolumeConfig
 
 
 def read_config(path=None, decision_start=None):
     values = json.loads(Path(path).read_text(encoding="utf-8")) if path else {}
     if "costs" in values:
         values["costs"] = ExecutionCosts(**values["costs"])
+    if values.get("opening_volume") is not None:
+        values["opening_volume"] = OpeningVolumeConfig(**values["opening_volume"])
     if values.get("decision_start"):
         values["decision_start"] = date.fromisoformat(values["decision_start"])
     config = IntradayReplayConfig(**values)
@@ -29,9 +32,12 @@ def write_report(result, output):
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)
     (output / "summary.json").write_text(json.dumps(result.summary, indent=2, allow_nan=False) + "\n", encoding="utf-8")
-    for filename, rows in (("fills.csv", result.fills), ("trades.csv", result.trades),
-                           ("equity.csv", result.equity), ("daily.csv", result.daily),
-                           ("decisions.csv", result.decisions), ("data-quality.csv", result.quality)):
+    tables = [("fills.csv", result.fills), ("trades.csv", result.trades),
+              ("equity.csv", result.equity), ("daily.csv", result.daily),
+              ("decisions.csv", result.decisions), ("data-quality.csv", result.quality)]
+    if result.summary.get("task") == "INTRA-1B":
+        tables.append(("selection.csv", result.selections))
+    for filename, rows in tables:
         keys = list(dict.fromkeys(key for row in rows for key in row))
         with (output / filename).open("w", newline="", encoding="utf-8") as stream:
             if keys:
@@ -43,7 +49,7 @@ def write_report(result, output):
     notice = "**合成演示数据：结果仅用于软件验收。**" if synthetic else "历史行情回放；输入可用时间假设为 K 线结束，不构成原始时点或盈利能力验证。"
     pnl = f'{summary["net_pnl"]:.2f}' if summary["net_pnl"] is not None else "不可用：数据不完整或仍有持仓"
     (output / "report.md").write_text(
-        f'# INTRA-1A 交易账本\n\n{notice}\n\n'
+        f'# {summary["task"]} 交易账本\n\n{notice}\n\n'
         f'- 回放状态：{summary["status"]}\n'
         f'- 标的：{", ".join(summary["symbols"])}\n'
         f'- 交易日：{summary["sessions"]}；已结束交易：{summary["trades"]}\n'

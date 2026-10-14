@@ -5,6 +5,7 @@ from datetime import date
 from math import isfinite
 
 from dx27.core.models.execution_costs import ExecutionCosts
+from dx27.domains.intraday.selection.opening_volume import OpeningVolumeConfig
 
 
 @dataclass(frozen=True)
@@ -26,8 +27,11 @@ class IntradayReplayConfig:
     target_atr: float = 2.0
     decision_start: date | None = None
     costs: ExecutionCosts = field(default_factory=ExecutionCosts)
+    opening_volume: OpeningVolumeConfig | None = None
 
     def __post_init__(self):
+        if self.opening_volume is not None and not isinstance(self.opening_volume, OpeningVolumeConfig):
+            raise ValueError("opening_volume must be an OpeningVolumeConfig or None")
         if not isfinite(self.initial_cash) or self.initial_cash <= 0:
             raise ValueError("initial_cash must be positive and finite")
         for name in ("risk_per_trade", "max_open_risk", "max_position_fraction",
