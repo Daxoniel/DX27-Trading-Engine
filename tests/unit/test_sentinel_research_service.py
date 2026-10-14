@@ -152,3 +152,27 @@ def test_simultaneous_initial_launchers_obtain_same_complete_profile(tmp_path):
         runners = list(pool.map(lambda _: service(root), range(4)))
     assert len(runners) == 4
     assert all(r.root == root for r in runners)
+
+
+@pytest.mark.parametrize("winner", ["valid", "wrong", "absent"])
+def test_windows_initial_marker_replace_denial_reuses_only_a_valid_winner(tmp_path, monkeypatch, winner):
+    import dx27.adapters.sentinel.research_service as module
+    original = module._atomic_json
+
+    def competing_launch(path, value):
+        if winner != "absent":
+            original(path, value if winner == "valid" else {"schema_version": "wrong"})
+        raise PermissionError("synthetic Windows sharing denial")
+
+    monkeypatch.setattr(module, "_atomic_json", competing_launch)
+    root = tmp_path / "reports"
+    if winner == "valid":
+        runner = service(root)
+        assert json.loads((root / "live-report-profile.json").read_bytes()) == module.PROFILE
+        assert runner.root == root
+    elif winner == "wrong":
+        with pytest.raises(ValueError, match="profile mismatch"):
+            service(root)
+    else:
+        with pytest.raises(PermissionError, match="sharing denial"):
+            service(root)
