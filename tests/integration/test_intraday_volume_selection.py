@@ -38,7 +38,7 @@ def test_opt_in_selection_gates_only_entries_and_preserves_cost_accounting(datas
     target = tmp_path / "report"
     write_report(selected, target)
     assert (target / "selection.csv").exists()
-    assert "INTRA-1B" in (target / "report.md").read_text()
+    assert "INTRA-1B" in (target / "report.md").read_text(encoding="utf-8")
 
 
 def test_future_gap_or_extreme_volume_cannot_change_frozen_selection(dataset):
