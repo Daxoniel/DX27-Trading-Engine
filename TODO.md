@@ -38,10 +38,15 @@
   path; shared INTRA-1A/1B engine, atomic minute journals, deterministic prefix
   recovery and duplicate-free hypothetical records. No credentials/realtime
   subscription required. See [run instructions](docs/operations/intraday-recorded-shadow.md).
-- [ ] **P2-H offline execution lifecycle conformance — NEXT** — extend historical
-  engineering tests with durable intents, partial fills/rejects/cancels and
-  uncertain-submission/restart reconciliation before any broker activation.
-  This work can proceed without realtime SIP. It does not enable actual orders.
+- [x] **P2-H1 offline order lifecycle conformance** — durable intents/client IDs,
+  partial/rejected/canceled/expired reports, unknown submit/cancel outcomes,
+  cumulative Decimal accounting, restart lookup, reservations and exact local
+  broker reconciliation. Historical fill traces match modeled cash; no real
+  broker path. See [run instructions](docs/operations/intraday-order-lifecycle.md).
+- [ ] **P2-H2 historical execution feedback loop — NEXT** — connect asynchronous
+  partial/delayed/rejected/uncertain outcomes to the minute strategy/account loop;
+  verify sizing, risk halts, stops and flattening against actual simulated state.
+  Fixed fill-trace conformance does not satisfy this gate. No realtime SIP needed.
 - [ ] **P2 automated paper trading** — default order switch OFF, paper endpoint
   only, durable order IDs, partial fills, cancel/reject handling, recovery and
   broker-position reconciliation before enabling automation. Historical simulated
