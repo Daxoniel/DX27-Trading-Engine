@@ -14,19 +14,19 @@ A successful check is *not* authorization to submit paper or live orders.
    private. Do not enter the keys in ChatGPT, Codex prompts, GitHub or screenshots.
 3. From the DX27 checkout, install the repository once:
 
-   \`\`\`powershell
+   ```powershell
    py -3.11 -m venv .venv
    .\.venv\Scripts\python.exe -m pip install -e ".[test]"
-   \`\`\`
+   ```
 
 4. In your local PowerShell only, set **paper** credentials (these assignments
    are placeholders; use your own secrets and don't paste terminal history):
 
-   \`\`\`powershell
+   ```powershell
    $env:APCA_API_KEY_ID = "<YOUR_PAPER_KEY_ID>"
    $env:APCA_API_SECRET_KEY = "<YOUR_PAPER_SECRET>"
    .\.venv\Scripts\python.exe -m dx27.adapters.alpaca.paper_probe --symbols SPY,QQQ,IWM
-   \`\`\`
+   ```
 
 For stronger local secret handling, use an OS-protected secret manager to
 populate the two environment variables rather than retaining plaintext in
@@ -44,9 +44,9 @@ A rejected request does not silently switch to live endpoints.
 
 Offline unit verification:
 
-\`\`\`powershell
+```powershell
 .\.venv\Scripts\python.exe -m pytest -q tests/unit/test_alpaca_paper_probe.py
-\`\`\`
+```
 
 ## Hard gates before paper order execution
 
