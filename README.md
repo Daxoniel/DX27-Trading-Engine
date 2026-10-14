@@ -6,7 +6,9 @@ is intraday automated quantitative trading.
 
 - [Run INTRA-1A intraday replay and transaction ledger](docs/operations/intraday-replay.md):
   synchronized ORB replay, minute inputs, modeled costs and account ledgers.
-  Offline conformance is implemented; real access and effectiveness remain unverified.
+  Historical SIP/Q1 ledger acceptance passed; effectiveness remains unverified.
+- [Opening RVOL selection](docs/architecture/intraday-opening-volume.md) and
+  [P0–P3 intraday delivery gates](docs/architecture/intraday-delivery-roadmap.md).
 
 - [Open the final Sentinel report on Windows](docs/operations/sentinel-research-report.md):
   FactSet/Yardeni refresh when the page opens, with a brief saved-visit comparison.

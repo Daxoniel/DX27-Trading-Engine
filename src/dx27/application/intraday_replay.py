@@ -1,6 +1,6 @@
 """Synchronized minute fills, completed five-minute ORB decisions and ledgers."""
 
-from dataclasses import asdict, dataclass, replace
+from dataclasses import asdict, dataclass, field, replace
 from datetime import timedelta
 from math import floor, isclose
 from zoneinfo import ZoneInfo
@@ -17,6 +17,7 @@ from dx27.core.models.trade_intent import TradeSide
 from dx27.domains.intraday.bots.intraday_breakout import IntradayBreakoutBot
 from dx27.domains.intraday.features.streaming_breakout import StreamingBreakoutFeatures
 from dx27.domains.intraday.replay_config import IntradayReplayConfig
+from dx27.domains.intraday.selection.opening_volume import OpeningVolumeSelector
 from dx27.execution_planning.target_to_intent import TargetToIntentPlanner
 
 
@@ -32,6 +33,7 @@ class ReplayResult:
     daily: list[dict]
     decisions: list[dict]
     quality: list[dict]
+    selections: list[dict] = field(default_factory=list)
 
 
 class IntradayLedgerReplay:
@@ -140,6 +142,9 @@ class IntradayLedgerReplay:
             raise ValueError("use a fresh replay instance for each run")
         self.used = True
         cfg, ny = self.config, ZoneInfo("America/New_York")
+        if (cfg.opening_volume is not None and dataset.provenance.get("feed") != "sip"
+                and dataset.provenance.get("source") != "SYNTHETIC_DEMO"):
+            raise ValueError("opening volume replay requires declared SIP data or a labeled synthetic fixture")
         if not dataset.bars:
             raise ValueError("replay requires minute data")
         by_time, keys = {}, set()
@@ -151,6 +156,7 @@ class IntradayLedgerReplay:
             keys.add(key)
             by_time.setdefault(bar.timestamp, {})[bar.symbol] = bar
         symbols = sorted(set(b.symbol for b in dataset.bars) | set(dataset.provenance.get("symbols", ())))
+        selector = OpeningVolumeSelector(symbols, cfg.opening_volume) if cfg.opening_volume else None
         dates = [bar.timestamp.astimezone(ny).date() for bar in dataset.bars]
         requested_start = dataset.provenance.get("start")
         requested_end = dataset.provenance.get("end_exclusive")
@@ -174,6 +180,8 @@ class IntradayLedgerReplay:
             self.features[symbol] = StreamingBreakoutFeatures(cfg.atr_period, cfg.adx_period)
         accepted = 0
         for session in sessions:
+            if selector:
+                selector.begin_session(session)
             blocked, previous_volume = set(), {}
             self.windows = {symbol: [] for symbol in symbols}
             day_start = self.account.get_account_snapshot().total_equity
@@ -184,6 +192,8 @@ class IntradayLedgerReplay:
             t = session.opens_at
             while t < session.closes_at:
                 current, end = by_time.get(t, {}), t + MINUTE
+                if selector:
+                    selector.observe_minute(t, current)
                 accepted += len(current)
                 # All available opens are marked before deterministic symbol-order
                 # cash/risk allocation. Future highs, lows and volumes are not used.
@@ -285,6 +295,8 @@ class IntradayLedgerReplay:
                     features = self.features[symbol].add(aggregate, as_of=end)
                     if not active or loss_halted or missing_held or symbol in blocked or symbol in self.positions or end >= cutoff:
                         continue
+                    if selector and symbol not in selector.selected:
+                        continue
                     # The bot sees the completed five-minute close at its actual
                     # decision time; the range itself uses interval-start labels.
                     signal = self.bots[symbol].evaluate(replace(aggregate, timestamp=end), features)
@@ -360,5 +372,11 @@ class IntradayLedgerReplay:
                        total_commission=commissions, total_spread_cost=sum(f["spread_cost"] for f in self.fills),
                        total_slippage_cost=sum(f["slippage_cost"] for f in self.fills),
                        maximum_drawdown=drawdown if complete else None, accounting_reconciled=True)
+        if selector:
+            summary.update(task="INTRA-1B", runner_version="INTRA-1B:1",
+                           selection_policy="OPENING_30M_OVER_PRIOR_SCHEDULED_OPENINGS_MEAN",
+                           selection_decisions=len(selector.rows),
+                           selected_symbol_sessions=sum(r["selected"] for r in selector.rows))
         return ReplayResult(summary, self.fills, self.trades, self.equity, self.daily, self.decisions,
-                            sorted(self.issues.values(), key=lambda q: (q["session"], q["symbol"], q["code"])))
+                            sorted(self.issues.values(), key=lambda q: (q["session"], q["symbol"], q["code"])),
+                            selector.rows if selector else [])

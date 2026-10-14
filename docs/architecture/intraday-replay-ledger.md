@@ -1,8 +1,10 @@
 # INTRA-1A — Intraday Replay & Transaction Ledger
 
-Status: **IMPLEMENTED / OFFLINE CONFORMANCE**. Authenticated real-data access
-and market effectiveness remain **NOT VERIFIED**. This task introduces no RVOL
-selection, forecasting model, paper deployment or broker orders.
+Status: **IMPLEMENTED / HISTORICAL SIP AND LEDGER ACCEPTANCE PASSED** for
+SPY/QQQ/IWM in 2025 Q1. See [the recorded evidence](../reports/intra-1a-real/validation.md).
+Market effectiveness, realtime data and paper-account connectivity remain
+**NOT VERIFIED**. The opt-in [INTRA-1B selector](intraday-opening-volume.md) is
+separate from this unchanged baseline; no paper deployment or broker orders.
 
 ## Baseline and reuse
 

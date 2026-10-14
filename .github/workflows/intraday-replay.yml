@@ -43,6 +43,8 @@ jobs:
         run: >-
           python -m pytest -q
           tests/unit/test_intraday_data.py
+          tests/unit/test_intraday_account_probe.py
+          tests/unit/test_intraday_opening_volume.py
           tests/unit/test_streaming_breakout.py
           tests/unit/test_simulated_execution.py
           tests/unit/test_historical_replay.py
@@ -52,6 +54,7 @@ jobs:
           tests/unit/test_target_to_intent.py
           tests/integration/test_intraday_breakout_flow.py
           tests/integration/test_intraday_ledger.py
+          tests/integration/test_intraday_volume_selection.py
       - name: Run labeled synthetic demo
         run: python -m dx27.adapters.intraday.cli demo --output work/intra-1a-demo
       - uses: actions/upload-artifact@v4
