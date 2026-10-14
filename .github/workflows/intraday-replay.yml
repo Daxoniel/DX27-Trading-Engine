@@ -61,6 +61,7 @@ jobs:
           tests/integration/test_intraday_recorded_shadow.py
           tests/integration/test_intraday_order_lifecycle.py
           tests/integration/test_intraday_execution_conformance.py
+          tests/integration/test_intraday_closed_loop.py
       - name: Run labeled synthetic demo
         run: python -m dx27.adapters.intraday.cli demo --output work/intra-1a-demo
       - name: Record and replay historical shadow journal without credentials
@@ -74,6 +75,13 @@ jobs:
           python -m dx27.adapters.intraday.execution_conformance
           --source-journal work/intra-1a-demo/shadow.sqlite3
           --output work/intra-1a-demo/lifecycle-report
+      - name: Run historical closed loop with delayed partial fills
+        run: >-
+          python -m dx27.adapters.intraday.closed_loop
+          --input work/intra-1a-demo/synthetic-minute-bars.csv
+          --journal work/intra-1a-demo/closed-loop.sqlite3
+          --profile examples/intraday/p2h2-partial-delayed.json
+          --output work/intra-1a-demo/closed-loop-report
       - uses: actions/upload-artifact@v4
         with:
           name: intra-1a-synthetic-${{ matrix.os }}
@@ -82,3 +90,4 @@ jobs:
             work/intra-1a-demo/shadow-report
             work/intra-1a-demo/lifecycle-report/acceptance.json
             work/intra-1a-demo/lifecycle-report/report.md
+            work/intra-1a-demo/closed-loop-report

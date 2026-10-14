@@ -1,0 +1,12 @@
+{
+  "entry_delay_minutes": 2,
+  "exit_delay_minutes": 1,
+  "fill_fraction": 0.5,
+  "entry_reservation_buffer_bps": 100.0,
+  "reject_every_nth_entry": 0,
+  "uncertain_every_nth_entry": 0,
+  "uncertainty_mode": "accepted",
+  "reconciliation_delay_minutes": 2,
+  "lose_cancel_replies": false,
+  "duplicate_reports": true
+}
