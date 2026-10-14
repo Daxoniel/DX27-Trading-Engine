@@ -223,7 +223,7 @@ def run_managed(dataset, journal, run_directory, config=None, profile=None, *, o
                 raise RunnerError("RUN_DIRECTORY_MISMATCH")
         state = dict(task="P2-H3", status="STARTING", attempt_id=uuid4().hex, pid=os.getpid(),
                      manifest_sha256=check["manifest_sha256"], journal=check["journal"],
-                     started_at=_now(), updated_at=_now(), restarts=0, progress=None, receipt=None,
+                     started_at=_now(), updated_at=_now(), restarts=0, progress=None, account=None, receipt=None,
                      error_code=None, storage_recovery_performed=False, report_status="NOT_REQUESTED" if output is None else "PENDING",
                      real_broker_orders_enabled=False, realtime_data_verified=False,
                      algorithm_optimization_performed=False, recovery="DETERMINISTIC_OFFLINE_REBUILD")
@@ -237,6 +237,8 @@ def run_managed(dataset, journal, run_directory, config=None, profile=None, *, o
 
         def observe(progress):
             state["progress"] = progress
+            if progress["account"] is not None:
+                state["account"] = progress["account"]
             phase = "REBUILDING" if progress["frames"] <= progress["existing_frames"] else "RUNNING"
             changed = phase != state["status"]
             state["status"] = phase
@@ -273,6 +275,12 @@ def run_managed(dataset, journal, run_directory, config=None, profile=None, *, o
                     # verifies the committed prefix; no live broker resubmission.
             state.update(status={"COMPLETE_CLOSED_LOOP": "COMPLETED", "INCOMPLETE_CLOSED_LOOP": "INCOMPLETE"}.get(receipt["status"], receipt["status"]),
                          receipt=receipt, error_code=None)
+            if state["progress"] is not None:
+                state["progress"].update({key: receipt[key] for key in
+                    ("frames", "verified_prefix_frames", "appended_frames", "journal_chain_sha256")})
+                state["progress"]["committed_frames"] = max(state["progress"]["committed_frames"], receipt["frames"])
+                if result is not None:
+                    state["progress"]["kind"] = "RUN_COMPLETED"
             if output is not None and result is not None:
                 try:
                     write_report(result, output)

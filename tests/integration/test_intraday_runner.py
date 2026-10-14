@@ -70,6 +70,8 @@ def test_managed_pause_resume_rebuild_and_repeat_are_same_as_unsupervised(datase
     assert repeated['receipt']['appended_frames'] == 0 and rows(journal) == previous
     assert same.summary == result.summary
     assert runner.health(runtime)['status'] == 'COMPLETED'
+    assert completed['account']['reported_positions'] == completed['account']['broker_positions'] == {}
+    assert completed['progress']['frames'] == completed['receipt']['frames']
 
 
 def test_stop_request_is_honored_after_commit_and_stale_request_cannot_stop_new_attempt(dataset, tmp_path):
