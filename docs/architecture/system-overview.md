@@ -7,7 +7,12 @@ the [6B-2K-B local research report](sentinel-research-live-report.md): refresh
 public FactSet/Yardeni evidence when the page opens, compare actual saved visits,
 and retain existing read-only market observations. The user's next development
 direction is intraday automated quantitative trading, separately scoped after
-this report delivery. No broker action or strategy is introduced here.
+this report delivery. The report introduces no broker action or strategy.
+
+**INTRA-1A is now implemented for offline conformance**: a synchronized ORB
+baseline with minute data import, modeled costs/risk and transaction ledgers.
+See [intraday architecture](intraday-replay-ledger.md). Authenticated real data,
+strategy effectiveness and broker deployment remain unverified/unimplemented.
 
 The Sentinel architecture below remains a record of implemented foundations,
 frozen designs and unfinished research gates. Freezing work does not promote

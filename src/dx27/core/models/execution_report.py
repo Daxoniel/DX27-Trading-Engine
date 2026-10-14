@@ -15,3 +15,8 @@ class ExecutionReport:
 
     timestamp: datetime
     status: str
+
+    commission: float = 0.0
+    reference_price: float | None = None
+    spread_cost: float = 0.0
+    slippage_cost: float = 0.0

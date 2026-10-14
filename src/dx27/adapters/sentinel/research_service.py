@@ -103,11 +103,18 @@ class LiveReportService:
             if not marker.exists():
                 raise ValueError("use a new live-report directory; existing unmarked stores are refused")
         self.root.mkdir(parents=True, exist_ok=True)
-        if marker.exists():
-            if json.loads(marker.read_bytes()) != PROFILE:
-                raise ValueError("live-report directory profile mismatch")
-        else:
-            _atomic_json(marker, PROFILE)
+        if not marker.exists():
+            try:
+                _atomic_json(marker, PROFILE)
+            except PermissionError:
+                # A competing first launcher may publish the complete marker
+                # between our existence check and replace. Windows can deny
+                # replacement while that launcher is reading it. Reuse only a
+                # marker that now exists, and validate it exactly below.
+                if not marker.exists():
+                    raise
+        if json.loads(marker.read_bytes()) != PROFILE:
+            raise ValueError("live-report directory profile mismatch")
         self._child("snapshots").mkdir(exist_ok=True)
         self._child("research-captures").mkdir(exist_ok=True)
 

@@ -11,6 +11,7 @@ from dx27.core.models.market_context import MarketContext
 from dx27.core.models.portfolio_target import PortfolioTarget
 from dx27.core.models.trade_intent import TradeIntent, TradeSide
 from dx27.execution_planning.target_to_intent import TargetToIntentPlanner
+from dx27.core.models.execution_costs import ExecutionCosts
 
 
 def make_system(cash=1_000, slippage_bps=0):
@@ -91,3 +92,31 @@ def test_invalid_quantity_and_insufficient_buying_power_are_rejected_as_executio
     assert invalid.status == "rejected_invalid_quantity"
     assert insufficient.status == "rejected_insufficient_buying_power"
     assert insufficient.filled_quantity == 0
+
+
+def test_explicit_costs_apply_each_side_and_minimum_fee_and_reconcile_cash():
+    account, portfolio, _ = make_system()
+    costs = ExecutionCosts(0.0035, 0.35, 2, 1)
+    execution = SimulatedExecutionAdapter(account, portfolio, costs=costs)
+    at = datetime(2026, 6, 15, 9, 35)
+    execution.set_fill_context(at, {"SPY": 100})
+    buy = execution.execute(intent(TradeSide.BUY, 2))
+    assert buy.average_fill_price == pytest.approx(100.02)
+    assert buy.commission == 0.35
+    assert account.get_account_snapshot().total_equity == pytest.approx(1000 - 0.35 - buy.spread_cost - buy.slippage_cost)
+    execution.set_fill_context(at + timedelta(minutes=1), {"SPY": 110})
+    sell = execution.execute(intent(TradeSide.SELL, 2))
+    assert sell.average_fill_price == pytest.approx(109.978)
+    assert sell.commission == 0.35
+    assert account.get_account_snapshot().cash == pytest.approx(1000 + 20 - 0.70
+                                                                - buy.spread_cost - sell.spread_cost
+                                                                - buy.slippage_cost - sell.slippage_cost)
+
+
+def test_fee_can_make_an_otherwise_affordable_order_unaffordable():
+    account, portfolio, _ = make_system(cash=100)
+    execution = SimulatedExecutionAdapter(account, portfolio, costs=ExecutionCosts(0, 0.35, 0, 0))
+    execution.set_fill_context(datetime(2026, 6, 15, 9, 35), {"SPY": 100})
+    assert execution.execute(intent(TradeSide.BUY, 1)).status == "rejected_insufficient_buying_power"
+    assert account.get_account_snapshot().cash == 100
+    assert portfolio.get_portfolio_snapshot().positions == ()

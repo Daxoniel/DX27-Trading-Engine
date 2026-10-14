@@ -4,6 +4,10 @@ Trading-system foundations with a local Sentinel market/research report.
 Sentinel feature development is frozen; the next separately scoped direction
 is intraday automated quantitative trading.
 
+- [Run INTRA-1A intraday replay and transaction ledger](docs/operations/intraday-replay.md):
+  synchronized ORB replay, minute inputs, modeled costs and account ledgers.
+  Offline conformance is implemented; real access and effectiveness remain unverified.
+
 - [Open the final Sentinel report on Windows](docs/operations/sentinel-research-report.md):
   FactSet/Yardeni refresh when the page opens, with a brief saved-visit comparison.
 - [Current roadmap and freeze](TODO.md).

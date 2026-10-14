@@ -15,6 +15,9 @@ dependencies = [
     "tzdata>=2025.2; platform_system == 'Windows'",
 ]
 
+[project.scripts]
+dx27-intraday = "dx27.adapters.intraday.cli:main"
+
 [project.optional-dependencies]
 test = ["pytest>=8.0", "pypdf>=5,<7"]
 forecast = ["chronos-forecasting==2.3.2", "transformers==4.57.1", "torch>=2.2,<3"]
