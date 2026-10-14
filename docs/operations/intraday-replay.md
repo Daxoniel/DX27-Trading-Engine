@@ -4,8 +4,8 @@ Offline transaction ledger; no broker orders. Keys are needed for real downloads
 not the synthetic acceptance run.
 
 Historical SIP and Q1 replay have now passed [real-data acceptance](../reports/intra-1a-real/validation.md).
-Paper-account connectivity is separately NOT_VERIFIED (HTTP 401 in the current
-cloud environment). See the [P0–P3 roadmap](../architecture/intraday-delivery-roadmap.md).
+Paper-account read-only connectivity passed after the environment domain binding
+update on 2026-10-14. Realtime SIP and order execution remain separate checks. See the [P0–P3 roadmap](../architecture/intraday-delivery-roadmap.md).
 
 ## Install and demo
 
@@ -66,6 +66,12 @@ Exit codes: 0 complete modeled replay/download; 2 incomplete report written;
 cash/positions while aggregate PnL/drawdown are null. Code 0 is not effectiveness
 approval. Config defaults are engineering assumptions to review against the
 account/broker. Gaps can exceed risk budgets; NBBO queues/impact are not modeled.
+
+## Historical Shadow Mode
+
+Continue with the same historical input using the [recorded Shadow runner](intraday-recorded-shadow.md).
+It records minute batches and resumes a matching SQLite journal without duplicate
+hypothetical orders. Credentials and realtime SIP access are not required.
 
 ## Offline verification
 

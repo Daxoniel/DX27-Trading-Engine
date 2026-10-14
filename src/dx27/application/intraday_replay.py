@@ -137,7 +137,12 @@ class IntradayLedgerReplay:
                 high = mid - 1
         return low, low * loss_per_share + 2 * costs.commission(low) if low else 0.0
 
-    def run(self, dataset: IntradayDataset) -> ReplayResult:
+    def run(self, dataset: IntradayDataset, *, observer=None) -> ReplayResult:
+        """Optionally publish detached records after each completed minute/session.
+
+        The observer records historical shadow evidence; it cannot change the
+        strategy state. Observer failures abort the run instead of losing logs.
+        """
         if self.used:
             raise ValueError("use a fresh replay instance for each run")
         self.used = True
@@ -157,6 +162,23 @@ class IntradayLedgerReplay:
             by_time.setdefault(bar.timestamp, {})[bar.symbol] = bar
         symbols = sorted(set(b.symbol for b in dataset.bars) | set(dataset.provenance.get("symbols", ())))
         selector = OpeningVolumeSelector(symbols, cfg.opening_volume) if cfg.opening_volume else None
+        offsets, previous_quality = {}, {}
+
+        def emit(kind, at, session):
+            if observer is None:
+                return
+            tables = dict(fills=self.fills, trades=self.trades, equity=self.equity,
+                          decisions=self.decisions, daily=self.daily,
+                          selections=selector.rows if selector else [])
+            rows = {}
+            for name, values in tables.items():
+                rows[name] = [dict(row) for row in values[offsets.get(name, 0):]]
+                offsets[name] = len(values)
+            rows["quality"] = [dict(row) for key, row in self.issues.items()
+                               if previous_quality.get(key) != row]
+            previous_quality.update({key: dict(row) for key, row in self.issues.items()})
+            observer(dict(kind=kind, as_of=at.isoformat(), session=session.session_id,
+                          hypothetical=True, **rows))
         dates = [bar.timestamp.astimezone(ny).date() for bar in dataset.bars]
         requested_start = dataset.provenance.get("start")
         requested_end = dataset.provenance.get("end_exclusive")
@@ -325,6 +347,7 @@ class IntradayLedgerReplay:
                                         open_positions=len(self.positions), daily_loss_halted=loss_halted,
                                         marks_complete=all(s in current for s in self.positions)))
                 t = end
+                emit("MINUTE_COMPLETED", end, session)
             for symbol in tuple(self.pending):
                 if self.pending[symbol]["side"] == "entry":
                     self._decision(symbol, session.closes_at, "CANCEL_ENTRY", "session_closed")
@@ -340,6 +363,7 @@ class IntradayLedgerReplay:
                                    ending_equity=ending.total_equity, net_change=ending.total_equity - day_start,
                                    cash=ending.cash, open_positions=len(self.positions), data_complete=complete,
                                    daily_loss_halted=loss_halted, decision_period=active))
+            emit("SESSION_COMPLETED", session.closes_at, session)
         snapshot = self.account.get_account_snapshot()
         commissions = sum(f["commission"] for f in self.fills)
         cash_flow = sum(f["cash_delta"] for f in self.fills)

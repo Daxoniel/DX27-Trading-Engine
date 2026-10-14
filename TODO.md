@@ -30,10 +30,18 @@
   bindings, all three GET probes succeeded. Account ACTIVE, account/trading
   unblocked, no positions; redacted evidence is committed. Order submission and
   realtime market-data entitlement remain separate gates.
-- [ ] **P1 realtime data + Shadow Mode — NEXT; SIP entitlement blocked** — receive minute bars,
+- [ ] **P1 realtime data + Shadow Mode — DEFERRED realtime access** — receive minute bars,
   run the shared ORB/optional RVOL decision logic, persist hypothetical decisions
   and stream quality. Never submit orders. Verify entitlement, late/revised bars,
   calendar boundaries, warmup, reconnect/replay and restart deduplication.
+- [x] **P1-H historical recorded Shadow Mode** — user-authorized historical-first
+  path; shared INTRA-1A/1B engine, atomic minute journals, deterministic prefix
+  recovery and duplicate-free hypothetical records. No credentials/realtime
+  subscription required. See [run instructions](docs/operations/intraday-recorded-shadow.md).
+- [ ] **P2-H offline execution lifecycle conformance — NEXT** — extend historical
+  engineering tests with durable intents, partial fills/rejects/cancels and
+  uncertain-submission/restart reconciliation before any broker activation.
+  This work can proceed without realtime SIP. It does not enable actual orders.
 - [ ] **P2 automated paper trading** — default order switch OFF, paper endpoint
   only, durable order IDs, partial fills, cancel/reject handling, recovery and
   broker-position reconciliation before enabling automation. Historical simulated
