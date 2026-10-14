@@ -2,7 +2,7 @@
 
 from dataclasses import asdict, dataclass, field, replace
 from datetime import timedelta
-from math import floor, isclose
+from math import isclose
 from zoneinfo import ZoneInfo
 
 from dx27.adapters.calendars.xnys import load_xnys_calendar
@@ -18,6 +18,7 @@ from dx27.domains.intraday.bots.intraday_breakout import IntradayBreakoutBot
 from dx27.domains.intraday.features.streaming_breakout import StreamingBreakoutFeatures
 from dx27.domains.intraday.replay_config import IntradayReplayConfig
 from dx27.domains.intraday.selection.opening_volume import OpeningVolumeSelector
+from dx27.domains.intraday.risk_budget import plan_quantity
 from dx27.execution_planning.target_to_intent import TargetToIntentPlanner
 
 
@@ -69,7 +70,7 @@ class IntradayLedgerReplay:
         self.decisions.append(dict(symbol=symbol, decision_at=at.isoformat(), action=action,
                                    reason=reason, **extra))
 
-    def _fill(self, symbol, quantity, side, reference, at, reason, decision_at=None, interval_end=None):
+    def _fill(self, symbol, quantity, side, reference, at, reason, decision_at=None, interval_end=None, **entry_context):
         self.execution.set_fill_context(at, {symbol: reference})
         before = self.account.get_account_snapshot()
         intent = self.planner.plan(PortfolioTarget(symbol, quantity if side == TradeSide.BUY else 0,
@@ -115,27 +116,25 @@ class IntradayLedgerReplay:
         self.pending.pop(symbol, None)
 
     def _quantity(self, reference, atr, prior_volume):
-        cfg, costs = self.config, self.config.costs
         snapshot = self.account.get_account_snapshot()
-        entry = costs.price(reference, TradeSide.BUY)
-        stop = entry - atr * cfg.stop_atr
-        if stop <= 0:
-            return 0, 0.0
-        loss_per_share = entry - costs.price(stop, TradeSide.SELL)
-        available_risk = min(snapshot.total_equity * cfg.risk_per_trade,
-                             snapshot.total_equity * cfg.max_open_risk - sum(p["planned_risk"] for p in self.positions.values()))
-        upper = max(0, floor(min(snapshot.cash / entry, snapshot.total_equity * cfg.max_position_fraction / entry,
-                                 prior_volume * cfg.max_volume_participation)))
-        low, high = 0, upper
-        while low < high:
-            mid = (low + high + 1) // 2
-            risk = mid * loss_per_share + 2 * costs.commission(mid)
-            cash = mid * entry + costs.commission(mid)
-            if risk <= available_risk and cash <= snapshot.cash:
-                low = mid
-            else:
-                high = mid - 1
-        return low, low * loss_per_share + 2 * costs.commission(low) if low else 0.0
+        return plan_quantity(self.config, cash=snapshot.cash, equity=snapshot.total_equity,
+                             open_risk=sum(p["planned_risk"] for p in self.positions.values()),
+                             reference=reference, atr=atr, prior_volume=prior_volume)
+
+    def _entries_paused(self):
+        return False
+
+    def _before_minute(self, at, current, session, day_start, loss_halted, cutoff, flatten):
+        return loss_halted
+
+    def _after_minute(self, at, current, session):
+        pass
+
+    def _after_session(self, session):
+        pass
+
+    def _execution_complete(self):
+        return True
 
     def run(self, dataset: IntradayDataset, *, observer=None) -> ReplayResult:
         """Optionally publish detached records after each completed minute/session.
@@ -220,6 +219,7 @@ class IntradayLedgerReplay:
                 # All available opens are marked before deterministic symbol-order
                 # cash/risk allocation. Future highs, lows and volumes are not used.
                 self.execution.set_fill_context(t, {s: b.open for s, b in current.items()})
+                loss_halted = self._before_minute(t, current, session, day_start, loss_halted, cutoff, flatten)
                 if self.account.get_account_snapshot().total_equity <= day_start * (1 - cfg.daily_loss_limit):
                     loss_halted = True
                 for symbol in sorted(tuple(self.positions)):
@@ -256,14 +256,15 @@ class IntradayLedgerReplay:
                     if reason or quantity == 0:
                         self._decision(symbol, t, "REJECT_ENTRY", reason or "risk_cash_or_volume_budget")
                         continue
-                    fill = self._fill(symbol, quantity, TradeSide.BUY, current[symbol].open, t, "orb_long", order["decision_at"])
+                    fill = self._fill(symbol, quantity, TradeSide.BUY, current[symbol].open, t, "orb_long", order["decision_at"],
+                                      atr=order["atr"], planned_risk=risk, session=session.session_id)
                     if fill["status"] == "filled":
                         self.positions[symbol] = dict(entry=fill, quantity=quantity, planned_risk=risk,
                                                       stop=fill["price"] - order["atr"] * cfg.stop_atr,
                                                       target=fill["price"] + order["atr"] * cfg.target_atr,
                                                       session=session.session_id, path_complete=True)
-                        if self.account.get_account_snapshot().total_equity <= day_start * (1 - cfg.daily_loss_limit):
-                            loss_halted = True
+                    if self.account.get_account_snapshot().total_equity <= day_start * (1 - cfg.daily_loss_limit):
+                        loss_halted = True
                 # Standing exits inside the minute: timing is an interval, not an
                 # invented tick. Known opening gaps were handled before this step.
                 for symbol in sorted(tuple(self.positions)):
@@ -315,7 +316,7 @@ class IntradayLedgerReplay:
                                               max(b.high for b in window), min(b.low for b in window),
                                               window[-1].close, sum(b.volume for b in window))
                     features = self.features[symbol].add(aggregate, as_of=end)
-                    if not active or loss_halted or missing_held or symbol in blocked or symbol in self.positions or end >= cutoff:
+                    if not active or loss_halted or missing_held or symbol in blocked or symbol in self.positions or end >= cutoff or self._entries_paused():
                         continue
                     if selector and symbol not in selector.selected:
                         continue
@@ -347,7 +348,9 @@ class IntradayLedgerReplay:
                                         open_positions=len(self.positions), daily_loss_halted=loss_halted,
                                         marks_complete=all(s in current for s in self.positions)))
                 t = end
+                self._after_minute(end, current, session)
                 emit("MINUTE_COMPLETED", end, session)
+            self._after_session(session)
             for symbol in tuple(self.pending):
                 if self.pending[symbol]["side"] == "entry":
                     self._decision(symbol, session.closes_at, "CANCEL_ENTRY", "session_closed")
@@ -356,7 +359,7 @@ class IntradayLedgerReplay:
                 self.positions[symbol]["path_complete"] = False
                 self._issue(session, symbol, "UNRESOLVED_AT_CLOSE", session.closes_at)
             day_issues = [q for q in self.issues.values() if q["session"] == session.session_id]
-            complete = not any(q["code"] in {"MISSING_MINUTE", "MISSING_HELD_BAR", "UNRESOLVED_AT_CLOSE", "ZERO_VOLUME_MINUTE"} for q in day_issues)
+            complete = not any(q["code"] in {"MISSING_MINUTE", "MISSING_HELD_BAR", "UNRESOLVED_AT_CLOSE", "ZERO_VOLUME_MINUTE", "UNRESOLVED_ORDER_AT_CLOSE"} for q in day_issues)
             ending = self.account.get_account_snapshot()
             self.daily.append(dict(session=session.session_id, session_open=session.opens_at.isoformat(),
                                    session_close=session.closes_at.isoformat(), starting_equity=day_start,
@@ -372,7 +375,7 @@ class IntradayLedgerReplay:
         if not self.positions and not isclose(snapshot.total_equity - cfg.initial_cash,
                                              sum(t["net_pnl"] for t in self.trades), abs_tol=1e-6):
             raise AssertionError("closed trade PnL does not reconcile to account equity")
-        complete = all(d["data_complete"] for d in self.daily) and not self.positions
+        complete = all(d["data_complete"] for d in self.daily) and not self.positions and self._execution_complete()
         config = asdict(cfg)
         config["decision_start"] = cfg.decision_start.isoformat() if cfg.decision_start else None
         peak, drawdown = cfg.initial_cash, 0.0

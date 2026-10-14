@@ -43,10 +43,13 @@
   cumulative Decimal accounting, restart lookup, reservations and exact local
   broker reconciliation. Historical fill traces match modeled cash; no real
   broker path. See [run instructions](docs/operations/intraday-order-lifecycle.md).
-- [ ] **P2-H2 historical execution feedback loop — NEXT** — connect asynchronous
-  partial/delayed/rejected/uncertain outcomes to the minute strategy/account loop;
-  verify sizing, risk halts, stops and flattening against actual simulated state.
-  Fixed fill-trace conformance does not satisfy this gate. No realtime SIP needed.
+- [x] **P2-H2 historical execution feedback loop** — asynchronous simulated
+  reports feed actual inventory, sizing, reserved risk, stops and flattening.
+  Deterministic journal rebuild, independent cash/equity checks and historical
+  acceptance; see [operations](docs/operations/intraday-closed-loop.md).
+- [ ] **P2-H3 operational runner hardening — NEXT** — explicit preflight,
+  supervision, health/recovery reporting and provider-independent event ingress.
+  Continue framework work before algorithm evaluation; real orders remain OFF.
 - [ ] **P2 automated paper trading** — default order switch OFF, paper endpoint
   only, durable order IDs, partial fills, cancel/reject handling, recovery and
   broker-position reconciliation before enabling automation. Historical simulated

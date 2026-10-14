@@ -70,19 +70,22 @@ class ShadowJournal:
             self.lease = sqlite3.connect(str(self.path) + ".lease.sqlite3", timeout=0)
             self.lease.execute("BEGIN EXCLUSIVE")
             self.connection = sqlite3.connect(self.path, timeout=0)
+            expected = _json(manifest)
+            has_metadata = self.connection.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='metadata'").fetchone()
+            if has_metadata:
+                stored = self.connection.execute("SELECT value FROM metadata WHERE key='manifest'").fetchone()
+                if stored is None or stored[0] != expected:
+                    raise ValueError("journal input/config/calendar/contract mismatch; use a new journal")
+            elif self.connection.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchone():
+                raise ValueError("unrecognized historical journal database")
             self.connection.execute("PRAGMA synchronous=FULL")
             self.connection.execute("PRAGMA journal_mode=DELETE")
-            with self.connection:
-                self.connection.execute("CREATE TABLE IF NOT EXISTS metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL)")
-                self.connection.execute("CREATE TABLE IF NOT EXISTS frames (sequence INTEGER PRIMARY KEY, frame_key TEXT UNIQUE NOT NULL, payload TEXT NOT NULL, chain TEXT NOT NULL)")
-                expected = _json(manifest)
-                stored = self.connection.execute("SELECT value FROM metadata WHERE key='manifest'").fetchone()
-                if stored is None:
-                    if self.connection.execute("SELECT COUNT(*) FROM frames").fetchone()[0]:
-                        raise ValueError("journal has frames without a manifest")
+            if not has_metadata:
+                self.connection.execute("BEGIN IMMEDIATE")
+                with self.connection:
+                    self.connection.execute("CREATE TABLE metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL)")
+                    self.connection.execute("CREATE TABLE frames (sequence INTEGER PRIMARY KEY, frame_key TEXT UNIQUE NOT NULL, payload TEXT NOT NULL, chain TEXT NOT NULL)")
                     self.connection.execute("INSERT INTO metadata VALUES ('manifest', ?)", (expected,))
-                elif stored[0] != expected:
-                    raise ValueError("journal input/config/calendar/contract mismatch; use a new journal")
             # Check the whole chain before replay, including any trailing rows.
             sequence, chain = 0, GENESIS
             for seq, key, payload, seal in self.connection.execute("SELECT sequence, frame_key, payload, chain FROM frames ORDER BY sequence"):

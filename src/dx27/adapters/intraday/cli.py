@@ -35,7 +35,7 @@ def write_report(result, output):
     tables = [("fills.csv", result.fills), ("trades.csv", result.trades),
               ("equity.csv", result.equity), ("daily.csv", result.daily),
               ("decisions.csv", result.decisions), ("data-quality.csv", result.quality)]
-    if result.summary.get("task") == "INTRA-1B":
+    if result.summary.get("task") == "INTRA-1B" or result.summary.get("underlying_strategy") == "INTRA-1B":
         tables.append(("selection.csv", result.selections))
     for filename, rows in tables:
         keys = list(dict.fromkeys(key for row in rows for key in row))

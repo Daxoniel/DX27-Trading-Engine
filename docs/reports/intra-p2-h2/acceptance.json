@@ -1,0 +1,94 @@
+{
+  "task": "P2-H2",
+  "source_csv_sha256": "67cef18fb985a749bc333713cc99e737032e89c714257dc87b45f83aea559f91",
+  "sessions": 60,
+  "regular_session_bars": 70200,
+  "controls": {
+    "1a": {
+      "ending_cash": 98293.37199075,
+      "completed_round_trips": 46,
+      "order_count": 92,
+      "accounting_reconciled": true,
+      "open_positions": 0
+    },
+    "1b": {
+      "ending_cash": 99194.33766854,
+      "completed_round_trips": 15,
+      "order_count": 30,
+      "accounting_reconciled": true,
+      "open_positions": 0
+    }
+  },
+  "delayed_partial": {
+    "execution_profile": {
+      "entry_delay_minutes": 2,
+      "exit_delay_minutes": 1,
+      "fill_fraction": 0.5,
+      "entry_reservation_buffer_bps": 100.0,
+      "reject_every_nth_entry": 0,
+      "uncertain_every_nth_entry": 0,
+      "uncertainty_mode": "accepted",
+      "reconciliation_delay_minutes": 2,
+      "lose_cancel_replies": false,
+      "duplicate_reports": true
+    },
+    "ending_cash": 99322.90005194,
+    "completed_round_trips": 15,
+    "realized_exit_fragments": 30,
+    "order_count": 30,
+    "broker_ending_cash": 99322.90005194,
+    "broker_ending_positions": {},
+    "active_orders": 0,
+    "accounting_reconciled": true
+  },
+  "receipts": {
+    "paused": {
+      "task": "P2-H2",
+      "status": "PAUSED",
+      "manifest_sha256": "ff76b4e86ae1faf46ef06501ba7333ac8502f7597b909d145c76c6c382f44f1d",
+      "frames": 1002,
+      "verified_prefix_frames": 0,
+      "appended_frames": 1002,
+      "journal_chain_sha256": "9567438233680ef21078d2aa4c7a21362d4d8d4f62517b4cf8db0739c188556a",
+      "recovery": "DETERMINISTIC_OFFLINE_REBUILD",
+      "simulator_rebuilt_from_start": true,
+      "real_broker_orders_enabled": false,
+      "realtime_data_verified": false,
+      "algorithm_optimization_performed": false,
+      "effectiveness": "NOT_EVALUATED"
+    },
+    "resumed": {
+      "task": "P2-H2",
+      "status": "COMPLETE_CLOSED_LOOP",
+      "manifest_sha256": "ff76b4e86ae1faf46ef06501ba7333ac8502f7597b909d145c76c6c382f44f1d",
+      "frames": 23461,
+      "verified_prefix_frames": 1002,
+      "appended_frames": 22459,
+      "journal_chain_sha256": "cc8f1ec12b84d3ff6b06835763e42a3df82ad859dc365973a5fdaad0e36612ed",
+      "recovery": "DETERMINISTIC_OFFLINE_REBUILD",
+      "simulator_rebuilt_from_start": true,
+      "real_broker_orders_enabled": false,
+      "realtime_data_verified": false,
+      "algorithm_optimization_performed": false,
+      "effectiveness": "NOT_EVALUATED"
+    },
+    "repeat": {
+      "task": "P2-H2",
+      "status": "COMPLETE_CLOSED_LOOP",
+      "manifest_sha256": "ff76b4e86ae1faf46ef06501ba7333ac8502f7597b909d145c76c6c382f44f1d",
+      "frames": 23461,
+      "verified_prefix_frames": 23461,
+      "appended_frames": 0,
+      "journal_chain_sha256": "cc8f1ec12b84d3ff6b06835763e42a3df82ad859dc365973a5fdaad0e36612ed",
+      "recovery": "DETERMINISTIC_OFFLINE_REBUILD",
+      "simulator_rebuilt_from_start": true,
+      "real_broker_orders_enabled": false,
+      "realtime_data_verified": false,
+      "algorithm_optimization_performed": false,
+      "effectiveness": "NOT_EVALUATED"
+    }
+  },
+  "real_broker_orders_enabled": false,
+  "algorithm_optimization_performed": false,
+  "effectiveness": "NOT_EVALUATED"
+}
