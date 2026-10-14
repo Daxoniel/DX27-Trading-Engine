@@ -5,11 +5,13 @@ on:
     paths:
       - "src/dx27/application/**"
       - "src/dx27/adapters/intraday/**"
+      - "src/dx27/adapters/alpaca/**"
       - "src/dx27/adapters/simulated/**"
       - "src/dx27/adapters/calendars/**"
       - "src/dx27/core/**"
       - "src/dx27/domains/intraday/**"
       - "tests/unit/test_intraday*"
+      - "tests/unit/test_alpaca_paper_probe.py"
       - "tests/unit/test_streaming_breakout.py"
       - "tests/unit/test_simulated_execution.py"
       - "tests/integration/test_intraday*"
@@ -42,6 +44,7 @@ jobs:
       - name: Validate baseline, causality, costs, calendars and ledgers
         run: >-
           python -m pytest -q
+          tests/unit/test_alpaca_paper_probe.py
           tests/unit/test_intraday_data.py
           tests/unit/test_intraday_account_probe.py
           tests/unit/test_intraday_opening_volume.py
