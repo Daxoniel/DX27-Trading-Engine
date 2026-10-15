@@ -3,6 +3,7 @@
   "evaluation_registered": false,
   "new_market_data_downloaded": false,
   "strategy_implementation_changed": false,
+  "isolated_fixture_implementation_added": true,
   "execution_enabled": false,
   "primary_full_texts": [
     {

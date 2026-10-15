@@ -93,7 +93,8 @@
   Q1 acceptance is not a parameter-selection or profitability approval.
   First INTRA-1C Q2 comparison is complete; Q1 and Q2 are now inspected. Next,
   follow the [literature-driven replication protocol](docs/research/orb-literature/protocol.md)
-  before tuning: implement causal five-minute rule fixtures, audit sample exposure,
+  before tuning: causal five-minute rule fixtures are implemented and tested
+  ([acceptance and limits](docs/research/orb-literature/fixture-implementation.md)); audit sample exposure,
   then register dates, execution semantics, costs and inference before new evaluation.
   The protocol is DESIGN_ONLY, not an executable effectiveness preregistration;
   keep the baseline unchanged and RVOL default OFF meanwhile.

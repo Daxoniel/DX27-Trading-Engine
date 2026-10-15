@@ -10,6 +10,7 @@ on:
       - "src/dx27/adapters/calendars/**"
       - "src/dx27/core/**"
       - "src/dx27/domains/intraday/**"
+      - "src/dx27/research/**"
       - "tests/unit/test_intraday*"
       - "tests/unit/test_alpaca_paper_probe.py"
       - "tests/unit/test_streaming_breakout.py"
@@ -45,6 +46,7 @@ jobs:
         run: >-
           python -m pytest -q
           tests/unit/test_alpaca_paper_probe.py
+          tests/unit/test_intraday_opening_direction_research.py
           tests/integration/test_intraday_paper_recorder.py
           tests/integration/test_intraday_paired_comparison.py
       - name: Validate baseline, causality, costs, calendars and ledgers
