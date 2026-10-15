@@ -1,0 +1,145 @@
+{
+  "analysis": {
+    "alternative_periods": "NONE",
+    "bootstrap": {
+      "block_sessions": 5,
+      "method": "PAIRED_CIRCULAR_MOVING_BLOCK_COMPOUNDED_RETURNS",
+      "quantile_method": "linear",
+      "quantiles": [
+        0.025,
+        0.975
+      ],
+      "resamples": 10000,
+      "seed": 20251015
+    },
+    "incomplete_data": "BLOCK_BOTH_ARMS_NO_SESSION_DROPPING",
+    "parameter_search": "NONE",
+    "primary": "RVOL_MINUS_BASELINE_NET_RETURN_PERCENTAGE_POINTS",
+    "secondary": [
+      "net_pnl",
+      "maximum_drawdown",
+      "trades",
+      "win_rate",
+      "total_commission",
+      "total_spread_cost",
+      "total_slippage_cost"
+    ],
+    "zero_trade_days": "INCLUDE"
+  },
+  "baseline_config": {
+    "adx_period": 14,
+    "adx_threshold": 25.0,
+    "atr_period": 14,
+    "costs": {
+      "commission_per_share": 0.0035,
+      "minimum_commission": 0.35,
+      "slippage_bps": 1.0,
+      "spread_bps": 2.0
+    },
+    "daily_loss_limit": 0.01,
+    "decision_start": "2025-04-01",
+    "execution_delay_minutes": 1,
+    "flatten_minutes_before_close": 5,
+    "initial_cash": 100000.0,
+    "last_entry_minutes_before_close": 10,
+    "max_open_risk": 0.01,
+    "max_position_fraction": 0.25,
+    "max_positions": 3,
+    "max_volume_participation": 0.01,
+    "opening_volume": null,
+    "risk_per_trade": 0.0025,
+    "stop_atr": 1.0,
+    "target_atr": 2.0
+  },
+  "contract": "INTRA-1C:1",
+  "data": {
+    "adjustment": "raw",
+    "bar_label": "interval_start",
+    "end_exclusive": "2025-07-01T00:00:00Z",
+    "evaluation_end_exclusive": "2025-07-01",
+    "evaluation_start": "2025-04-01",
+    "expected_context_sessions": 83,
+    "expected_evaluation_sessions": 62,
+    "feed": "sip",
+    "source": "ALPACA_HISTORICAL_SIP",
+    "start": "2025-03-01T00:00:00Z",
+    "symbols": [
+      "IWM",
+      "QQQ",
+      "SPY"
+    ]
+  },
+  "effectiveness_approval_automatic": false,
+  "engine_files": {
+    "src/dx27/adapters/calendars/__init__.py": "4990de1e8d1e2a086a7fe246b8db1106463d566b403d13e0553f2e60d9f5f398",
+    "src/dx27/adapters/calendars/xnys.py": "a6d9c3f0635a0f3a6302bfece523f86da7b97c9885b896b3527ecfcb383c9a8b",
+    "src/dx27/adapters/intraday/data.py": "5f05a69a0002ef83afd6a44142b4118a5ceecb4ea488c3ae791cc440e5dda6b2",
+    "src/dx27/adapters/simulated/__init__.py": "7f9add9cc1ccddb270272bac77b3dc3f56b313d5d849793fb66b33fe9c0b3627",
+    "src/dx27/adapters/simulated/account.py": "fb8ee8925203741b248203489703e05dfdb8136c988f1de2e729e826290c7500",
+    "src/dx27/adapters/simulated/execution.py": "9c0e02262838287a507841b62a60ed84dd070581cba3a9f171e5c4ea7bb4befd",
+    "src/dx27/adapters/simulated/portfolio.py": "db5a1289087cb12ad3995b2f86af879a29324ed788c14e3adf22f13c6b6a3d72",
+    "src/dx27/application/intraday_replay.py": "3ecca92f8871052d095f7ac6b5aa152e1b43249059eb152896a57cbeb18476bb",
+    "src/dx27/core/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/core/interfaces/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/core/interfaces/account.py": "5a7bb21102eca36325db3f182239efbe4cd48cea63f954454df530eb324ada6f",
+    "src/dx27/core/interfaces/execution.py": "eab27ffcde4a794f827412323bbd096e1292a5be83816f31161a4b698f911475",
+    "src/dx27/core/interfaces/intraday_bot.py": "74722c813e0dceb0f71c85b0146f69f0a498c37093ed3c61d7a614137dced02a",
+    "src/dx27/core/interfaces/market_data.py": "bac4c2565f779b8abc4797536ad1dbec1258f6fa917869369f3f9ae1ee582e0b",
+    "src/dx27/core/interfaces/portfolio.py": "f0b27a83cbfd3849db7f22c9e3b3be2470c0676d4fb7c4e2ae06bac89e26cb33",
+    "src/dx27/core/interfaces/portfolio_constructor.py": "8c1acd344d16ea064e27df2292efdef23edbd980830ec994546b1ccf8e934756",
+    "src/dx27/core/interfaces/strategy.py": "949f244940880bf1970e2bf831a3705096e33bde1ef069ede2eaf6db91729360",
+    "src/dx27/core/models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/core/models/account_snapshot.py": "60b272dab41dbb5af1d38b34776c834cb70dfe7075997042935be377454945b2",
+    "src/dx27/core/models/bot_signal.py": "f48a3967047103c86841b1f4ffbca6ba09e5c6091994529867163d10338f92a4",
+    "src/dx27/core/models/execution_costs.py": "db810758e1ee1d1f7fc6e006d099a34e7ea69a711c14de9b3988127afd9aed4e",
+    "src/dx27/core/models/execution_report.py": "926bb3f0f62e6b5f307a0b83da2eb2ec6c03556288edb4de6de82d45084cb178",
+    "src/dx27/core/models/feature_snapshot.py": "8ee9b14c5a2c7c44272d98224ff61140d99260062407fa616b41db5b45f7c37f",
+    "src/dx27/core/models/market_context.py": "bbeac2e05aad0556ac5650c2c6f3b68ab4796f5c498666073576a8bb7fb39316",
+    "src/dx27/core/models/portfolio_snapshot.py": "c5ec9f35bad727af34f3c144b0df34632074cd5c595b57758c3cd537c6148331",
+    "src/dx27/core/models/portfolio_target.py": "33151be9a31fc27d22cb47175fb49aee6769c8e64da127b859467511d2998163",
+    "src/dx27/core/models/position.py": "237b122701b773e3c4792f4b647e4fd3f372b23e43e146f0ddd3cbfe43586df7",
+    "src/dx27/core/models/rule_result.py": "3e6c61337f5effedf87f44c447417edfbdd70d7fc604027571a7444960fb2f58",
+    "src/dx27/core/models/trade_intent.py": "f558da375e9a63c4db54124933ac61fed553c9036c1c2c582848388fd9d032f7",
+    "src/dx27/core/models/trade_result.py": "22d44f2db2162327bfe7b38a6124fb3bd6d61967b3ec5ad922afe6af726639f4",
+    "src/dx27/domains/intraday/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/domains/intraday/bots/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/domains/intraday/bots/intraday_breakout.py": "9b2d136b8898a37e83f6638879fea03885d9d07878d3f6d92f2e2864cd61b336",
+    "src/dx27/domains/intraday/execution_profile.py": "ce39bed61c613c98728335257709ec33a0076556863ee103c9900be8f7bf2b24",
+    "src/dx27/domains/intraday/features/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/domains/intraday/features/breakout_features.py": "9a2cc6bd5ee73d6f7eb3b9a2b4a23f0e50ce3971a21f206c44901723d84a48a5",
+    "src/dx27/domains/intraday/features/streaming_breakout.py": "5a82f2dab76ca44c4cd7eae0918287eb53579e1640e4e43cbecc1e1a5b6de192",
+    "src/dx27/domains/intraday/market_data.py": "0c17e2c84e65cdd51780779aab9f282daabd3d0e2fcfa5f0a8f095b12f13f958",
+    "src/dx27/domains/intraday/market_event.py": "9d0c265a8ad76efa6435dcdf98b0c9927137a444a524e9935741426e4cec4b52",
+    "src/dx27/domains/intraday/order_lifecycle.py": "a4489d9806e6525bfc49d728ec84694a1599ca485c49c5153e16e60cfaf482ee",
+    "src/dx27/domains/intraday/replay_config.py": "1b7cb6535c725d4ec3b19383baba3f23a8372b21f07cc4aa672116a1c4c599f4",
+    "src/dx27/domains/intraday/risk_budget.py": "515776de07901d451ce842589996888b5acdfcb811bbca0c7d5f7e86a8d102a4",
+    "src/dx27/domains/intraday/rules/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/domains/intraday/selection/__init__.py": "64f3a5e575be9eee801822cb375fb399dd3ece1feaaded720c54b906fbecd309",
+    "src/dx27/domains/intraday/selection/opening_volume.py": "7bbd39253f7155f6faddf2d6717f618a5772bf3f95d4ccd9b1588206fcb243d4",
+    "src/dx27/domains/intraday/trade_management/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/domains/intraday/trade_management/trade_manager.py": "3a30af147638f8ba098c841d4da4f115430a241ee2149a79889ae7139961c54a",
+    "src/dx27/execution_planning/__init__.py": "e96f0019052a955b94c7eeed3b74f4634f53f71c14d997f142e307411a6552ac",
+    "src/dx27/execution_planning/target_to_intent.py": "78bd030ff0ce9e0ae535995441c524b3edb89e1e5ed491fd24cf9094a261261f"
+  },
+  "execution_enabled": false,
+  "exposure": {
+    "choice": "CHRONOLOGICAL_NEXT_QUARTER_AFTER_INSPECTED_Q1",
+    "prospective_or_blind": false,
+    "q1": "ALREADY_INSPECTED_ENGINEERING_ONLY",
+    "q2": "NO_PRIOR_INTRADAY_STRATEGY_RUN_FOUND_IN_THIS_PROJECT"
+  },
+  "registered_at": "2026-10-15T09:09:12.283711+00:00",
+  "runtime": {
+    "packages": {
+      "exchange-calendars": "4.13.2",
+      "numpy": "2.3.5",
+      "pandas": "2.2.3"
+    },
+    "python": "3.12"
+  },
+  "rvol": {
+    "lookback_sessions": 20,
+    "minimum_rvol": 1.0
+  },
+  "study_id": "intra-1c-2025-q2-v1"
+}
