@@ -69,9 +69,12 @@
   order/activity lookup pagination, observation coherence and exact execution
   notional/fee aggregation; no actual submission.
   See [supported coverage and limits](docs/architecture/intraday-paper-evidence.md).
-- [ ] **P2-H8 read-only paper HTTP recorder — NEXT** — fixed host/GET paths,
+- [x] **P2-H8 read-only paper HTTP recorder** — fixed host/GET paths,
   redirects/size limits, redacted errors and explicit incomplete evidence;
   separately validate actual response shapes without enabling execution.
+  Actual paper account/clock/positions/orders/activity GET sampling succeeded;
+  empty order/activity samples do not verify real fill or fee evidence.
+  See [operations and limits](docs/operations/intraday-paper-recorder.md).
 - [ ] **P2 automated paper trading** — default order switch OFF, paper endpoint
   only, durable order IDs, partial fills, cancel/reject handling, recovery and
   broker-position reconciliation before enabling automation. Historical simulated

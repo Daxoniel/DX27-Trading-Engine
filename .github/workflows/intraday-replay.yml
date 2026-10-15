@@ -41,10 +41,14 @@ jobs:
         with:
           python-version: "3.11"
       - run: python -m pip install -e ".[test]"
-      - name: Validate baseline, causality, costs, calendars and ledgers
+      - name: Validate read-only paper HTTP boundaries
         run: >-
           python -m pytest -q
           tests/unit/test_alpaca_paper_probe.py
+          tests/integration/test_intraday_paper_recorder.py
+      - name: Validate baseline, causality, costs, calendars and ledgers
+        run: >-
+          python -m pytest -q
           tests/unit/test_intraday_data.py
           tests/unit/test_intraday_account_probe.py
           tests/unit/test_intraday_opening_volume.py
