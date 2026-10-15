@@ -92,7 +92,10 @@
   slippage and data quality on untouched periods. INTRA-1B is research preparation;
   Q1 acceptance is not a parameter-selection or profitability approval.
   First INTRA-1C Q2 comparison is complete; Q1 and Q2 are now inspected. Next,
-  preregister training/validation separation and research budget before tuning;
+  follow the [literature-driven replication protocol](docs/research/orb-literature/protocol.md)
+  before tuning: implement causal five-minute rule fixtures, audit sample exposure,
+  then register dates, execution semantics, costs and inference before new evaluation.
+  The protocol is DESIGN_ONLY, not an executable effectiveness preregistration;
   keep the baseline unchanged and RVOL default OFF meanwhile.
 
 See [the detailed delivery gates](docs/architecture/intraday-delivery-roadmap.md).
