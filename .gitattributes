@@ -1,0 +1,9 @@
+# Preserve the already registered INTRA-1C protocol/source byte fingerprints.
+docs/research/intra-1c/q2-2025-protocol.json text eol=lf
+src/dx27/application/intraday_replay.py text eol=lf
+src/dx27/adapters/intraday/data.py text eol=lf
+src/dx27/domains/intraday/** text eol=lf
+src/dx27/core/** text eol=lf
+src/dx27/adapters/simulated/** text eol=lf
+src/dx27/adapters/calendars/** text eol=lf
+src/dx27/execution_planning/** text eol=lf
