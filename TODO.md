@@ -94,8 +94,10 @@
   First INTRA-1C Q2 comparison is complete; Q1 and Q2 are now inspected. Next,
   follow the [literature-driven replication protocol](docs/research/orb-literature/protocol.md)
   before tuning: causal five-minute rule fixtures are implemented and tested
-  ([acceptance and limits](docs/research/orb-literature/fixture-implementation.md)); audit sample exposure,
-  then register dates, execution semantics, costs and inference before new evaluation.
+  ([acceptance and limits](docs/research/orb-literature/fixture-implementation.md)).
+  [Exposure audit and fixed evaluation design](docs/research/orb-literature/evaluation-design.md)
+  are recorded; implement multi-session capital carry, reporting and registration guards
+  with synthetic data before sealing any executable evaluation.
   The protocol is DESIGN_ONLY, not an executable effectiveness preregistration;
   keep the baseline unchanged and RVOL default OFF meanwhile.
 
