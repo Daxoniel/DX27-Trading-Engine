@@ -16,9 +16,11 @@
   30-minute opening volume / preceding 20 scheduled opening means, engineering
   threshold 1.0, causal publication at 10:00 New York, explicit missing/history
   rejection, separate selection ledger. No fitted threshold or effectiveness claim.
-- [ ] **INTRA-1C — Fixed Paired Historical Comparison — NEXT** — preregister
-  periods/universe/costs/execution/paired metrics before reading evaluation data;
-  keep current parameters fixed. Q1 is already inspected engineering data.
+- [x] **INTRA-1C — Fixed Paired Historical Comparison** — Q2 2025 protocol
+  published before capture, unchanged baseline/RVOL and costs, 62 paired days;
+  both arms lose, RVOL-minus-baseline -0.2300 pp and registered block-bootstrap
+  interval spans zero. No tuning or effectiveness approval. See the
+  [result and exposure record](docs/reports/intra-1c-2025-q2/validation.md).
 - [ ] **INTRA-1D — Paper Execution Conformance** — not started; shared decision
   logic, persistent orders/recovery and actual execution-deviation checks.
 
@@ -89,6 +91,9 @@
   (INTRA-1C), shadow decisions and paper fills. Compare net return, drawdown,
   slippage and data quality on untouched periods. INTRA-1B is research preparation;
   Q1 acceptance is not a parameter-selection or profitability approval.
+  First INTRA-1C Q2 comparison is complete; Q1 and Q2 are now inspected. Next,
+  preregister training/validation separation and research budget before tuning;
+  keep the baseline unchanged and RVOL default OFF meanwhile.
 
 See [the detailed delivery gates](docs/architecture/intraday-delivery-roadmap.md).
 
