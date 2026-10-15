@@ -115,7 +115,9 @@ def test_default_opener_never_follows_redirect(monkeypatch, status, probe):
     (b"{}", {"Content-Type": "text/html"}), (b"{}", {"Content-Length": "262145"}),
     (b"{}", {"Content-Length": "-1"}), (b" " * 262145, {}),
     (b"{}", {"Content-Length": "100"}),
-])
+], ids=["duplicate-keys", "nan", "infinite-exponent", "invalid-utf8", "malformed-json",
+         "wrong-shape", "gzip", "html", "oversized-length", "negative-length",
+         "oversized-body", "truncated-length"])
 def test_malformed_bounded_response_is_rejected(data, headers):
     # Replace rather than duplicate a Content-Type header in the fake.
     response = Response(data, headers={k: v for k, v in headers.items() if k != "Content-Type"})
