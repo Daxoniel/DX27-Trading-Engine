@@ -65,6 +65,7 @@ jobs:
           tests/integration/test_intraday_runner.py
           tests/integration/test_intraday_market_ingress.py
           tests/integration/test_intraday_incremental_shadow.py
+          tests/integration/test_intraday_paper_contract.py
       - name: Run labeled synthetic demo
         run: python -m dx27.adapters.intraday.cli demo --output work/intra-1a-demo
       - name: Record and replay historical shadow journal without credentials

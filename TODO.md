@@ -60,10 +60,14 @@
   bounded queues with backpressure, atomic receiver/minute checkpoints;
   restore receiver directly and rebuild strategy from stored minute snapshots.
   See [operations](docs/operations/intraday-incremental-shadow.md).
-- [ ] **P2-H6 paper adapter contract and disabled execution gateway — NEXT** —
+- [x] **P2-H6 recorded paper adapter contract and disabled execution gateway** —
   normalize broker query/update IDs, reconciliation and admission gates using
   recorded/fake responses before any actual submission. Keep real orders OFF,
   defer paid realtime and continue framework checks before algorithm tuning.
+  See [contract and limits](docs/architecture/intraday-paper-contract.md).
+- [ ] **P2-H7 read-only paper evidence boundary — NEXT** — recorded transports,
+  order/activity lookup pagination, observation coherence and exact execution
+  notional/fee aggregation; no actual submission.
 - [ ] **P2 automated paper trading** — default order switch OFF, paper endpoint
   only, durable order IDs, partial fills, cancel/reject handling, recovery and
   broker-position reconciliation before enabling automation. Historical simulated
