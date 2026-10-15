@@ -196,7 +196,7 @@ def test_local_artifacts_have_hashes_and_completion_last(synthetic,tmp_path):
     import hashlib
     report,results=evaluate_synthetic(synthetic)
     output=write_local_artifacts(report,results,tmp_path/'output')
-    seal=json.loads((output/'completion.json').read_text())
+    seal=json.loads((output/'completion.json').read_text(encoding="utf-8"))
     assert len(seal['artifact_sha256'])==22
     assert seal['study_status']=='COMPLETE_SYNTHETIC_EVALUATION'
     for path,sha in seal['artifact_sha256'].items():

@@ -22,7 +22,7 @@ ROOT=Path(__file__).resolve().parents[2]
 
 @pytest.fixture
 def envelope(tmp_path):
-    design=json.loads((ROOT/DESIGN_PATH).read_text())
+    design=json.loads((ROOT/DESIGN_PATH).read_text(encoding="utf-8"))
     base=datetime.fromisoformat(design['created_at'])+timedelta(seconds=30)
     audit=tmp_path/'audit.json'
     audit.write_text(json.dumps(dict(generated_at=base.isoformat(),stage_exposure={
@@ -150,7 +150,7 @@ def test_source_and_calendar_guards_fail_closed(constructed,kind):
 
 
 def test_declared_real_design_calendar_counts_without_market_data():
-    d=json.loads((ROOT/DESIGN_PATH).read_text())
+    d=json.loads((ROOT/DESIGN_PATH).read_text(encoding="utf-8"))
     assert len(stage_calendar(d,'A')[2])==251
     assert len(stage_calendar(d,'B')[2])==64
 
