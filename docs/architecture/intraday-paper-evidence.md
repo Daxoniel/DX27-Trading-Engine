@@ -81,7 +81,7 @@ Run:
 python -m pytest -q tests/integration/test_intraday_paper_evidence.py tests/integration/test_intraday_paper_contract.py
 ```
 
-The 42 new evidence cases cover exact costs, overlap/terminal pages, terminal
+The 43 new evidence cases cover exact costs, overlap/terminal pages, terminal
 order lookups, inconsistent snapshots, malformed/missing/unsupported history,
 cursor/size/page limits, rate limits/404 without retries, nonrecorded transport
 rejection, observation clocks, explicit fee attestations and no partial ledger

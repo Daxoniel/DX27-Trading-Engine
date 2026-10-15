@@ -123,6 +123,8 @@ def _costs(orders, activities, verified_zero_fee_orders):
         bid = identifier(row["order_id"])
         _require(bid in orders, "UNOWNED_ACTIVITY_ORDER")
         raw = orders[bid]
+        _require(timestamp_revision(row["transaction_time"]) >= timestamp_revision(raw["created_at"]),
+                 "ACTIVITY_PRECEDES_ORDER")
         kind = row["activity_type"]
         if kind == "FILL":
             _require(row.get("type") == "fill" and row.get("symbol") == raw["symbol"]

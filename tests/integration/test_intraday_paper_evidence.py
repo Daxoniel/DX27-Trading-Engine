@@ -105,6 +105,7 @@ def test_overlap_is_deduplicated_and_exact_full_final_page_requires_empty_page()
     (lambda e: e[4]["body"][0].update(side="sell"), "INVALID_EXECUTION_ACTIVITY"),
     (lambda e: e[4]["body"][1].update(transaction_time="2025-02-03T15:00:00Z"), "ORDER_REGRESSION"),
     (lambda e: e[4]["body"][0].update(transaction_time="2025-02-03T16:00:00Z"), "OUTSIDE_EVIDENCE_WINDOW"),
+    (lambda e: e[4]["body"][0].update(transaction_time="2025-02-03T14:30:00Z"), "ACTIVITY_PRECEDES_ORDER"),
     (lambda e: e[1].update(observed_at="2025-02-03T15:00:09Z"), "CLOCK_REGRESSION"),
     (lambda e: e[6]["body"].update(cash="799"), "EVIDENCE_CHANGED"),
     (lambda e: e[3]["body"].update(updated_at="2025-02-03T15:00:10Z"), "ORDER_CHANGED_WITHIN_PASS"),
