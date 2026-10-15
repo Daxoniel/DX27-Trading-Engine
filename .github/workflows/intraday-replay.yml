@@ -47,6 +47,8 @@ jobs:
           python -m pytest -q
           tests/unit/test_alpaca_paper_probe.py
           tests/unit/test_intraday_opening_direction_research.py
+          tests/unit/test_intraday_research_multisession.py
+          tests/unit/test_intraday_research_registration.py
           tests/integration/test_intraday_paper_recorder.py
           tests/integration/test_intraday_paired_comparison.py
       - name: Validate baseline, causality, costs, calendars and ledgers

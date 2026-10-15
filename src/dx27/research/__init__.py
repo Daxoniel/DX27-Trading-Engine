@@ -1,1 +1,1 @@
-"""Isolated research rules; no broker or historical-evaluation entry point."""
+"""Isolated offline research; no downloads, network or broker execution."""

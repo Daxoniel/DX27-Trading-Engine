@@ -96,8 +96,9 @@
   before tuning: causal five-minute rule fixtures are implemented and tested
   ([acceptance and limits](docs/research/orb-literature/fixture-implementation.md)).
   [Exposure audit and fixed evaluation design](docs/research/orb-literature/evaluation-design.md)
-  are recorded; implement multi-session capital carry, reporting and registration guards
-  with synthetic data before sealing any executable evaluation.
+  are recorded; multi-session capital carry, fixed reporting and registration guards
+  are implemented with synthetic acceptance ([limits](docs/research/orb-literature/multisession-implementation.md)).
+  Next recheck exposure and publicly seal the exact execution registration before A data capture.
   The protocol is DESIGN_ONLY, not an executable effectiveness preregistration;
   keep the baseline unchanged and RVOL default OFF meanwhile.
 
