@@ -2,6 +2,7 @@
 
 日期：2026-10-15。机器可读文件：[evaluation-design.json](evaluation-design.json)。
 状态：**DESIGN_FIXED_EXECUTION_BLOCKED**，不是已经启用的执行登记。
+本设计为PR55冻结快照；后续实现进展见[多日实现验收](multisession-implementation.md)，机器设计字节未改。
 本次固定设计，不下载新行情、不计算新策略结果、不启用 broker。
 设计中的日期、重采样设置、成本敏感性数值都是事前项目选择，不能伪称论文推荐参数。
 

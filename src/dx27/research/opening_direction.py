@@ -5,8 +5,8 @@ Neither profile is the production ORB bot, a broker, or an effectiveness study.
 """
 
 from copy import deepcopy
-from dataclasses import asdict, dataclass
-from datetime import datetime, timedelta
+from dataclasses import asdict, dataclass, replace
+from datetime import datetime, timedelta, timezone
 from math import floor, isclose, isfinite
 from zoneinfo import ZoneInfo
 
@@ -18,7 +18,7 @@ from dx27.intelligence.sentinel.session_calendar import TradingSession
 
 MINUTE = timedelta(minutes=1)
 NY = ZoneInfo("America/New_York")
-RULE_VERSION = "opening-direction-fixtures-v1"
+RULE_VERSION = "opening-direction-fixtures-v2"
 
 
 @dataclass(frozen=True)
@@ -42,7 +42,7 @@ class OpeningDirectionFixture:
     One capped fill per side: no residual order, liquidity or borrow simulation.
     """
 
-    def __init__(self, session: TradingSession, profile: str):
+    def __init__(self, session: TradingSession, profile: str, *, starting_cash=None):
         if profile not in ("R0", "R1"):
             raise ValueError("profile must be R0 or R1")
         for at in (session.opens_at, session.closes_at):
@@ -53,7 +53,12 @@ class OpeningDirectionFixture:
         if not 15 * MINUTE <= session.closes_at - session.opens_at <= 390 * MINUTE:
             raise ValueError("unsupported session duration")
         self.session, self.profile = session, profile
-        self.initial_cash = 25_000.0 if profile == "R0" else 100_000.0
+        default_cash = 25_000.0 if profile == "R0" else 100_000.0
+        if starting_cash is not None and (isinstance(starting_cash, bool)
+                or not isinstance(starting_cash, (int, float))
+                or not isfinite(starting_cash) or starting_cash <= 0):
+            raise ValueError("starting cash must be positive and finite")
+        self.initial_cash = float(default_cash if starting_cash is None else starting_cash)
         self.cash = self.initial_cash
         self.costs = (ExecutionCosts(0.0005, 0, 0, 0) if profile == "R0"
                       else ExecutionCosts())
@@ -88,6 +93,9 @@ class OpeningDirectionFixture:
             validate_bar(bar)
             if bar.symbol != "QQQ" or bar.timestamp != at:
                 raise ValueError("expected QQQ bar at the scheduled minute")
+        at, as_of = at.astimezone(timezone.utc), as_of.astimezone(timezone.utc)
+        if bar is not None:
+            bar = replace(bar, timestamp=at)
         usable = bar is not None and bar.volume > 0
         if not usable:
             self.data_valid = False
@@ -98,7 +106,9 @@ class OpeningDirectionFixture:
                 self._freeze_signal()
         else:
             if at == self.entry_at:
-                if not self.data_valid or not usable:
+                if self.profile == "R1" and at >= self.session.closes_at - 10 * MINUTE:
+                    self._decision(at, "ENTRY_CUTOFF")
+                elif not self.data_valid or not usable:
                     self._decision(at, "ENTRY_DATA_INVALID")
                 elif self.direction:
                     self._enter(at, bar.open)
@@ -108,6 +118,8 @@ class OpeningDirectionFixture:
             self.last_price = bar.close
         equity = self.cash + self.quantity * (self.last_price or 0)
         self.equity.append(dict(at=as_of.isoformat(), equity=equity,
+                                cash=self.cash, quantity=self.quantity,
+                                holdings_value=self.quantity * (self.last_price or 0),
                                 stale=not usable))
         self.prior_volume = bar.volume if usable else 0.0
         self._ticks.append(None if bar is None else {
@@ -211,14 +223,14 @@ class OpeningDirectionFixture:
 
     def checkpoint(self):
         """JSON-safe bounded input journal; caller owns atomic storage, not this model."""
-        return dict(version=RULE_VERSION, profile=self.profile,
+        return dict(version=RULE_VERSION, profile=self.profile, starting_cash=self.initial_cash,
                     session_id=self.session.session_id,
                     opens_at=self.session.opens_at.isoformat(),
                     closes_at=self.session.closes_at.isoformat(), ticks=deepcopy(self._ticks))
 
     @classmethod
-    def restore(cls, checkpoint, *, session, profile):
-        model = cls(session, profile)
+    def restore(cls, checkpoint, *, session, profile, starting_cash=None):
+        model = cls(session, profile, starting_cash=starting_cash)
         expected = model.checkpoint()
         if not isinstance(checkpoint, dict) or set(checkpoint) != set(expected):
             raise ValueError("invalid checkpoint schema")

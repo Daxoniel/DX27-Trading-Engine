@@ -7,3 +7,7 @@ src/dx27/core/** text eol=lf
 src/dx27/adapters/simulated/** text eol=lf
 src/dx27/adapters/calendars/** text eol=lf
 src/dx27/execution_planning/** text eol=lf
+
+# Reproducible source/design seals for the separate literature research runner.
+src/dx27/research/** text eol=lf
+docs/research/orb-literature/evaluation-design.json text eol=lf
