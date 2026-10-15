@@ -1,0 +1,44 @@
+{
+  "study_id": "intra-1c-2025-q2-v1",
+  "protocol_sha256": "62731c4e45200b689d099da1acb5b5309d817b9bfe1e35bb5b370343dd266a17",
+  "registration_commit": "b69aea544d431618e089b6adb665c60ed8cc7d64",
+  "implementation_before_capture_commit": "828bbe34f121d2f1226b8a69237e4d184ea54c8f",
+  "registration_pr": "https://github.com/Daxoniel/DX27-Trading-Engine/pull/53",
+  "chronology_verified": true,
+  "registered_at": "2026-10-15T09:09:12.283711+00:00",
+  "public_pr_created_at": "2026-10-15T09:09:35Z",
+  "retrieval_started_at": "2026-10-15T09:15:51.386904+00:00",
+  "retrieval_completed_at": "2026-10-15T09:16:00.298765+00:00",
+  "source_csv_sha256": "d4a4bfcbaf27f549f5289a616ca6234737421829486681a76fba9764d85ca7a5",
+  "source_archive_sha256": "b82fdbb13197cab95db817e3412ad5682d2671da067a01318af71735ca6f7b6c",
+  "source_bars": 210215,
+  "regular_bars": 97110,
+  "context_sessions": 83,
+  "evaluation_sessions": 62,
+  "paired_zero_days_retained": true,
+  "arms": {
+    "baseline": {
+      "fills": 198,
+      "trades": 99,
+      "warmup_trade_count": 0,
+      "buy_after_decision": true,
+      "independently_reconciled": true,
+      "zero_return_evaluation_sessions": 20
+    },
+    "rvol": {
+      "fills": 78,
+      "trades": 39,
+      "warmup_trade_count": 0,
+      "buy_after_decision": true,
+      "independently_reconciled": true,
+      "zero_return_evaluation_sessions": 41
+    }
+  },
+  "active_rvol_selected_symbol_sessions": 77,
+  "active_rvol_symbol_sessions": 186,
+  "minute_availability": "ASSUMED_BAR_END_NOT_ORIGINAL_CUTOFF",
+  "q2_now_inspected": true,
+  "algorithm_optimization_performed": false,
+  "execution_enabled": false,
+  "effectiveness": "NOT_ESTABLISHED"
+}
