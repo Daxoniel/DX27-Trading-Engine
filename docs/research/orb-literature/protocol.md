@@ -1,6 +1,7 @@
 # ORB 文献驱动复现协议 v0.1
 
 日期：2026-10-15。状态：**DESIGN_ONLY / EVALUATION_NOT_REGISTERED**。
+评估设计和样本审计已补充，见[固定评估设计](evaluation-design.md)；执行登记仍未启用。
 本次交付固定研究对象、来源与工程验收边界；不是已注册的收益检验。
 已补充独立的单日构造数据实现，见[工程验收](fixture-implementation.md)。
 不下载新行情，不读取新的验证／留出结果，不选优参数。

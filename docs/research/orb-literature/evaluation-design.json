@@ -1,0 +1,355 @@
+{
+  "specification_id": "orb-qqq-fixed-evaluation-design-v1",
+  "status": "DESIGN_FIXED_EXECUTION_BLOCKED",
+  "created_at": "2026-10-15T11:52:06.185464+00:00",
+  "evaluation_registered": false,
+  "execution_enabled": false,
+  "new_data_download_authorized_by_this_file": false,
+  "research_question": "Estimate the fixed R1 QQQ opening-direction rule under declared model costs; no parameter or universe selection.",
+  "reference_source_commit": "3754ae99a37589e8e4bc49359b6fef790425c8be",
+  "reference_source_snapshot_only": {
+    "src/dx27/adapters/calendars/__init__.py": "4990de1e8d1e2a086a7fe246b8db1106463d566b403d13e0553f2e60d9f5f398",
+    "src/dx27/adapters/calendars/xnys.py": "a6d9c3f0635a0f3a6302bfece523f86da7b97c9885b896b3527ecfcb383c9a8b",
+    "src/dx27/adapters/intraday/data.py": "5f05a69a0002ef83afd6a44142b4118a5ceecb4ea488c3ae791cc440e5dda6b2",
+    "src/dx27/adapters/simulated/__init__.py": "7f9add9cc1ccddb270272bac77b3dc3f56b313d5d849793fb66b33fe9c0b3627",
+    "src/dx27/adapters/simulated/account.py": "fb8ee8925203741b248203489703e05dfdb8136c988f1de2e729e826290c7500",
+    "src/dx27/adapters/simulated/execution.py": "9c0e02262838287a507841b62a60ed84dd070581cba3a9f171e5c4ea7bb4befd",
+    "src/dx27/adapters/simulated/portfolio.py": "db5a1289087cb12ad3995b2f86af879a29324ed788c14e3adf22f13c6b6a3d72",
+    "src/dx27/application/intraday_replay.py": "3ecca92f8871052d095f7ac6b5aa152e1b43249059eb152896a57cbeb18476bb",
+    "src/dx27/core/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/core/interfaces/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/core/interfaces/account.py": "5a7bb21102eca36325db3f182239efbe4cd48cea63f954454df530eb324ada6f",
+    "src/dx27/core/interfaces/execution.py": "eab27ffcde4a794f827412323bbd096e1292a5be83816f31161a4b698f911475",
+    "src/dx27/core/interfaces/intraday_bot.py": "74722c813e0dceb0f71c85b0146f69f0a498c37093ed3c61d7a614137dced02a",
+    "src/dx27/core/interfaces/market_data.py": "bac4c2565f779b8abc4797536ad1dbec1258f6fa917869369f3f9ae1ee582e0b",
+    "src/dx27/core/interfaces/portfolio.py": "f0b27a83cbfd3849db7f22c9e3b3be2470c0676d4fb7c4e2ae06bac89e26cb33",
+    "src/dx27/core/interfaces/portfolio_constructor.py": "8c1acd344d16ea064e27df2292efdef23edbd980830ec994546b1ccf8e934756",
+    "src/dx27/core/interfaces/strategy.py": "949f244940880bf1970e2bf831a3705096e33bde1ef069ede2eaf6db91729360",
+    "src/dx27/core/models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/core/models/account_snapshot.py": "60b272dab41dbb5af1d38b34776c834cb70dfe7075997042935be377454945b2",
+    "src/dx27/core/models/bot_signal.py": "f48a3967047103c86841b1f4ffbca6ba09e5c6091994529867163d10338f92a4",
+    "src/dx27/core/models/execution_costs.py": "db810758e1ee1d1f7fc6e006d099a34e7ea69a711c14de9b3988127afd9aed4e",
+    "src/dx27/core/models/execution_report.py": "926bb3f0f62e6b5f307a0b83da2eb2ec6c03556288edb4de6de82d45084cb178",
+    "src/dx27/core/models/feature_snapshot.py": "8ee9b14c5a2c7c44272d98224ff61140d99260062407fa616b41db5b45f7c37f",
+    "src/dx27/core/models/market_context.py": "bbeac2e05aad0556ac5650c2c6f3b68ab4796f5c498666073576a8bb7fb39316",
+    "src/dx27/core/models/portfolio_snapshot.py": "c5ec9f35bad727af34f3c144b0df34632074cd5c595b57758c3cd537c6148331",
+    "src/dx27/core/models/portfolio_target.py": "33151be9a31fc27d22cb47175fb49aee6769c8e64da127b859467511d2998163",
+    "src/dx27/core/models/position.py": "237b122701b773e3c4792f4b647e4fd3f372b23e43e146f0ddd3cbfe43586df7",
+    "src/dx27/core/models/rule_result.py": "3e6c61337f5effedf87f44c447417edfbdd70d7fc604027571a7444960fb2f58",
+    "src/dx27/core/models/trade_intent.py": "f558da375e9a63c4db54124933ac61fed553c9036c1c2c582848388fd9d032f7",
+    "src/dx27/core/models/trade_result.py": "22d44f2db2162327bfe7b38a6124fb3bd6d61967b3ec5ad922afe6af726639f4",
+    "src/dx27/domains/intraday/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/domains/intraday/bots/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/domains/intraday/bots/intraday_breakout.py": "9b2d136b8898a37e83f6638879fea03885d9d07878d3f6d92f2e2864cd61b336",
+    "src/dx27/domains/intraday/execution_profile.py": "ce39bed61c613c98728335257709ec33a0076556863ee103c9900be8f7bf2b24",
+    "src/dx27/domains/intraday/features/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/domains/intraday/features/breakout_features.py": "9a2cc6bd5ee73d6f7eb3b9a2b4a23f0e50ce3971a21f206c44901723d84a48a5",
+    "src/dx27/domains/intraday/features/streaming_breakout.py": "5a82f2dab76ca44c4cd7eae0918287eb53579e1640e4e43cbecc1e1a5b6de192",
+    "src/dx27/domains/intraday/market_data.py": "0c17e2c84e65cdd51780779aab9f282daabd3d0e2fcfa5f0a8f095b12f13f958",
+    "src/dx27/domains/intraday/market_event.py": "9d0c265a8ad76efa6435dcdf98b0c9927137a444a524e9935741426e4cec4b52",
+    "src/dx27/domains/intraday/order_lifecycle.py": "a4489d9806e6525bfc49d728ec84694a1599ca485c49c5153e16e60cfaf482ee",
+    "src/dx27/domains/intraday/replay_config.py": "1b7cb6535c725d4ec3b19383baba3f23a8372b21f07cc4aa672116a1c4c599f4",
+    "src/dx27/domains/intraday/risk_budget.py": "515776de07901d451ce842589996888b5acdfcb811bbca0c7d5f7e86a8d102a4",
+    "src/dx27/domains/intraday/rules/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/domains/intraday/selection/__init__.py": "64f3a5e575be9eee801822cb375fb399dd3ece1feaaded720c54b906fbecd309",
+    "src/dx27/domains/intraday/selection/opening_volume.py": "7bbd39253f7155f6faddf2d6717f618a5772bf3f95d4ccd9b1588206fcb243d4",
+    "src/dx27/domains/intraday/trade_management/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/dx27/domains/intraday/trade_management/trade_manager.py": "3a30af147638f8ba098c841d4da4f115430a241ee2149a79889ae7139961c54a",
+    "src/dx27/execution_planning/__init__.py": "e96f0019052a955b94c7eeed3b74f4634f53f71c14d997f142e307411a6552ac",
+    "src/dx27/execution_planning/target_to_intent.py": "78bd030ff0ce9e0ae535995441c524b3edb89e1e5ed491fd24cf9094a261261f",
+    "src/dx27/research/__init__.py": "c7907df0597b67d3bea369a48f87b6ba55aacbb7d6009a751b4e4fd3fc94762e",
+    "src/dx27/research/opening_direction.py": "ed34e13782981b8f239c818318e3afd54e16daeb060275173e41de5b6def75df",
+    "src/dx27/adapters/intraday/paired_comparison.py": "042fdff96a0d2e49ce0aede57c9993c8fe758f079aeb66ba68d42e01d2179d3d",
+    "src/dx27/intelligence/sentinel/session_calendar.py": "155e13f5e397bf6c5bdab2f6c94761cb0c0eec687bbd0717ec00a7b343f12404"
+  },
+  "execution_seal": null,
+  "execution_blockers": [
+    "MULTI_SESSION_CAPITAL_CARRY_NOT_IMPLEMENTED",
+    "REGISTERED_RUNNER_AND_PROVENANCE_GUARD_NOT_IMPLEMENTED",
+    "VALIDATED_STATISTICS_AND_FIXED_FILL_COST_REPORT_NOT_IMPLEMENTED",
+    "EXECUTION_SOURCE_RUNTIME_AND_REGISTRATION_COMMIT_NOT_SEALED",
+    "RUN_TIME_EXPOSURE_RECHECK_REQUIRED"
+  ],
+  "exposure_audit": {
+    "path": "exposure-audit.json",
+    "sha256": "bd85ab30d8a075cdc7ae6df9d9807f59c956b3cef3c3867e35e0c29db1f28e20",
+    "later_period_claim": "NO_ARTIFACT_FOUND_IN_BOUNDED_SCOPE_NOT_CERTIFIED_UNSEEN",
+    "historical_not_prospective": true
+  },
+  "design": {
+    "parameter_search": "NONE",
+    "training_or_ml_fitting": "NONE",
+    "candidate_selection": "NONE",
+    "main_profile": "R1",
+    "reference_profile": "R0_IDEALIZED_DESCRIPTIVE_ONLY",
+    "secondary_baseline": "SEALED_30_MINUTE_SPY_QQQ_IWM_RVOL_OFF",
+    "secondary_baseline_interpretation": "Different universe and rule bundle; not a single-factor causal effect",
+    "no_new_indicators": true
+  },
+  "data": {
+    "source": "ALPACA_HISTORICAL_SIP",
+    "feed": "sip",
+    "adjustment": "raw",
+    "bar_timeframe": "1m",
+    "bar_label": "interval_start",
+    "symbols": [
+      "IWM",
+      "QQQ",
+      "SPY"
+    ],
+    "profile_symbols": {
+      "R0": [
+        "QQQ"
+      ],
+      "R1": [
+        "QQQ"
+      ],
+      "baseline": [
+        "IWM",
+        "QQQ",
+        "SPY"
+      ]
+    },
+    "calendar": {
+      "source": "exchange_calendars:XNYS",
+      "version": "4.13.2",
+      "market_timezone": "America/New_York"
+    },
+    "availability": "ASSUMED_AT_BAR_END_NOT_ORIGINAL_CUTOFF",
+    "original_cutoff_verified": false,
+    "fallback_feed": "FORBIDDEN",
+    "licensing": "Use only within existing data entitlement; raw quotes not published; denied access blocks run, no paid subscription or alternative feed automatically selected",
+    "regular_bar_counts": "Per-symbol calendar minutes; multiply by 3 for required three-symbol regular bars; raw extended-hours row count is not fixed."
+  },
+  "stages": {
+    "A": {
+      "role": "PRIMARY_FIXED_HISTORICAL_EVALUATION",
+      "evaluation": {
+        "start_session_inclusive": "2025-07-01",
+        "end_session_exclusive": "2026-07-01",
+        "expected_sessions": 251,
+        "expected_regular_minutes": 97350,
+        "first_session": "2025-07-01",
+        "last_session": "2026-06-30"
+      },
+      "warmup": {
+        "start_session_inclusive": "2025-06-01",
+        "end_session_exclusive": "2025-07-01",
+        "expected_sessions": 20,
+        "expected_regular_minutes": 7800,
+        "first_session": "2025-06-02",
+        "last_session": "2025-06-30"
+      },
+      "request_start": "2025-06-01T00:00:00Z",
+      "request_end_exclusive": "2026-07-01T00:00:00Z",
+      "expected_context_sessions": 271,
+      "expected_context_regular_minutes": 105150,
+      "expected_context_regular_bars_all_symbols": 315450
+    },
+    "B": {
+      "role": "RESERVED_CHRONOLOGICAL_REPLICATION",
+      "evaluation": {
+        "start_session_inclusive": "2026-07-01",
+        "end_session_exclusive": "2026-10-01",
+        "expected_sessions": 64,
+        "expected_regular_minutes": 24960,
+        "first_session": "2026-07-01",
+        "last_session": "2026-09-30"
+      },
+      "warmup": {
+        "start_session_inclusive": "2026-06-01",
+        "end_session_exclusive": "2026-07-01",
+        "expected_sessions": 21,
+        "expected_regular_minutes": 8190,
+        "first_session": "2026-06-01",
+        "last_session": "2026-06-30"
+      },
+      "request_start": "2026-06-01T00:00:00Z",
+      "request_end_exclusive": "2026-10-01T00:00:00Z",
+      "release_condition": "A complete report and report hash committed publicly; no rule/cost/inference changes; independent of A profit sign",
+      "combine_with_A_for_primary": "FORBIDDEN",
+      "expected_context_sessions": 85,
+      "expected_context_regular_minutes": 33150,
+      "expected_context_regular_bars_all_symbols": 99450
+    }
+  },
+  "capital": {
+    "R1_initial_equity": 100000.0,
+    "R0_initial_equity": 25000.0,
+    "baseline_initial_equity": 100000.0,
+    "carry": "Each profile carries its prior complete session ending cash into next session sizing; no daily reset, no deposits, no interest, no overnight positions",
+    "stage_B": "Independent capital restart at the same declared initial equity; not a continuation chosen after A",
+    "initial_implementation": "Current fixture has fixed per-session capital and is not a multi-session evaluator"
+  },
+  "rules": {
+    "reference": "protocol.md#2-论文-a-基础规则参照-r0",
+    "implementation_contract": "fixture-implementation.md",
+    "R1": {
+      "opening_minutes": 5,
+      "direction": "FIRST_FIVE_MINUTE_CLOSE_GT_OPEN_LONG_ONLY",
+      "signal_after_completed_minutes": 5,
+      "entry_minute_offset": 6,
+      "entry_attempts_per_session": 1,
+      "stop": "FIRST_FIVE_MINUTE_LOW",
+      "target": "REFERENCE_ENTRY_PLUS_10_TIMES_POSITIVE_REFERENCE_R",
+      "risk_per_trade": 0.0025,
+      "max_open_risk": 0.01,
+      "max_position_fraction": 0.25,
+      "max_positions": 3,
+      "daily_loss_limit": 0.01,
+      "max_prior_minute_volume_fraction": 0.01,
+      "entry_cutoff_minutes_before_close": 10,
+      "flatten_minutes_before_close": 5,
+      "quantity": "Integer, capped one-shot fill, no residual order; prior-volume cap, cash plus entry fee, nominal cap and fee-aware stop-risk cap",
+      "known_omissions": [
+        "NO_EXIT_LIQUIDITY_MODEL",
+        "NO_PARTIAL_FILLS",
+        "GAP_LOSSES_CAN_EXCEED_PLANNED_RISK",
+        "NO_ATOMIC_LIVE_BROKER_OR_RECEIPT_TIME_EVIDENCE"
+      ]
+    },
+    "same_minute": "Entry at open; gap stop first; gap target capped; scheduled R1 flatten; intrabar stop before target; count ambiguous bars; close-based R0 EOD idealized"
+  },
+  "costs": {
+    "R1_and_baseline": {
+      "commission_per_share": 0.0035,
+      "minimum_commission_per_fill": 0.35,
+      "full_spread_bps": 2.0,
+      "direction_slippage_bps_per_fill": 1.0,
+      "status": "LEGACY_MODELED_FRICTION_NOT_CALIBRATED_BROKER_TOTAL_COST",
+      "rate_reference": "https://www.interactivebrokers.com/en/pricing/commissions-stocks.php",
+      "reference_retrieved_date": "2026-10-15",
+      "reference_limitations": "Current IBKR tiered base rate and minimum, not historical fee schedule or actual Alpaca charges; venue/regulatory/clearing and full schedule not replicated"
+    },
+    "R0": {
+      "commission_per_share": 0.0005,
+      "minimum_commission_per_fill": 0.0,
+      "full_spread_bps": 0.0,
+      "direction_slippage_bps_per_fill": 0.0,
+      "status": "PAPER_IDEALIZED_REFERENCE_NOT_CURRENT_BROKER_QUOTE"
+    },
+    "fixed_fill_sensitivity": {
+      "additional_direction_friction_bps_per_fill": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "method": "Freeze base fills and shares; subtract extra bps * sum(quantity * reference_price) / 10000 from final modeled net PnL",
+      "not_resimulation": true,
+      "no_reselection_or_resizing": true,
+      "break_even_extra_bps": "10000 * modeled_net_pnl / reference_turnover; null if turnover zero; negative means base model already loses",
+      "threshold_source": "Prespecified project scenarios, not empirical spread estimates or literature-optimal gates"
+    }
+  },
+  "analysis": {
+    "primary_estimator": "R1_ENDING_EQUITY_DIV_INITIAL_EQUITY_MINUS_ONE",
+    "secondary": [
+      "R1_MINUS_BASELINE_COMPOUNDED_RETURN_PP",
+      "MINUTE_EQUITY_MAX_DRAWDOWN",
+      "CLOSED_TRADES_AND_NO_TRADE_DAYS",
+      "LONG_EXPOSURE_AND_DOLLAR_TURNOVER",
+      "GROSS_PNL_MINUS_COMMISSION_SPREAD_SLIPPAGE",
+      "AMBIGUOUS_MINUTE_AND_DATA_QUALITY_COUNTS",
+      "R0_IDEALIZED_REFERENCE_RETURN"
+    ],
+    "daily_returns": "Ending equity / prior session ending equity - 1; all evaluation sessions, including zero-trade days; warmup excluded",
+    "bootstrap": {
+      "role": "DESCRIPTIVE_CONDITIONAL_UNCERTAINTY_NOT_A_SIGNIFICANCE_APPROVAL",
+      "method": "PAIRED_CIRCULAR_MOVING_BLOCK_COMPOUNDED_DAILY_RETURNS",
+      "primary_block_sessions": 5,
+      "mandatory_sensitivity_block_sessions": [
+        20
+      ],
+      "resamples": 10000,
+      "rng": "numpy.random.PCG64",
+      "seed": 20261015,
+      "interval_quantiles": [
+        0.025,
+        0.975
+      ],
+      "quantile_method": "linear",
+      "draw": "Uniform block starts 0..N-1 with replacement; wrap modulo N, concatenate ceil(N/L) blocks, truncate to N; same indices across R1/baseline; reinitialize RNG per stage and block length",
+      "statistic": "Compound sampled R1 daily returns; for secondary delta compound each profile separately then subtract, times 100",
+      "interpretation": "Conditional on modeled costs and approximate stationarity/weak dependence; no trade-level iid assumption, no power claim, no choosing favorable block length"
+    },
+    "sample_size_rationale": "One complete chronological year after inspected Q2, then one separately reserved completed quarter; calendar coverage budget, not a power-derived sufficient sample",
+    "confidence_and_block_choices": "Project conventions; method literature motivates dependence-aware resampling, not these numeric choices",
+    "multiple_comparisons": "One fixed main R1 rule. R0/baseline/costs/block sensitivities are mandatory descriptive outputs, not candidates; no winner selection or claims of Reality Check/Deflated Sharpe correction"
+  },
+  "failure_policy": {
+    "incomplete_session": "Block study-level performance inference for all compared profiles; retain quality logs; no day/stock exclusion to improve returns",
+    "unfinished_positions_or_orders": "BLOCK",
+    "accounting_residual_absolute_tolerance": 1e-06,
+    "nan_or_infinite": "BLOCK",
+    "capital_nonpositive": "Stop with complete loss/incomplete-run evidence, do not omit or recapitalize",
+    "bug_or_protocol_change_after_exposure": "Preserve original attempt and exposure; new version cannot relabel seen periods as unseen",
+    "result_handling": "Publish complete negative or positive results and both block lengths. No automatic tuning expansion. Point positivity or interval exclusion of zero does not approve paper/live execution",
+    "B_release": "A integrity failure blocks B until engineering resolution is recorded; A negative profit alone does not suppress B",
+    "interim_performance_peeking": "NO_INTERIM_PERFORMANCE_SELECTION_OR_EARLY_STOP_FOR_PROFIT"
+  },
+  "required_outputs": [
+    "Registration commit and hashes before capture",
+    "Source CSV/archive and metadata seals kept private",
+    "Per-profile fills, decisions, trades, minute equity and daily ledgers",
+    "Full fixed calendar with completeness and zero-trade days",
+    "Paired daily returns and both bootstrap block results",
+    "Fee breakdown and all fixed-fill sensitivity cases",
+    "Data quality, gaps, ambiguity counts and accounting residuals",
+    "A report hash before B capture; separate B report; no pooled primary replacement"
+  ],
+  "runtime_observation_not_execution_lock": {
+    "python": "3.12",
+    "packages": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "exchange-calendars": "4.13.2"
+    }
+  },
+  "baseline_config_template": {
+    "adx_period": 14,
+    "adx_threshold": 25.0,
+    "atr_period": 14,
+    "costs": {
+      "commission_per_share": 0.0035,
+      "minimum_commission": 0.35,
+      "slippage_bps": 1.0,
+      "spread_bps": 2.0
+    },
+    "daily_loss_limit": 0.01,
+    "decision_start": "STAGE_EVALUATION_FIRST_SESSION",
+    "execution_delay_minutes": 1,
+    "flatten_minutes_before_close": 5,
+    "initial_cash": 100000.0,
+    "last_entry_minutes_before_close": 10,
+    "max_open_risk": 0.01,
+    "max_position_fraction": 0.25,
+    "max_positions": 3,
+    "max_volume_participation": 0.01,
+    "opening_volume": null,
+    "risk_per_trade": 0.0025,
+    "stop_atr": 1.0,
+    "target_atr": 2.0
+  },
+  "baseline_config_template_note": "All existing numerical parameters unchanged; replace decision_start with declared stage start; input universe remains IWM/QQQ/SPY and RVOL remains OFF.",
+  "method_reference": {
+    "title": "The Jackknife and the Bootstrap for General Stationary Observations",
+    "author": "Hans R. Kunsch",
+    "year": 1989,
+    "doi": "10.1214/aos/1176347265",
+    "verified_scope": "Crossref bibliography and abstract; supports dependence-aware block resampling, not the selected finite-sample block lengths, confidence level or proof of this circular procedure validity."
+  },
+  "supporting_web_sources": [
+    {
+      "url": "https://www.interactivebrokers.com/en/pricing/commissions-stocks.php",
+      "retrieved_date": "2026-10-15",
+      "sha256": "a3bdf50b0faad4154de723498adafa1741a091a5c368b5c1ecff038adb7eb77d",
+      "scope": "US Tiered lowest-volume base rate and per-order minimum; other costs expressly listed by official source; not an Alpaca quote or past-year schedule"
+    },
+    {
+      "url": "https://api.crossref.org/works/10.1214/aos/1176347265",
+      "retrieved_date": "2026-10-15",
+      "scope": "Bibliography and abstract only"
+    }
+  ]
+}

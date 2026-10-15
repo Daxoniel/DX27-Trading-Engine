@@ -1,0 +1,1222 @@
+{
+  "audit_id": "orb-exposure-2026-10-15-v1",
+  "generated_at": "2026-10-15T11:50:08.467869+00:00",
+  "source_commit": "3754ae99a37589e8e4bc49359b6fef790425c8be",
+  "scope": {
+    "roots": [
+      "work/recorded-shadow",
+      "work/closed-loop",
+      "work/market-ingress",
+      "work/incremental-shadow",
+      "work/runner-hardening",
+      "work/intra-1c",
+      "docs/reports/intra-1a-real",
+      "docs/reports/intra-1c-2025-q2",
+      "docs/reports/intra-p1-h",
+      "docs/reports/intra-p2-h",
+      "docs/reports/intra-p2-h2",
+      "docs/reports/intra-p2-h3",
+      "docs/reports/intra-p2-h4",
+      "docs/reports/intra-p2-h5",
+      "docs/reports/intra-p2-h8",
+      "docs/reports/intraday-framework-readiness",
+      "docs/research/intra-1c",
+      "docs/research/orb-literature",
+      "examples/intraday",
+      "data"
+    ],
+    "absent_roots": [
+      "data"
+    ],
+    "content_reads": "Metadata allowlist and already-inspected public evidence only; source CSV bytes hashed without parsing prices; other artifact names/sizes only",
+    "history": "Reachable local git refs for scoped public paths; path names only",
+    "excluded": "Home, credentials, private paper recordings, external accounts/machines, unrecorded/deleted ignored files, unrelated Sentinel research, and original-cutoff knowledge"
+  },
+  "metadata": [
+    {
+      "path": "work/closed-loop/ci-demo/synthetic-minute-bars.csv.metadata.json",
+      "metadata_sha256": "e4df730e754bacf1b471a4dedef5e00185655f86c0c7a399dc85dbc9fa8ebf77",
+      "selected_fields": {
+        "source": "SYNTHETIC_DEMO",
+        "symbols": [
+          "SPY",
+          "QQQ",
+          "IWM"
+        ],
+        "csv_sha256": "30881fc22dd6fafac69f6d61f90084eb8a72127d1e86e6846b50828c98af349a"
+      },
+      "classification": "SYNTHETIC"
+    },
+    {
+      "path": "work/closed-loop/demo.csv.metadata.json",
+      "metadata_sha256": "e4df730e754bacf1b471a4dedef5e00185655f86c0c7a399dc85dbc9fa8ebf77",
+      "selected_fields": {
+        "source": "SYNTHETIC_DEMO",
+        "symbols": [
+          "SPY",
+          "QQQ",
+          "IWM"
+        ],
+        "csv_sha256": "30881fc22dd6fafac69f6d61f90084eb8a72127d1e86e6846b50828c98af349a"
+      },
+      "classification": "SYNTHETIC"
+    },
+    {
+      "path": "work/intra-1c/2025-q2-with-march-warmup.csv.metadata.json",
+      "metadata_sha256": "c8977da91bf4525acc31f3468bafcad2fb5dd7969adb99c4670331e7119ad416",
+      "selected_fields": {
+        "source": "ALPACA_HISTORICAL_SIP",
+        "feed": "sip",
+        "adjustment": "raw",
+        "symbols": [
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "start": "2025-03-01T00:00:00+00:00",
+        "end_exclusive": "2025-07-01T00:00:00+00:00",
+        "rows": 210215,
+        "csv_sha256": "d4a4bfcbaf27f549f5289a616ca6234737421829486681a76fba9764d85ca7a5",
+        "raw_sha256": "b82fdbb13197cab95db817e3412ad5682d2671da067a01318af71735ca6f7b6c",
+        "retrieved_started_at": "2026-10-15T09:15:51.386904+00:00",
+        "retrieved_completed_at": "2026-10-15T09:16:00.298765+00:00"
+      },
+      "classification": "REAL_HISTORICAL_SOURCE"
+    },
+    {
+      "path": "work/market-ingress/ci-events.jsonl.metadata.json",
+      "metadata_sha256": "ea3ca4b49f515c486cd3eefa02ba0f60ab7c2a6933b512c8643abdbaf79d8591",
+      "selected_fields": {
+        "source_csv_sha256": "30881fc22dd6fafac69f6d61f90084eb8a72127d1e86e6846b50828c98af349a"
+      },
+      "classification": "DERIVED_EVENT_METADATA_NOT_INDEPENDENT_MARKET_SOURCE",
+      "resolved_source_csv_path": "work/closed-loop/demo.csv"
+    },
+    {
+      "path": "work/market-ingress/q1-events.jsonl.metadata.json",
+      "metadata_sha256": "171ae83ba3758c44680c282c5761dd129940985dc833c746a8f2c08f4181e808",
+      "selected_fields": {
+        "source_csv_sha256": "67cef18fb985a749bc333713cc99e737032e89c714257dc87b45f83aea559f91"
+      },
+      "classification": "DERIVED_EVENT_METADATA_NOT_INDEPENDENT_MARKET_SOURCE",
+      "resolved_source_csv_path": "work/recorded-shadow/2025-q1.csv"
+    },
+    {
+      "path": "work/recorded-shadow/2025-q1.csv.metadata.json",
+      "metadata_sha256": "86da4f85d20aaab2285cc0670cf056f8b8ac45bc85d2c8100e645da8f7cf3226",
+      "selected_fields": {
+        "source": "ALPACA_HISTORICAL_SIP",
+        "feed": "sip",
+        "adjustment": "raw",
+        "symbols": [
+          "IWM",
+          "QQQ",
+          "SPY"
+        ],
+        "start": "2025-01-01T00:00:00+00:00",
+        "end_exclusive": "2025-04-01T00:00:00+00:00",
+        "rows": 145553,
+        "csv_sha256": "67cef18fb985a749bc333713cc99e737032e89c714257dc87b45f83aea559f91",
+        "raw_sha256": "81fd4f1658e47ec0d6e812bc20d866f28c3f54abca19b2f9e92882af9ba43a38",
+        "retrieved_started_at": "2026-10-14T09:16:55.874481+00:00",
+        "retrieved_completed_at": "2026-10-14T09:17:01.409148+00:00"
+      },
+      "classification": "REAL_HISTORICAL_SOURCE"
+    }
+  ],
+  "source_csv_verification": [
+    {
+      "path": "work/intra-1c/2025-q2-with-march-warmup.csv",
+      "hash_matches_metadata": true,
+      "csv_sha256": "d4a4bfcbaf27f549f5289a616ca6234737421829486681a76fba9764d85ca7a5"
+    },
+    {
+      "path": "work/recorded-shadow/2025-q1.csv",
+      "hash_matches_metadata": true,
+      "csv_sha256": "67cef18fb985a749bc333713cc99e737032e89c714257dc87b45f83aea559f91"
+    }
+  ],
+  "public_evidence": [
+    {
+      "path": "docs/reports/intra-1a-real/validation.md",
+      "sha256": "e8f6f4b5bde69b7416a514298a3ae76b4dc49b7ec97c01fb9b7bc9698859f6a9"
+    },
+    {
+      "path": "docs/reports/intra-1c-2025-q2/validation.md",
+      "sha256": "f86fc9d160d4fc1824dcd6c9f3772b1574a1ad4cd9dc90c1792b8974487bfb61"
+    },
+    {
+      "path": "docs/reports/intra-1c-2025-q2/acceptance.json",
+      "sha256": "cfd789e0ae2f1064205b4273773fceaf77b1d4bf22e7b40371c78cdd5f705991"
+    },
+    {
+      "path": "docs/research/orb-literature/protocol.md",
+      "sha256": "a246e13b96e68e993819382d66dddc00fd8c9d3018c11c5c8dcaab5c4531a0f7"
+    },
+    {
+      "path": "docs/research/orb-literature/fixture-implementation.md",
+      "sha256": "6cd1d8b7449df4c8a1a8d5384fe37fced78571744572e77f935734259a99a357"
+    }
+  ],
+  "artifact_inventory": [
+    {
+      "path": "docs/reports/intra-1a-real/p0-account-connectivity.json",
+      "bytes": 698
+    },
+    {
+      "path": "docs/reports/intra-1a-real/p1-feed-preflight.json",
+      "bytes": 628
+    },
+    {
+      "path": "docs/reports/intra-1a-real/validation.md",
+      "bytes": 3812
+    },
+    {
+      "path": "docs/reports/intra-1c-2025-q2/acceptance.json",
+      "bytes": 1682
+    },
+    {
+      "path": "docs/reports/intra-1c-2025-q2/comparison.json",
+      "bytes": 11341
+    },
+    {
+      "path": "docs/reports/intra-1c-2025-q2/cumulative-returns.svg",
+      "bytes": 46050
+    },
+    {
+      "path": "docs/reports/intra-1c-2025-q2/paired-daily.csv",
+      "bytes": 2446
+    },
+    {
+      "path": "docs/reports/intra-1c-2025-q2/validation.md",
+      "bytes": 4906
+    },
+    {
+      "path": "docs/reports/intra-p1-h/acceptance.json",
+      "bytes": 3687
+    },
+    {
+      "path": "docs/reports/intra-p1-h/validation.md",
+      "bytes": 3229
+    },
+    {
+      "path": "docs/reports/intra-p2-h/acceptance.json",
+      "bytes": 6696
+    },
+    {
+      "path": "docs/reports/intra-p2-h/validation.md",
+      "bytes": 4278
+    },
+    {
+      "path": "docs/reports/intra-p2-h2/acceptance.json",
+      "bytes": 3245
+    },
+    {
+      "path": "docs/reports/intra-p2-h2/validation.md",
+      "bytes": 2289
+    },
+    {
+      "path": "docs/reports/intra-p2-h3/acceptance.json",
+      "bytes": 2918
+    },
+    {
+      "path": "docs/reports/intra-p2-h3/validation.md",
+      "bytes": 2270
+    },
+    {
+      "path": "docs/reports/intra-p2-h4/acceptance.json",
+      "bytes": 4163
+    },
+    {
+      "path": "docs/reports/intra-p2-h4/validation.md",
+      "bytes": 2841
+    },
+    {
+      "path": "docs/reports/intra-p2-h5/acceptance.json",
+      "bytes": 3799
+    },
+    {
+      "path": "docs/reports/intra-p2-h5/validation.md",
+      "bytes": 2854
+    },
+    {
+      "path": "docs/reports/intra-p2-h8/readonly-sample.json",
+      "bytes": 842
+    },
+    {
+      "path": "docs/reports/intraday-framework-readiness/assessment.json",
+      "bytes": 6093
+    },
+    {
+      "path": "docs/reports/intraday-framework-readiness/validation.md",
+      "bytes": 7709
+    },
+    {
+      "path": "docs/research/intra-1c/protocol.md",
+      "bytes": 2832
+    },
+    {
+      "path": "docs/research/intra-1c/q2-2025-protocol.json",
+      "bytes": 8221
+    },
+    {
+      "path": "docs/research/orb-literature/fixture-implementation.md",
+      "bytes": 5171
+    },
+    {
+      "path": "docs/research/orb-literature/protocol.md",
+      "bytes": 11465
+    },
+    {
+      "path": "docs/research/orb-literature/sources.json",
+      "bytes": 1305
+    },
+    {
+      "path": "examples/intraday/intra-1a-config.json",
+      "bytes": 577
+    },
+    {
+      "path": "examples/intraday/intra-1b-config.json",
+      "bytes": 657
+    },
+    {
+      "path": "examples/intraday/p2h2-partial-delayed.json",
+      "bytes": 320
+    },
+    {
+      "path": "work/closed-loop/ci-demo/closed-loop-report/closed-loop-receipt.json",
+      "bytes": 557
+    },
+    {
+      "path": "work/closed-loop/ci-demo/closed-loop-report/daily.csv",
+      "bytes": 425
+    },
+    {
+      "path": "work/closed-loop/ci-demo/closed-loop-report/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/closed-loop/ci-demo/closed-loop-report/decisions.csv",
+      "bytes": 805
+    },
+    {
+      "path": "work/closed-loop/ci-demo/closed-loop-report/equity.csv",
+      "bytes": 74985
+    },
+    {
+      "path": "work/closed-loop/ci-demo/closed-loop-report/fills.csv",
+      "bytes": 7758
+    },
+    {
+      "path": "work/closed-loop/ci-demo/closed-loop-report/report.md",
+      "bytes": 759
+    },
+    {
+      "path": "work/closed-loop/ci-demo/closed-loop-report/summary.json",
+      "bytes": 2905
+    },
+    {
+      "path": "work/closed-loop/ci-demo/closed-loop-report/trades.csv",
+      "bytes": 2793
+    },
+    {
+      "path": "work/closed-loop/ci-demo/report/daily.csv",
+      "bytes": 448
+    },
+    {
+      "path": "work/closed-loop/ci-demo/report/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/closed-loop/ci-demo/report/decisions.csv",
+      "bytes": 805
+    },
+    {
+      "path": "work/closed-loop/ci-demo/report/equity.csv",
+      "bytes": 51891
+    },
+    {
+      "path": "work/closed-loop/ci-demo/report/fills.csv",
+      "bytes": 3624
+    },
+    {
+      "path": "work/closed-loop/ci-demo/report/report.md",
+      "bytes": 761
+    },
+    {
+      "path": "work/closed-loop/ci-demo/report/summary.json",
+      "bytes": 2118
+    },
+    {
+      "path": "work/closed-loop/ci-demo/report/trades.csv",
+      "bytes": 1461
+    },
+    {
+      "path": "work/closed-loop/ci-demo/synthetic-minute-bars.csv",
+      "bytes": 144136
+    },
+    {
+      "path": "work/closed-loop/ci-demo/synthetic-minute-bars.csv.metadata.json",
+      "bytes": 239
+    },
+    {
+      "path": "work/closed-loop/demo-partial-report/closed-loop-receipt.json",
+      "bytes": 559
+    },
+    {
+      "path": "work/closed-loop/demo-partial-report/daily.csv",
+      "bytes": 425
+    },
+    {
+      "path": "work/closed-loop/demo-partial-report/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/closed-loop/demo-partial-report/decisions.csv",
+      "bytes": 805
+    },
+    {
+      "path": "work/closed-loop/demo-partial-report/equity.csv",
+      "bytes": 62268
+    },
+    {
+      "path": "work/closed-loop/demo-partial-report/fills.csv",
+      "bytes": 7758
+    },
+    {
+      "path": "work/closed-loop/demo-partial-report/report.md",
+      "bytes": 759
+    },
+    {
+      "path": "work/closed-loop/demo-partial-report/summary.json",
+      "bytes": 2905
+    },
+    {
+      "path": "work/closed-loop/demo-partial-report/trades.csv",
+      "bytes": 2793
+    },
+    {
+      "path": "work/closed-loop/demo.csv",
+      "bytes": 144136
+    },
+    {
+      "path": "work/closed-loop/demo.csv.metadata.json",
+      "bytes": 239
+    },
+    {
+      "path": "work/closed-loop/pr-body.md",
+      "bytes": 1424
+    },
+    {
+      "path": "work/closed-loop/pr-patch.json",
+      "bytes": 1441
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1a-control-receipt.json",
+      "bytes": 533
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1a-control-report/closed-loop-receipt.json",
+      "bytes": 561
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1a-control-report/daily.csv",
+      "bytes": 7958
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1a-control-report/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1a-control-report/decisions.csv",
+      "bytes": 9611
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1a-control-report/equity.csv",
+      "bytes": 2766357
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1a-control-report/fills.csv",
+      "bytes": 30740
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1a-control-report/report.md",
+      "bytes": 816
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1a-control-report/summary.json",
+      "bytes": 4522
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1a-control-report/trades.csv",
+      "bytes": 10150
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1b-control-receipt.json",
+      "bytes": 533
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1b-control-report/closed-loop-receipt.json",
+      "bytes": 561
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1b-control-report/daily.csv",
+      "bytes": 7683
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1b-control-report/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1b-control-report/decisions.csv",
+      "bytes": 4121
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1b-control-report/equity.csv",
+      "bytes": 2641835
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1b-control-report/fills.csv",
+      "bytes": 10057
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1b-control-report/report.md",
+      "bytes": 813
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1b-control-report/selection.csv",
+      "bytes": 23757
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1b-control-report/summary.json",
+      "bytes": 4719
+    },
+    {
+      "path": "work/closed-loop/q1-intra-1b-control-report/trades.csv",
+      "bytes": 3439
+    },
+    {
+      "path": "work/closed-loop/q1-partial-paused.json",
+      "bytes": 517
+    },
+    {
+      "path": "work/closed-loop/q1-partial-repeat.json",
+      "bytes": 533
+    },
+    {
+      "path": "work/closed-loop/q1-partial-report/closed-loop-receipt.json",
+      "bytes": 564
+    },
+    {
+      "path": "work/closed-loop/q1-partial-report/daily.csv",
+      "bytes": 7689
+    },
+    {
+      "path": "work/closed-loop/q1-partial-report/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/closed-loop/q1-partial-report/decisions.csv",
+      "bytes": 4121
+    },
+    {
+      "path": "work/closed-loop/q1-partial-report/equity.csv",
+      "bytes": 2645257
+    },
+    {
+      "path": "work/closed-loop/q1-partial-report/fills.csv",
+      "bytes": 18822
+    },
+    {
+      "path": "work/closed-loop/q1-partial-report/report.md",
+      "bytes": 813
+    },
+    {
+      "path": "work/closed-loop/q1-partial-report/selection.csv",
+      "bytes": 23757
+    },
+    {
+      "path": "work/closed-loop/q1-partial-report/summary.json",
+      "bytes": 4707
+    },
+    {
+      "path": "work/closed-loop/q1-partial-report/trades.csv",
+      "bytes": 6926
+    },
+    {
+      "path": "work/closed-loop/q1-partial-resumed.json",
+      "bytes": 536
+    },
+    {
+      "path": "work/incremental-shadow/ci-repeat.json",
+      "bytes": 1986
+    },
+    {
+      "path": "work/incremental-shadow/ci-report/daily.csv",
+      "bytes": 425
+    },
+    {
+      "path": "work/incremental-shadow/ci-report/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/incremental-shadow/ci-report/decisions.csv",
+      "bytes": 805
+    },
+    {
+      "path": "work/incremental-shadow/ci-report/equity.csv",
+      "bytes": 83446
+    },
+    {
+      "path": "work/incremental-shadow/ci-report/fills.csv",
+      "bytes": 7758
+    },
+    {
+      "path": "work/incremental-shadow/ci-report/incremental-receipt.json",
+      "bytes": 716
+    },
+    {
+      "path": "work/incremental-shadow/ci-report/report.md",
+      "bytes": 759
+    },
+    {
+      "path": "work/incremental-shadow/ci-report/summary.json",
+      "bytes": 3432
+    },
+    {
+      "path": "work/incremental-shadow/ci-report/trades.csv",
+      "bytes": 2793
+    },
+    {
+      "path": "work/incremental-shadow/ci-run.json",
+      "bytes": 1980
+    },
+    {
+      "path": "work/incremental-shadow/ci-runtime/health.json",
+      "bytes": 1986
+    },
+    {
+      "path": "work/incremental-shadow/demo-paused.json",
+      "bytes": 1927
+    },
+    {
+      "path": "work/incremental-shadow/demo-repeat.json",
+      "bytes": 1964
+    },
+    {
+      "path": "work/incremental-shadow/demo-report/daily.csv",
+      "bytes": 434
+    },
+    {
+      "path": "work/incremental-shadow/demo-report/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/incremental-shadow/demo-report/decisions.csv",
+      "bytes": 805
+    },
+    {
+      "path": "work/incremental-shadow/demo-report/equity.csv",
+      "bytes": 85404
+    },
+    {
+      "path": "work/incremental-shadow/demo-report/fills.csv",
+      "bytes": 4239
+    },
+    {
+      "path": "work/incremental-shadow/demo-report/incremental-receipt.json",
+      "bytes": 726
+    },
+    {
+      "path": "work/incremental-shadow/demo-report/report.md",
+      "bytes": 758
+    },
+    {
+      "path": "work/incremental-shadow/demo-report/summary.json",
+      "bytes": 3455
+    },
+    {
+      "path": "work/incremental-shadow/demo-report/trades.csv",
+      "bytes": 1488
+    },
+    {
+      "path": "work/incremental-shadow/demo-resumed.json",
+      "bytes": 1973
+    },
+    {
+      "path": "work/incremental-shadow/pr-body.md",
+      "bytes": 1463
+    },
+    {
+      "path": "work/incremental-shadow/q1-paused.json",
+      "bytes": 1974
+    },
+    {
+      "path": "work/incremental-shadow/q1-repeat.json",
+      "bytes": 2008
+    },
+    {
+      "path": "work/incremental-shadow/q1-report/daily.csv",
+      "bytes": 7689
+    },
+    {
+      "path": "work/incremental-shadow/q1-report/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/incremental-shadow/q1-report/decisions.csv",
+      "bytes": 4121
+    },
+    {
+      "path": "work/incremental-shadow/q1-report/equity.csv",
+      "bytes": 2972918
+    },
+    {
+      "path": "work/incremental-shadow/q1-report/fills.csv",
+      "bytes": 18822
+    },
+    {
+      "path": "work/incremental-shadow/q1-report/incremental-receipt.json",
+      "bytes": 740
+    },
+    {
+      "path": "work/incremental-shadow/q1-report/report.md",
+      "bytes": 813
+    },
+    {
+      "path": "work/incremental-shadow/q1-report/selection.csv",
+      "bytes": 23757
+    },
+    {
+      "path": "work/incremental-shadow/q1-report/summary.json",
+      "bytes": 5236
+    },
+    {
+      "path": "work/incremental-shadow/q1-report/trades.csv",
+      "bytes": 6926
+    },
+    {
+      "path": "work/incremental-shadow/q1-resumed.json",
+      "bytes": 2018
+    },
+    {
+      "path": "work/incremental-shadow/q1-runtime/health.json",
+      "bytes": 2008
+    },
+    {
+      "path": "work/incremental-shadow/runtime/health.json",
+      "bytes": 1964
+    },
+    {
+      "path": "work/intra-1c/2025-q2-with-march-warmup.csv",
+      "bytes": 13827109
+    },
+    {
+      "path": "work/intra-1c/2025-q2-with-march-warmup.csv.metadata.json",
+      "bytes": 2276
+    },
+    {
+      "path": "work/intra-1c/2025-q2-with-march-warmup.csv.raw.jsonl",
+      "bytes": 22205977
+    },
+    {
+      "path": "work/intra-1c/pr-body.md",
+      "bytes": 2221
+    },
+    {
+      "path": "work/intra-1c/pr-update.json",
+      "bytes": 2320
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/baseline/daily.csv",
+      "bytes": 11817
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/baseline/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/baseline/decisions.csv",
+      "bytes": 17461
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/baseline/equity.csv",
+      "bytes": 2758662
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/baseline/fills.csv",
+      "bytes": 55197
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/baseline/report.md",
+      "bytes": 819
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/baseline/summary.json",
+      "bytes": 4244
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/baseline/trades.csv",
+      "bytes": 21085
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/comparison.json",
+      "bytes": 11341
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/paired-daily.csv",
+      "bytes": 2446
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/protocol.json",
+      "bytes": 8221
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/rvol/daily.csv",
+      "bytes": 11461
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/rvol/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/rvol/decisions.csv",
+      "bytes": 7178
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/rvol/equity.csv",
+      "bytes": 2724317
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/rvol/fills.csv",
+      "bytes": 21880
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/rvol/report.md",
+      "bytes": 819
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/rvol/selection.csv",
+      "bytes": 33307
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/rvol/summary.json",
+      "bytes": 4427
+    },
+    {
+      "path": "work/intra-1c/q2-comparison/rvol/trades.csv",
+      "bytes": 8418
+    },
+    {
+      "path": "work/intra-1c/registration-pr.json",
+      "bytes": 101
+    },
+    {
+      "path": "work/market-ingress/ci-event-seal.json",
+      "bytes": 337
+    },
+    {
+      "path": "work/market-ingress/ci-events.jsonl",
+      "bytes": 758824
+    },
+    {
+      "path": "work/market-ingress/ci-events.jsonl.metadata.json",
+      "bytes": 337
+    },
+    {
+      "path": "work/market-ingress/ci-final-report/daily.csv",
+      "bytes": 425
+    },
+    {
+      "path": "work/market-ingress/ci-final-report/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/market-ingress/ci-final-report/decisions.csv",
+      "bytes": 805
+    },
+    {
+      "path": "work/market-ingress/ci-final-report/equity.csv",
+      "bytes": 83446
+    },
+    {
+      "path": "work/market-ingress/ci-final-report/fills.csv",
+      "bytes": 7758
+    },
+    {
+      "path": "work/market-ingress/ci-final-report/report.md",
+      "bytes": 759
+    },
+    {
+      "path": "work/market-ingress/ci-final-report/runner-receipt.json",
+      "bytes": 540
+    },
+    {
+      "path": "work/market-ingress/ci-final-report/summary.json",
+      "bytes": 4652
+    },
+    {
+      "path": "work/market-ingress/ci-final-report/trades.csv",
+      "bytes": 2793
+    },
+    {
+      "path": "work/market-ingress/ci-final-run.json",
+      "bytes": 1916
+    },
+    {
+      "path": "work/market-ingress/ci-final-runtime/health.json",
+      "bytes": 1916
+    },
+    {
+      "path": "work/market-ingress/ci-inspection.json",
+      "bytes": 801
+    },
+    {
+      "path": "work/market-ingress/ci-report/daily.csv",
+      "bytes": 425
+    },
+    {
+      "path": "work/market-ingress/ci-report/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/market-ingress/ci-report/decisions.csv",
+      "bytes": 805
+    },
+    {
+      "path": "work/market-ingress/ci-report/equity.csv",
+      "bytes": 83446
+    },
+    {
+      "path": "work/market-ingress/ci-report/fills.csv",
+      "bytes": 7758
+    },
+    {
+      "path": "work/market-ingress/ci-report/report.md",
+      "bytes": 759
+    },
+    {
+      "path": "work/market-ingress/ci-report/runner-receipt.json",
+      "bytes": 540
+    },
+    {
+      "path": "work/market-ingress/ci-report/summary.json",
+      "bytes": 4560
+    },
+    {
+      "path": "work/market-ingress/ci-report/trades.csv",
+      "bytes": 2793
+    },
+    {
+      "path": "work/market-ingress/ci-run.json",
+      "bytes": 1910
+    },
+    {
+      "path": "work/market-ingress/ci-runtime/health.json",
+      "bytes": 1910
+    },
+    {
+      "path": "work/market-ingress/pr-body.md",
+      "bytes": 2278
+    },
+    {
+      "path": "work/market-ingress/pr-patch.json",
+      "bytes": 2297
+    },
+    {
+      "path": "work/market-ingress/q1-event-seal.json",
+      "bytes": 337
+    },
+    {
+      "path": "work/market-ingress/q1-events.jsonl",
+      "bytes": 29188946
+    },
+    {
+      "path": "work/market-ingress/q1-events.jsonl.metadata.json",
+      "bytes": 337
+    },
+    {
+      "path": "work/market-ingress/q1-paused.json",
+      "bytes": 2287
+    },
+    {
+      "path": "work/market-ingress/q1-preflight.json",
+      "bytes": 1463
+    },
+    {
+      "path": "work/market-ingress/q1-repeat.json",
+      "bytes": 1922
+    },
+    {
+      "path": "work/market-ingress/q1-report/daily.csv",
+      "bytes": 7689
+    },
+    {
+      "path": "work/market-ingress/q1-report/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/market-ingress/q1-report/decisions.csv",
+      "bytes": 4121
+    },
+    {
+      "path": "work/market-ingress/q1-report/equity.csv",
+      "bytes": 2972918
+    },
+    {
+      "path": "work/market-ingress/q1-report/fills.csv",
+      "bytes": 18822
+    },
+    {
+      "path": "work/market-ingress/q1-report/report.md",
+      "bytes": 813
+    },
+    {
+      "path": "work/market-ingress/q1-report/runner-receipt.json",
+      "bytes": 547
+    },
+    {
+      "path": "work/market-ingress/q1-report/selection.csv",
+      "bytes": 23757
+    },
+    {
+      "path": "work/market-ingress/q1-report/summary.json",
+      "bytes": 6365
+    },
+    {
+      "path": "work/market-ingress/q1-report/trades.csv",
+      "bytes": 6926
+    },
+    {
+      "path": "work/market-ingress/q1-resumed.json",
+      "bytes": 1921
+    },
+    {
+      "path": "work/market-ingress/runtime/health.json",
+      "bytes": 1922
+    },
+    {
+      "path": "work/recorded-shadow/2025-q1.csv",
+      "bytes": 9565665
+    },
+    {
+      "path": "work/recorded-shadow/2025-q1.csv.metadata.json",
+      "bytes": 1772
+    },
+    {
+      "path": "work/recorded-shadow/2025-q1.csv.raw.jsonl",
+      "bytes": 15335144
+    },
+    {
+      "path": "work/recorded-shadow/acceptance.json",
+      "bytes": 3687
+    },
+    {
+      "path": "work/recorded-shadow/intra-1b-report/daily.csv",
+      "bytes": 7963
+    },
+    {
+      "path": "work/recorded-shadow/intra-1b-report/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/recorded-shadow/intra-1b-report/decisions.csv",
+      "bytes": 4121
+    },
+    {
+      "path": "work/recorded-shadow/intra-1b-report/equity.csv",
+      "bytes": 1898717
+    },
+    {
+      "path": "work/recorded-shadow/intra-1b-report/fills.csv",
+      "bytes": 8428
+    },
+    {
+      "path": "work/recorded-shadow/intra-1b-report/report.md",
+      "bytes": 816
+    },
+    {
+      "path": "work/recorded-shadow/intra-1b-report/selection.csv",
+      "bytes": 23757
+    },
+    {
+      "path": "work/recorded-shadow/intra-1b-report/shadow-receipt.json",
+      "bytes": 547
+    },
+    {
+      "path": "work/recorded-shadow/intra-1b-report/summary.json",
+      "bytes": 3910
+    },
+    {
+      "path": "work/recorded-shadow/intra-1b-report/trades.csv",
+      "bytes": 3291
+    },
+    {
+      "path": "work/recorded-shadow/paused-receipt.json",
+      "bytes": 496
+    },
+    {
+      "path": "work/recorded-shadow/pr-body.md",
+      "bytes": 2699
+    },
+    {
+      "path": "work/recorded-shadow/pr-patch.json",
+      "bytes": 2725
+    },
+    {
+      "path": "work/recorded-shadow/resumed-receipt.json",
+      "bytes": 519
+    },
+    {
+      "path": "work/runner-hardening/ci-health.json",
+      "bytes": 1501
+    },
+    {
+      "path": "work/runner-hardening/ci-preflight.json",
+      "bytes": 651
+    },
+    {
+      "path": "work/runner-hardening/ci-run.json",
+      "bytes": 1417
+    },
+    {
+      "path": "work/runner-hardening/ci-runtime/health.json",
+      "bytes": 1417
+    },
+    {
+      "path": "work/runner-hardening/pr-body.md",
+      "bytes": 2035
+    },
+    {
+      "path": "work/runner-hardening/pr-patch.json",
+      "bytes": 2054
+    },
+    {
+      "path": "work/runner-hardening/q1-final-health.json",
+      "bytes": 1891
+    },
+    {
+      "path": "work/runner-hardening/q1-final-repeat.json",
+      "bytes": 1807
+    },
+    {
+      "path": "work/runner-hardening/q1-health.json",
+      "bytes": 1467
+    },
+    {
+      "path": "work/runner-hardening/q1-paused.json",
+      "bytes": 1716
+    },
+    {
+      "path": "work/runner-hardening/q1-preflight.json",
+      "bytes": 643
+    },
+    {
+      "path": "work/runner-hardening/q1-repeat.json",
+      "bytes": 1382
+    },
+    {
+      "path": "work/runner-hardening/q1-report/daily.csv",
+      "bytes": 7689
+    },
+    {
+      "path": "work/runner-hardening/q1-report/data-quality.csv",
+      "bytes": 0
+    },
+    {
+      "path": "work/runner-hardening/q1-report/decisions.csv",
+      "bytes": 4121
+    },
+    {
+      "path": "work/runner-hardening/q1-report/equity.csv",
+      "bytes": 2645257
+    },
+    {
+      "path": "work/runner-hardening/q1-report/fills.csv",
+      "bytes": 18822
+    },
+    {
+      "path": "work/runner-hardening/q1-report/report.md",
+      "bytes": 813
+    },
+    {
+      "path": "work/runner-hardening/q1-report/runner-receipt.json",
+      "bytes": 511
+    },
+    {
+      "path": "work/runner-hardening/q1-report/selection.csv",
+      "bytes": 23757
+    },
+    {
+      "path": "work/runner-hardening/q1-report/summary.json",
+      "bytes": 4707
+    },
+    {
+      "path": "work/runner-hardening/q1-report/trades.csv",
+      "bytes": 6926
+    },
+    {
+      "path": "work/runner-hardening/q1-resumed.json",
+      "bytes": 1381
+    },
+    {
+      "path": "work/runner-hardening/runtime/health.json",
+      "bytes": 1807
+    }
+  ],
+  "reachable_history_paths": [
+    "docs/reports/intra-1a-real/p0-account-connectivity.json",
+    "docs/reports/intra-1a-real/p1-feed-preflight.json",
+    "docs/reports/intra-1a-real/validation.md",
+    "docs/reports/intra-1c-2025-q2/acceptance.json",
+    "docs/reports/intra-1c-2025-q2/comparison.json",
+    "docs/reports/intra-1c-2025-q2/cumulative-returns.svg",
+    "docs/reports/intra-1c-2025-q2/paired-daily.csv",
+    "docs/reports/intra-1c-2025-q2/validation.md",
+    "docs/reports/intra-p1-h/acceptance.json",
+    "docs/reports/intra-p1-h/validation.md",
+    "docs/reports/intra-p2-h/acceptance.json",
+    "docs/reports/intra-p2-h/validation.md",
+    "docs/reports/intra-p2-h2/acceptance.json",
+    "docs/reports/intra-p2-h2/validation.md",
+    "docs/reports/intra-p2-h3/acceptance.json",
+    "docs/reports/intra-p2-h3/validation.md",
+    "docs/reports/intra-p2-h4/acceptance.json",
+    "docs/reports/intra-p2-h4/validation.md",
+    "docs/reports/intra-p2-h5/acceptance.json",
+    "docs/reports/intra-p2-h5/validation.md",
+    "docs/reports/intra-p2-h8/readonly-sample.json",
+    "docs/reports/intraday-framework-readiness/assessment.json",
+    "docs/reports/intraday-framework-readiness/validation.md",
+    "docs/research/intra-1c/protocol.md",
+    "docs/research/intra-1c/q2-2025-protocol.json",
+    "docs/research/orb-literature/fixture-implementation.md",
+    "docs/research/orb-literature/protocol.md",
+    "docs/research/orb-literature/sources.json",
+    "examples/intraday/intra-1a-config.json",
+    "examples/intraday/intra-1b-config.json",
+    "examples/intraday/p2h2-partial-delayed.json"
+  ],
+  "conclusions": {
+    "real_source_batches_found": 2,
+    "project_strategy_results_exposed_through": "2025-06-30",
+    "known_exposed_periods": [
+      "2025 Q1",
+      "2025 Q2 (March warmup included)"
+    ],
+    "later_periods": "NO_ARTIFACT_FOUND_IN_BOUNDED_SCOPE_NOT_CERTIFIED_UNSEEN",
+    "synthetic_dates": "Not evidence of historical quote or strategy-result exposure",
+    "new_market_data_downloaded": false,
+    "new_strategy_evaluation_run": false,
+    "execution_enabled": false
+  },
+  "csv_path_classification": {
+    "method": "Metadata source tag; otherwise derived only if a report summary exists beside table or paired comparison beside paired-daily.csv; no CSV rows parsed",
+    "counts": {
+      "DERIVED_REPORT_TABLE": 105,
+      "SYNTHETIC_SOURCE": 2,
+      "SEALED_HISTORICAL_SOURCE": 2
+    },
+    "unknown_csv_paths": []
+  }
+}
