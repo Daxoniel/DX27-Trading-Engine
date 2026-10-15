@@ -1,0 +1,39 @@
+{
+  "contract": "P2-H8",
+  "endpoints": {
+    "account": {
+      "active_usd": true,
+      "shape": "object",
+      "status": "OBSERVED"
+    },
+    "activities": {
+      "fee_order_attribution_verified": false,
+      "fee_samples": 0,
+      "fill_samples": 0,
+      "sample_count": 0,
+      "shape": "list",
+      "status": "OBSERVED"
+    },
+    "clock": {
+      "shape": "object",
+      "status": "OBSERVED"
+    },
+    "orders": {
+      "sample_count": 0,
+      "shape": "list",
+      "status": "OBSERVED"
+    },
+    "positions": {
+      "sample_count": 0,
+      "shape": "list",
+      "status": "OBSERVED"
+    }
+  },
+  "evidence_complete": false,
+  "execution_enabled": false,
+  "history_complete": false,
+  "mode": "PAPER_GET_ONLY_SAMPLE",
+  "real_orders_sent": false,
+  "sampling_complete": true,
+  "snapshot_atomicity_verified": false
+}

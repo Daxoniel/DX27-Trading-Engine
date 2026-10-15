@@ -13,7 +13,9 @@ import re
 import sys
 from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.request import Request, urlopen
+from urllib.request import Request, build_opener
+
+from dx27.adapters.alpaca.paper_recorder import RejectPaperRedirects
 
 PAPER_BASE = "https://paper-api.alpaca.markets"
 _ALLOWED_PATHS = frozenset({"/v2/account", "/v2/clock"})
@@ -22,6 +24,11 @@ _SYMBOL_PATTERN = re.compile(r"[A-Z][A-Z0-9.]{0,9}\Z")
 
 class PaperProbeError(Exception):
     """Error without potentially sensitive vendor response bodies."""
+
+
+def urlopen(request, *, timeout):
+    """Keep the original probe's GET seam while rejecting credential redirects."""
+    return build_opener(RejectPaperRedirects()).open(request, timeout=timeout)
 
 
 def parse_symbols(value: str) -> tuple[str, ...]:
@@ -70,8 +77,10 @@ class PaperReadOnlyClient:
                 body = response.read(262145)
         except HTTPError as exc:
             # Never echo error bodies, headers or credential-bearing objects.
+            code = exc.code
+            exc.close()
             raise PaperProbeError(
-                f"Paper GET {path} returned HTTP {exc.code}"
+                f"Paper GET {path} returned HTTP {code}"
             ) from None
         except (URLError, OSError, TimeoutError):
             raise PaperProbeError(
