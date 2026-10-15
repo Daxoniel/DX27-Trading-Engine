@@ -16,12 +16,18 @@
   30-minute opening volume / preceding 20 scheduled opening means, engineering
   threshold 1.0, causal publication at 10:00 New York, explicit missing/history
   rejection, separate selection ledger. No fitted threshold or effectiveness claim.
-- [ ] **INTRA-1C — Fixed Paired Historical Comparison** — not started;
-  net-of-cost validation on declared data/universe and untouched time period.
+- [ ] **INTRA-1C — Fixed Paired Historical Comparison — NEXT** — preregister
+  periods/universe/costs/execution/paired metrics before reading evaluation data;
+  keep current parameters fixed. Q1 is already inspected engineering data.
 - [ ] **INTRA-1D — Paper Execution Conformance** — not started; shared decision
   logic, persistent orders/recovery and actual execution-deviation checks.
 
 ### Active delivery priorities — P0–P3
+
+- [x] **Framework acceptance consolidation (2026-10-15)** — historical
+  engineering path accepted for fixed-rule evaluation; automated paper execution
+  remains not ready. Evidence, scope and remaining prerequisites are in the
+  [readiness review](docs/reports/intraday-framework-readiness/validation.md).
 
 - [x] **P0 read-only diagnostic code / offline checks** — explicit paper account,
   clock and positions GETs, redacted results, no order path. Historical SIP

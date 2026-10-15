@@ -1,0 +1,159 @@
+{
+  "algorithm_changed_by_review": false,
+  "assessed_commit": "584898e9dbdac9ebce5b8cd769159c6d0ee38fd1",
+  "assessed_tree": "06a9d5212069b9a307664d5a3e83f97dfd6ac26f",
+  "conclusions": {
+    "automated_paper_execution": "NOT_READY",
+    "fixed_rule_evaluation": "READY_TO_PREREGISTER",
+    "historical_engineering": "ACCEPTED_WITH_RECORDED_LIMITS",
+    "paper_get_sampling": "OBSERVED_EMPTY_SAMPLES",
+    "realtime_ingress": "UNVERIFIED_DEFERRED",
+    "recorded_paper_contracts": "VALIDATED_OFFLINE",
+    "strategy_effectiveness": "NOT_EVALUATED"
+  },
+  "contract": "INTRADAY_FRAMEWORK_READINESS_REVIEW_V1",
+  "evidence_checks": {
+    "h2_h5_fixed_profile_cash_and_inventory_match": true,
+    "incremental_suffix_and_repeat_consistent": true,
+    "reviewed_tree_matches_successful_intraday_ci": true,
+    "saved_paper_sample_remains_incomplete": true,
+    "source_hash_consistent_across_prior_acceptances": true
+  },
+  "evidence_files": [
+    {
+      "path": "docs/reports/intra-p1-h/acceptance.json",
+      "sha256": "008ba420f96f116bbae1a43e3ab0953e3ef076586dc11135611ee4bfdaa611af"
+    },
+    {
+      "path": "docs/reports/intra-p2-h/acceptance.json",
+      "sha256": "0fca79a376660cdbd3e11714c771383b5cc82e731378c6ed7201046f7a7c3894"
+    },
+    {
+      "path": "docs/reports/intra-p2-h2/acceptance.json",
+      "sha256": "42ae9f0f668ac393303944828e522d2ecafb04138c1656cbd9df9ec78a0131da"
+    },
+    {
+      "path": "docs/reports/intra-p2-h3/acceptance.json",
+      "sha256": "ae7b7aa04f7f205ea21bd381959903ed536663920c81bc3e70af97e6b26cb595"
+    },
+    {
+      "path": "docs/reports/intra-p2-h4/acceptance.json",
+      "sha256": "ad9aeacdc55d03e874efd019262456a6062ad7ae15cf0cf7dd3613f88309afb5"
+    },
+    {
+      "path": "docs/reports/intra-p2-h5/acceptance.json",
+      "sha256": "e75b227c7e0bd4fceed2263f91f9168dc008f062783e55c194f95ac9e51b84d2"
+    },
+    {
+      "path": "docs/reports/intra-p2-h8/readonly-sample.json",
+      "sha256": "8a3aad57bdf39f857009aea6b3bf7b131b51dd60a8fdcc5e2dcfe3069c1e6b18"
+    },
+    {
+      "path": "src/dx27/domains/intraday/replay_config.py",
+      "sha256": "1b7cb6535c725d4ec3b19383baba3f23a8372b21f07cc4aa672116a1c4c599f4"
+    },
+    {
+      "path": "src/dx27/application/offline_order_execution.py",
+      "sha256": "d02d51ff7466eb8dccaaf9cf0c0c0662200281b282aab3c20e8ad1a589d38bba"
+    },
+    {
+      "path": "src/dx27/adapters/alpaca/paper_contract.py",
+      "sha256": "0782842fe182fa1c44e728c6676c508be014c17ce9a86feb9cf66bbd494f2777"
+    },
+    {
+      "path": "src/dx27/adapters/alpaca/paper_evidence.py",
+      "sha256": "aef70f420eea8462880cade45955554ea323814080230ee6537001f6e3957bda"
+    },
+    {
+      "path": "src/dx27/adapters/alpaca/paper_recorder.py",
+      "sha256": "7a088c4a579b37f96ebc1ceffdbb3613ed6c6496fe11f4c9986c7009f478a168"
+    }
+  ],
+  "execution_enabled": false,
+  "historical_acceptance": {
+    "active_orders": 0,
+    "completed_round_trips": 15,
+    "ending_cash": 99322.90005194,
+    "ending_positions": {},
+    "modeled_fill_fragments": 60,
+    "original_cutoff_availability": "ASSUMED_NOT_VERIFIED",
+    "q1_2025_usage": "ALREADY_INSPECTED_ENGINEERING_NOT_UNTOUCHED_EVALUATION",
+    "regular_bars": 70200,
+    "sessions": 60,
+    "source_bars": 145553,
+    "source_csv_sha256": "67cef18fb985a749bc333713cc99e737032e89c714257dc87b45f83aea559f91"
+  },
+  "next_step": {
+    "id": "INTRA-1C_PREREGISTRATION",
+    "paid_realtime_required": false,
+    "paper_execution_required": false,
+    "parameter_tuning_enabled": false,
+    "sequence": [
+      "Freeze periods, universe, costs, execution profile, paired rules and metrics",
+      "Acquire uninspected historical evaluation data after protocol declaration",
+      "Run fixed baseline/RVOL comparisons before considering training-only tuning"
+    ]
+  },
+  "real_orders_sent_by_review": false,
+  "remaining_paper_prerequisites": [
+    {
+      "id": "current_market_data",
+      "requirement": "Current feed, warmup, receipt clocks, reconnect and same-feed RVOL evidence",
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "nonempty_broker_evidence",
+      "requirement": "Actual order/fill IDs, exact costs, fee or explicit zero-fee attribution and complete lookup coverage",
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "paper_execution_coordinator",
+      "requirement": "Paper-only submit/cancel with durable claim, unknown-outcome query and no blind retry",
+      "status": "NOT_IMPLEMENTED_IN_INTRADAY_PATH"
+    },
+    {
+      "id": "broker_status_and_cost_updates",
+      "requirement": "Supported pending/correction/late-fee semantics backed by authoritative responses",
+      "status": "PARTIAL_FAIL_CLOSED"
+    },
+    {
+      "id": "online_reconciliation_recovery",
+      "requirement": "Actual broker/account reconciliation and restart without resubmission",
+      "status": "OFFLINE_ONLY_VALIDATED"
+    },
+    {
+      "id": "controlled_paper_acceptance",
+      "requirement": "Declared limits, stop mechanism, observed lifecycle and independent ledger/fault acceptance",
+      "status": "NOT_PERFORMED"
+    }
+  ],
+  "review_date": "2026-10-15",
+  "runtime_enforcement": false,
+  "snapshot_only": true,
+  "validation": {
+    "ci": {
+      "head_sha": "cccdf24cfd7af3678b83e50b7b0d30b3ff2fbdc2",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "name": "offline (ubuntu-latest)",
+          "url": "https://github.com/Daxoniel/DX27-Trading-Engine/actions/runs/38701719960/job/116311253181"
+        },
+        {
+          "conclusion": "success",
+          "name": "offline (windows-2022)",
+          "url": "https://github.com/Daxoniel/DX27-Trading-Engine/actions/runs/38701719960/job/116311253594"
+        }
+      ],
+      "scope": "INTRADAY_SUBSET_AND_SMOKES",
+      "url": "https://github.com/Daxoniel/DX27-Trading-Engine/actions/runs/38701719960"
+    },
+    "local_full_suite": {
+      "evidence_type": "REPORTED_IN_MERGED_PR",
+      "network_tests_deselected": 1,
+      "passed": 1218,
+      "rerun_for_document_review": false,
+      "source": "https://github.com/Daxoniel/DX27-Trading-Engine/pull/51"
+    }
+  }
+}
