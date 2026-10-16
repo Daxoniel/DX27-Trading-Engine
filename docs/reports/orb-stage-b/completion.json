@@ -1,0 +1,29 @@
+{
+  "status": "LOCAL_ARTIFACTS_COMPLETE",
+  "study_status": "COMPLETE_REGISTERED_HISTORICAL_ANALYSIS",
+  "execution_enabled": false,
+  "artifact_sha256": {
+    "R0-summary.json": "6cbae404835fbf74efd2af0dbfcb8d748c722f4e197cd9a16ddc42099f313586",
+    "R0-daily.json": "d1631bd93f33d2afe5395455f5bf494c106e230ca717243d982e5c8892db9c40",
+    "R0-fills.json": "7d2ffa41984c1ff45698c88d5a1a118c3301234056563d4199912be9022234c6",
+    "R0-trades.json": "58c28349d659b79181f02504dfda80ecb7071ed59fb1db21f83b3f5573ac146f",
+    "R0-equity.json": "080e4205e738723162c09612fc2bd3c9f7d339d2d15a4d6bb06884597e3812db",
+    "R0-decisions.json": "d7d4d26ea00d9c49e4d6900b2ea71c00b6d4957e66404fb73076f94529b6b796",
+    "R0-quality.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "R1-summary.json": "53e7b1a13aefa17f550f8bde4a127b8446e3851b26d832c2ec3f568f659589e5",
+    "R1-daily.json": "da316cf17236b8d9f7b71195087065e5ce1d14ba88f956b3b43734bdaeb912a0",
+    "R1-fills.json": "ffbcefd9064a4c11e7f7fb5b566bd8482150896e07f4010ae9b44b0fa67b07d2",
+    "R1-trades.json": "c3098118e0c000a1aafc406eb9ba4dc5de4431c8fe22285047b4fd20bfec0eb3",
+    "R1-equity.json": "60166613ccf72f5e445fc83fbb044c9d6c93343d8243b874001e71a49811b635",
+    "R1-decisions.json": "d7df3d3a3fa02e37b978ddfb4365d4ca1b438e3fdd15dbb2d4b427e580145acc",
+    "R1-quality.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "baseline-summary.json": "5c620807b084f2d1d5562d6aaf40e411ebc7d4b24a9bbfcae44ec717fce58219",
+    "baseline-daily.json": "1fec96a3d336bb0d26e50d1f79d254a02a90bc399efd8a91b5ea7980396a66b3",
+    "baseline-fills.json": "32b46d013c365e568c74dc10df6accab982e795187b76d555151c4aae7237815",
+    "baseline-trades.json": "4aaa876763b9950268889116e21f4b6ec19580cdf62cfde2058f878d5adf5913",
+    "baseline-equity.json": "e4e05cb4db2d6235ad71d1206e8eb526533c2d2787d2b18c4a5d4f240e9e98ba",
+    "baseline-decisions.json": "ce29c71db4d8c5ec9bbc748619b371744702a78096b090954b5d3224cfbd3520",
+    "baseline-quality.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "report.json": "d675aa4ffded773ee9da240cc86e4a1fa22406d6e9b8aa0688441899f5f7abed"
+  }
+}
