@@ -1,0 +1,64 @@
+{
+  "schema": "ORB_PAPER_RESEARCH:1",
+  "created_at": "2026-10-16T09:33:35.923522+00:00",
+  "basis": "ALPACA_PAPER",
+  "authority": "USER_INSTRUCTION_USE_PAPER_AS_RESEARCH_BASE",
+  "scope": "Paper/offline engineering research; not live effectiveness validation or a runtime order guard",
+  "supersedes": "Live-account fee calibration is not a prerequisite for this separate Paper engineering workstream.",
+  "reference_plan": "docs/research/orb-literature/revised-plan-v2.json",
+  "requires_live_fee_calibration_for_paper_engineering": false,
+  "paper_operational_probe": "CONNECTED_READ_ONLY",
+  "read_only_sampling_complete": true,
+  "paper_order_submission_enabled": false,
+  "live_order_submission_enabled": false,
+  "training_enabled": false,
+  "parameter_search_enabled": false,
+  "actual_strategy_paper_pnl": null,
+  "source_algorithm": "Frozen R1; not promoted to a profitable candidate",
+  "fee_policy": {
+    "paper_ledger": "Use actual owned Paper fill/cash/fee evidence; absence of fee samples is not verified zero.",
+    "historical_views": "Fixed old R1 fills only: original costs, no broker commission with old friction, no-explicit-cost reference.",
+    "reality_overlay": "Report separate 0/1/2/5 bps fixed-fill sensitivity; not calibrated live execution."
+  },
+  "ownership": {
+    "strategy_namespace": "orb-paper-r1-v1",
+    "known_client_order_ids": [],
+    "require_exact_prior_intent_registry_match": true,
+    "prefix_alone_is_not_ownership": true
+  },
+  "tasks": [
+    {
+      "id": "P0",
+      "status": "COMPLETE_READ_ONLY_PAPER_OBSERVATION",
+      "evidence": "docs/reports/orb-paper-basis/sample-summary.json"
+    },
+    {
+      "id": "P1",
+      "status": "COMPLETE_FIXED_FILL_ACCOUNTING_REFERENCE",
+      "evidence": "docs/reports/orb-paper-basis/report.json"
+    },
+    {
+      "id": "P2",
+      "status": "READY_FOR_PAPER_ONLY_INTENT_RECORDING_AND_CONFORMANCE",
+      "requirements": [
+        "own client IDs and intent-before-observation records",
+        "explicit market-data feed and observed event clocks",
+        "known partial-fill/order lifecycle and cash reconciliation",
+        "never submit historical intents at current market prices"
+      ],
+      "requires_live_account_fee_schedule": false
+    },
+    {
+      "id": "P3",
+      "status": "NO_STRATEGY_OWNED_PAPER_RESULTS_YET",
+      "requirements": [
+        "strategy-owned Paper observations, not unrelated account activity",
+        "daily data/order completeness and all outcomes"
+      ]
+    }
+  ],
+  "historical_source_exposure": "A/B remain exposed; no new confirmation claim",
+  "historical_signals_may_be_submitted_as_current_orders": false,
+  "actual_liveness_latency_liquidity_verified": false,
+  "no_automatic_paid_data_subscription": true
+}

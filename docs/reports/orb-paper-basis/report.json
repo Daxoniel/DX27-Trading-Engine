@@ -1,0 +1,88 @@
+{
+  "status": "COMPLETE_PAPER_SCOPED_ENGINEERING_REFERENCE",
+  "created_at": "2026-10-16T09:31:58.533527+00:00",
+  "research_basis": "ALPACA_PAPER",
+  "real_account_fee_calibration_required_for_paper_engineering": false,
+  "live_trading_effectiveness": "NOT_EVALUATED",
+  "execution_enabled": false,
+  "strategy_replayed": false,
+  "new_market_data_downloaded": false,
+  "operational_observation": {
+    "paper_endpoint": "https://paper-api.alpaca.markets",
+    "sampling_complete": true,
+    "endpoints_observed": [
+      "account",
+      "activities",
+      "clock",
+      "orders",
+      "positions"
+    ],
+    "history_complete": false,
+    "strategy_ownership_verified": false,
+    "actual_strategy_paper_pnl": null,
+    "verified_zero_fees": false,
+    "empty_or_missing_activity_is_not_fee_or_profit_evidence": true
+  },
+  "exposed_historical_stages": {
+    "A": {
+      "original_model_net_pnl": -1303.841410779647,
+      "no_explicit_cost_reference_price_pnl": -94.975900000036,
+      "no_broker_commission_with_old_price_friction_pnl": -1223.341410780036,
+      "commission_credit": 80.5,
+      "old_spread_cost": 564.18275539,
+      "old_slippage_cost": 564.18275539,
+      "fixed_fill_extra_friction": [
+        {
+          "additional_bps": 0,
+          "pnl": -1223.341410780036
+        },
+        {
+          "additional_bps": 1,
+          "pnl": -1787.524166170036
+        },
+        {
+          "additional_bps": 2,
+          "pnl": -2351.706921560036
+        },
+        {
+          "additional_bps": 5,
+          "pnl": -4044.255187730036
+        }
+      ],
+      "model_rerun": false,
+      "capital_and_size_recomputed": false,
+      "actual_alpaca_paper_pnl": null,
+      "interpretation": "FIXED_OLD_R1_FILLS_ACCOUNTING_SCENARIOS_NOT_BROKER_SIMULATOR_REPLICATION"
+    },
+    "B": {
+      "original_model_net_pnl": -175.865470639884,
+      "no_explicit_cost_reference_price_pnl": 139.2423999999965,
+      "no_broker_commission_with_old_price_friction_pnl": -154.8654706400035,
+      "commission_credit": 21.0,
+      "old_spread_cost": 147.05393532,
+      "old_slippage_cost": 147.05393532,
+      "fixed_fill_extra_friction": [
+        {
+          "additional_bps": 0,
+          "pnl": -154.8654706400035
+        },
+        {
+          "additional_bps": 1,
+          "pnl": -301.9194059600035
+        },
+        {
+          "additional_bps": 2,
+          "pnl": -448.9733412800035
+        },
+        {
+          "additional_bps": 5,
+          "pnl": -890.1351472400034
+        }
+      ],
+      "model_rerun": false,
+      "capital_and_size_recomputed": false,
+      "actual_alpaca_paper_pnl": null,
+      "interpretation": "FIXED_OLD_R1_FILLS_ACCOUNTING_SCENARIOS_NOT_BROKER_SIMULATOR_REPLICATION"
+    }
+  }
+}
