@@ -1,0 +1,10 @@
+{
+  "public_commit": "a2a15bebe12a526e24f0eac9630d3d00686ad48c",
+  "published_at": "2026-10-16T08:20:19Z",
+  "sha256": {
+    "protocol.md": "740283bb1ad824c68a3a0f4a9febd6a57996f98e22920bd4b064d11951d12748",
+    "contrasts.py": "be4c20d50da48d0e62c78700018c14f780eaba553d0defe1fd9c514b9c1e91e1",
+    "test_contrasts.py": "442ec47ef9c29a6f230f62d7c13fa6084453dd446e0e5f5febcca37ca1df0170"
+  },
+  "confirmation": false
+}
