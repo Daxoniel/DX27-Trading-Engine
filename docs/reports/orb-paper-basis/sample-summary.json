@@ -1,0 +1,44 @@
+{
+  "contract": "P2-H8",
+  "mode": "PAPER_GET_ONLY_SAMPLE",
+  "endpoints": {
+    "account": {
+      "status": "OBSERVED",
+      "shape": "object",
+      "active_usd": true
+    },
+    "clock": {
+      "status": "OBSERVED",
+      "shape": "object"
+    },
+    "positions": {
+      "status": "OBSERVED",
+      "shape": "list",
+      "sample_count": 0
+    },
+    "orders": {
+      "status": "OBSERVED",
+      "shape": "list",
+      "sample_count": 0
+    },
+    "activities": {
+      "status": "OBSERVED",
+      "shape": "list",
+      "sample_count": 0,
+      "fill_samples": 0,
+      "fee_samples": 0,
+      "fee_order_attribution_verified": false
+    }
+  },
+  "sampling_complete": true,
+  "evidence_complete": false,
+  "history_complete": false,
+  "snapshot_atomicity_verified": false,
+  "execution_enabled": false,
+  "real_orders_sent": false,
+  "window_after": "2026-10-15T09:30:22.535284Z",
+  "window_through": "2026-10-16T09:30:22.535284Z",
+  "strategy_ownership_verified": false,
+  "observed_account_samples_are_not_strategy_results": true,
+  "local_preflight_correction": "UTC offset formatting changed to required Z before any request in initial attempt"
+}

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-16T09:23:01.885315+00:00",
+  "updated_at": "2026-10-16T09:34:28.037635+00:00",
   "plan": "docs/research/orb-literature/revised-plan-v2.json",
   "plan_sha256": "1054244ad92b09621b05939218c1e74979eb748126fc4982a75d89c66012fd29",
   "W1": "DIRECT_ACCOUNT_CONTEXT_USER_CONFIRMED_FEES_AND_QUOTE_CALIBRATION_PENDING",
@@ -13,5 +13,7 @@
   "new_market_data_downloaded": false,
   "strategy_replayed": false,
   "fees_retroactively_applied_to_A_B": false,
-  "account_context": "DIRECT_ALPACA_WITH_LIVE_ACCOUNT_USER_CONFIRMED_RESEARCH_REMAINS_PAPER_OFFLINE"
+  "account_context": "DIRECT_ALPACA_WITH_LIVE_ACCOUNT_USER_CONFIRMED_RESEARCH_REMAINS_PAPER_OFFLINE",
+  "paper_research_workstream": "docs/research/orb-literature/paper-study.json",
+  "paper_engineering_requires_live_fee_calibration": false
 }

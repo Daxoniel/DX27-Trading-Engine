@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-16T09:34:28.159979+00:00",
+  "tests": 37,
+  "new_paper_basis_tests": 6,
+  "source_files_unchanged": 156,
+  "old_artifact_hashes_verified": 44,
+  "paper_host_probe": "CONNECTED_READ_ONLY",
+  "actual_paper_strategy_performance_verified": false,
+  "new_strategy_replay": false,
+  "orders_sent": false,
+  "report_sha256": "765f9592b2811ed9d1b646574706d98c395d34da8f111cb070152cae8591c037",
+  "plan_sha256": "b401f0ffd290f9bde9234cfac62214016f552bf11df7c85e5a48afd5541a2d98",
+  "script_sha256": "649e2580f562908b162438947d15ee5ab7b59c3f878b4f119ca4ad658056469f"
+}

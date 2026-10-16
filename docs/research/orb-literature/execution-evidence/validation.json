@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_at": "2026-10-16T09:23:01.885315+00:00",
+  "checked_at": "2026-10-16T09:34:28.037918+00:00",
   "tests": 31,
   "new_timing_tests": 14,
   "source_files_unchanged": 156,
@@ -9,9 +9,9 @@
   "execution_enabled": false,
   "synthetic_example_only": true,
   "files_sha256": {
-    "docs/research/orb-literature/execution-evidence/README.md": "b67c204fde7c8328ab490d77c9b8fc7aeba6284da90e2d6b69762d826cb95537",
+    "docs/research/orb-literature/execution-evidence/README.md": "80f4e4438b7f275d90993e9ff004e6930e7b9e3f7e021267029e9844ec87c2d3",
     "docs/research/orb-literature/execution-evidence/cost-evidence.json": "5c448743e8304117564c45851e2539f196f74c7b60dd9258880c2e000bf72adf",
-    "docs/research/orb-literature/execution-evidence/progress.json": "cc3e74582842f4dff06ec9d4045dfda81c143109498ec9a13d4118dc54801824",
+    "docs/research/orb-literature/execution-evidence/progress.json": "c393fc73e977f73ee7dacb53a8d7de1b7e801e4a1586bc6e5169c121251766a7",
     "docs/research/orb-literature/execution-evidence/sources.json": "e1d4c13ec10633d865704d0484dbe07542b6850bc987223a8f44cd3adc64e5d6",
     "docs/research/orb-literature/execution-evidence/synthetic-timing-example.json": "f2b7e39e1720eef30daaacdc52a5ba1793c802be5a354b3cfb5d8b62b6b8b0ac",
     "docs/research/orb-literature/execution-evidence/timing-contract.md": "1bc11ebb12f056a3c04b92a0b61693c542ffc020cc7884f155747d21df82e58d",
