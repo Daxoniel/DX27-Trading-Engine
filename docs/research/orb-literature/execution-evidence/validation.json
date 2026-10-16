@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-16T09:10:06.585116+00:00",
+  "tests": 31,
+  "new_timing_tests": 14,
+  "source_files_unchanged": 156,
+  "live_cost_calibration": false,
+  "live_latency_calibration": false,
+  "execution_enabled": false,
+  "synthetic_example_only": true,
+  "files_sha256": {
+    "docs/research/orb-literature/execution-evidence/README.md": "e6ae86060fa1117822f3c07c14e08fbdd40a03d39998d44caa212b7f85b5a7d5",
+    "docs/research/orb-literature/execution-evidence/cost-evidence.json": "6dd115faea09b92c23ffadc27a2ce439e2f454428100886f524559f148807326",
+    "docs/research/orb-literature/execution-evidence/progress.json": "ceb431a64d7a0319e56a40a97cbd9bd391d31c612b85b5d630eef08158cedcfa",
+    "docs/research/orb-literature/execution-evidence/sources.json": "e1d4c13ec10633d865704d0484dbe07542b6850bc987223a8f44cd3adc64e5d6",
+    "docs/research/orb-literature/execution-evidence/synthetic-timing-example.json": "f2b7e39e1720eef30daaacdc52a5ba1793c802be5a354b3cfb5d8b62b6b8b0ac",
+    "docs/research/orb-literature/execution-evidence/timing-contract.md": "1bc11ebb12f056a3c04b92a0b61693c542ffc020cc7884f155747d21df82e58d",
+    "research/orb-diagnostics/execution_timing.py": "abe32a10fea9bec62a89be341b0f0df1326939ea3f606e7a04eaf1de084edf58",
+    "research/orb-diagnostics/test_execution_timing.py": "ec23cb42110937873786b22e99f214858a13b5d637f9b944e830b31c76426c8b"
+  }
+}

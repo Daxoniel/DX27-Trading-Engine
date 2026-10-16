@@ -1,0 +1,16 @@
+{
+  "updated_at": "2026-10-16T09:06:59.557789+00:00",
+  "plan": "docs/research/orb-literature/revised-plan-v2.json",
+  "plan_sha256": "1054244ad92b09621b05939218c1e74979eb748126fc4982a75d89c66012fd29",
+  "W1": "PUBLIC_SOURCES_CHECKED_APPLICABILITY_AND_QUOTE_CALIBRATION_PENDING",
+  "W2": "OFFLINE_EVENT_CONTRACT_TESTED_REAL_CLOCK_AND_DATA_EVIDENCE_PENDING",
+  "W3": "BLOCKED_W1_W2_INCOMPLETE",
+  "W4": "BLOCKED_NO_CANDIDATE",
+  "active_new_cost_model": null,
+  "active_new_execution_model": null,
+  "active_real_quote_freshness_us": null,
+  "execution_enabled": false,
+  "new_market_data_downloaded": false,
+  "strategy_replayed": false,
+  "fees_retroactively_applied_to_A_B": false
+}

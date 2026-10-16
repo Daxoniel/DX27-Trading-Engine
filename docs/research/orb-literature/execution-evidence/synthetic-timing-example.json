@@ -1,0 +1,59 @@
+{
+  "observation_kind": "SYNTHETIC",
+  "active_real_policy": false,
+  "example_only_max_quote_age_us": 500000,
+  "trace": {
+    "contract": "ORB_OFFLINE_TIMING:1",
+    "observation_kind": "SYNTHETIC",
+    "symbol": "QQQ",
+    "side": "BUY",
+    "quantity": 10,
+    "required_feed": "sip",
+    "signal_window_end": "2026-07-01T13:35:00Z",
+    "last_input_available_at": "2026-07-01T13:35:00.010000Z",
+    "last_input_received_at": "2026-07-01T13:35:00.020000Z",
+    "decision_at": "2026-07-01T13:35:00.030000Z",
+    "intent_ready_at": "2026-07-01T13:35:00.040000Z"
+  },
+  "quotes": [
+    {
+      "quote_id": "q1",
+      "receipt_sequence": 1,
+      "symbol": "QQQ",
+      "feed": "sip",
+      "event_at": "2026-07-01T13:35:00.050000Z",
+      "received_at": "2026-07-01T13:35:00.060000Z",
+      "bid": "100",
+      "ask": "100.02",
+      "bid_size": 20,
+      "ask_size": 20,
+      "size_unit": "SHARES"
+    }
+  ],
+  "result": {
+    "status": "SYNTHETIC_MODEL_MATCH",
+    "execution_enabled": false,
+    "authenticity_verified": false,
+    "actual_fill_verified": false,
+    "live_latency_verified": false,
+    "costs_calibrated": false,
+    "runtime_guard": false,
+    "observation_kind": "SYNTHETIC",
+    "quote_id": "q1",
+    "inspected_quotes": 1,
+    "skipped_before_match": {},
+    "model_match_at": "2026-07-01T13:35:00.060000+00:00",
+    "modeled_reference_price": "100.02",
+    "reference_kind": "ASK",
+    "quantity": 10,
+    "feed": "sip",
+    "quote_age_us": 10000,
+    "declared_intervals_us": {
+      "input_available_after_window": 10000,
+      "delivery_after_availability": 10000,
+      "decision_after_receive": 10000,
+      "intent_after_decision": 10000,
+      "quote_wait_after_intent": 20000
+    }
+  }
+}

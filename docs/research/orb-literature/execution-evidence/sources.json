@@ -1,0 +1,40 @@
+{
+  "checked_at": "2026-10-16T09:06:59.557789+00:00",
+  "sources": [
+    {
+      "id": "ALPACA_FEE_SCHEDULE",
+      "url": "https://files.alpaca.markets/disclosures/library/BrokFeeSched.pdf",
+      "observed_revision": "2026-10-12",
+      "scope": "pp1-4: conditional commissions, equity pass-through fees and daily/account fee rounding; pp5-6: borrow terms and revision",
+      "observation_method": "PUBLIC_BROWSER_FULL_TEXT",
+      "original_bytes_archived": false,
+      "original_sha256": null,
+      "local_direct_download_status": 403
+    },
+    {
+      "id": "ALPACA_PAPER_SPEC",
+      "url": "https://docs.alpaca.markets/us/v1.4.2/docs/paper-trading",
+      "scope": "Paper vs Live; Rules and Assumptions",
+      "observation_method": "PUBLIC_BROWSER_FULL_TEXT",
+      "original_bytes_archived": false,
+      "original_sha256": null
+    },
+    {
+      "id": "ALPACA_DATA_PLANS",
+      "url": "https://docs.alpaca.markets/us/docs/about-market-data-api",
+      "scope": "Trading API equities Basic vs Algo Trader Plus",
+      "observation_method": "PUBLIC_BROWSER_FULL_TEXT",
+      "original_bytes_archived": false,
+      "original_sha256": null
+    },
+    {
+      "id": "ALPACA_COMMISSION_SUPPORT",
+      "url": "https://alpaca.markets/support/commission-clearing-fees",
+      "scope": "General commission-free qualifications and partner arrangements",
+      "observation_method": "PUBLIC_BROWSER_FULL_TEXT",
+      "original_bytes_archived": false,
+      "original_sha256": null
+    }
+  ],
+  "limitation": "Observed public content and our paraphrases; not authenticated immutable full source-byte snapshots or proof of account applicability."
+}

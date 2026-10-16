@@ -1,0 +1,95 @@
+{
+  "schema": "ORB_COST_EVIDENCE:1",
+  "checked_at": "2026-10-16T09:06:59.557789+00:00",
+  "status": "PUBLIC_SOURCES_CHECKED_ACCOUNT_APPLICABILITY_PENDING",
+  "execution_enabled": false,
+  "account": {
+    "provider": "ALPACA",
+    "access_context": "PAPER_ENDPOINT_CREDENTIALS_CONFIGURED",
+    "account_opening_channel": null,
+    "legal_entity": null,
+    "region": null,
+    "account_type": null,
+    "fee_plan": null,
+    "routing": null,
+    "applicability_verified": false,
+    "credential_readiness_does_not_verify_fee_plan": true
+  },
+  "applicable_account_cost_model": null,
+  "source_claims": [
+    {
+      "component": "commission",
+      "source": "ALPACA_FEE_SCHEDULE",
+      "source_claim": "Generally no commissions, with routing/non-retail/partner exceptions; retail general claim is not account-specific evidence.",
+      "source_conditional_commission_per_share": "0",
+      "applicable_value": null
+    },
+    {
+      "component": "minimum_commission",
+      "source": "ALPACA_FEE_SCHEDULE",
+      "source_claim": "The historical project $0.35 minimum came from an IBKR scenario; not established for this Alpaca account.",
+      "applicable_value": null
+    },
+    {
+      "component": "SEC_sell_fee",
+      "source": "ALPACA_FEE_SCHEDULE",
+      "source_declared_rate": "0.0000206",
+      "source_declared_unit": "USD per USD sell trade value",
+      "effective_from": null,
+      "applicable_value": null
+    },
+    {
+      "component": "FINRA_TAF",
+      "source": "ALPACA_FEE_SCHEDULE",
+      "source_declared_rate": "0",
+      "source_declared_unit": "USD per equity share sold",
+      "effective_from": null,
+      "applicable_value": null
+    },
+    {
+      "component": "CAT",
+      "source": "ALPACA_FEE_SCHEDULE",
+      "source_declared_rate": "0.000003",
+      "source_declared_unit": "USD per executed equivalent share, buys and sells; NMS equity share is one equivalent share",
+      "effective_from": null,
+      "applicable_value": null
+    },
+    {
+      "component": "regulatory_rounding",
+      "source": "ALPACA_FEE_SCHEDULE",
+      "source_claim": "Each fee type aggregated daily per account then rounded upward to cents; not a blanket per-fill minimum.",
+      "applicable_value": null
+    },
+    {
+      "component": "spread",
+      "source": null,
+      "applicable_value": null,
+      "status": "NO_QUOTE_CALIBRATION"
+    },
+    {
+      "component": "slippage_and_market_impact",
+      "source": "ALPACA_PAPER_SPEC",
+      "applicable_value": null,
+      "status": "PAPER_DOES_NOT_ESTABLISH_LIVE_COST"
+    },
+    {
+      "component": "short_borrow_locate_financing",
+      "source": "ALPACA_FEE_SCHEDULE",
+      "applicable_value": null,
+      "status": "SECURITY_ACCOUNT_TIME_DEPENDENT_NOT_VERIFIED"
+    }
+  ],
+  "historical_model": {
+    "commission_per_share": ".0035",
+    "minimum_per_fill": ".35",
+    "full_spread_bps": "2",
+    "directional_slippage_bps": "1",
+    "classification": "ARCHIVED_IBKR_REFERENCED_SCENARIO_NOT_APPLICABLE_ALPACA_FEE_VERIFICATION"
+  },
+  "limitations": [
+    "Current revision is after both A/B evaluation periods; no retroactive historical applicability.",
+    "Source-printed zero TAF/conditional zero commissions are not inferred account-wide zero transaction costs.",
+    "No independent regulator-rate or historical effective-date reconciliation performed.",
+    "No account IDs, keys, statements or signed URLs are recorded."
+  ]
+}
