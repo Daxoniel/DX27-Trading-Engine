@@ -1,0 +1,10 @@
+{
+  "registration_sha256": "474c5959ca3f8151661bcbe924e3d908445da310ae8f758264538fb29848a8ea",
+  "public_commit": "a4348591ebe3cfc800ac9079aae1cedf96cdf34a",
+  "published_at": "2026-10-16T06:29:54Z",
+  "stage_A_report": {
+    "sha256": "eb0fe643a1fdf59e97d4f6d53119004b9ad3f6a7df8a42f614ff5425ddeb4e59",
+    "public_commit": "b1bae57da02711bbffaee07c45a41979f11f436b",
+    "published_at": "2026-10-16T05:42:42Z"
+  }
+}
