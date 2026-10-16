@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-10-16T07:58:40.591966+00:00",
+  "status": "PASS",
+  "source_files_unchanged": 156,
+  "full_artifact_runs": 1,
+  "artifacts_verified_per_stage": 22,
+  "stages_reported_separately": true,
+  "synthetic_tests": 8,
+  "script_sha256": "6701f14ed95d8a4b0e3f41f54af2ac659086dd9c4a1f698aba855951cf2e18df",
+  "protocol_sha256": "81abd1769f39f2efff74ea19548549106ad4fd031e267c20d4cc73632ebc1f22",
+  "report_sha256": "9e328977035b77f6b0334435237ca5716cc09f857b01902aab69553adfbe8282",
+  "execution_enabled": false,
+  "strategy_replayed": false
+}

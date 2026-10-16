@@ -1,0 +1,9 @@
+{
+  "public_commit": "1ea44d2502248e7a77fade17383d63b18a733eba",
+  "published_at": "2026-10-16T07:56:46Z",
+  "hashes": {
+    "protocol.md": "81abd1769f39f2efff74ea19548549106ad4fd031e267c20d4cc73632ebc1f22",
+    "fixed_artifacts.py": "6701f14ed95d8a4b0e3f41f54af2ac659086dd9c4a1f698aba855951cf2e18df"
+  },
+  "meaning": "Public exploratory protocol before aggregation, after A/B exposure"
+}
