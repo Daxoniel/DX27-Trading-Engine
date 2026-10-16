@@ -1,0 +1,30 @@
+{
+  "reviewed_at": "2026-10-16T07:14:05.228269+00:00",
+  "source_commit": "55a3efe22f138b06c0703f6514979b3c3e69a46b",
+  "review_sha256": "96fc52491b3a3f7d9fb0af8c7161d16aae9b779c5aa29c46f743c3d03ddc2899",
+  "source_files_unchanged": 156,
+  "runtime_unchanged": true,
+  "primary_full_texts": [
+    {
+      "ssrn_id": "4416622",
+      "url": "https://concretumgroup.com/wp-content/uploads/2026/02/Can-Day-Trading-Really-Be-Profitable.pdf",
+      "sha256": "bb800b06ee8e28c9fb40826a4b086f03e7268eec351152e8b970838f76e51fc8"
+    },
+    {
+      "ssrn_id": "4729284",
+      "url": "https://concretumgroup.com/wp-content/uploads/2026/02/A-Profitable-Day-Trading-Strategy-For-The-U.S.-Equity-Market.pdf",
+      "sha256": "9423012e9f0199e3f6925c500725815c236d7ddbdd7500d50d10bac2be745e91"
+    }
+  ],
+  "visual_checks": [
+    "ETF printed page 13: Table 2 and optimized terminal wealth inconsistency",
+    "Stocks printed page 14: RVOL formula index",
+    "Stocks printed page 15: screening and entry rule"
+  ],
+  "local_document_links": "PASS",
+  "original_data_replication": false,
+  "new_market_data_downloaded": false,
+  "new_strategy_evaluation_run": false,
+  "strategy_implementation_changed": false,
+  "execution_enabled": false
+}
