@@ -1,0 +1,26 @@
+name: ORB fixed artifact diagnostics
+on:
+  pull_request:
+    paths:
+      - 'research/orb-diagnostics/**'
+      - '.github/workflows/orb-artifact-diagnostics.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'research/orb-diagnostics/**'
+      - '.github/workflows/orb-artifact-diagnostics.yml'
+permissions:
+  contents: read
+jobs:
+  accounting:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/orb-diagnostics -p "test_*.py" -v
