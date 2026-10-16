@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-16T08:44:07.125205+00:00",
+  "source_files_unchanged": 156,
+  "original_artifact_hashes_verified": 44,
+  "contrast_artifact_hashes_verified": 57,
+  "csv_and_raw_hashes_verified": 4,
+  "sizing_entries_exactly_reconstructed": 145,
+  "delay_identity_checks": [
+    "A",
+    "B"
+  ],
+  "synthetic_tests": 17,
+  "report_sha256": "2891289b906da69487e2a936b0d14dd79eb74743af6c54a38a5807ed74495157",
+  "plan_sha256": "1054244ad92b09621b05939218c1e74979eb748126fc4982a75d89c66012fd29",
+  "script_sha256": "db32380c52229c4637158267326bb5a47746da1b555d156efa47419b853a07e0",
+  "frozen_design_unchanged": true,
+  "execution_enabled": false,
+  "live_cost_or_timing_calibration_completed": false
+}

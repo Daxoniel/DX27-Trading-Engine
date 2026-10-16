@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-10-16T08:37:38.978981+00:00",
+  "sources": [
+    {
+      "name": "paper",
+      "url": "https://docs.alpaca.markets/us/docs/paper-trading.md",
+      "status": 403
+    },
+    {
+      "name": "data",
+      "url": "https://docs.alpaca.markets/us/docs/about-market-data-api.md",
+      "status": 403
+    }
+  ]
+}
