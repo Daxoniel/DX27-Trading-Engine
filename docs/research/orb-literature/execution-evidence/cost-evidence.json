@@ -1,19 +1,24 @@
 {
   "schema": "ORB_COST_EVIDENCE:1",
-  "checked_at": "2026-10-16T09:06:59.557789+00:00",
+  "checked_at": "2026-10-16T09:23:01.885315+00:00",
   "status": "PUBLIC_SOURCES_CHECKED_ACCOUNT_APPLICABILITY_PENDING",
   "execution_enabled": false,
   "account": {
     "provider": "ALPACA",
     "access_context": "PAPER_ENDPOINT_CREDENTIALS_CONFIGURED",
-    "account_opening_channel": null,
+    "account_opening_channel": "DIRECT_ALPACA",
     "legal_entity": null,
     "region": null,
     "account_type": null,
     "fee_plan": null,
     "routing": null,
     "applicability_verified": false,
-    "credential_readiness_does_not_verify_fee_plan": true
+    "credential_readiness_does_not_verify_fee_plan": true,
+    "has_live_brokerage_account": true,
+    "account_context_source": "USER_CONFIRMATION",
+    "account_context_confirmed_at": "2026-10-16T09:23:01.885315+00:00",
+    "research_environment": "PAPER_AND_OFFLINE_ONLY",
+    "broker_api_or_statements_verified": false
   },
   "applicable_account_cost_model": null,
   "source_claims": [
