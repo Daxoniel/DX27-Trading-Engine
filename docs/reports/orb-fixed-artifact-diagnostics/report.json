@@ -1,0 +1,502 @@
+{
+  "status": "COMPLETE_EXPOSED_ARTIFACT_DIAGNOSTIC",
+  "confirmation": false,
+  "execution_enabled": false,
+  "strategy_replayed": false,
+  "new_market_data_downloaded": false,
+  "standalone_long_short_backtests": false,
+  "stages": {
+    "A": {
+      "stage": "A",
+      "sessions": 251,
+      "verified_artifacts": 22,
+      "arms": {
+        "R0": {
+          "all": {
+            "trades": 251,
+            "gross_pnl": 1151.0003999999467,
+            "net_pnl": 1110.314399999928,
+            "commission": 40.686,
+            "spread_cost": 0.0,
+            "slippage_cost": 0.0,
+            "reference_turnover": 49982192.0382,
+            "total_cost": 40.686,
+            "gross_winners": 72,
+            "net_winners": 72,
+            "gross_positive_net_nonpositive": 0,
+            "mean_gross_pnl": 4.585658964143214,
+            "mean_net_pnl": 4.423563346613259,
+            "modeled_cost_bps": 0.008140099171501887,
+            "minimum_commission_fills": 0
+          },
+          "by_direction": {
+            "long": {
+              "trades": 122,
+              "gross_pnl": -2558.3326000001293,
+              "net_pnl": -2577.913600000228,
+              "commission": 19.581,
+              "spread_cost": 0.0,
+              "slippage_cost": 0.0,
+              "reference_turnover": 23996841.1026,
+              "total_cost": 19.581,
+              "gross_winners": 32,
+              "net_winners": 32,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": -20.969939344263356,
+              "mean_net_pnl": -21.130439344264165,
+              "modeled_cost_bps": 0.00815982400195101,
+              "minimum_commission_fills": 0
+            },
+            "short": {
+              "trades": 129,
+              "gross_pnl": 3709.333000000076,
+              "net_pnl": 3688.228000000156,
+              "commission": 21.105,
+              "spread_cost": 0.0,
+              "slippage_cost": 0.0,
+              "reference_turnover": 25985350.9356,
+              "total_cost": 21.105,
+              "gross_winners": 40,
+              "net_winners": 40,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": 28.75451937984555,
+              "mean_net_pnl": 28.59091472868338,
+              "modeled_cost_bps": 0.00812188376916861,
+              "minimum_commission_fills": 0
+            }
+          },
+          "by_exit": {
+            "SESSION_CLOSE_IDEALIZED": {
+              "trades": 67,
+              "gross_pnl": 32891.972,
+              "net_pnl": 32881.70700000004,
+              "commission": 10.265,
+              "spread_cost": 0.0,
+              "slippage_cost": 0.0,
+              "reference_turnover": 12570346.078,
+              "total_cost": 10.265,
+              "gross_winners": 66,
+              "net_winners": 66,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": 490.9249552238806,
+              "mean_net_pnl": 490.7717462686573,
+              "modeled_cost_bps": 0.008166044066173562,
+              "minimum_commission_fills": 0
+            },
+            "STOP": {
+              "trades": 178,
+              "gross_pnl": -39014.3716,
+              "net_pnl": -39043.67360000005,
+              "commission": 29.302,
+              "spread_cost": 0.0,
+              "slippage_cost": 0.0,
+              "reference_turnover": 36080999.1602,
+              "total_cost": 29.302,
+              "gross_winners": 0,
+              "net_winners": 0,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": -219.1818629213483,
+              "mean_net_pnl": -219.3464808988767,
+              "modeled_cost_bps": 0.008121171996900314,
+              "minimum_commission_fills": 0
+            },
+            "TARGET": {
+              "trades": 6,
+              "gross_pnl": 7273.399999999947,
+              "net_pnl": 7272.28099999994,
+              "commission": 1.119,
+              "spread_cost": 0.0,
+              "slippage_cost": 0.0,
+              "reference_turnover": 1330846.7999999998,
+              "total_cost": 1.119,
+              "gross_winners": 6,
+              "net_winners": 6,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": 1212.2333333333245,
+              "mean_net_pnl": 1212.0468333333233,
+              "modeled_cost_bps": 0.008408180415657161,
+              "minimum_commission_fills": 0
+            }
+          },
+          "zero_trade_days": {},
+          "decision_event_counts": {
+            "LONG": 122,
+            "SHORT": 129
+          }
+        },
+        "R1": {
+          "all": {
+            "trades": 115,
+            "gross_pnl": -94.975900000036,
+            "net_pnl": -1303.841410779647,
+            "commission": 80.5,
+            "spread_cost": 564.18275539,
+            "slippage_cost": 564.18275539,
+            "reference_turnover": 5641827.5539,
+            "total_cost": 1208.86551078,
+            "gross_winners": 33,
+            "net_winners": 33,
+            "gross_positive_net_nonpositive": 0,
+            "mean_gross_pnl": -0.8258773913046609,
+            "mean_net_pnl": -11.337751398083887,
+            "modeled_cost_bps": 2.1426842618476583,
+            "minimum_commission_fills": 230
+          },
+          "by_direction": {
+            "long": {
+              "trades": 115,
+              "gross_pnl": -94.975900000036,
+              "net_pnl": -1303.841410779647,
+              "commission": 80.5,
+              "spread_cost": 564.18275539,
+              "slippage_cost": 564.18275539,
+              "reference_turnover": 5641827.5539,
+              "total_cost": 1208.86551078,
+              "gross_winners": 33,
+              "net_winners": 33,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": -0.8258773913046609,
+              "mean_net_pnl": -11.337751398083887,
+              "modeled_cost_bps": 2.1426842618476583,
+              "minimum_commission_fills": 230
+            },
+            "short": {
+              "trades": 0,
+              "gross_pnl": 0.0,
+              "net_pnl": 0.0,
+              "commission": 0.0,
+              "spread_cost": 0.0,
+              "slippage_cost": 0.0,
+              "reference_turnover": 0.0,
+              "total_cost": 0.0,
+              "gross_winners": 0,
+              "net_winners": 0,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": null,
+              "mean_net_pnl": null,
+              "modeled_cost_bps": null,
+              "minimum_commission_fills": 0
+            }
+          },
+          "by_exit": {
+            "SCHEDULED_FLATTEN": {
+              "trades": 32,
+              "gross_pnl": 4636.1205,
+              "net_pnl": 4298.874360100102,
+              "commission": 22.4,
+              "spread_cost": 157.42306995,
+              "slippage_cost": 157.42306995,
+              "reference_turnover": 1574230.6995,
+              "total_cost": 337.2461399,
+              "gross_winners": 32,
+              "net_winners": 32,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": 144.878765625,
+              "mean_net_pnl": 134.3398237531282,
+              "modeled_cost_bps": 2.1422917238694086,
+              "minimum_commission_fills": 64
+            },
+            "STOP": {
+              "trades": 82,
+              "gross_pnl": -4766.7364,
+              "net_pnl": -5627.859857279715,
+              "commission": 57.4,
+              "spread_cost": 401.86172864,
+              "slippage_cost": 401.86172864,
+              "reference_turnover": 4018617.2864,
+              "total_cost": 861.12345728,
+              "gross_winners": 0,
+              "net_winners": 0,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": -58.130931707317075,
+              "mean_net_pnl": -68.63243728389897,
+              "modeled_cost_bps": 2.1428351990478314,
+              "minimum_commission_fills": 164
+            },
+            "TARGET": {
+              "trades": 1,
+              "gross_pnl": 35.639999999964,
+              "net_pnl": 25.144086399966,
+              "commission": 0.7,
+              "spread_cost": 4.897956799999997,
+              "slippage_cost": 4.897956799999997,
+              "reference_turnover": 48979.56799999996,
+              "total_cost": 10.495913599999993,
+              "gross_winners": 1,
+              "net_winners": 1,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": 35.639999999964,
+              "mean_net_pnl": 25.144086399966,
+              "modeled_cost_bps": 2.1429167362194783,
+              "minimum_commission_fills": 2
+            }
+          },
+          "zero_trade_days": {
+            "LONG|NONPOSITIVE_R": 7,
+            "SHORT_DISABLED": 129
+          },
+          "decision_event_counts": {
+            "LONG": 122,
+            "NONPOSITIVE_R": 7,
+            "SHORT_DISABLED": 129
+          }
+        }
+      },
+      "direction_day_pairs": {
+        "R0_long__R1_flat": 7,
+        "R0_long__R1_long": 115,
+        "R0_short__R1_flat": 129
+      },
+      "input_report_sha256": "eb0fe643a1fdf59e97d4f6d53119004b9ad3f6a7df8a42f614ff5425ddeb4e59"
+    },
+    "B": {
+      "stage": "B",
+      "sessions": 64,
+      "verified_artifacts": 22,
+      "arms": {
+        "R0": {
+          "all": {
+            "trades": 63,
+            "gross_pnl": 872.2820000001561,
+            "net_pnl": 865.337000000094,
+            "commission": 6.945,
+            "spread_cost": 0.0,
+            "slippage_cost": 0.0,
+            "reference_turnover": 9934725.8976,
+            "total_cost": 6.945,
+            "gross_winners": 21,
+            "net_winners": 21,
+            "gross_positive_net_nonpositive": 0,
+            "mean_gross_pnl": 13.84574603174851,
+            "mean_net_pnl": 13.735507936509428,
+            "modeled_cost_bps": 0.006990630714509951,
+            "minimum_commission_fills": 0
+          },
+          "by_direction": {
+            "long": {
+              "trades": 31,
+              "gross_pnl": 267.6098000000911,
+              "net_pnl": 264.187800000062,
+              "commission": 3.422,
+              "spread_cost": 0.0,
+              "slippage_cost": 0.0,
+              "reference_turnover": 4903078.4498000005,
+              "total_cost": 3.422,
+              "gross_winners": 10,
+              "net_winners": 10,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": 8.632574193551326,
+              "mean_net_pnl": 8.522187096776193,
+              "modeled_cost_bps": 0.0069792886959407835,
+              "minimum_commission_fills": 0
+            },
+            "short": {
+              "trades": 32,
+              "gross_pnl": 604.672200000065,
+              "net_pnl": 601.149200000032,
+              "commission": 3.523,
+              "spread_cost": 0.0,
+              "slippage_cost": 0.0,
+              "reference_turnover": 5031647.4478,
+              "total_cost": 3.523,
+              "gross_winners": 11,
+              "net_winners": 11,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": 18.89600625000203,
+              "mean_net_pnl": 18.785912500001,
+              "modeled_cost_bps": 0.0070016829210487914,
+              "minimum_commission_fills": 0
+            }
+          },
+          "by_exit": {
+            "SESSION_CLOSE_IDEALIZED": {
+              "trades": 19,
+              "gross_pnl": 6729.6572,
+              "net_pnl": 6727.662199999997,
+              "commission": 1.995,
+              "spread_cost": 0.0,
+              "slippage_cost": 0.0,
+              "reference_turnover": 2875899.1728,
+              "total_cost": 1.995,
+              "gross_winners": 18,
+              "net_winners": 18,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": 354.1924842105263,
+              "mean_net_pnl": 354.08748421052616,
+              "modeled_cost_bps": 0.0069369608603407715,
+              "minimum_commission_fills": 0
+            },
+            "STOP": {
+              "trades": 41,
+              "gross_pnl": -8446.1752,
+              "net_pnl": -8450.736200000052,
+              "commission": 4.561,
+              "spread_cost": 0.0,
+              "slippage_cost": 0.0,
+              "reference_turnover": 6498727.7248,
+              "total_cost": 4.561,
+              "gross_winners": 0,
+              "net_winners": 0,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": -206.0042731707317,
+              "mean_net_pnl": -206.11551707317201,
+              "modeled_cost_bps": 0.007018296800763977,
+              "minimum_commission_fills": 0
+            },
+            "TARGET": {
+              "trades": 3,
+              "gross_pnl": 2588.800000000156,
+              "net_pnl": 2588.41100000015,
+              "commission": 0.389,
+              "spread_cost": 0.0,
+              "slippage_cost": 0.0,
+              "reference_turnover": 560099.0,
+              "total_cost": 0.389,
+              "gross_winners": 3,
+              "net_winners": 3,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": 862.9333333333853,
+              "mean_net_pnl": 862.8036666667167,
+              "modeled_cost_bps": 0.006945200759151507,
+              "minimum_commission_fills": 0
+            }
+          },
+          "zero_trade_days": {
+            "DOJI": 1
+          },
+          "decision_event_counts": {
+            "DOJI": 1,
+            "LONG": 31,
+            "SHORT": 32
+          }
+        },
+        "R1": {
+          "all": {
+            "trades": 30,
+            "gross_pnl": 139.2423999999965,
+            "net_pnl": -175.865470639884,
+            "commission": 21.0,
+            "spread_cost": 147.05393532,
+            "slippage_cost": 147.05393532,
+            "reference_turnover": 1470539.3532,
+            "total_cost": 315.10787064,
+            "gross_winners": 10,
+            "net_winners": 10,
+            "gross_positive_net_nonpositive": 0,
+            "mean_gross_pnl": 4.641413333333217,
+            "mean_net_pnl": -5.8621823546628,
+            "modeled_cost_bps": 2.14280474680465,
+            "minimum_commission_fills": 60
+          },
+          "by_direction": {
+            "long": {
+              "trades": 30,
+              "gross_pnl": 139.2423999999965,
+              "net_pnl": -175.865470639884,
+              "commission": 21.0,
+              "spread_cost": 147.05393532,
+              "slippage_cost": 147.05393532,
+              "reference_turnover": 1470539.3532,
+              "total_cost": 315.10787064,
+              "gross_winners": 10,
+              "net_winners": 10,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": 4.641413333333217,
+              "mean_net_pnl": -5.8621823546628,
+              "modeled_cost_bps": 2.14280474680465,
+              "minimum_commission_fills": 60
+            },
+            "short": {
+              "trades": 0,
+              "gross_pnl": 0.0,
+              "net_pnl": 0.0,
+              "commission": 0.0,
+              "spread_cost": 0.0,
+              "slippage_cost": 0.0,
+              "reference_turnover": 0.0,
+              "total_cost": 0.0,
+              "gross_winners": 0,
+              "net_winners": 0,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": null,
+              "mean_net_pnl": null,
+              "modeled_cost_bps": null,
+              "minimum_commission_fills": 0
+            }
+          },
+          "by_exit": {
+            "SCHEDULED_FLATTEN": {
+              "trades": 9,
+              "gross_pnl": 1109.4686,
+              "net_pnl": 1014.785193720039,
+              "commission": 6.3,
+              "spread_cost": 44.19170314,
+              "slippage_cost": 44.19170314,
+              "reference_turnover": 441917.0314,
+              "total_cost": 94.68340628,
+              "gross_winners": 8,
+              "net_winners": 8,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": 123.27428888888889,
+              "mean_net_pnl": 112.75391041333766,
+              "modeled_cost_bps": 2.14256069697159,
+              "minimum_commission_fills": 18
+            },
+            "STOP": {
+              "trades": 19,
+              "gross_pnl": -1441.5762,
+              "net_pnl": -1640.750964359929,
+              "commission": 13.3,
+              "spread_cost": 92.93738218,
+              "slippage_cost": 92.93738218,
+              "reference_turnover": 929373.8218,
+              "total_cost": 199.17476436,
+              "gross_winners": 0,
+              "net_winners": 0,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": -75.87243157894737,
+              "mean_net_pnl": -86.35531391368048,
+              "modeled_cost_bps": 2.1431071081197524,
+              "minimum_commission_fills": 38
+            },
+            "TARGET": {
+              "trades": 2,
+              "gross_pnl": 471.3499999999965,
+              "net_pnl": 450.100300000006,
+              "commission": 1.4,
+              "spread_cost": 9.92485,
+              "slippage_cost": 9.92485,
+              "reference_turnover": 99248.5,
+              "total_cost": 21.2497,
+              "gross_winners": 2,
+              "net_winners": 2,
+              "gross_positive_net_nonpositive": 0,
+              "mean_gross_pnl": 235.67499999999825,
+              "mean_net_pnl": 225.050150000003,
+              "modeled_cost_bps": 2.1410600663989885,
+              "minimum_commission_fills": 4
+            }
+          },
+          "zero_trade_days": {
+            "DOJI": 1,
+            "LONG|NONPOSITIVE_R": 1,
+            "SHORT_DISABLED": 32
+          },
+          "decision_event_counts": {
+            "DOJI": 1,
+            "LONG": 31,
+            "NONPOSITIVE_R": 1,
+            "SHORT_DISABLED": 32
+          }
+        }
+      },
+      "direction_day_pairs": {
+        "R0_flat__R1_flat": 1,
+        "R0_long__R1_flat": 1,
+        "R0_long__R1_long": 30,
+        "R0_short__R1_flat": 32
+      },
+      "input_report_sha256": "d675aa4ffded773ee9da240cc86e4a1fa22406d6e9b8aa0688441899f5f7abed"
+    }
+  }
+}
