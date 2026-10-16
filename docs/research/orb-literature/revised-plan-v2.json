@@ -1,0 +1,109 @@
+{
+  "schema": "ORB_RESEARCH_REVISION_V2",
+  "created_at": "2026-10-16T08:43:19.595957+00:00",
+  "status": "ACTIVE_RESEARCH_PLAN_EXECUTION_EVIDENCE_PENDING",
+  "confirmation": false,
+  "execution_enabled": false,
+  "paper_submission_enabled": false,
+  "live_submission_enabled": false,
+  "new_candidate_selected": false,
+  "training_enabled": false,
+  "parameter_search_enabled": false,
+  "new_market_data_required_now": false,
+  "archived_design_sha256": "6569c2bf1be38b157132ef4508ade1c88cfe104e96dc7939d38348e16fb27d7d",
+  "source_commit": "f71a80c3506e59969b802881044c19dd3a3e42a3",
+  "scope": "Revised research work order; not a runtime execution guard or retroactive preregistration",
+  "exposed_periods": [
+    "2025 Q1",
+    "2025 Q2",
+    "A: 2025-07-01..2026-06-30",
+    "B: 2026-07-01..2026-09-30"
+  ],
+  "historical_R1_configuration": "FROZEN_UNCHANGED_NOT_AN_OPTIMUM",
+  "active_new_cost_model": null,
+  "active_new_execution_model": null,
+  "new_confirmation_window": null,
+  "tasks": [
+    {
+      "id": "W0",
+      "status": "COMPLETE_EXPOSED_DIAGNOSTIC",
+      "dependencies": [],
+      "artifact": "docs/reports/orb-cause-review/report.json"
+    },
+    {
+      "id": "W1",
+      "status": "PENDING_APPLICABLE_ACCOUNT_COST_EVIDENCE",
+      "dependencies": [],
+      "deliverables": [
+        "account_entity_region_plan_applicability",
+        "versioned_fee_components",
+        "spread_slippage_impact_evidence_and_unknowns",
+        "unit_and_time_consistency"
+      ],
+      "assumptions_for_unknown_costs": "NULL_NOT_ZERO",
+      "automatic_paid_subscription": false
+    },
+    {
+      "id": "W2",
+      "status": "PENDING_OBSERVED_EXECUTION_TIMING_AND_PRICE_EVIDENCE",
+      "dependencies": [],
+      "deliverables": [
+        "versioned_signal_receive_decision_intent_quote_event_contract",
+        "clock_precision_and_late_missing_policy",
+        "data_rights_coverage_and_observation_record"
+      ],
+      "exact_0935_open_execution_verified": false,
+      "automatic_order_submission": false
+    },
+    {
+      "id": "W3",
+      "status": "BLOCKED",
+      "dependencies": [
+        "W1",
+        "W2"
+      ],
+      "deliverables": [
+        "separate_public_exploratory_protocol",
+        "exact_original_R1_reproduction",
+        "all_fixed_contrasts_and_costs_reported"
+      ],
+      "shorts_require_separate_borrow_account_and_cost_evidence": true,
+      "leverage_increase_as_profit_fix": false,
+      "preserve_early_flatten_as_common_constraint": true
+    },
+    {
+      "id": "W4",
+      "status": "BLOCKED_NO_CANDIDATE",
+      "dependencies": [
+        "W3"
+      ],
+      "deliverables": [
+        "new_registration_and_genuinely_new_evaluation_window",
+        "predeclared_precision_and_inference",
+        "full_attempts_and_negative_results"
+      ],
+      "reuse_A_B_as_unseen": false,
+      "automatic_extension_until_profitable": false
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/reports/orb-cause-review/report.json",
+      "sha256": "2891289b906da69487e2a936b0d14dd79eb74743af6c54a38a5807ed74495157"
+    },
+    {
+      "path": "docs/reports/orb-reference-contrasts/report.json",
+      "sha256": "a5d070ee3bc8547da47cb8444a2eb03d2b4f57283a3b8060de156d39b7da699f"
+    },
+    {
+      "path": "docs/research/orb-literature/review-2026-10-16.md",
+      "sha256": "96fc52491b3a3f7d9fb0af8c7161d16aae9b779c5aa29c46f743c3d03ddc2899"
+    }
+  ],
+  "evidence_gaps": [
+    "applicable_Alpaca_account_fee_schedule_unverified",
+    "actual_bid_ask_and_execution_latency_unverified",
+    "borrow_and_margin_conditions_unverified",
+    "no_new_confirmatory_sample_registered"
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "status": "COMPLETE_EXPOSED_CAUSE_ACCOUNTING",
+  "confirmation": false,
+  "execution_enabled": false,
+  "strategy_replayed": false,
+  "new_market_data_downloaded": false,
+  "completed_at": "2026-10-16T08:39:16.302717+00:00",
+  "stages": {
+    "A": {
+      "delay": {
+        "components_usd": {
+          "entry_price": -559.6148,
+          "exit_price": 689.1887000000265,
+          "quantity_and_capital": -2173.825699999998,
+          "commission": 0.38499999999999995,
+          "removed_reference_trades": 1312.49399999997,
+          "added_delayed_trades": 0.0
+        },
+        "total_net_delta_usd": -731.372800000075,
+        "counts": {
+          "adverse_entry": 126,
+          "common": 239,
+          "equal_entry": 1,
+          "exit_reason_changed": 8,
+          "favorable_entry": 112,
+          "removed": 12
+        },
+        "common_trade_signed_entry_bps": {
+          "mean": -0.28157154782088323,
+          "median": 0.4311571395310735
+        },
+        "interpretation": "EXACT_BASE_QUANTITY_IDENTITY_NOT_UNIQUE_CAUSAL_ATTRIBUTION"
+      },
+      "r1_sizing": {
+        "entries_verified": 115,
+        "binding_sets": {
+          "nominal": 114,
+          "nominal|risk": 1
+        },
+        "nonexclusive_binding_counts": {
+          "nominal": 115,
+          "risk": 1
+        },
+        "planned_stop_risk_pct": {
+          "min": 0.014261223546614065,
+          "median": 0.06815632838263216,
+          "mean": 0.07645749229331121,
+          "max": 0.24663909449084978
+        },
+        "entry_nominal_equity_pct": {
+          "min": 24.333587229655965,
+          "median": 24.685137022258917,
+          "mean": 24.688268535549888,
+          "max": 24.992634455117294
+        }
+      },
+      "original_report_sha256": "eb0fe643a1fdf59e97d4f6d53119004b9ad3f6a7df8a42f614ff5425ddeb4e59"
+    },
+    "B": {
+      "delay": {
+        "components_usd": {
+          "entry_price": 142.8691,
+          "exit_price": -914.5550000002327,
+          "quantity_and_capital": -681.6645000000041,
+          "commission": 0.138,
+          "removed_reference_trades": 407.53400000001,
+          "added_delayed_trades": 0.0
+        },
+        "total_net_delta_usd": -1045.678400000087,
+        "counts": {
+          "adverse_entry": 26,
+          "common": 60,
+          "equal_entry": 0,
+          "exit_reason_changed": 2,
+          "favorable_entry": 34,
+          "removed": 3
+        },
+        "common_trade_signed_entry_bps": {
+          "mean": -0.3748687503152119,
+          "median": -0.5845949359951317
+        },
+        "interpretation": "EXACT_BASE_QUANTITY_IDENTITY_NOT_UNIQUE_CAUSAL_ATTRIBUTION"
+      },
+      "r1_sizing": {
+        "entries_verified": 30,
+        "binding_sets": {
+          "nominal": 30
+        },
+        "nonexclusive_binding_counts": {
+          "nominal": 30
+        },
+        "planned_stop_risk_pct": {
+          "min": 0.023368178954961207,
+          "median": 0.08112375998875518,
+          "mean": 0.08531474300772382,
+          "max": 0.1731993669468255
+        },
+        "entry_nominal_equity_pct": {
+          "min": 24.326345999420965,
+          "median": 24.602124417490298,
+          "mean": 24.627196678662422,
+          "max": 24.988038334824893
+        }
+      },
+      "original_report_sha256": "d675aa4ffded773ee9da240cc86e4a1fa22406d6e9b8aa0688441899f5f7abed"
+    }
+  }
+}
