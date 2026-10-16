@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-16T05:41:14.661870+00:00",
+  "artifact_hashes_verified": 22,
+  "checks": {
+    "R0": {
+      "daily_rows": 251,
+      "minute_rows": 97350,
+      "fills": 502,
+      "trades": 251,
+      "decimal_cash_residual": "9.8E-11",
+      "decimal_trade_pnl_residual": "-1.923E-12",
+      "daily_capital_chain": "PASS",
+      "quality_rows": 0
+    },
+    "R1": {
+      "daily_rows": 251,
+      "minute_rows": 97350,
+      "fills": 230,
+      "trades": 115,
+      "decimal_cash_residual": "-4.7E-11",
+      "decimal_trade_pnl_residual": "2.072E-12",
+      "daily_capital_chain": "PASS",
+      "quality_rows": 0
+    },
+    "baseline": {
+      "daily_rows": 251,
+      "minute_rows": 97350,
+      "fills": 696,
+      "trades": 348,
+      "decimal_cash_residual": "8E-12",
+      "decimal_trade_pnl_residual": "-8.4911615E-10",
+      "daily_capital_chain": "PASS",
+      "quality_rows": 0
+    }
+  },
+  "method": "Separate Decimal sum of recorded cash deltas and closed-trade PnL; daily capital continuity; full day/minute counts; quality and terminal inventory. Not an independent strategy implementation or provider authentication.",
+  "raw_quotes_published": false,
+  "execution_enabled": false,
+  "report_sha256": "eb0fe643a1fdf59e97d4f6d53119004b9ad3f6a7df8a42f614ff5425ddeb4e59"
+}
