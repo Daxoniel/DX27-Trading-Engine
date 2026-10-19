@@ -1,0 +1,125 @@
+{
+  "mode": "SYNTHETIC",
+  "steps": [
+    {
+      "event": "partial",
+      "disposition": "APPLIED",
+      "summary": {
+        "contract": "ORB_PAPER_INTENTS:1",
+        "mode": "SYNTHETIC",
+        "registered_intents": 1,
+        "observed_owned_orders": 1,
+        "unowned_clients_seen": 0,
+        "journal_sequence": 3,
+        "integrity_halt": null,
+        "owned_gross_cash_delta": "-400",
+        "known_recorded_fees": "0",
+        "unknown_fee_orders": 1,
+        "owned_cash_delta_including_all_recorded_fees": null,
+        "owned_inventory_contribution": {
+          "QQQ": 4
+        },
+        "actual_strategy_paper_pnl": null,
+        "account_reconciliation_complete": false,
+        "source_authenticity_verified": false,
+        "execution_enabled": false,
+        "live_endpoint_supported": false
+      }
+    },
+    {
+      "event": "partial",
+      "disposition": "DUPLICATE",
+      "summary": {
+        "contract": "ORB_PAPER_INTENTS:1",
+        "mode": "SYNTHETIC",
+        "registered_intents": 1,
+        "observed_owned_orders": 1,
+        "unowned_clients_seen": 0,
+        "journal_sequence": 3,
+        "integrity_halt": null,
+        "owned_gross_cash_delta": "-400",
+        "known_recorded_fees": "0",
+        "unknown_fee_orders": 1,
+        "owned_cash_delta_including_all_recorded_fees": null,
+        "owned_inventory_contribution": {
+          "QQQ": 4
+        },
+        "actual_strategy_paper_pnl": null,
+        "account_reconciliation_complete": false,
+        "source_authenticity_verified": false,
+        "execution_enabled": false,
+        "live_endpoint_supported": false
+      }
+    },
+    {
+      "event": "full",
+      "disposition": "APPLIED",
+      "summary": {
+        "contract": "ORB_PAPER_INTENTS:1",
+        "mode": "SYNTHETIC",
+        "registered_intents": 1,
+        "observed_owned_orders": 1,
+        "unowned_clients_seen": 0,
+        "journal_sequence": 4,
+        "integrity_halt": null,
+        "owned_gross_cash_delta": "-1000",
+        "known_recorded_fees": "0.25",
+        "unknown_fee_orders": 0,
+        "owned_cash_delta_including_all_recorded_fees": "-1000.25",
+        "owned_inventory_contribution": {
+          "QQQ": 10
+        },
+        "actual_strategy_paper_pnl": null,
+        "account_reconciliation_complete": false,
+        "source_authenticity_verified": false,
+        "execution_enabled": false,
+        "live_endpoint_supported": false
+      }
+    },
+    {
+      "event": "exit",
+      "disposition": "APPLIED",
+      "summary": {
+        "contract": "ORB_PAPER_INTENTS:1",
+        "mode": "SYNTHETIC",
+        "registered_intents": 2,
+        "observed_owned_orders": 2,
+        "unowned_clients_seen": 0,
+        "journal_sequence": 6,
+        "integrity_halt": null,
+        "owned_gross_cash_delta": "10",
+        "known_recorded_fees": "0.50",
+        "unknown_fee_orders": 0,
+        "owned_cash_delta_including_all_recorded_fees": "9.50",
+        "owned_inventory_contribution": {},
+        "actual_strategy_paper_pnl": null,
+        "account_reconciliation_complete": false,
+        "source_authenticity_verified": false,
+        "execution_enabled": false,
+        "live_endpoint_supported": false
+      }
+    }
+  ],
+  "restart_duplicate": "DUPLICATE",
+  "final": {
+    "contract": "ORB_PAPER_INTENTS:1",
+    "mode": "SYNTHETIC",
+    "registered_intents": 2,
+    "observed_owned_orders": 2,
+    "unowned_clients_seen": 0,
+    "journal_sequence": 6,
+    "integrity_halt": null,
+    "owned_gross_cash_delta": "10",
+    "known_recorded_fees": "0.50",
+    "unknown_fee_orders": 0,
+    "owned_cash_delta_including_all_recorded_fees": "9.50",
+    "owned_inventory_contribution": {},
+    "actual_strategy_paper_pnl": null,
+    "account_reconciliation_complete": false,
+    "source_authenticity_verified": false,
+    "execution_enabled": false,
+    "live_endpoint_supported": false
+  },
+  "no_actual_paper_orders_created": true,
+  "source_recording_authenticity_claim": false
+}

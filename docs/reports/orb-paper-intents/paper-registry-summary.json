@@ -1,0 +1,19 @@
+{
+  "contract": "ORB_PAPER_INTENTS:1",
+  "mode": "PAPER_OBSERVATION",
+  "registered_intents": 0,
+  "observed_owned_orders": 0,
+  "unowned_clients_seen": 0,
+  "journal_sequence": 1,
+  "integrity_halt": null,
+  "owned_gross_cash_delta": "0",
+  "known_recorded_fees": "0",
+  "unknown_fee_orders": 0,
+  "owned_cash_delta_including_all_recorded_fees": null,
+  "owned_inventory_contribution": {},
+  "actual_strategy_paper_pnl": null,
+  "account_reconciliation_complete": false,
+  "source_authenticity_verified": false,
+  "execution_enabled": false,
+  "live_endpoint_supported": false
+}

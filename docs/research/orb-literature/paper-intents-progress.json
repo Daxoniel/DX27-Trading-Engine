@@ -1,0 +1,18 @@
+{
+  "updated_at": "2026-10-19T05:43:51.388315+00:00",
+  "parent_plan": "docs/research/orb-literature/paper-study.json",
+  "parent_plan_sha256": "b401f0ffd290f9bde9234cfac62214016f552bf11df7c85e5a48afd5541a2d98",
+  "basis": "ALPACA_PAPER",
+  "P2": "OFFLINE_OWNERSHIP_AND_CUMULATIVE_REPORT_CONFORMANCE_COMPLETE_SIGNAL_ADAPTER_PENDING",
+  "P3": "NO_STRATEGY_OWNED_PAPER_RESULTS_YET",
+  "known_client_order_ids": [],
+  "registered_actual_intents": 0,
+  "observed_actual_owned_orders": 0,
+  "actual_strategy_paper_pnl": null,
+  "paper_order_submission_enabled": false,
+  "live_order_submission_enabled": false,
+  "requires_live_fee_calibration_for_paper_engineering": false,
+  "journal_contract": "ORB_PAPER_INTENTS:1",
+  "next_task": "Read-only market-signal to owned-intent observation bridge",
+  "evidence_report": "docs/reports/orb-paper-intents/README.md"
+}

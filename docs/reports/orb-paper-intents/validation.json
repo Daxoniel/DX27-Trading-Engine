@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-19T05:46:02.119280+00:00",
+  "tests": 55,
+  "new_intent_tests": 18,
+  "source_files_unchanged": 156,
+  "actual_paper_intents_created": 0,
+  "actual_owned_orders_observed": 0,
+  "paper_get_only_observation": true,
+  "account_reconciliation_complete": false,
+  "execution_enabled": false,
+  "synthetic_demo_cash_contribution": "9.50",
+  "synthetic_value_is_not_paper_performance": true,
+  "files_sha256": {
+    ".github/workflows/orb-artifact-diagnostics.yml": "5ba940da99183263d3dd4f30d64115864694980cf2cb02cf62a8d2c8c0e30c2e",
+    "docs/reports/orb-paper-intents/README.md": "bedfaa034d5d211e76bcead3af1cc7c31c656dd29ebfadb79acd3a0d1f80b5d1",
+    "docs/reports/orb-paper-intents/paper-registry-summary.json": "5d81c0e80631a3b6bb3bd7f2e6893a17766d1e69250694941452d6611cab2ba1",
+    "docs/reports/orb-paper-intents/read-only-probe.json": "8a7aed5b7e8236d82d534dfd002a97fc081091396ee5cd16e4ba8c1fe4b46f06",
+    "docs/reports/orb-paper-intents/sample-summary.json": "a91f43d73fd394c5522b31f76d081ebfa7d64a29463cb4a88876432ba6365812",
+    "docs/reports/orb-paper-intents/synthetic-example.json": "37583a05c03b871729c3e4ccd7ab9adb0b252d65eb08521f2da03de64a9b1e92",
+    "docs/research/orb-literature/paper-intents-progress.json": "17b77534de7cf509ba6ffabca7dc4b3b28144478aff531be7ef94ea3aca5116c",
+    "research/orb-diagnostics/paper_intents.py": "e024bbefa2333e1a77ae862244e067f3168180a113471a80de7039b091b6c60f",
+    "research/orb-diagnostics/test_paper_intents.py": "786deea5ca9496f5f1435c85044c86cb1ebec0c3edb49e8b654390d4ab4ca3c8"
+  },
+  "initial_windows_test_cleanup_issue": "Auxiliary SQLite connection explicitly closed; no assertion or durability weakening."
+}
