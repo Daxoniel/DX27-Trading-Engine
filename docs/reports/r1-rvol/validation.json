@@ -1,0 +1,27 @@
+{
+  "status": "PASS_COMPLETE_SINGLE_FILTER_EXPLORATION",
+  "checked_at": "2026-10-19T14:11:09.724334+00:00",
+  "tests": 110,
+  "new_tests": 7,
+  "original_r1_fills_and_daily_exact": true,
+  "own_capital_carried": true,
+  "sessions": 315,
+  "source_files_unchanged": 156,
+  "parameter_search": false,
+  "independent_confirmation": false,
+  "paper_strategy_changed": false,
+  "orders_submitted_this_experiment": 0,
+  "protocol_code_public_before_exploratory_run": "f1539544e02db2ad3dbc0b77c4429ec79172d6e5",
+  "files_sha256": {
+    "docs/reports/r1-rvol/README.md": "db5f401261031c791a5f009a7f38ae7f86fd6ee04b2806364cb9639cafb2c593",
+    "docs/reports/r1-rvol/publication-before-run.json": "75a992817ece19bea5ac8dfd75d0b21f86fa415ec8c8af7c49336c4bd9f82115",
+    "docs/reports/r1-rvol/stage-a.json": "059af7e1914ca6cc161f29e20df6b1ea38cd9885c0d39b33343bfed6fc106404",
+    "docs/reports/r1-rvol/stage-b.json": "204bd6263d0832ef1d7f5c38aa811e058023971e64fa2d64595b6ca09603ea08",
+    "docs/research/orb-literature/paper-study.md": "3e883b30cd98bd462d791412cc1e7398f0488fe0e438d45d8d3446340cae35d6",
+    "docs/research/orb-literature/rvol-exploration.json": "15c14be33f8b86b1c9f4aaba36c638575e7eedc40b4be68c5efaefbb581c69d2",
+    "docs/research/orb-literature/strategy-optimization-progress.json": "f40edb68b5562520964a2b6888ada3504b5f644fff061cc31512c84e30564c44",
+    "research/orb-diagnostics/check_rvol_filter.py": "465ccee74daba2df00888c41d9d53cc343acca37b8d5728b7949859c2a878503",
+    "research/orb-diagnostics/rvol_filter.py": "a51c1f4ff02c99fe0835957665e645fa91cde4976ae7700aceb99ae95ca70477",
+    "research/orb-diagnostics/test_rvol_filter.py": "3ed002192d0fee9c9caec87b19d2faaf6abcb4dd3b07833c07e99e2010f85567"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "updated_at": "2026-10-19T14:10:38.307461+00:00",
+  "priority": "STRATEGY_OPTIMIZATION_WITH_BOUNDED_PAPER_VALIDATION",
+  "hypothesis": "QQQ/R1 plus first-five-minute RVOL14 >= 1",
+  "status": "TESTED_MIXED_RESULTS_NOT_PROMOTED",
+  "evidence": "docs/reports/r1-rvol/README.md",
+  "attempts": [
+    "R1",
+    "R1_RVOL14_GE1"
+  ],
+  "stage_A": "Net loss reduced but gross and gross per turnover deteriorated; no stable selection edge.",
+  "stage_B": "Positive historical result from only 8 trades; not independent confirmation.",
+  "A_B_exposure": "PREVIOUSLY_SEEN_EXPLORATORY_ONLY",
+  "paper_filter_deployed": false,
+  "live_trading_enabled": false,
+  "paper_execution_smoke_completed": true,
+  "next_step": "Do not tune more RVOL thresholds to rescue this result. Keep candidate frozen as an exploratory comparator, and require a fully specified current-input Paper pilot before any promotion; one-share smoke is not strategy validation."
+}
