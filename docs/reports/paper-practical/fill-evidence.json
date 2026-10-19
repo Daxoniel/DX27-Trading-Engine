@@ -1,0 +1,9 @@
+{
+  "activities_page_complete_history": false,
+  "broker_order_ids_exactly_matched": true,
+  "buy_fill_samples": 1,
+  "fees_verified": false,
+  "owned_fill_activity_samples": 2,
+  "owned_orders": 2,
+  "sell_fill_samples": 1
+}

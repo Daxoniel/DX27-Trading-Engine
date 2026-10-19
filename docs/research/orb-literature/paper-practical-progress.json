@@ -1,0 +1,21 @@
+{
+  "updated_at": "2026-10-19T13:57:26.223329+00:00",
+  "authority": "USER_EXPLICITLY_AUTHORIZED_PAPER_TRADING",
+  "scope": "One-share Paper execution smoke; strategy automation pending",
+  "supersedes": "Earlier GET-only restriction is lifted for this separately scoped authorized Paper test; live trading remains disabled.",
+  "paper_orders_submitted": 2,
+  "paper_owned_filled_orders": 2,
+  "smoke_roundtrip_complete": true,
+  "symbol": "QQQ",
+  "quantity": 1,
+  "positions_after": 0,
+  "open_orders_after": 0,
+  "gross_fill_price_difference": "-0.08",
+  "fees_verified": false,
+  "net_pnl": null,
+  "strategy_r1_pnl": null,
+  "live_order_submission_enabled": false,
+  "automatic_strategy_trading_enabled": false,
+  "next_task": "Prioritize a bounded next-session Paper strategy pilot with current inputs, explicit IEX profile and owned exits; do not backfill a missed R1 entry or wait for paid SIP.",
+  "evidence_report": "docs/reports/paper-practical/README.md"
+}
