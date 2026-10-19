@@ -25,3 +25,5 @@
 2026-10-19后续：[历史信号桥接进度](historical-signals-progress.json)和[验收报告](../../reports/orb-historical-signals/README.md)记录315个已暴露交易日前缀与145次原R1入场匹配、隔离的历史意图及恢复去重。闭合分钟线到达后回记09:36入场的模型不能直接作为09:36实时下单依据；当前信号接收时间和价格可用性适配仍待完成。
 
 2026-10-19继续：[观察就绪进度](observed-signals-progress.json)与[工程报告](../../reports/orb-observed-signals/README.md)记录规范化分钟接收、程序处理时间及后续ask参考的持久观察验收。接收时间目前仍由调用方声明，尚无provider接收器、完整R1定仓或新Paper意图；旧OHLCV不补造接收时刻或报价。
+
+2026-10-19接口验收：[采样进度](market-capture-progress.json)和[报告](../../reports/orb-market-capture/README.md)记录3次真实有界GET：SIP latest quote返回403，独立声明的IEX quote/bar返回200。旧样本、纳秒时间及规模单位保留，不作为R1新鲜SIP信号；未购买数据或生成Paper意图。下一步继续旧数据/构造数据上的无损纳秒观察与回放。
