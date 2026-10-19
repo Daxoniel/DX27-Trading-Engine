@@ -31,8 +31,8 @@ class PaperIntentJournal:
     Contributions are NOT a full account reconciliation or strategy PnL.
     """
     def __init__(self, path, mode, *, synthetic_clock=None):
-        require(mode in ('SYNTHETIC','PAPER_OBSERVATION'),'EXPLICIT_JOURNAL_MODE_REQUIRED')
-        require(mode=='SYNTHETIC' or synthetic_clock is None,'REAL_JOURNAL_CLOCK_NOT_INJECTABLE')
+        require(mode in ('SYNTHETIC','HISTORICAL_REPLAY','PAPER_OBSERVATION'),'EXPLICIT_JOURNAL_MODE_REQUIRED')
+        require(mode!='PAPER_OBSERVATION' or synthetic_clock is None,'REAL_JOURNAL_CLOCK_NOT_INJECTABLE')
         self.mode=mode;self.clock=synthetic_clock or utc_now
         self.path=Path(path);self.path.parent.mkdir(mode=0o700,parents=True,exist_ok=True)
         self.journal=LifecycleJournal(self.path,dict(contract='ORB_PAPER_INTENTS:1',namespace=NAMESPACE,
@@ -57,12 +57,14 @@ class PaperIntentJournal:
         whole_quantity(intent['quantity']);date.fromisoformat(intent['session'])
         require(intent['side'] in ('buy','sell') and intent['feed'] in ('sip','iex'),'INVALID_INTENT_DIRECTION_OR_FEED')
         require(isinstance(intent['data_sha256'],str) and re.fullmatch('[0-9a-f]{64}',intent['data_sha256']), 'INPUT_SEAL_REQUIRED')
-        expected='SYNTHETIC' if self.mode=='SYNTHETIC' else 'OBSERVED_PAPER_SIGNAL'
+        expected={'SYNTHETIC':'SYNTHETIC','HISTORICAL_REPLAY':'HISTORICAL_REPLAY',
+                  'PAPER_OBSERVATION':'OBSERVED_PAPER_SIGNAL'}[self.mode]
         require(intent['origin']==expected,'HISTORICAL_OR_CROSS_MODE_INTENT_REJECTED')
         now=self.clock();registered=timestamp_revision(now)
         require(timestamp_revision(intent['signal_at'])<=timestamp_revision(intent['intent_ready_at'])<=registered,
                 'INTENT_PRECEDES_SIGNAL_OR_IS_FUTURE')
-        cid='orb-ppr1-'+hashlib.sha256((NAMESPACE+':'+intent['intent_id']).encode()).hexdigest()[:32]
+        prefix='orb-hst1-' if self.mode=='HISTORICAL_REPLAY' else 'orb-ppr1-'
+        cid=prefix+hashlib.sha256((NAMESPACE+':'+intent['intent_id']).encode()).hexdigest()[:32]
         state=deepcopy(self.journal.state)
         if cid in state['intents']:
             if state['intents'][cid]['intent'] != intent:self._halt('INTENT_IDENTITY_CONFLICT')
@@ -76,6 +78,7 @@ class PaperIntentJournal:
         return cid
 
     def observe(self,report,*,broker_created_at,observed_at,fee_known):
+        require(self.mode!='HISTORICAL_REPLAY','HISTORICAL_REFERENCE_CANNOT_OBSERVE_BROKER_REPORTS')
         require(type(report) is OrderReport and type(fee_known) is bool,'NORMALIZED_REPORT_AND_FEE_STATUS_REQUIRED')
         report.validate()
         require(fee_known or report.fee==0,'UNKNOWN_FEE_MUST_USE_EXPLICIT_ZERO_PLACEHOLDER')
