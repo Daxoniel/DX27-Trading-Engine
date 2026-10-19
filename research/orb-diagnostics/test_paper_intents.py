@@ -1,4 +1,4 @@
-from copy import deepcopy
+from contextlib import closing
 from decimal import Decimal
 import hashlib
 from pathlib import Path
@@ -129,7 +129,8 @@ class JournalTests(unittest.TestCase):
         with self.assertRaises(sqlite3.OperationalError):
             PaperIntentJournal(self.path,'SYNTHETIC',synthetic_clock=lambda:CLOCK)
         self.book.close()
-        with sqlite3.connect(self.path) as db:db.execute("UPDATE metadata SET value='{}' WHERE key='state'")
+        with closing(sqlite3.connect(self.path)) as db:
+            with db:db.execute("UPDATE metadata SET value='{}' WHERE key='state'")
         with self.assertRaisesRegex(ValueError,'integrity failure'):
             PaperIntentJournal(self.path,'SYNTHETIC',synthetic_clock=lambda:CLOCK)
 
