@@ -1,0 +1,62 @@
+{
+  "contract": "SPY_ACCUMULATION_COMPARISON:1",
+  "fixed_at": "2026-10-19T14:28:50.631877+00:00",
+  "authority": "USER_APPROVED_TRY_SPY_DIP_BUY_AND_HOLD",
+  "scope": "Exploratory historical research, no orders",
+  "arms": [
+    "IMMEDIATE",
+    "DCA12",
+    "DIP5"
+  ],
+  "evaluation": [
+    "2000-01-01",
+    "2025-12-31"
+  ],
+  "warmup_start": "1998-01-01",
+  "initial_cash": 10000,
+  "monthly_contribution": 1000,
+  "monthly_timing": "first SPY session open; first added contribution is February of each window",
+  "dca_initial_months": 12,
+  "drawdown_threshold": 0.05,
+  "lookback_sessions": 252,
+  "dip_signal": "Yesterday raw close <= .95 * highest raw close of 252 sessions BEFORE yesterday; buy all available cash at next session adjusted open",
+  "immediate": "Initial and every later monthly contribution invested at arrival open",
+  "dca": "Initial capital split across first 12 monthly opens; new monthly cash invested on arrival; all residual cash/interest invested at month12 and subsequent monthly opens",
+  "no_sells": true,
+  "fractional_synthetic_units": true,
+  "dividends": "Adjusted-close total-return proxy and same-day adjusted open; no second cash dividend credit; exact pay-date DRIP not modeled",
+  "costs_bps": [
+    0,
+    5
+  ],
+  "cost_status": "Project gross/purchase-friction scenarios, not calibrated brokerage cost",
+  "cash_modes": [
+    "ZERO",
+    "TREASURY_PROXY"
+  ],
+  "cash_interest": "Simple daily accrual ACT/365 on prior cash, using latest DGS3MO observation strictly before prior SPY session; current vintage, not authenticated publication-time data",
+  "cash_proxy_not_actual_broker_rate": true,
+  "taxes": false,
+  "inflation": false,
+  "windows": "All 17 overlapping calendar-year-start ten-year windows 2000-2009 through 2016-2025, both cash modes, zero purchase friction; not independent samples",
+  "outputs": [
+    "wealth and contributions",
+    "money-weighted XIRR",
+    "unitized TWR/drawdown",
+    "cash weights",
+    "purchase days",
+    "all window outcomes"
+  ],
+  "source_sha256": {
+    "spy": "1b1ce892f469e9804dc45905bf0c78ac237cae2e81dc4fbdd6cd0592222520af",
+    "cash": "19df88069f35e0ebe777e18bf31c7784092c934fff9d2be543388909783772d9"
+  },
+  "source_urls": {
+    "spy": "https://query1.finance.yahoo.com/v8/finance/chart/SPY?period1=883612800&period2=1767225600&interval=1d&events=div%2Csplits",
+    "cash": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS3MO&cosd=1998-01-01&coed=2025-12-31"
+  },
+  "exposure": "Public historical market data and source format inspected before this plan; no fresh holdout or preregistration claim",
+  "rule": "No threshold/window tuning or automatic Paper promotion after results; publish all scenarios",
+  "src_dx27_changes": false,
+  "paper_orders_authorized_by_protocol": false
+}
