@@ -1,0 +1,19 @@
+{
+  "updated_at": "2026-10-19T05:59:12.559531+00:00",
+  "basis": "ALPACA_PAPER_ENGINEERING",
+  "parent_progress": "docs/research/orb-literature/paper-intents-progress.json",
+  "parent_progress_sha256": "17b77534de7cf509ba6ffabca7dc4b3b28144478aff531be7ef94ea3aca5116c",
+  "P2": "HISTORICAL_SIGNAL_TO_ISOLATED_INTENT_CONFORMANCE_COMPLETE_REALTIME_SIGNAL_ADAPTER_PENDING",
+  "P3": "NO_STRATEGY_OWNED_PAPER_RESULTS_YET",
+  "historical_sessions_checked": 315,
+  "historical_entry_intents": 145,
+  "registered_actual_paper_intents": 0,
+  "observed_actual_owned_orders": 0,
+  "actual_strategy_paper_pnl": null,
+  "paper_order_submission_enabled": false,
+  "live_order_submission_enabled": false,
+  "requires_live_fee_calibration_for_paper_engineering": false,
+  "closed_bar_reference_entry_available_at": "09:37 America/New_York, not the backdated 09:36 entry reference",
+  "next_task": "Define and validate observed market-data receipt clocks and reference-price availability for a read-only current-signal adapter; keep historical intents ineligible for current orders.",
+  "evidence_report": "docs/reports/orb-historical-signals/README.md"
+}

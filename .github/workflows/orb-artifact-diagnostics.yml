@@ -25,4 +25,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - run: python -m pip install tzdata==2025.2
       - run: python -m unittest discover -s research/orb-diagnostics -p "test_*.py" -v
