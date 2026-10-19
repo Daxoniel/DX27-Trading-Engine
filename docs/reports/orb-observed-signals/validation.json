@@ -1,0 +1,27 @@
+{
+  "status": "PASS_LOCAL_CONFORMANCE",
+  "checked_at": "2026-10-19T09:35:54.192296+00:00",
+  "tests": 81,
+  "new_tests": 15,
+  "original_source_files_unchanged": 156,
+  "historical_csv_seals_verified": [
+    "A",
+    "B"
+  ],
+  "synthetic_receipts": 7,
+  "synthetic_restart_unchanged": true,
+  "real_market_receipts_captured": 0,
+  "actual_paper_intents_created": 0,
+  "actual_strategy_paper_pnl": null,
+  "execution_enabled": false,
+  "provider_transport_complete": false,
+  "files_sha256": {
+    "docs/reports/orb-observed-signals/README.md": "0c4266ea551d307418094d4b54ea184a1a85535d1587217e015e5e91373b41fe",
+    "docs/reports/orb-observed-signals/empty-recorded-journal.json": "12d256d2bd32a5e889cdc97ed3226a6c42b30b1f23472498a3fb748fef557256",
+    "docs/reports/orb-observed-signals/synthetic-example.json": "bbbcefca49d03bcece0d79dd30b9273b59c8c161533ad47b6fcbd22f43c23d9c",
+    "docs/research/orb-literature/observed-signals-progress.json": "e136dba40abf902133b527d07386e59278cc0f8184def4bf9b12a9f6b4f33773",
+    "docs/research/orb-literature/paper-study.md": "c770ac192c56fcc3b63ef00657c0a601de03954116c3454135294064cd8d9025",
+    "research/orb-diagnostics/observed_signals.py": "554a22242afcc5a151ec8481fbb255e4cf65d3a52940595e9cca1937a3e7bb46",
+    "research/orb-diagnostics/test_observed_signals.py": "e7bfab30f66342afd561a65521238ac55a58ae7a1efbc8a3bcbbe12f5e15c032"
+  }
+}

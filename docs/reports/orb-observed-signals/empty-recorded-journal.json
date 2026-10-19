@@ -1,0 +1,25 @@
+{
+  "purpose": "MODE_ISOLATION_ONLY_NO_REAL_MARKET_CAPTURE",
+  "session_is_declared_not_observed": true,
+  "result": {
+    "contract": "ORB_OBSERVED_SIGNAL_READINESS:1",
+    "mode": "RECORDED_OBSERVATION",
+    "status": "WAITING_FOR_SIX_CLOSED_MINUTES",
+    "integrity_halt": null,
+    "accepted_receipts": 0,
+    "closed_minutes": 0,
+    "quotes": 0,
+    "quotes_excluded_for_processing_delay": 0,
+    "journal_sequence": 1,
+    "trace": null,
+    "reference": null,
+    "receipt_prefix_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "availability": "ASSUMED_BAR_END_RECEIPTS_CALLER_DECLARED",
+    "quantity_basis": "EXPLICIT_ENGINEERING_PROBE_NOT_R1_SIZING",
+    "source_authenticity_verified": false,
+    "provider_completeness_verified": false,
+    "actual_paper_intents_created": 0,
+    "actual_strategy_paper_pnl": null,
+    "execution_enabled": false
+  }
+}

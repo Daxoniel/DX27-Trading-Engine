@@ -1,0 +1,183 @@
+{
+  "observation_kind": "SYNTHETIC",
+  "thresholds_are_project_test_scenarios_not_calibrated": true,
+  "events": [
+    {
+      "event_id": "b0",
+      "receipt_sequence": 1,
+      "received_at": "2026-07-01T13:31:00.020000Z",
+      "feed": "sip",
+      "kind": "BAR",
+      "payload": {
+        "symbol": "QQQ",
+        "timestamp": "2026-07-01T13:30:00Z",
+        "timeframe": "1m",
+        "open": 100,
+        "high": 102,
+        "low": 99,
+        "close": 101,
+        "volume": 10000
+      }
+    },
+    {
+      "event_id": "b1",
+      "receipt_sequence": 2,
+      "received_at": "2026-07-01T13:32:00.020000Z",
+      "feed": "sip",
+      "kind": "BAR",
+      "payload": {
+        "symbol": "QQQ",
+        "timestamp": "2026-07-01T13:31:00Z",
+        "timeframe": "1m",
+        "open": 100,
+        "high": 102,
+        "low": 99,
+        "close": 101,
+        "volume": 10000
+      }
+    },
+    {
+      "event_id": "b2",
+      "receipt_sequence": 3,
+      "received_at": "2026-07-01T13:33:00.020000Z",
+      "feed": "sip",
+      "kind": "BAR",
+      "payload": {
+        "symbol": "QQQ",
+        "timestamp": "2026-07-01T13:32:00Z",
+        "timeframe": "1m",
+        "open": 100,
+        "high": 102,
+        "low": 99,
+        "close": 101,
+        "volume": 10000
+      }
+    },
+    {
+      "event_id": "b3",
+      "receipt_sequence": 4,
+      "received_at": "2026-07-01T13:34:00.020000Z",
+      "feed": "sip",
+      "kind": "BAR",
+      "payload": {
+        "symbol": "QQQ",
+        "timestamp": "2026-07-01T13:33:00Z",
+        "timeframe": "1m",
+        "open": 100,
+        "high": 102,
+        "low": 99,
+        "close": 101,
+        "volume": 10000
+      }
+    },
+    {
+      "event_id": "b4",
+      "receipt_sequence": 5,
+      "received_at": "2026-07-01T13:35:00.020000Z",
+      "feed": "sip",
+      "kind": "BAR",
+      "payload": {
+        "symbol": "QQQ",
+        "timestamp": "2026-07-01T13:34:00Z",
+        "timeframe": "1m",
+        "open": 100,
+        "high": 102,
+        "low": 99,
+        "close": 101,
+        "volume": 10000
+      }
+    },
+    {
+      "event_id": "b5",
+      "receipt_sequence": 6,
+      "received_at": "2026-07-01T13:36:00.020000Z",
+      "feed": "sip",
+      "kind": "BAR",
+      "payload": {
+        "symbol": "QQQ",
+        "timestamp": "2026-07-01T13:35:00Z",
+        "timeframe": "1m",
+        "open": 100,
+        "high": 102,
+        "low": 99,
+        "close": 101,
+        "volume": 10000
+      }
+    },
+    {
+      "event_id": "q7",
+      "receipt_sequence": 7,
+      "received_at": "2026-07-01T13:36:00.050000Z",
+      "feed": "sip",
+      "kind": "QUOTE",
+      "payload": {
+        "symbol": "QQQ",
+        "event_at": "2026-07-01T13:36:00.040000Z",
+        "bid": "100",
+        "ask": "100.02",
+        "bid_size": 20,
+        "ask_size": 20,
+        "size_unit": "SHARES"
+      }
+    }
+  ],
+  "result": {
+    "contract": "ORB_OBSERVED_SIGNAL_READINESS:1",
+    "mode": "SYNTHETIC",
+    "status": "REFERENCE_OBSERVED_NO_ORDER_INTENT",
+    "integrity_halt": null,
+    "accepted_receipts": 7,
+    "closed_minutes": 6,
+    "quotes": 1,
+    "quotes_excluded_for_processing_delay": 0,
+    "journal_sequence": 8,
+    "trace": {
+      "contract": "ORB_OFFLINE_TIMING:1",
+      "observation_kind": "SYNTHETIC",
+      "symbol": "QQQ",
+      "side": "BUY",
+      "quantity": 10,
+      "required_feed": "sip",
+      "signal_window_end": "2026-07-01T13:35:00Z",
+      "last_input_available_at": "2026-07-01T13:36:00Z",
+      "last_input_received_at": "2026-07-01T13:36:00.020000Z",
+      "decision_at": "2026-07-01T13:36:00.020000Z",
+      "intent_ready_at": "2026-07-01T13:36:00.020000Z"
+    },
+    "reference": {
+      "status": "SYNTHETIC_MODEL_MATCH",
+      "execution_enabled": false,
+      "authenticity_verified": false,
+      "actual_fill_verified": false,
+      "live_latency_verified": false,
+      "costs_calibrated": false,
+      "runtime_guard": false,
+      "observation_kind": "SYNTHETIC",
+      "quote_id": "q7",
+      "inspected_quotes": 1,
+      "skipped_before_match": {},
+      "model_match_at": "2026-07-01T13:36:00.050000+00:00",
+      "modeled_reference_price": "100.02",
+      "reference_kind": "ASK",
+      "quantity": 10,
+      "feed": "sip",
+      "quote_age_us": 10000,
+      "declared_intervals_us": {
+        "input_available_after_window": 60000000,
+        "delivery_after_availability": 20000,
+        "decision_after_receive": 0,
+        "intent_after_decision": 0,
+        "quote_wait_after_intent": 30000
+      }
+    },
+    "receipt_prefix_sha256": "e83b5cfacf5ce7298c417ee48768ee20bbd67e4686788a8ae7aa83a373f6d233",
+    "availability": "ASSUMED_BAR_END_RECEIPTS_CALLER_DECLARED",
+    "quantity_basis": "EXPLICIT_ENGINEERING_PROBE_NOT_R1_SIZING",
+    "source_authenticity_verified": false,
+    "provider_completeness_verified": false,
+    "actual_paper_intents_created": 0,
+    "actual_strategy_paper_pnl": null,
+    "execution_enabled": false
+  },
+  "restart_unchanged": true
+}
