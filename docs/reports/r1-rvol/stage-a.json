@@ -1,0 +1,99 @@
+{
+  "status": "COMPLETE_EXPOSED_DATA_SINGLE_FILTER_EXPLORATION",
+  "stage": "A",
+  "original_r1_exact_fills_and_daily_match": true,
+  "protocol_sha256": "15c14be33f8b86b1c9f4aaba36c638575e7eedc40b4be68c5efaefbb581c69d2",
+  "script_sha256": "465ccee74daba2df00888c41d9d53cc343acca37b8d5728b7949859c2a878503",
+  "filter_sha256": "a51c1f4ff02c99fe0835957665e645fa91cde4976ae7700aceb99ae95ca70477",
+  "input_csv_sha256": "250790d6ad8192b38c6b78a4d4fd1caf735dc239feb913c0c752ed960f20687e",
+  "source_files_unchanged": 156,
+  "availability": "ASSUMED_BAR_END_NOT_ORIGINAL_RECEIPT",
+  "costs": "ORIGINAL_UNCALIBRATED_MODEL",
+  "own_capital_carried_per_arm": true,
+  "results": {
+    "R1": {
+      "sessions": 251,
+      "return_fraction": -0.013038414107795937,
+      "net_pnl": -1303.841410779598,
+      "gross_pnl": -94.97590000003788,
+      "commission": 80.50000000000017,
+      "spread_cost": 564.1827553900001,
+      "slippage_cost": 564.1827553900001,
+      "trades": 115,
+      "no_trade_days": 136,
+      "gated_long_days": 0,
+      "minute_equity_max_drawdown": 0.01922332670164295,
+      "reference_turnover": 5641827.553899997,
+      "gross_bps_of_turnover": -0.1683424370785392,
+      "net_bps_of_turnover": -2.3110266989254185,
+      "fixed_fill_extra_bps": {
+        "0": -1303.841410779598,
+        "1": -1868.0241661695977,
+        "2": -2432.2069215595975,
+        "5": -4124.755187729596
+      },
+      "months": {
+        "2025-07": 40.253216120036086,
+        "2025-08": -117.10788899997715,
+        "2025-09": -157.94060099995113,
+        "2025-10": 167.39695000005304,
+        "2025-11": -357.8340559999633,
+        "2025-12": -479.9243497999414,
+        "2026-01": -196.01634499999636,
+        "2026-02": 341.87901600003534,
+        "2026-03": -677.2184224999655,
+        "2026-04": 80.2261964000063,
+        "2026-05": 359.70170900002995,
+        "2026-06": -307.25683499996376
+      }
+    },
+    "R1_RVOL14_GE1": {
+      "sessions": 251,
+      "return_fraction": -0.010414708607798806,
+      "net_pnl": -1041.470860779882,
+      "gross_pnl": -557.6638999999942,
+      "commission": 32.19999999999998,
+      "spread_cost": 225.80348038999998,
+      "slippage_cost": 225.80348038999998,
+      "trades": 46,
+      "no_trade_days": 205,
+      "gated_long_days": 73,
+      "minute_equity_max_drawdown": 0.011998086468641311,
+      "reference_turnover": 2258034.8038999992,
+      "gross_bps_of_turnover": -2.4696869110999375,
+      "net_bps_of_turnover": -4.612288787493841,
+      "fixed_fill_extra_bps": {
+        "0": -1041.470860779882,
+        "1": -1267.274341169882,
+        "2": -1493.0778215598818,
+        "5": -2170.4882627298816
+      },
+      "months": {
+        "2025-07": -50.7622738800128,
+        "2025-08": -18.067732999974396,
+        "2025-09": -140.5943619999889,
+        "2025-10": -230.90017199997965,
+        "2025-11": -221.32903399999486,
+        "2025-12": -92.31343439998454,
+        "2026-01": -196.74555999999575,
+        "2026-02": 159.38502800000424,
+        "2026-03": -145.3968984999956,
+        "2026-04": 10.549459000016213,
+        "2026-05": 127.19933899999887,
+        "2026-06": -242.4952189999749
+      }
+    }
+  },
+  "candidate_minus_baseline_net_pnl": 262.3705499997159,
+  "effectiveness_established": false,
+  "independent_confirmation": false,
+  "paper_strategy_changed": false,
+  "artifact_sha256": {
+    "R1-daily.json": "b3c1b969ab731ea5b115f543cc5f878ce4dc0dc2168a5b5f24b4bc680cfe6a0e",
+    "R1-decisions.json": "5ca0f7f0f9f013368aa3755b0b1aeb92db38d16ab57ca59edf86069adbb5b146",
+    "R1-fills.json": "25613e7c2a3954513ded3dec0f6ad790e8cb396d5e0c3c1820615307ac8d9250",
+    "R1_RVOL14_GE1-daily.json": "c14434b6003f8a329ce51f21b04e1f3abcf0ace0e5176a4e3fcce3bca1b9b26e",
+    "R1_RVOL14_GE1-decisions.json": "480e5753477011bc86b2dd5a2d0bbbfde9c1f43ff178473490078e3a4401225a",
+    "R1_RVOL14_GE1-fills.json": "947664df0a52ccc4dc69f766157b31943d9d801ddd81e496edaf5f170ff410ee"
+  }
+}
