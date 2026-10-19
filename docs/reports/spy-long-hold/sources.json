@@ -1,0 +1,35 @@
+{
+  "checked_at": "2026-10-19T14:33:04.931833+00:00",
+  "data_sources": [
+    {
+      "name": "Yahoo Finance SPY daily chart",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/SPY?period1=883612800&period2=1767225600&interval=1d&events=div%2Csplits",
+      "sha256": "1b1ce892f469e9804dc45905bf0c78ac237cae2e81dc4fbdd6cd0592222520af",
+      "local_saved_at": "2026-10-19T14:25:22.153785+00:00",
+      "scope": "Current-vintage open/close/adjusted close, dividend/split events; not original-time data."
+    },
+    {
+      "name": "FRED DGS3MO",
+      "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS3MO&cosd=1998-01-01&coed=2025-12-31",
+      "sha256": "19df88069f35e0ebe777e18bf31c7784092c934fff9d2be543388909783772d9",
+      "local_saved_at": "2026-10-19T14:25:43.657429+00:00",
+      "scope": "Yield in annual percent, investment basis, daily. Proxy cash accrual; not actual broker interest or a Treasury holding-period return."
+    }
+  ],
+  "supporting_sources": [
+    {
+      "url": "https://in.help.yahoo.com/kb/adjusted-close-sln28256.html",
+      "scope": "Yahoo describes ex-date dividend and split backward adjustments; exact pay-date DRIP not established."
+    },
+    {
+      "url": "https://fred.stlouisfed.org/series/DGS3MO",
+      "scope": "Series name, daily frequency, investment-basis quote; current-vintage observations do not authenticate real-time availability."
+    },
+    {
+      "url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy",
+      "scope": "SPY distributions and reinvested total-return reporting; this is not an independent validation of downloaded daily prices."
+    }
+  ],
+  "raw_data_published": false,
+  "failed_fred_html_request_used_as_data": false
+}

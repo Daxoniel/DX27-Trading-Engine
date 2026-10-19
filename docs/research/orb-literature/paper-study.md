@@ -31,3 +31,5 @@
 2026-10-19用户明确授权开始Paper交易实操，后续重点改为实际账户执行。[实操进度](paper-practical-progress.json)与[成交报告](../../reports/paper-practical/README.md)记录首笔1股QQQ买入及卖出均filled、最终空仓无挂单；−0.08美元为成交价差，费用未核验，不是R1收益。该独立执行试单已实际POST至Paper，早期只读标志仅作历史快照保留，真实资金交易仍关闭。
 
 2026-10-19用户要求着重优化策略：[本轮固定规则](rvol-exploration.json)、[首项优化结果](../../reports/r1-rvol/README.md)和[优化进度](strategy-optimization-progress.json)记录单一RVOL14≥1过滤的完整A/B探索。各组独立递推资金、原R1完整重放精确一致；结果混合，未把过滤器晋级Paper，不改原结果或假称新样本外确认。
+
+2026-10-19按用户提出的SPY逢跌买入、长期不卖建议，完成独立[长期积累比较](../../reports/spy-long-hold/README.md)：2000—2025年相同入金，到账即买、首笔分12个月、5%回撤买入的期末资产接近；17个十年窗口没有显示5%规则稳定胜出，约55%长期回撤仍存在。此为历史研究，未据此向Paper下单，规则和完整现金/摩擦情景见[单独方案](../spy-long-hold/protocol.json)。

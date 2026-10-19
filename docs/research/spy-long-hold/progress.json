@@ -1,0 +1,20 @@
+{
+  "updated_at": "2026-10-19T14:34:20.127318+00:00",
+  "status": "COMPLETE_EXPLORATORY_COMPARISON",
+  "user_request": "Try SPY dip buying and long-term holding",
+  "paper_orders_submitted": 0,
+  "main_period": [
+    "2000-01-03",
+    "2025-12-31"
+  ],
+  "contributions_per_arm": 321000,
+  "zero_cash_zero_friction_final_wealth": {
+    "IMMEDIATE": 1794983.0182823162,
+    "DCA12": 1796958.3479779055,
+    "DIP5": 1797512.5455235806
+  },
+  "conclusion": "Five-percent entry timing has no stable extra advantage across 17 overlapping ten-year windows; long-held equity exposure retains about 55% historical close drawdown.",
+  "automatic_strategy_enabled": false,
+  "live_trading_enabled": false,
+  "evidence": "docs/reports/spy-long-hold/README.md"
+}
