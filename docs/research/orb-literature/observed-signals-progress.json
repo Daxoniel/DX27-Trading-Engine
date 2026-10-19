@@ -1,0 +1,16 @@
+{
+  "updated_at": "2026-10-19T09:34:57.398655+00:00",
+  "parent_progress": "docs/research/orb-literature/historical-signals-progress.json",
+  "parent_progress_sha256": "f5f6399b73337efa23ee42d3e03ce15977c8ffe11cbd42af8e006c5eb3270cd6",
+  "basis": "ALPACA_PAPER_ENGINEERING",
+  "P2": "DURABLE_OBSERVATION_AND_REFERENCE_READINESS_CONFORMANCE_COMPLETE_TRANSPORT_AND_SIZING_PENDING",
+  "P3": "NO_STRATEGY_OWNED_PAPER_RESULTS_YET",
+  "actual_paper_intents_created": 0,
+  "actual_strategy_paper_pnl": null,
+  "paper_order_submission_enabled": false,
+  "live_order_submission_enabled": false,
+  "live_data_capture_complete": false,
+  "requires_live_fee_calibration_for_paper_engineering": false,
+  "next_task": "Bounded read-only provider receipt capture and schema normalization with explicit feed/size units; do not invent receipts from old OHLCV or generate sized intents before their price contract is fixed.",
+  "evidence_report": "docs/reports/orb-observed-signals/README.md"
+}

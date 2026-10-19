@@ -23,3 +23,5 @@
 2026-10-19进展：[意图/累计回报进度](paper-intents-progress.json)和[工程报告](../../reports/orb-paper-intents/README.md)记录P2登记与离线对账验收；当前市场信号适配和策略专属Paper成交尚未接入，不改变原工作单快照或历史结果。
 
 2026-10-19后续：[历史信号桥接进度](historical-signals-progress.json)和[验收报告](../../reports/orb-historical-signals/README.md)记录315个已暴露交易日前缀与145次原R1入场匹配、隔离的历史意图及恢复去重。闭合分钟线到达后回记09:36入场的模型不能直接作为09:36实时下单依据；当前信号接收时间和价格可用性适配仍待完成。
+
+2026-10-19继续：[观察就绪进度](observed-signals-progress.json)与[工程报告](../../reports/orb-observed-signals/README.md)记录规范化分钟接收、程序处理时间及后续ask参考的持久观察验收。接收时间目前仍由调用方声明，尚无provider接收器、完整R1定仓或新Paper意图；旧OHLCV不补造接收时刻或报价。
