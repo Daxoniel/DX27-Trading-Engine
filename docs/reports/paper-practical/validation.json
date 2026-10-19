@@ -1,0 +1,28 @@
+{
+  "status": "PASS_PAPER_FILLED_ROUNDTRIP",
+  "checked_at": "2026-10-19T13:57:51.042494+00:00",
+  "tests": 103,
+  "new_tests": 6,
+  "frozen_source_files_unchanged": 156,
+  "actual_paper_posts": 2,
+  "filled_owned_orders": 2,
+  "owned_fill_activity_samples": 2,
+  "positions_after": 0,
+  "open_orders_after": 0,
+  "recovery_posts": 0,
+  "recovery_gets": 5,
+  "recovery_summary_unchanged": true,
+  "fees_verified": false,
+  "strategy_r1_pnl": null,
+  "live_orders_enabled": false,
+  "files_sha256": {
+    "docs/reports/paper-practical/README.md": "6670edd6ce9a26e4e0c22f6f22c4f74f6744f22d1abe09ae3b065009ecceb0a3",
+    "docs/reports/paper-practical/fill-evidence.json": "213ccfadb176157ebab1c44829b8fbd4cf1ca2add760d4f420e93669ccd797ff",
+    "docs/reports/paper-practical/preflight.json": "fafae829585e34294879a46e34638e4695cf147967abf07cdd62e96281656d15",
+    "docs/reports/paper-practical/roundtrip.json": "cf5eb386b30653aeeadee3a4dbb86d9634ef63c030bab0e7c4c55a7254b1d821",
+    "docs/research/orb-literature/paper-practical-progress.json": "f951ea19d24967943b85494319726d43294760673be586cb99aa9e95e4718f62",
+    "docs/research/orb-literature/paper-study.md": "bc22100c90e264ac5783e038912936daab67d516b4da8dac17ff5efcba5dfbc0",
+    "research/orb-diagnostics/paper_roundtrip.py": "0638f41e57e022fd91dd203d66fdc98852a8d2fbcd6cc8d65df3812169ae7d02",
+    "research/orb-diagnostics/test_paper_roundtrip.py": "94f55f815e66958924aea307e7743074502dbdc67284aa765c29db510d1063de"
+  }
+}

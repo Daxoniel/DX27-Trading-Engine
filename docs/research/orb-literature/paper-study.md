@@ -27,3 +27,5 @@
 2026-10-19继续：[观察就绪进度](observed-signals-progress.json)与[工程报告](../../reports/orb-observed-signals/README.md)记录规范化分钟接收、程序处理时间及后续ask参考的持久观察验收。接收时间目前仍由调用方声明，尚无provider接收器、完整R1定仓或新Paper意图；旧OHLCV不补造接收时刻或报价。
 
 2026-10-19接口验收：[采样进度](market-capture-progress.json)和[报告](../../reports/orb-market-capture/README.md)记录3次真实有界GET：SIP latest quote返回403，独立声明的IEX quote/bar返回200。旧样本、纳秒时间及规模单位保留，不作为R1新鲜SIP信号；未购买数据或生成Paper意图。下一步继续旧数据/构造数据上的无损纳秒观察与回放。
+
+2026-10-19用户明确授权开始Paper交易实操，后续重点改为实际账户执行。[实操进度](paper-practical-progress.json)与[成交报告](../../reports/paper-practical/README.md)记录首笔1股QQQ买入及卖出均filled、最终空仓无挂单；−0.08美元为成交价差，费用未核验，不是R1收益。该独立执行试单已实际POST至Paper，早期只读标志仅作历史快照保留，真实资金交易仍关闭。

@@ -1,0 +1,18 @@
+{
+  "automatic_strategy_trading_enabled": false,
+  "buy_average_price": "718.43",
+  "buy_status": "filled",
+  "fees_verified": false,
+  "gross_fill_price_difference": "-0.08",
+  "live_orders_enabled": false,
+  "net_pnl": null,
+  "open_orders_after": 0,
+  "paper_host": "https://paper-api.alpaca.markets",
+  "positions_after": 0,
+  "purpose": "PAPER_EXECUTION_SMOKE_NOT_R1",
+  "quantity": 1,
+  "roundtrip_complete": true,
+  "sell_average_price": "718.35",
+  "sell_status": "filled",
+  "strategy_r1_pnl": null
+}
