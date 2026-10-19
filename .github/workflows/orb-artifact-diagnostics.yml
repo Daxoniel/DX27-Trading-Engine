@@ -13,6 +13,8 @@ permissions:
   contents: read
 jobs:
   accounting:
+    env:
+      PYTHONPATH: src
     strategy:
       fail-fast: false
       matrix:
