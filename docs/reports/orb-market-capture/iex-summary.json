@@ -1,0 +1,49 @@
+{
+  "actual_paper_intents_created": 0,
+  "actual_strategy_paper_pnl": null,
+  "contract": "ORB_BOUNDED_MARKET_CAPTURE:1",
+  "entries": [
+    {
+      "capture_id": "md-ef270c42abbc4d99a703d75ea614f179",
+      "completed_at": "2026-10-19T09:41:06.981153Z",
+      "event_age_at_http_receipt_ns": 218830160085442,
+      "feed": "iex",
+      "http_elapsed_ns": 401757749,
+      "http_status": 200,
+      "kind": "quote",
+      "projection_reasons": [
+        "FROZEN_R1_REQUIRES_SIP",
+        "SIZE_UNIT_UNRESOLVED",
+        "NANOSECOND_JOURNAL_ADAPTER_REQUIRED"
+      ],
+      "projection_status": "BLOCKED_OBSERVATION_PROJECTION",
+      "provider_event_ns_preserved": true,
+      "raw_sha256": "56213012b84f1363b5978767a68901216dc3ec1ee65c238c84d82007b82e3ce3",
+      "received_at": "2026-10-19T09:41:06.980951Z",
+      "size_unit": "UNRESOLVED",
+      "started_at": "2026-10-19T09:41:06.577963Z",
+      "status": "CAPTURED"
+    },
+    {
+      "bar_complete_at_http_receipt": true,
+      "capture_id": "md-9e441e239a7044459dce3f3a5cbf8532",
+      "completed_at": "2026-10-19T09:41:07.103409Z",
+      "event_age_at_http_receipt_ns": 220147103232000,
+      "feed": "iex",
+      "http_elapsed_ns": 118132072,
+      "http_status": 200,
+      "kind": "bar",
+      "provider_event_ns_preserved": true,
+      "raw_sha256": "4ef8c8a5df8c703e2fd3e73748fb7b90875dfe54a393194f063b3feab4e7c45a",
+      "received_at": "2026-10-19T09:41:07.103232Z",
+      "started_at": "2026-10-19T09:41:06.983478Z",
+      "status": "CAPTURED"
+    }
+  ],
+  "execution_enabled": false,
+  "feed": "iex",
+  "full_market_stream": false,
+  "original_market_receipt_verified": false,
+  "provider_completeness_verified": false,
+  "requests": 2
+}

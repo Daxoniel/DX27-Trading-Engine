@@ -1,0 +1,27 @@
+{
+  "status": "PASS_LOCAL_CONFORMANCE_AND_BOUNDED_REAL_CAPTURE",
+  "checked_at": "2026-10-19T09:43:04.750251+00:00",
+  "tests": 97,
+  "new_tests": 16,
+  "source_files_unchanged": 156,
+  "actual_gets": 3,
+  "sip_quote_http_status": 403,
+  "iex_quote_http_status": 200,
+  "iex_bar_http_status": 200,
+  "raw_capture_files_private": true,
+  "actual_capture_recovery_summary_unchanged": true,
+  "orders_submitted": 0,
+  "actual_paper_intents_created": 0,
+  "actual_strategy_paper_pnl": null,
+  "execution_enabled": false,
+  "files_sha256": {
+    "docs/reports/orb-market-capture/README.md": "c25991e9ec980771655f7215610a14c547b49773634af79b057dcf7ff839b536",
+    "docs/reports/orb-market-capture/iex-summary.json": "0e60141c5b90dac53ed4cdb47955a5bf521b492b96cabb8683b2b339dce7634a",
+    "docs/reports/orb-market-capture/sip-summary.json": "d9d0e5b6fa7b00c60f0c36895c5fbde0f4a949dd90fa2e52812d32e80b41894f",
+    "docs/reports/orb-market-capture/sources.json": "fa97b3803d188cd8b8bc81ac352bb48f371e5706dc7fc50756686a10b4e93b2c",
+    "docs/research/orb-literature/market-capture-progress.json": "f8a4bd9e13c68b1387c91c1ae0120f7593d143e5eaa2b415dcd40f70b563c062",
+    "docs/research/orb-literature/paper-study.md": "a05fd43e59a85ff593c739a8f16ba9acef9f2b209852e83c86226707dda425e6",
+    "research/orb-diagnostics/market_capture.py": "d910380c02c9d4a9d7735d6f247579df0d102a429458d1f9441bd8c5dc257668",
+    "research/orb-diagnostics/test_market_capture.py": "9fabbd38db4bf7c1c0207874b86ab332278ccab0a820724104cfc38133e7ac0b"
+  }
+}

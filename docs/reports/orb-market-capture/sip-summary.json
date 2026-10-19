@@ -1,0 +1,25 @@
+{
+  "actual_paper_intents_created": 0,
+  "actual_strategy_paper_pnl": null,
+  "contract": "ORB_BOUNDED_MARKET_CAPTURE:1",
+  "entries": [
+    {
+      "capture_id": "md-acb5a864f6f94fbe8741ad8e4f923aa0",
+      "code": "MARKET_HTTP_STATUS_403",
+      "completed_at": "2026-10-19T09:41:06.981416Z",
+      "feed": "sip",
+      "http_status": 403,
+      "kind": "quote",
+      "raw_sha256": "6371e1154e20fcef8e643d6787b18eceadff0ac8b760effeaa525ad59c000785",
+      "received_at": "2026-10-19T09:41:06.981366Z",
+      "started_at": "2026-10-19T09:41:06.571292Z",
+      "status": "UNAVAILABLE"
+    }
+  ],
+  "execution_enabled": false,
+  "feed": "sip",
+  "full_market_stream": false,
+  "original_market_receipt_verified": false,
+  "provider_completeness_verified": false,
+  "requests": 1
+}

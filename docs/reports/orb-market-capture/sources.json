@@ -1,0 +1,26 @@
+{
+  "verified_at": "2026-10-19T09:42:36.365026+00:00",
+  "verification": "Official browser-rendered pages; original response bytes not archived or hashed.",
+  "sources": [
+    {
+      "url": "https://docs.alpaca.markets/us/reference/stocklatestquotesingle-1",
+      "scope": "Fixed latest quote path; explicit sip/iex feed choices; defaults depend on subscription and are not used."
+    },
+    {
+      "url": "https://docs.alpaca.markets/us/reference/stocklatestbarsingle-1",
+      "scope": "Latest bar single-symbol path; not a complete six-minute opening prefix."
+    },
+    {
+      "url": "https://docs.alpaca.markets/us/v1.1/changelog/marketdata-bid-and-ask-size-display-change",
+      "scope": "Dated October 30 2025; CTA/UTP sizes change to shares November 3 2025. Does not independently settle current IEX units."
+    },
+    {
+      "url": "https://docs.alpaca.markets/us/docs/real-time-stock-pricing-data",
+      "scope": "Nanosecond quote timestamps; quotes schema still says round lots, conflicting with dated CTA/UTP change; streams preferred over latest polling; updated bars can revise previous minutes."
+    },
+    {
+      "url": "https://docs.alpaca.markets/us/docs/market-data-faq",
+      "scope": "Latest SIP endpoints require subscription; a 403 alone is recorded as denial, not proof of a specific account entitlement classification."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "updated_at": "2026-10-19T09:42:36.365136+00:00",
+  "parent_progress": "docs/research/orb-literature/observed-signals-progress.json",
+  "parent_progress_sha256": "e136dba40abf902133b527d07386e59278cc0f8184def4bf9b12a9f6b4f33773",
+  "basis": "ALPACA_PAPER_ENGINEERING",
+  "P2": "BOUNDED_HTTP_CAPTURE_COMPLETE_SIP_LATEST_DENIED_NANOSECOND_OBSERVATION_PATH_PENDING",
+  "P3": "NO_STRATEGY_OWNED_PAPER_RESULTS_YET",
+  "actual_market_gets": 3,
+  "sip_http_status": 403,
+  "iex_quote_and_bar_http_status": 200,
+  "iex_is_r1_fallback": false,
+  "actual_paper_intents_created": 0,
+  "actual_strategy_paper_pnl": null,
+  "paper_order_submission_enabled": false,
+  "live_order_submission_enabled": false,
+  "requires_live_fee_calibration_for_paper_engineering": false,
+  "next_task": "Lossless nanosecond observation contract and recorded-event replay; retain historical/free-data research without purchasing SIP or relabeling IEX.",
+  "evidence_report": "docs/reports/orb-market-capture/README.md"
+}
