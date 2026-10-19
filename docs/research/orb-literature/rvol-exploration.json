@@ -1,0 +1,65 @@
+{
+  "contract": "R1_SINGLE_RVOL_EXPLORATION:1",
+  "fixed_at": "2026-10-19T14:08:20.120442+00:00",
+  "authority": "USER_REQUEST_FOCUS_STRATEGY_OPTIMIZATION_AFTER_PAPER_SMOKE",
+  "scope": "Single exposed-data hypothesis; not fresh holdout or paper deployment",
+  "attempts": [
+    "R1",
+    "R1_RVOL14_GE1"
+  ],
+  "lookback_sessions": 14,
+  "minimum_rvol": 1,
+  "formula": "current first-five-minute QQQ volume / mean of previous 14 trading sessions same-window volume",
+  "formula_interpretation": "Use t-i in denominator, documenting the paper t-1 printed-index inconsistency.",
+  "source": {
+    "title": "A Profitable Day Trading Strategy For The U.S. Equity Market",
+    "authors": [
+      "Zarattini",
+      "Barbon",
+      "Aziz"
+    ],
+    "pages": [
+      14,
+      15,
+      16,
+      19
+    ],
+    "pdf_sha256": "9423012e9f0199e3f6925c500725815c236d7ddbdd7500d50d10bac2be745e91",
+    "url": "https://concretumgroup.com/wp-content/uploads/2026/02/A-Profitable-Day-Trading-Strategy-For-The-U.S.-Equity-Market.pdf"
+  },
+  "transfer_limit": "Paper uses stocks-in-play universe, breakout stop entries and top-20 selection; this QQQ timed-entry filter is a project transfer hypothesis, not replication.",
+  "input": "Previously exposed A/B original sealed SIP/raw 1m CSV with June warmup",
+  "held_fixed": [
+    "QQQ long-only",
+    "09:36 reference entry",
+    "first-five-minute low stop",
+    "10R target",
+    "flatten five minutes before close",
+    "risk .25% cap",
+    "nominal 25% cap",
+    "prior-minute volume 1% cap",
+    "original .0035/share .35 minimum commission, full spread 2bps and slippage 1bp per side"
+  ],
+  "capital": "Independent 100000 start per stage and per arm; each arm carries its own full daily capital",
+  "baseline_gate": "Original R1 complete fills and daily results must match exactly before interpreting variant",
+  "exclusions": [
+    "threshold search",
+    "lookback search",
+    "combined indicators",
+    "shorting",
+    "leverage increase",
+    "cost reduction to obtain profit",
+    "ML fitting"
+  ],
+  "outputs": [
+    "all A/B results, including losses",
+    "gross/net and unit turnover",
+    "trade/no-trade counts",
+    "minute drawdown",
+    "monthly net",
+    "fixed-fill extra 0/1/2/5 bps"
+  ],
+  "result_policy": "No winner or automatic Paper promotion from exposed A/B; publish both stages and all attempts. Do not rescue a failure with more thresholds in this experiment.",
+  "actual_paper_execution_changed": false,
+  "live_trading_enabled": false
+}
