@@ -1,0 +1,7 @@
+{
+  "entry_quotes_checked": 327,
+  "median_ask_vs_later_5m_trade_open_bps": 10.608809862655555,
+  "entry_ask_above_5m_trade_high_count": 95,
+  "entry_5m_bar_absent_count": 1,
+  "scope": "Trade-versus-quote diagnostics, not a rule to reject trades retrospectively or proof of a source error."
+}

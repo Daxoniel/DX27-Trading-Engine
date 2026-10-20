@@ -80,3 +80,31 @@ archived name-filter cohort, final corrected bars, retrospective actions,
 broad sector proxies and already examined 2025 period preclude independent
 out-of-sample or full point-in-time claims. A profitable diagnostic alone would
 not authorize strategy deployment or prove the discretionary method reproduced.
+
+## Quote-entry correction after execution audit
+
+The original aggregate-open entry proxy failed winner timing/quote inspection.
+Its positive result is not accepted as executable evidence. The separately
+frozen [quote protocol](quote-execution-protocol.json) uses latest historical
+quotes at/before the scheduled opening, regular condition, no more than 60
+seconds of age, ask plus cost within limit and displayed-size partial fills.
+It never falls back to a later trade-bar open. Original inputs and results
+remain sealed. See the [final report](../../reports/martin-luk-v2-replay/README.md).
+
+Official schemas: [historical quotes](https://docs.alpaca.markets/us/reference/stockquotes-1)
+and [quote round-lot size fields](https://docs.alpaca.markets/us/docs/real-time-stock-pricing-data).
+The 100-share assumption is used only when ask is no greater than $250; other
+lot sizes remain unverified and are skipped rather than inferred from profits.
+This is a declared diagnostic convention, not certification of every listing.
+
+```sh
+python research/martin-luk/run_replay_quote.py --manifest work/mlp2-replay/normalized/manifest.json --output work/mlp2-quotes/observed-5bp --gap-policy OBSERVED_ONLY --adverse-bps 5
+python research/martin-luk/audit_quote_history.py --report work/mlp2-quotes/observed-5bp --quotes work/mlp2-quotes/quote-pages
+python research/martin-luk/summarize_quote_replay.py --root work/mlp2-quotes --cohort work/mlp1-history/cohort.json --output docs/reports/martin-luk-v2-replay
+```
+
+Run primary HALT and the prespecified 10/25-bp cases in the same way before the
+summary command. Each case reruns the entire cash account. No observed winning
+trade is individually deleted, and selection/stop parameters are unchanged.
+The quote audit reconstructs the exact request and raw-response seal for every
+buy, independently of the execution implementation. Exits remain OHLC proxies.
