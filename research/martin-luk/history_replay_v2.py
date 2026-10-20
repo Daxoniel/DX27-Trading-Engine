@@ -71,7 +71,9 @@ class Replay:
         for symbol,p in self.positions.items():
             if symbol not in daily_exit:
                 self.stop('HELD_POSITION_DAILY_HISTORY_MISSING',symbol=symbol,date=day);return
-            p['exit_pending']=bool(daily_exit[symbol])
+            # A previously triggered liquidation persists through a whole day
+            # with no observable bars; a later EMA recovery cannot cancel it.
+            p['exit_pending']=p.get('exit_pending',False) or bool(daily_exit[symbol])
         universe=set(c['symbol'] for c in plan['watchlist'])|set(self.positions)
         indexed={};prefix={s:[] for s in universe};prefix_valid={s:True for s in universe}
         for s in universe:

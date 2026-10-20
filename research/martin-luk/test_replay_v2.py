@@ -72,6 +72,16 @@ class ReplayV2Tests(unittest.TestCase):
         p2,bs2=tomorrow(p,bs);r.session(p2,bs2,{})
         self.assertEqual(r.halt['code'],'HELD_POSITION_DAILY_HISTORY_MISSING')
 
+    def test_pending_daily_exit_survives_whole_unobserved_session(self):
+        p,bs=market();r=Replay(gap_policy='OBSERVED_ONLY');r.session(p,bs,{})
+        p2,bs2=tomorrow(p,bs);p2['watchlist']=[]
+        r.session(p2,{}, {s:True for s in bs})
+        self.assertTrue(all(x['exit_pending'] for x in r.positions.values()))
+        p3,bs3=tomorrow(p2,bs2)
+        r.session(p3,bs3,{s:False for s in bs})
+        self.assertFalse(r.positions)
+        self.assertEqual({f['reason'] for f in r.fills if f['side']=='sell'},{'TRAIL_NEXT_OPEN'})
+
     def test_no_future_daily_value_used_by_exit_flags(self):
         prior=[dict(date=str(i)) for i in range(160)]
         rows={str(i):dict(t=str(i),o=100,h=110,l=80,c=100 if i<159 else 90,v=1000) for i in range(160)}

@@ -3,6 +3,15 @@ from collections import Counter, defaultdict
 from datetime import datetime
 import math
 from statistics import mean, median
+import argparse
+import gzip
+from hashlib import sha256
+import json
+from pathlib import Path
+import sqlite3
+
+from audit_history import audit
+from prepare_replay_v2 import normalized_actions
 
 
 def trade_statistics(closed, fills, cohort):
@@ -53,3 +62,47 @@ def benchmark(first_bar,last_bar,actions,initial=100000,bps=5):
         start=start,end=end,quantity=q,terminal_equity=equity,net_return=equity/initial-1,
         dividend_income=dividends,receivables=receivables,adverse_entry_bps=bps,
         terminal_sale=False,explicit_broker_fees_verified=False)
+
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--root',type=Path,required=True)
+    parser.add_argument('--old-root',type=Path,required=True)
+    parser.add_argument('--output',type=Path,required=True)
+    args=parser.parse_args()
+    cohort={a['symbol']:a for a in json.loads((args.old_root/'cohort.json').read_text())}
+    runs={}
+    for name in ('primary','observed-5bp','observed-10bp','observed-25bp'):
+        folder=args.root/name
+        read=lambda n:json.loads((folder/(n+'.json')).read_text())
+        validation=audit(folder)
+        (folder/'independent-validation.json').write_text(json.dumps(validation,indent=2)+'\n')
+        closed,fills,events,nav=map(read,('closed','fills','events','nav'))
+        gaps=[e for e in events if e['kind']=='HELD_BAR_UNOBSERVED']
+        summary=read('summary')
+        runs[name]=dict(summary=summary,independent_accounting=validation,
+            statistics=trade_statistics(closed,fills,cohort),monthly_nav=monthly_nav(nav),
+            events=dict(Counter(e['kind'] for e in events)),
+            gap_symbols=dict(Counter(e['symbol'] for e in gaps)),
+            last_observed_nav_at=nav[-1]['at'] if nav else None,
+            ending_exposure_fraction=nav[-1]['gross']/nav[-1]['equity'] if nav else None,
+            mean_observed_exposure_fraction=mean(n['gross']/n['equity'] for n in nav) if nav else None,
+            private_artifact_sha256={n:sha256((folder/(n+'.json')).read_bytes()).hexdigest()
+                for n in ('summary','closed','fills','events','nav','positions','receivables','scans')})
+    db=sqlite3.connect(args.root/'rth.sqlite')
+    def rows(day):
+        return json.loads(gzip.decompress(db.execute('SELECT data FROM bars WHERE symbol=? AND date=?',('SPY',day)).fetchone()[0]))
+    first,last=rows('2025-04-28')[0],rows('2025-12-31')[-1]
+    schedule={s['date']:s for s in json.loads((args.old_root/'schedule.json').read_text())}
+    from strategy import stamp
+    if stamp(first['start'])!=stamp(schedule['2025-04-28']['open']) or stamp(last['end'])!=stamp(schedule['2025-12-31']['close']):
+        raise ValueError('BENCHMARK_BOUNDARY_BAR_MISSING')
+    actions=normalized_actions(json.loads((args.root/'SPY-actions.json').read_text()),['SPY'])
+    result=dict(runs=runs,benchmark=benchmark(first,last,actions),actual_orders=0,
+        independent_out_of_sample=False,promotable=False,
+        rule='Primary result remains HALT policy; observed-only outcomes cannot replace it.')
+    args.output.mkdir(parents=True,exist_ok=True)
+    (args.output/'results.json').write_text(json.dumps(result,indent=2)+'\n')
+
+
+if __name__=='__main__':main()
