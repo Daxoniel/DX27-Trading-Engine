@@ -1,0 +1,9 @@
+{
+  "protocol_commit": "e95bfae8e47391ccde209ae0986eb4913a659748",
+  "protocol_path": "docs/research/martin-luk/history-protocol.json",
+  "protocol_sha256": "0c3556261d606779c702d65f43626a0a276e8a15bd29963e3b8abe6288627943",
+  "publication_url": "https://github.com/Daxoniel/DX27-Trading-Engine/blob/e95bfae8e47391ccde209ae0986eb4913a659748/docs/research/martin-luk/history-protocol.json",
+  "strategy_sha256": "8f73d3c2437c34c034f8c5c513e6488f07ad010d7b751ae952459e1286d63fdf",
+  "outcome_inspection_started_after_protocol_push": true,
+  "independent_out_of_sample": false
+}

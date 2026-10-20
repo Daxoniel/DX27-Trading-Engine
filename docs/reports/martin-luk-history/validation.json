@@ -1,0 +1,20 @@
+{
+  "mlp1_tests": 38,
+  "existing_diagnostic_tests": 157,
+  "sealed_source_files": 156,
+  "sealed_source_mismatches": 0,
+  "strategy_sha256": "8f73d3c2437c34c034f8c5c513e6488f07ad010d7b751ae952459e1286d63fdf",
+  "prefilter_reproduction_exact_files": 4,
+  "actual_orders": 0,
+  "private_artifact_sha256": {
+    "summary.json": "2bc6e6428ae3c3b3cae26335ee1696f8e333a256663ab840a5a399f299401e7b",
+    "fills.json": "43f2b73aaa453b21ed77dd576601a041c3de65589060d71e24a2a42cb938114f",
+    "closed.json": "97558e8307a205ee9b65ac19367a11eb017b5f590132b702390cc85a214e4432",
+    "nav.json": "26d54b599f584f876dd53ab487b275f0a7cfd280f1340a27a0d94e1ba6e954c3",
+    "events.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "positions.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "receivables.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "scans.json": "ecd79eeb791ac55572e1194513ea822801da4c86ffd2fc33d51d5fd1be9b93c2"
+  },
+  "normalized_manifest_sha256": "c33ceb0dd8f9dd9cfba4cd90e30fcdf7c9189dc91609b694e7b872c7c0f4cc10"
+}
