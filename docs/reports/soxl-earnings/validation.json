@@ -1,5 +1,5 @@
 {
-  "status": "PASS_LOCAL_AND_INDEPENDENT_CI_PENDING",
+  "status": "PASS_LOCAL_INDEPENDENT_UBUNTU_WINDOWS",
   "offline_tests": 157,
   "independent_checks": 506,
   "exact_original_primary_baselines": 16,
@@ -10,5 +10,12 @@
   "actual_live_orders": 0,
   "report_sha256": "5069d6718cdda9aef48ea22794f74459950e6256d23348e6735cde1f797e4e5f",
   "figure_sha256": "a6758be8d62fa9027d2cbeac206e0b0d53d086050cc05d2657e2f7e8cb3a3a22",
-  "ci": "PENDING"
+  "ci": "PASS",
+  "ci_run": 39385177906,
+  "ci_checked_head": "7cd6593071da94de100a0370622e9b5657da4b66",
+  "ci_platforms": [
+    "ubuntu-latest",
+    "windows-2022"
+  ],
+  "ci_scope": "Source and 157 offline tests; documentation closeout head also checked before exact-head merge"
 }
