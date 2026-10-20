@@ -58,6 +58,22 @@ class MappingTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             scan(s)
 
+    def test_common_prefilter_preserves_both_scanner_watchlists(self):
+        s = fixture()
+        for b in s['assets'][-1]['daily']:
+            b['volume'] = 1
+        prior = [dict(date=b['start'][:10],open=b['start'],close=b['end'])
+                 for b in s['assets'][0]['daily']]
+        today = dict(date=s['session_open'][:10],open=s['session_open'],close=s['session_close'])
+        metadata = [dict(symbol=a['symbol'],sector=a['sector']) for a in s['assets']]
+        source = {a['symbol']:{b['start'][:10]:dict(t=b['start'],o=b['open'],h=b['high'],
+            l=b['low'],c=b['close'],v=b['volume']) for b in a['daily']} for a in s['assets']}
+        full, _ = snapshot_for(today,prior,metadata,source,{},False)
+        reduced, excluded = snapshot_for(today,prior,metadata,source,{})
+        self.assertEqual(excluded, [dict(symbol='DDD',reason='COMMON_PRICE_LIQUIDITY_OR_ADR')])
+        for scanner in (scan_v1,scan):
+            self.assertEqual(scanner(full)['watchlist'], scanner(reduced)['watchlist'])
+
 
 if __name__ == '__main__':
     unittest.main()

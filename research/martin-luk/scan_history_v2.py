@@ -6,16 +6,27 @@ import argparse
 from collections import Counter
 from datetime import timedelta
 import gzip
+from functools import lru_cache
 from hashlib import sha256
 import json
+import math
 from pathlib import Path
+from statistics import mean
 
 from history_screen import split_adjust
-from strategy import canonical, scan as scan_v1, stamp
+from strategy import Rules, canonical, scan as scan_v1, stamp
 from strategy_v2 import scan as scan_v2
 
+# Timestamp parsing is pure. Shared bounded memoization changes no scanner
+# decisions and leaves the frozen source files untouched.
+import strategy
+import strategy_v2
+stamp = lru_cache(maxsize=8192)(stamp)
+strategy.stamp = stamp
+strategy_v2.stamp = stamp
 
-def snapshot_for(session, prior, metadata, source, splits):
+
+def snapshot_for(session, prior, metadata, source, splits, common_prefilter=True):
     asof = stamp(session['open']) - timedelta(minutes=30)
     assets, excluded = [], []
     for m in metadata:
@@ -25,6 +36,20 @@ def snapshot_for(session, prior, metadata, source, splits):
             excluded.append(dict(symbol=symbol, reason='MISSING_DAILY_HISTORY'))
             continue
         adjusted = split_adjust(raw, session['date'], splits.get(symbol, []))
+        recent = adjusted[-20:]
+        if common_prefilter and len(recent) == 20:
+            valid = all(type(b[k]) in (int,float) and math.isfinite(b[k]) and b[k] > 0
+                        for b in recent for k in ('o','h','l','c','v'))
+            valid = valid and all(b['l'] <= min(b['o'],b['c']) <= max(b['o'],b['c']) <= b['h'] for b in recent)
+            if not valid:
+                excluded.append(dict(symbol=symbol, reason='INVALID_DAILY_HISTORY'))
+                continue
+            rules = Rules()
+            if (recent[-1]['c'] < rules.min_price
+                    or mean(b['c']*b['v'] for b in recent) < rules.min_dollar_volume
+                    or mean((b['h']-b['l'])/b['c'] for b in recent) < rules.min_adr):
+                excluded.append(dict(symbol=symbol, reason='COMMON_PRICE_LIQUIDITY_OR_ADR'))
+                continue
         daily = [dict(start=s['open'], end=s['close'],
             # Synthetic knowledge clock for retrospective final daily records;
             # NOT a claim that the final correction arrived at this timestamp.
