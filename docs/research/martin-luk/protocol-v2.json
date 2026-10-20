@@ -1,0 +1,46 @@
+{
+  "version": "MLP2-SCAN-1",
+  "date": "2026-10-20",
+  "stage": "CANDIDATE_COVERAGE_ONLY",
+  "rules": {
+    "version": "MLP2",
+    "minimum_history": 160,
+    "min_price": 5.0,
+    "min_dollar_volume": 20000000,
+    "min_adr": 0.05,
+    "min_momentum": 0.3,
+    "min_sector_peers": 2,
+    "support_tolerance": 0.005,
+    "max_stop": 0.025,
+    "min_stop": 0.003,
+    "risk_per_trade": 0.005,
+    "max_position": 0.25,
+    "max_sector": 0.5,
+    "max_gross": 1.0,
+    "max_open_risk": 0.02,
+    "partial_r": 3.0,
+    "partial_fraction": 0.15,
+    "adverse_bps": 5.0
+  },
+  "period": [
+    "2025-04-28",
+    "2025-12-31"
+  ],
+  "source_daily_convention": "Alpaca SIP raw 1Day OHLCV throughout, split-adjusted only for effective actions by scan date; volume is vendor daily volume, NOT RTH-only volume.",
+  "changes": [
+    "Count sector leaders before entry support proximity",
+    "Use individual EMA9/EMA21/60-session-high anchored daily typical-price AVWAP as alternative supports; no mandatory confluence",
+    "Remove unsupported EMA21-touch-since-last-cross exclusion; no claim of first pullback identification"
+  ],
+  "unchanged": "All numerical thresholds, morning recovery, risk limits, and exits remain DX27 choices. No reentry expansion or parameter optimization.",
+  "comparison": "Frozen MLP1 scanner vs MLP2 on IDENTICAL vendor daily snapshots; neither reproduces prior RTH-only MLP1 report.",
+  "disclosure": [
+    "2025 outcomes already exposed; retrospective diagnosis, not independent out-of-sample",
+    "Fixed archived name-filter cohort of 4002; not full dynamic point-in-time membership/security type/sector",
+    "Final revised vendor bars and corporate-action records; first availability not verified",
+    "Daily AVWAP uses typical price, not tick VWAP",
+    "No profitability estimate, orders, or Paper promotion in this stage"
+  ],
+  "next_gate": "Freeze execution protocol, obtain candidate intraday coverage and replay one shared portfolio before any strategy Paper orders",
+  "actual_orders": 0
+}
