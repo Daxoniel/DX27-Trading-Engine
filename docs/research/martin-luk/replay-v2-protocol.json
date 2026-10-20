@@ -1,0 +1,37 @@
+{
+  "version": "MLP2-REPLAY-1",
+  "date": "2026-10-20",
+  "strategy_base_commit": "647e0fd52990020ed8ba5e3edd6ce57c69441881",
+  "strategy_v2_sha256": "799bfcb6bc970ca6fbceaf22e272806a7fd85a21fe13df2b74ac316984544c04",
+  "coverage_summary_sha256": "c9bdd9ade736286aad433d0705396927240645b4cdcad82d8f817d0ffaab1e49",
+  "period": [
+    "2025-04-28",
+    "2025-12-31"
+  ],
+  "initial_cash": 100000,
+  "cash_interest": 0,
+  "contributions": 0,
+  "primary_adverse_bps_each_side": 5,
+  "stress_adverse_bps_each_side": [
+    10,
+    25
+  ],
+  "scanner_rules": "Frozen MLP2; no parameter optimization, no extra securities or current status filter",
+  "entry_model": "Completed contiguous RTH 5m bars available end+1 second; buy only at first later 5m OPEN before 5m expiry if open*(1+cost)<=limit; no intrabar entry; one intent per symbol/session; single shared cash/risk account.",
+  "stop_partial": "Unchanged manage: stop first on ambiguous bars; gap stop uses min(open,stop) less cost; 15% partial at 3R less cost. Existing protective stops continue overnight.",
+  "daily_trailing_exit": "At each premarket, previous completed vendor 1Day close < EMA9 computed on preceding 160 vendor daily bars (split-adjusted through current effective date) marks existing holding for exit at first observed regular-session open. Never compare vendor EMA to a different RTH aggregate close. No intraday EMA exit. Final period holdings marked without forced sale.",
+  "missing_data_primary": "HALT on missing/invalid held-position 5m bar, missing prior daily history for held names, unresolved held corporate action/fractional entitlement. No terminal return claim after halt. Candidate gaps invalidate opening prefix without deleting already executed entries.",
+  "missing_data_secondary": "Prespecified OBSERVED_ONLY diagnostic carries held marks across absent 5m bars and processes protective/trailing orders at next actual observed bar; records every gap and stale-mark limitation. Does not certify unobserved risk or executable return; invalid bars and unresolved actions still halt. Never use secondary to replace failed primary certification.",
+  "corporate_actions": "Frozen prior mechanical accounting: effective-date splits, ex-date dividend receivables, payable-date spendable cash, unresolved actions halt. Retrospective records not first-availability verified.",
+  "source": "Existing cached and supplemental read-only Alpaca raw SIP 5Min data; symbol asof 2025-04-25; daily convention unchanged; no 2026 prices. Supplemental coverage from first candidate session through period end, including sessions no longer on watchlist.",
+  "data_identity": "Supplemental values override an overlapping cached bar only if identical; differences halt preparation and require disclosed data revision review.",
+  "benchmark": "SPY buy-and-hold cash-funded at first observed open with same modeled entry cost, final observed close marked; no forced terminal sale. SPY is comparison only, not candidate binding. Dividend accounting disclosed.",
+  "scope_limitations": [
+    "2025 outcomes already exposed; not independent out-of-sample",
+    "Archived fixed 4002-name name-filter cohort; not certified dynamic security membership/tradability/sector",
+    "Final corrected daily/intraday bars and retrospective corporate actions; first availability not proved",
+    "No quotes, guaranteed fills or verified explicit broker/regulatory fees; cost sensitivity is not fee certification"
+  ],
+  "actual_orders": 0,
+  "promotable": false
+}
