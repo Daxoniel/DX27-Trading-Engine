@@ -1,0 +1,86 @@
+{
+  "unit_tests": 65,
+  "existing_diagnostic_tests": 157,
+  "sealed_core_files_unchanged": 156,
+  "both_frozen_scanners_unchanged": true,
+  "quoted_account_and_entry_audits": {
+    "primary": {
+      "status": "PASS",
+      "checks": 55,
+      "source_authenticity_verified": false,
+      "execution_model_verified_against_quotes": false,
+      "promotable": false,
+      "entry_quotes_checked": 8,
+      "quote_input_consistency_verified": true,
+      "exit_quote_execution_verified": false,
+      "model_fills_guaranteed": false
+    },
+    "observed-5bp": {
+      "status": "PASS",
+      "checks": 2735,
+      "source_authenticity_verified": false,
+      "execution_model_verified_against_quotes": false,
+      "promotable": false,
+      "entry_quotes_checked": 327,
+      "quote_input_consistency_verified": true,
+      "exit_quote_execution_verified": false,
+      "model_fills_guaranteed": false
+    },
+    "observed-10bp": {
+      "status": "PASS",
+      "checks": 2947,
+      "source_authenticity_verified": false,
+      "execution_model_verified_against_quotes": false,
+      "promotable": false,
+      "entry_quotes_checked": 353,
+      "quote_input_consistency_verified": true,
+      "exit_quote_execution_verified": false,
+      "model_fills_guaranteed": false
+    },
+    "observed-25bp": {
+      "status": "PASS",
+      "checks": 2802,
+      "source_authenticity_verified": false,
+      "execution_model_verified_against_quotes": false,
+      "promotable": false,
+      "entry_quotes_checked": 338,
+      "quote_input_consistency_verified": true,
+      "exit_quote_execution_verified": false,
+      "model_fills_guaranteed": false
+    }
+  },
+  "original_proxy_audits": {
+    "primary": {
+      "status": "PASS",
+      "checks": 41,
+      "source_authenticity_verified": false,
+      "execution_model_verified_against_quotes": false,
+      "promotable": false
+    },
+    "observed-5bp": {
+      "status": "PASS",
+      "checks": 889,
+      "source_authenticity_verified": false,
+      "execution_model_verified_against_quotes": false,
+      "promotable": false
+    },
+    "observed-10bp": {
+      "status": "PASS",
+      "checks": 1016,
+      "source_authenticity_verified": false,
+      "execution_model_verified_against_quotes": false,
+      "promotable": false
+    },
+    "observed-25bp": {
+      "status": "PASS",
+      "checks": 981,
+      "source_authenticity_verified": false,
+      "execution_model_verified_against_quotes": false,
+      "promotable": false
+    }
+  },
+  "plotting_library": "matplotlib 3.10.8",
+  "actual_orders": 0,
+  "independent_out_of_sample": false,
+  "strategy_passed": false
+}

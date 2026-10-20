@@ -1,0 +1,89 @@
+{
+  "scope": "Top three closed winners selected for data diagnostics after observing PnL, not an independent holdout or an all-trade execution test.",
+  "checks": [
+    {
+      "symbol": "ARWR",
+      "trade_id": 54,
+      "modeled_pnl": 17809.842902160006,
+      "minute_open_checks": [
+        {
+          "side": "buy",
+          "at": "2025-08-27T13:50:00+00:00",
+          "exact_boundary_minute_present": true,
+          "one_minute_open_matches_modeled_reference": true
+        },
+        {
+          "side": "sell",
+          "at": "2025-10-13T13:30:00+00:00",
+          "exact_boundary_minute_present": true,
+          "one_minute_open_matches_modeled_reference": true
+        }
+      ],
+      "quote_probe": {
+        "response_sha256": "1a4cf7fc5073987047fdaf1b7da56788f11039fb687b68fd7c5016c99a2c28f0",
+        "window_end": "2025-08-27T13:50:01+00:00",
+        "returned_quotes": 0,
+        "quotes_in_modeled_open_to_expiry_window": 0,
+        "ask_within_buy_limit_observed": false,
+        "pagination_remaining": false,
+        "scope": "Updates inside the one-second modeled open/expiry window only; does not reconstruct carried NBBO or certify queue depth/fills."
+      }
+    },
+    {
+      "symbol": "AMSC",
+      "trade_id": 34,
+      "modeled_pnl": 15942.340396430005,
+      "minute_open_checks": [
+        {
+          "side": "buy",
+          "at": "2025-06-23T14:15:00+00:00",
+          "exact_boundary_minute_present": false,
+          "one_minute_open_matches_modeled_reference": false
+        },
+        {
+          "side": "sell",
+          "at": "2025-08-11T13:30:00+00:00",
+          "exact_boundary_minute_present": true,
+          "one_minute_open_matches_modeled_reference": true
+        }
+      ],
+      "quote_probe": {
+        "response_sha256": "109525a80d35ac6e8e8c0d375e11de7cb171664a14347096a9e83faa0bdb11d9",
+        "window_end": "2025-06-23T14:15:01+00:00",
+        "returned_quotes": 0,
+        "quotes_in_modeled_open_to_expiry_window": 0,
+        "ask_within_buy_limit_observed": false,
+        "pagination_remaining": false,
+        "scope": "Updates inside the one-second modeled open/expiry window only; does not reconstruct carried NBBO or certify queue depth/fills."
+      }
+    },
+    {
+      "symbol": "TVTX",
+      "trade_id": 64,
+      "modeled_pnl": 9326.61085497,
+      "minute_open_checks": [
+        {
+          "side": "buy",
+          "at": "2025-10-13T13:50:00+00:00",
+          "exact_boundary_minute_present": true,
+          "one_minute_open_matches_modeled_reference": true
+        },
+        {
+          "side": "sell",
+          "at": "2025-11-14T14:30:00+00:00",
+          "exact_boundary_minute_present": true,
+          "one_minute_open_matches_modeled_reference": true
+        }
+      ],
+      "quote_probe": {
+        "response_sha256": "5cb83748fd5fcdf6ef7f4ea1b148ba3e95d51cb018286dc4b1a78e07562be9db",
+        "window_end": "2025-10-13T13:50:01+00:00",
+        "returned_quotes": 3,
+        "quotes_in_modeled_open_to_expiry_window": 3,
+        "ask_within_buy_limit_observed": false,
+        "pagination_remaining": false,
+        "scope": "Updates inside the one-second modeled open/expiry window only; does not reconstruct carried NBBO or certify queue depth/fills."
+      }
+    }
+  ]
+}

@@ -1,0 +1,699 @@
+{
+  "runs": {
+    "primary": {
+      "summary": {
+        "actual_orders": 0,
+        "adverse_bps_each_side": 5.0,
+        "cash": 50176.95077054999,
+        "closed_trade_pnl": -543.9625997499923,
+        "closed_trade_win_rate": 0.0,
+        "closed_trades": 3,
+        "explicit_broker_fees_verified": false,
+        "fills": 8,
+        "gap_policy": "HALT",
+        "halt": {
+          "at": "2025-04-29T16:20:00+00:00",
+          "code": "HELD_POSITION_BAR_MISSING",
+          "symbol": "SLNO"
+        },
+        "held_unobserved_bars": 0,
+        "initial_cash": 100000,
+        "input_manifest_sha256": "fd4eea9e7d4f0975a24250021177f48f3d072b80408b8eb0436749b7cc3f3bb7",
+        "last_known_equity": 100344.39577054999,
+        "max_observed_bar_close_drawdown": 0.005427180370999984,
+        "nav_certified": false,
+        "net_return": null,
+        "open_positions": 2,
+        "open_trade_marked_pnl_including_partials": 888.3583703000004,
+        "profit_factor": 0.0,
+        "promotable": false,
+        "provenance": {
+          "dynamic_point_in_time_verified": false,
+          "first_source_availability_verified": false,
+          "independent_out_of_sample": false,
+          "quote_execution_verified": false,
+          "universe": "ARCHIVED_FIXED_COHORT_DIAGNOSTIC"
+        },
+        "receivables": 0,
+        "sessions_processed": 2,
+        "status": "HALTED_INCOMPLETE_ACCOUNTING",
+        "terminal_equity": null,
+        "watchlist_stock_days": 39
+      },
+      "independent_accounting": {
+        "status": "PASS",
+        "checks": 41,
+        "source_authenticity_verified": false,
+        "execution_model_verified_against_quotes": false,
+        "promotable": false
+      },
+      "statistics": {
+        "closed_trades": 3,
+        "mean_closed_trade_pnl": -181.32086658333074,
+        "median_closed_trade_pnl": -134.18918749999648,
+        "mean_holding_calendar_days": 0.031261574074074074,
+        "max_consecutive_nonpositive_closed_trades": 3,
+        "final_exit_reasons": {
+          "STOP": 3
+        },
+        "sectors": {
+          "Health Care": {
+            "trades": 2,
+            "wins": 0,
+            "pnl": -135.43375014999646
+          },
+          "Technology": {
+            "trades": 1,
+            "wins": 0,
+            "pnl": -408.52884959999574
+          }
+        },
+        "gross_closed_winners": 0,
+        "gross_closed_losers": 543.9625997499923,
+        "top_three_closed_winners": [],
+        "top_two_fraction_of_net_closed_pnl": null,
+        "concentration_note": "Attribution only; removing winners without rerunning account sizing is not a counterfactual return.",
+        "best_closed_trade_pnl": -1.2445626499999918,
+        "worst_closed_trade_pnl": -408.52884959999574
+      },
+      "monthly_nav": [
+        {
+          "month": "2025-04",
+          "ending_equity": 100199.85577055,
+          "return_since_prior_observed_month": 0.001998557705499948
+        }
+      ],
+      "events": {
+        "NO_OPEN_FILL_WITHIN_LIMIT": 2,
+        "HALT": 1
+      },
+      "gap_symbols": {},
+      "last_observed_nav_at": "2025-04-29T16:20:01+00:00",
+      "ending_exposure_fraction": 0.49923130742372146,
+      "mean_observed_exposure_fraction": 0.162395992461119,
+      "private_artifact_sha256": {
+        "summary": "366c1db180a85c4907d57d7d13edeaac8282a0fc43a72b0dc3f92ce11915a6d3",
+        "closed": "fc13abe6c953ddbc1fab8e45962a5d6548206200ccce84c58534a46fd69c1fa1",
+        "fills": "6e2c7e51e729e03b25ec7e597c71ce6e3d4322ca017f3e61ac072353d452a23d",
+        "events": "6aaa58cbd04d2296d3a62e2d83b8c214f67484d80b93b3e36ff89bbc6148abd4",
+        "nav": "a82b72086fdf375b4655dd3f69dd75e6fc6fd8a2e83437eb3508476783fa10a1",
+        "positions": "8e6588e368082cb8c970b9751d7b89f1c157fd87bd9f04165f4f648230d90a38",
+        "receivables": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "scans": "c80112c920eadecfd436c20b8d63a42c33cbcce1800a4266b3dc094eb3271e73"
+      }
+    },
+    "observed-5bp": {
+      "summary": {
+        "actual_orders": 0,
+        "adverse_bps_each_side": 5.0,
+        "cash": 82418.2020163036,
+        "closed_trade_pnl": 54727.65763044375,
+        "closed_trade_win_rate": 0.2,
+        "closed_trades": 100,
+        "explicit_broker_fees_verified": false,
+        "fills": 238,
+        "gap_policy": "OBSERVED_ONLY",
+        "halt": null,
+        "held_unobserved_bars": 90,
+        "initial_cash": 100000,
+        "input_manifest_sha256": "fd4eea9e7d4f0975a24250021177f48f3d072b80408b8eb0436749b7cc3f3bb7",
+        "last_known_equity": 157054.15201630362,
+        "max_observed_bar_close_drawdown": 0.06999687096988583,
+        "nav_certified": false,
+        "net_return": 0.5705415201630362,
+        "open_positions": 2,
+        "open_trade_marked_pnl_including_partials": 2326.494385860002,
+        "profit_factor": 4.615270742808111,
+        "promotable": false,
+        "provenance": {
+          "dynamic_point_in_time_verified": false,
+          "first_source_availability_verified": false,
+          "independent_out_of_sample": false,
+          "quote_execution_verified": false,
+          "universe": "ARCHIVED_FIXED_COHORT_DIAGNOSTIC"
+        },
+        "receivables": 0,
+        "sessions_processed": 172,
+        "status": "CONDITIONAL_OHLC_REPLAY",
+        "terminal_equity": 157054.15201630362,
+        "watchlist_stock_days": 7994
+      },
+      "independent_accounting": {
+        "status": "PASS",
+        "checks": 889,
+        "source_authenticity_verified": false,
+        "execution_model_verified_against_quotes": false,
+        "promotable": false
+      },
+      "statistics": {
+        "closed_trades": 100,
+        "mean_closed_trade_pnl": 547.2765763044374,
+        "median_closed_trade_pnl": -72.0085224799991,
+        "mean_holding_calendar_days": 4.034800462962963,
+        "max_consecutive_nonpositive_closed_trades": 14,
+        "final_exit_reasons": {
+          "STOP": 76,
+          "TRAIL_NEXT_OPEN": 21,
+          "ENTRY_ALREADY_BELOW_PROTECTION": 3
+        },
+        "sectors": {
+          "Health Care": {
+            "trades": 41,
+            "wins": 10,
+            "pnl": 40430.02293557758
+          },
+          "Technology": {
+            "trades": 20,
+            "wins": 2,
+            "pnl": -2799.0366970830487
+          },
+          "Consumer Discretionary": {
+            "trades": 19,
+            "wins": 4,
+            "pnl": 17859.517836149746
+          },
+          "Finance": {
+            "trades": 6,
+            "wins": 1,
+            "pnl": 395.3331928264088
+          },
+          "Industrials": {
+            "trades": 9,
+            "wins": 1,
+            "pnl": -26.796658776978575
+          },
+          "Miscellaneous": {
+            "trades": 3,
+            "wins": 1,
+            "pnl": -429.374732549986
+          },
+          "Energy": {
+            "trades": 2,
+            "wins": 1,
+            "pnl": -702.0082456999826
+          }
+        },
+        "gross_closed_winners": 69865.57164125856,
+        "gross_closed_losers": 15137.914010814808,
+        "top_three_closed_winners": [
+          {
+            "symbol": "ARWR",
+            "pnl": 17809.842902160006
+          },
+          {
+            "symbol": "AMSC",
+            "pnl": 15942.340396430005
+          },
+          {
+            "symbol": "TVTX",
+            "pnl": 9326.61085497
+          }
+        ],
+        "top_two_fraction_of_net_closed_pnl": 0.6167299087877359,
+        "concentration_note": "Attribution only; removing winners without rerunning account sizing is not a counterfactual return.",
+        "best_closed_trade_pnl": 17809.842902160006,
+        "worst_closed_trade_pnl": -712.9247306999823
+      },
+      "monthly_nav": [
+        {
+          "month": "2025-04",
+          "ending_equity": 100488.93216623687,
+          "return_since_prior_observed_month": 0.004889321662368662
+        },
+        {
+          "month": "2025-05",
+          "ending_equity": 104770.77469323689,
+          "return_since_prior_observed_month": 0.042610090829870106
+        },
+        {
+          "month": "2025-06",
+          "ending_equity": 112825.84564404488,
+          "return_since_prior_observed_month": 0.0768828041445031
+        },
+        {
+          "month": "2025-07",
+          "ending_equity": 127731.60407904489,
+          "return_since_prior_observed_month": 0.13211297774825725
+        },
+        {
+          "month": "2025-08",
+          "ending_equity": 123531.50001476138,
+          "return_since_prior_observed_month": -0.032882261947359104
+        },
+        {
+          "month": "2025-09",
+          "ending_equity": 139475.71345976138,
+          "return_since_prior_observed_month": 0.12907002216515417
+        },
+        {
+          "month": "2025-10",
+          "ending_equity": 152129.48160660197,
+          "return_since_prior_observed_month": 0.09072381013839514
+        },
+        {
+          "month": "2025-11",
+          "ending_equity": 154697.87153256196,
+          "return_since_prior_observed_month": 0.016882920383582745
+        },
+        {
+          "month": "2025-12",
+          "ending_equity": 157054.15201630362,
+          "return_since_prior_observed_month": 0.015231499052950515
+        }
+      ],
+      "events": {
+        "NO_OPEN_FILL_WITHIN_LIMIT": 103,
+        "HELD_BAR_UNOBSERVED": 90,
+        "CAPACITY_REJECTED": 2206,
+        "ENTRY_EXPIRED": 1
+      },
+      "gap_symbols": {
+        "SLNO": 4,
+        "IRTC": 43,
+        "RYTM": 2,
+        "AMSC": 2,
+        "IDYA": 2,
+        "CECO": 8,
+        "NUVL": 9,
+        "GSAT": 2,
+        "ANAB": 17,
+        "KYTX": 1
+      },
+      "last_observed_nav_at": "2025-12-31T21:00:01+00:00",
+      "ending_exposure_fraction": 0.4752243034762438,
+      "mean_observed_exposure_fraction": 0.3532057412145715,
+      "private_artifact_sha256": {
+        "summary": "85f5c09589798ed99e3452eeec50ef55da31d757726fcebb1a36e698a070a23a",
+        "closed": "0213c9751854d1d0b0163c59fd082604f50051a019ce4e8437f1b56c07589373",
+        "fills": "43cdc6c171c87edf73575b9bcfce48fedbfc607ea2bf19d671aff5cd6274b666",
+        "events": "76886695bfd59bb8f19201bff80efe4afcf6d1d2a3c7f3f13d6cd7a176ecace1",
+        "nav": "2638115534309c41ff5aa57bc02b37787661060b9ab439bf6925fdef6415bbce",
+        "positions": "76de014e479684db1912c47fe42ae9666c826124d06c4c9d7680e297098db2ac",
+        "receivables": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "scans": "01b5a068ec29d606efa5a925a074b03ec6a6d96d676c49b5d48be1943b99aed2"
+      }
+    },
+    "observed-10bp": {
+      "summary": {
+        "actual_orders": 0,
+        "adverse_bps_each_side": 10.0,
+        "cash": 80833.4462450838,
+        "closed_trade_pnl": 49954.28127344383,
+        "closed_trade_win_rate": 0.1826086956521739,
+        "closed_trades": 115,
+        "explicit_broker_fees_verified": false,
+        "fills": 270,
+        "gap_policy": "OBSERVED_ONLY",
+        "halt": null,
+        "held_unobserved_bars": 90,
+        "initial_cash": 100000,
+        "input_manifest_sha256": "fd4eea9e7d4f0975a24250021177f48f3d072b80408b8eb0436749b7cc3f3bb7",
+        "last_known_equity": 152132.0662450838,
+        "max_observed_bar_close_drawdown": 0.07264277471240121,
+        "nav_certified": false,
+        "net_return": 0.5213206624508382,
+        "open_positions": 3,
+        "open_trade_marked_pnl_including_partials": 2177.7849716400074,
+        "profit_factor": 3.9094607299827655,
+        "promotable": false,
+        "provenance": {
+          "dynamic_point_in_time_verified": false,
+          "first_source_availability_verified": false,
+          "independent_out_of_sample": false,
+          "quote_execution_verified": false,
+          "universe": "ARCHIVED_FIXED_COHORT_DIAGNOSTIC"
+        },
+        "receivables": 0,
+        "sessions_processed": 172,
+        "status": "CONDITIONAL_OHLC_REPLAY",
+        "terminal_equity": 152132.0662450838,
+        "watchlist_stock_days": 7994
+      },
+      "independent_accounting": {
+        "status": "PASS",
+        "checks": 1016,
+        "source_authenticity_verified": false,
+        "execution_model_verified_against_quotes": false,
+        "promotable": false
+      },
+      "statistics": {
+        "closed_trades": 115,
+        "mean_closed_trade_pnl": 434.3850545516854,
+        "median_closed_trade_pnl": -61.06957999999577,
+        "mean_holding_calendar_days": 3.5350935990338166,
+        "max_consecutive_nonpositive_closed_trades": 21,
+        "final_exit_reasons": {
+          "STOP": 90,
+          "TRAIL_NEXT_OPEN": 22,
+          "ENTRY_ALREADY_BELOW_PROTECTION": 3
+        },
+        "sectors": {
+          "Health Care": {
+            "trades": 44,
+            "wins": 11,
+            "pnl": 38689.75133356409
+          },
+          "Technology": {
+            "trades": 26,
+            "wins": 3,
+            "pnl": -3024.869295499945
+          },
+          "Consumer Discretionary": {
+            "trades": 22,
+            "wins": 4,
+            "pnl": 16768.019957267625
+          },
+          "Finance": {
+            "trades": 7,
+            "wins": 1,
+            "pnl": 241.4270411920113
+          },
+          "Industrials": {
+            "trades": 11,
+            "wins": 0,
+            "pnl": -1515.745960079988
+          },
+          "Miscellaneous": {
+            "trades": 3,
+            "wins": 1,
+            "pnl": -478.5734994999888
+          },
+          "Energy": {
+            "trades": 2,
+            "wins": 1,
+            "pnl": -725.7283034999855
+          }
+        },
+        "gross_closed_winners": 67123.88275960642,
+        "gross_closed_losers": 17169.601486162603,
+        "top_three_closed_winners": [
+          {
+            "symbol": "ARWR",
+            "pnl": 17300.754428399996
+          },
+          {
+            "symbol": "AMSC",
+            "pnl": 15558.019849200002
+          },
+          {
+            "symbol": "TVTX",
+            "pnl": 9044.181726839997
+          }
+        ],
+        "top_two_fraction_of_net_closed_pnl": 0.6577769400331265,
+        "concentration_note": "Attribution only; removing winners without rerunning account sizing is not a counterfactual return.",
+        "best_closed_trade_pnl": 17300.754428399996,
+        "worst_closed_trade_pnl": -729.0095084999848
+      },
+      "monthly_nav": [
+        {
+          "month": "2025-04",
+          "ending_equity": 100209.47291084004,
+          "return_since_prior_observed_month": 0.0020947291084003616
+        },
+        {
+          "month": "2025-05",
+          "ending_equity": 104385.68490424001,
+          "return_since_prior_observed_month": 0.04167482247028387
+        },
+        {
+          "month": "2025-06",
+          "ending_equity": 109926.03502711403,
+          "return_since_prior_observed_month": 0.05307576539787573
+        },
+        {
+          "month": "2025-07",
+          "ending_equity": 124837.03502711403,
+          "return_since_prior_observed_month": 0.1356457548598209
+        },
+        {
+          "month": "2025-08",
+          "ending_equity": 120122.36343062606,
+          "return_since_prior_observed_month": -0.037766609848303156
+        },
+        {
+          "month": "2025-09",
+          "ending_equity": 135712.83856062609,
+          "return_since_prior_observed_month": 0.12978828158841504
+        },
+        {
+          "month": "2025-10",
+          "ending_equity": 148071.9374357733,
+          "return_since_prior_observed_month": 0.0910680154230663
+        },
+        {
+          "month": "2025-11",
+          "ending_equity": 150516.7970109733,
+          "return_since_prior_observed_month": 0.016511295911559642
+        },
+        {
+          "month": "2025-12",
+          "ending_equity": 152132.0662450838,
+          "return_since_prior_observed_month": 0.010731488220499186
+        }
+      ],
+      "events": {
+        "NO_OPEN_FILL_WITHIN_LIMIT": 104,
+        "HELD_BAR_UNOBSERVED": 90,
+        "CAPACITY_REJECTED": 2170,
+        "ENTRY_EXPIRED": 1
+      },
+      "gap_symbols": {
+        "SLNO": 4,
+        "IRTC": 43,
+        "RYTM": 2,
+        "AMSC": 2,
+        "IDYA": 2,
+        "CECO": 8,
+        "NUVL": 9,
+        "GSAT": 2,
+        "ANAB": 17,
+        "KYTX": 1
+      },
+      "last_observed_nav_at": "2025-12-31T21:00:01+00:00",
+      "ending_exposure_fraction": 0.46866266763995934,
+      "mean_observed_exposure_fraction": 0.3494422245018728,
+      "private_artifact_sha256": {
+        "summary": "9ff82f462c55a963d3f30be7a86cfe59684ecf215e26712a1d78b43c6de81183",
+        "closed": "79475b0e64bd68197a40bcc70de6c300d80cde40f2a1ac49a9a96c45b15d6fc8",
+        "fills": "b6ac5ed7d085ddeb462ffe63dc9a1ea9960235efcf436a6a618330f826e0cfdd",
+        "events": "3e07983fa1fa5e08f133e4e73e7fa9cde5ea3e56c8f4c001e213262a98358c77",
+        "nav": "60354df5bbdef64cbd5bc4a474d0d743f753674192420df3e4673dc6ad8964cf",
+        "positions": "36c13b8e64999f4508bb1ee54b6a4c6a749cc199290860f423e7f270ac1050e2",
+        "receivables": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "scans": "01b5a068ec29d606efa5a925a074b03ec6a6d96d676c49b5d48be1943b99aed2"
+      }
+    },
+    "observed-25bp": {
+      "summary": {
+        "actual_orders": 0,
+        "adverse_bps_each_side": 25.0,
+        "cash": 81887.72293026277,
+        "closed_trade_pnl": 47021.845556137785,
+        "closed_trade_win_rate": 0.16964285714285715,
+        "closed_trades": 112,
+        "explicit_broker_fees_verified": false,
+        "fills": 260,
+        "gap_policy": "OBSERVED_ONLY",
+        "halt": null,
+        "held_unobserved_bars": 96,
+        "initial_cash": 100000,
+        "input_manifest_sha256": "fd4eea9e7d4f0975a24250021177f48f3d072b80408b8eb0436749b7cc3f3bb7",
+        "last_known_equity": 149056.02293026278,
+        "max_observed_bar_close_drawdown": 0.08553528500083862,
+        "nav_certified": false,
+        "net_return": 0.4905602293026279,
+        "open_positions": 2,
+        "open_trade_marked_pnl_including_partials": 2034.1773741250145,
+        "profit_factor": 3.217913560120985,
+        "promotable": false,
+        "provenance": {
+          "dynamic_point_in_time_verified": false,
+          "first_source_availability_verified": false,
+          "independent_out_of_sample": false,
+          "quote_execution_verified": false,
+          "universe": "ARCHIVED_FIXED_COHORT_DIAGNOSTIC"
+        },
+        "receivables": 0,
+        "sessions_processed": 172,
+        "status": "CONDITIONAL_OHLC_REPLAY",
+        "terminal_equity": 149056.02293026278,
+        "watchlist_stock_days": 7994
+      },
+      "independent_accounting": {
+        "status": "PASS",
+        "checks": 981,
+        "source_authenticity_verified": false,
+        "execution_model_verified_against_quotes": false,
+        "promotable": false
+      },
+      "statistics": {
+        "closed_trades": 112,
+        "mean_closed_trade_pnl": 419.8379067512302,
+        "median_closed_trade_pnl": -104.5217142499987,
+        "mean_holding_calendar_days": 3.9498476769179893,
+        "max_consecutive_nonpositive_closed_trades": 16,
+        "final_exit_reasons": {
+          "STOP": 86,
+          "TRAIL_NEXT_OPEN": 23,
+          "ENTRY_ALREADY_BELOW_PROTECTION": 3
+        },
+        "sectors": {
+          "Health Care": {
+            "trades": 42,
+            "wins": 8,
+            "pnl": 34388.71103385012
+          },
+          "Technology": {
+            "trades": 25,
+            "wins": 5,
+            "pnl": 1196.0880785000506
+          },
+          "Consumer Discretionary": {
+            "trades": 22,
+            "wins": 4,
+            "pnl": 15293.836746632547
+          },
+          "Finance": {
+            "trades": 8,
+            "wins": 1,
+            "pnl": -545.0180955949772
+          },
+          "Industrials": {
+            "trades": 10,
+            "wins": 0,
+            "pnl": -1816.6864849999743
+          },
+          "Miscellaneous": {
+            "trades": 3,
+            "wins": 1,
+            "pnl": -648.8248302499912
+          },
+          "Energy": {
+            "trades": 2,
+            "wins": 0,
+            "pnl": -846.2608919999893
+          }
+        },
+        "gross_closed_winners": 68222.78250950255,
+        "gross_closed_losers": 21200.936953364762,
+        "top_three_closed_winners": [
+          {
+            "symbol": "ARWR",
+            "pnl": 16880.190714000004
+          },
+          {
+            "symbol": "AMSC",
+            "pnl": 15353.624914750006
+          },
+          {
+            "symbol": "TVTX",
+            "pnl": 8747.974821750002
+          }
+        ],
+        "top_two_fraction_of_net_closed_pnl": 0.6855072413154679,
+        "concentration_note": "Attribution only; removing winners without rerunning account sizing is not a counterfactual return.",
+        "best_closed_trade_pnl": 16880.190714000004,
+        "worst_closed_trade_pnl": -818.5993919999892
+      },
+      "monthly_nav": [
+        {
+          "month": "2025-04",
+          "ending_equity": 99801.762650375,
+          "return_since_prior_observed_month": -0.0019823734962499673
+        },
+        {
+          "month": "2025-05",
+          "ending_equity": 103704.43374662503,
+          "return_since_prior_observed_month": 0.03910423015194464
+        },
+        {
+          "month": "2025-06",
+          "ending_equity": 109168.63506292754,
+          "return_since_prior_observed_month": 0.0526901417701473
+        },
+        {
+          "month": "2025-07",
+          "ending_equity": 124047.25381292755,
+          "return_since_prior_observed_month": 0.1362902333753977
+        },
+        {
+          "month": "2025-08",
+          "ending_equity": 117478.39426833266,
+          "return_since_prior_observed_month": -0.05295449389392537
+        },
+        {
+          "month": "2025-09",
+          "ending_equity": 132816.20984333265,
+          "return_since_prior_observed_month": 0.13055860756801674
+        },
+        {
+          "month": "2025-10",
+          "ending_equity": 144116.44952026516,
+          "return_since_prior_observed_month": 0.08508178098337593
+        },
+        {
+          "month": "2025-11",
+          "ending_equity": 146317.87727432768,
+          "return_since_prior_observed_month": 0.015275339917064423
+        },
+        {
+          "month": "2025-12",
+          "ending_equity": 149056.02293026278,
+          "return_since_prior_observed_month": 0.018713678102378672
+        }
+      ],
+      "events": {
+        "NO_OPEN_FILL_WITHIN_LIMIT": 100,
+        "HELD_BAR_UNOBSERVED": 96,
+        "CAPACITY_REJECTED": 2114,
+        "ENTRY_EXPIRED": 1,
+        "DIVIDEND_ACCRUED": 1,
+        "DIVIDEND_PAID": 1
+      },
+      "gap_symbols": {
+        "SLNO": 4,
+        "IRTC": 43,
+        "RYTM": 2,
+        "AMSC": 2,
+        "IDYA": 2,
+        "CECO": 8,
+        "NUVL": 9,
+        "SANM": 6,
+        "GSAT": 2,
+        "ANAB": 17,
+        "KYTX": 1
+      },
+      "last_observed_nav_at": "2025-12-31T21:00:01+00:00",
+      "ending_exposure_fraction": 0.4506245281441952,
+      "mean_observed_exposure_fraction": 0.3606725026160065,
+      "private_artifact_sha256": {
+        "summary": "505a76b772959fb369eca14b0de5fc3fbb0bf9bd27bdfb8c9d0177aac812077e",
+        "closed": "0882c71c80561c0bed36c571d2ebcd4468da4fb14c32179fa14db8ae5a24041d",
+        "fills": "28dd38d0ae49fed032490429326c777b153432e4bd7f8d514973ef15ae999db4",
+        "events": "57fd84f91093cbca6fbb5e5003468290ec2bcc5033a98078055d0813b79ec933",
+        "nav": "df2e9cae8bb668e052ba62177e36135d3a8b6d5034eb8d5b336cdb2bd0ff598b",
+        "positions": "98f73bd40fb7dea4bdea7aa5b7f7ad342c933dac4fd3445b5e9a56d3ffeaee23",
+        "receivables": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "scans": "01b5a068ec29d606efa5a925a074b03ec6a6d96d676c49b5d48be1943b99aed2"
+      }
+    }
+  },
+  "benchmark": {
+    "name": "SPY_CASH_FUNDED_BUY_HOLD_NO_DIVIDEND_REINVESTMENT",
+    "start": "2025-04-28",
+    "end": "2025-12-31",
+    "quantity": 181,
+    "terminal_equity": 124572.54262400002,
+    "net_return": 0.24572542624000016,
+    "dividend_income": 1010.9934189999999,
+    "receivables": 360.799608,
+    "adverse_entry_bps": 5,
+    "terminal_sale": false,
+    "explicit_broker_fees_verified": false
+  },
+  "actual_orders": 0,
+  "independent_out_of_sample": false,
+  "promotable": false,
+  "rule": "Primary result remains HALT policy; observed-only outcomes cannot replace it."
+}
