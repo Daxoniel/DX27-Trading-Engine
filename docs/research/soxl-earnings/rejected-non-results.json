@@ -1,0 +1,30 @@
+[
+  {
+    "symbol": "INTC",
+    "announcement_date": "2021-01-13",
+    "verified": true,
+    "source_url": "https://www.sec.gov/Archives/edgar/data/50863/000119312521009142/d82915d8k.htm",
+    "source_sha256": "3126c55cfbc466509edca38b65048e8ffa2f9b446e128e1ad2ca605320d37025",
+    "accession": "0001193125-21-009142",
+    "sec_report_date": "2021-01-12",
+    "sec_filing_date": "2021-01-14",
+    "release_time": "UNKNOWN_NOT_INFERRED_FROM_ACCEPTANCE",
+    "event_kind": "QUARTERLY_OR_ANNUAL_RESULTS_INCLUDING_PRELIMINARY",
+    "verification": "Explicit announcement/press-release date in Item 2.02 text; quarter/results context checked",
+    "exclusion_reason": "Guidance-only update and CEO appointment, not a quarterly results release"
+  },
+  {
+    "symbol": "AVGO",
+    "announcement_date": "2018-01-31",
+    "verified": true,
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1649338/000119312518026500/d496455d8k.htm",
+    "source_sha256": "6dc903f418b5f093a2243bddc81f1738fbcfc8caf49c0d6ff05a2cb9ac100ba0",
+    "accession": "0001193125-18-026500",
+    "sec_report_date": "2018-01-31",
+    "sec_filing_date": "2018-01-31",
+    "release_time": "UNKNOWN_NOT_INFERRED_FROM_ACCEPTANCE",
+    "event_kind": "QUARTERLY_OR_ANNUAL_RESULTS_INCLUDING_PRELIMINARY",
+    "verification": "Explicit announcement/press-release date in Item 2.02 text; quarter/results context checked",
+    "exclusion_reason": "Future revenue guidance update, not actual quarterly results"
+  }
+]
