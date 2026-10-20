@@ -1,0 +1,80 @@
+[
+  {
+    "symbol": "NVDA",
+    "accession": "0001045810-17-000164",
+    "sec_report_date": "2017-11-06",
+    "release_date": "2017-11-09"
+  },
+  {
+    "symbol": "INTC",
+    "accession": "0000050863-21-000037",
+    "sec_report_date": "2021-10-18",
+    "release_date": "2021-10-21"
+  },
+  {
+    "symbol": "INTC",
+    "accession": "0001193125-21-009142",
+    "sec_report_date": "2021-01-12",
+    "release_date": "2021-01-13"
+  },
+  {
+    "symbol": "AVGO",
+    "accession": "0001730168-21-000110",
+    "sec_report_date": "2021-06-02",
+    "release_date": "2021-06-03"
+  },
+  {
+    "symbol": "AVGO",
+    "accession": "0001193125-19-312797",
+    "sec_report_date": "2019-12-10",
+    "release_date": "2019-12-12"
+  },
+  {
+    "symbol": "AVGO",
+    "accession": "0001193125-19-172516",
+    "sec_report_date": "2019-06-11",
+    "release_date": "2019-06-13"
+  },
+  {
+    "symbol": "AVGO",
+    "accession": "0001193125-19-074832",
+    "sec_report_date": "2019-03-13",
+    "release_date": "2019-03-14"
+  },
+  {
+    "symbol": "AVGO",
+    "accession": "0001193125-17-362829",
+    "sec_report_date": "2017-12-04",
+    "release_date": "2017-12-06"
+  },
+  {
+    "symbol": "AVGO",
+    "accession": "0001193125-17-191183",
+    "sec_report_date": "2017-05-31",
+    "release_date": "2017-06-01"
+  },
+  {
+    "symbol": "AVGO",
+    "accession": "0001193125-16-788497",
+    "sec_report_date": "2016-12-06",
+    "release_date": "2016-12-08"
+  },
+  {
+    "symbol": "AVGO",
+    "accession": "0001193125-16-611172",
+    "sec_report_date": "2016-05-31",
+    "release_date": "2016-06-02"
+  },
+  {
+    "symbol": "AVGO",
+    "accession": "0001193125-16-491591",
+    "sec_report_date": "2016-03-02",
+    "release_date": "2016-03-03"
+  },
+  {
+    "symbol": "AMD",
+    "accession": "0000002488-22-000074",
+    "sec_report_date": "2022-04-29",
+    "release_date": "2022-05-03"
+  }
+]

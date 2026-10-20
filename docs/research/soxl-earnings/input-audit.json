@@ -1,0 +1,35 @@
+{
+  "status": "COMPLETE_RETROSPECTIVE_EVENT_INPUTS",
+  "holdings_snapshots": 49,
+  "holdings_period": "2015-01-31 to 2025-09-30",
+  "series": "S000004354",
+  "holdings_calendar_sessions": 2514,
+  "lagged_holdings_age_days": [
+    55,
+    239
+  ],
+  "generic_holdings_parser_pass": 48,
+  "manual_holdings_table_checks": 1,
+  "manual_source_accession": "0001193125-18-261300",
+  "manual_source_page": 209,
+  "us_candidate_results_documents": 203,
+  "verified_us_results": 201,
+  "verified_foreign_results": 4,
+  "total_verified_event_records": 205,
+  "rejected_guidance_only_records": 2,
+  "unresolved_selected_records": 0,
+  "sec_reportdate_corrections": 13,
+  "major_membership_changed_by_corrected_dates": false,
+  "unselected_filings_becoming_major_between_report_and_filing_date": 0,
+  "preliminary_actual_quarter_results_included": 2,
+  "upcoming_schedule_known_at_entry_proven": false,
+  "inputs_sha256": {
+    "holdings-snapshots.json": "c7850f64b02731ef4924f7090b96030675bb2bb5db995228faa4418c1aa1d3c1",
+    "events.json": "5980ae5fcd207fc1c2489c39041bc29a1d58280201f70ecfb52e6d6c9410cc1a",
+    "rejected-non-results.json": "bdb5f1414623187e6d6468edd3e7785a615252fd168e7ecf85fc6fc1d18db648",
+    "date-corrections.json": "40ad0058881016b08a69d3153284ddab76c8c77c7199cec2c77372fd707f87f7"
+  },
+  "source_method": "US explicit results-release date inside SEC Item2.02; foreign issuer earnings-release PDFs / issuer news",
+  "source_raw_redistributed": false,
+  "ishares_historical_query_rejected": "Requested 2023 historical date returned 2026 current holdings; never used"
+}

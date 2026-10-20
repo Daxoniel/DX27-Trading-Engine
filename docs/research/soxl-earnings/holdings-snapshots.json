@@ -1,0 +1,1767 @@
+[
+  {
+    "asof": "2015-01-31",
+    "filing_date": "2015-04-08",
+    "accession": "0001193125-15-122693",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312515122693/d875397dncsrs.htm",
+    "sha256": "1e6a4c7819b0b440b9d9a2e787395e5a38a47437f9dbf60a31ee7d20f0d7e6c4",
+    "equity_positions": 30,
+    "equity_value_sum": 533910296.0,
+    "top5": [
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 44191338.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 39908322.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 38549750.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Micron Technology Inc.b",
+        "value": 36626786.0,
+        "symbol": "MU"
+      },
+      {
+        "name": "Applied Materials Inc.",
+        "value": 33883186.0,
+        "symbol": "AMAT"
+      }
+    ]
+  },
+  {
+    "asof": "2015-04-30",
+    "filing_date": "2015-06-29",
+    "accession": "0001193125-15-238848",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312515238848/d944131dnq.htm",
+    "sha256": "77731d98b4a49bcde0950b0893c4efa1e54af51df9f07ba46c6c16dce5be6356",
+    "equity_positions": 30,
+    "equity_value_sum": 505314030.0,
+    "top5": [
+      {
+        "name": "Intel Corp.",
+        "value": 41188249.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 39457341.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 38789478.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Micron Technology Inc.b",
+        "value": 32639970.0,
+        "symbol": "MU"
+      },
+      {
+        "name": "Avago Technologies Ltd.",
+        "value": 32273607.0,
+        "symbol": "AVGO"
+      }
+    ]
+  },
+  {
+    "asof": "2015-07-31",
+    "filing_date": "2015-10-07",
+    "accession": "0001193125-15-339410",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312515339410/d98289dncsr.htm",
+    "sha256": "9f340feeff4f9ea1c4a36ef7f9bc2d3db2839fe5e59c47a7a59cf03177691147",
+    "equity_positions": 30,
+    "equity_value_sum": 397777509.0,
+    "top5": [
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 33887620.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 32776284.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 30807982.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Avago Technologies Ltd.",
+        "value": 28380376.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "Broadcom Corp. Class A",
+        "value": 24735587.0,
+        "symbol": "BRCM"
+      }
+    ]
+  },
+  {
+    "asof": "2015-09-30",
+    "filing_date": "2015-12-07",
+    "accession": "0001193125-15-396474",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312515396474/d93555dncsrs.htm",
+    "sha256": "119f4d9e59445506ab4e0b29b0ca65f6a656614ae60b50b000dc270ef09eb19e",
+    "equity_positions": 30,
+    "equity_value_sum": 362117334.0,
+    "top5": [
+      {
+        "name": "Intel Corp.",
+        "value": 31116928.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 30499715.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Avago Technologies Ltd.c",
+        "value": 29240464.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 27980972.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Taiwan Semiconductor Manufacturing Co. Ltd. ADR",
+        "value": 22379331.0,
+        "symbol": "TSM"
+      }
+    ]
+  },
+  {
+    "asof": "2015-12-31",
+    "filing_date": "2016-02-26",
+    "accession": "0001193125-16-480933",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312516480933/d146052dnq.htm",
+    "sha256": "6ae193f2a7e907973196ae6c0641b6faa6db8b926762cef83eb2148d408dbc88",
+    "equity_positions": 30,
+    "equity_value_sum": 394626094.0,
+    "top5": [
+      {
+        "name": "Avago Technologies Ltd.b",
+        "value": 35859017.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 33016642.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 31930706.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 30391926.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Taiwan Semiconductor Manufacturing Co. Ltd. ADR",
+        "value": 24431521.0,
+        "symbol": "TSM"
+      }
+    ]
+  },
+  {
+    "asof": "2016-03-31",
+    "filing_date": "2016-06-06",
+    "accession": "0001193125-16-613829",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312516613829/d184535dncsr.htm",
+    "sha256": "6e7e1956592157ed87873187c8227c0930e9f2f11ca2fbffce9e5b11eb802068",
+    "equity_positions": 30,
+    "equity_value_sum": 380042562.0,
+    "top5": [
+      {
+        "name": "Broadcom Ltd.",
+        "value": 32250485.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 30573241.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 30285662.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Taiwan Semiconductor Manufacturing Co. Ltd. ADRc",
+        "value": 28994230.0,
+        "symbol": "TSM"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 28157633.0,
+        "symbol": "QCOM"
+      }
+    ]
+  },
+  {
+    "asof": "2016-06-30",
+    "filing_date": "2016-08-29",
+    "accession": "0001193125-16-695276",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312516695276/d231174dnq.htm",
+    "sha256": "c3aaea8b04b373a6c45e8ad5bdc088713836c4247aebca90831a52eb54fbeeba",
+    "equity_positions": 30,
+    "equity_value_sum": 467809230.0,
+    "top5": [
+      {
+        "name": "Intel Corp.",
+        "value": 39524787.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 39354349.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Broadcom Ltd.",
+        "value": 38323194.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 37131028.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "NXP Semiconductors NVa",
+        "value": 31560444.0,
+        "symbol": "NXPI"
+      }
+    ]
+  },
+  {
+    "asof": "2016-09-30",
+    "filing_date": "2016-12-08",
+    "accession": "0001193125-16-788378",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312516788378/d270106dncsrs.htm",
+    "sha256": "98e4eabff2678153a3faeef40482899f4a99f5eac188c5a2c9632653e2306be0",
+    "equity_positions": 30,
+    "equity_value_sum": 501492620.0,
+    "top5": [
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 42053520.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 41304610.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 40723719.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 39076505.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Broadcom Ltd.",
+        "value": 37867277.0,
+        "symbol": "AVGO"
+      }
+    ]
+  },
+  {
+    "asof": "2016-12-31",
+    "filing_date": "2017-03-01",
+    "accession": "0001193125-17-065125",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312517065125/d346678dnq.htm",
+    "sha256": "492d46fdbd9861833f3918bdc023b0af53db1702c17ef29c60049d88e8320c9f",
+    "equity_positions": 30,
+    "equity_value_sum": 692417595.0,
+    "top5": [
+      {
+        "name": "NVIDIA Corp.",
+        "value": 62287166.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 56236780.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Broadcom Ltd.",
+        "value": 55784193.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 53103845.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 51488570.0,
+        "symbol": "QCOM"
+      }
+    ]
+  },
+  {
+    "asof": "2017-03-31",
+    "filing_date": "2017-06-05",
+    "accession": "0001193125-17-194722",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312517194722/d335700dncsr.htm",
+    "sha256": "48b4d0f02234a8c2c6458d64ff9d9da08249d035c45f1730beb25316995e21c7",
+    "equity_positions": 30,
+    "equity_value_sum": 888687785.0,
+    "top5": [
+      {
+        "name": "NVIDIA Corp.",
+        "value": 73214467.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 71714512.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Broadcom Ltd.",
+        "value": 70803344.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 69245562.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 67962264.0,
+        "symbol": "INTC"
+      }
+    ]
+  },
+  {
+    "asof": "2016-09-30",
+    "filing_date": "2017-08-14",
+    "accession": "0001193125-17-257378",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312517257378/d441273dncsrsa.htm",
+    "sha256": "b066b57a89f082e3995d267b355c62a043105893cc2d7872e013fa310af270cb",
+    "equity_positions": 30,
+    "equity_value_sum": 501492620.0,
+    "top5": [
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 42053520.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 41304610.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 40723719.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 39076505.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Broadcom Ltd.",
+        "value": 37867277.0,
+        "symbol": "AVGO"
+      }
+    ]
+  },
+  {
+    "asof": "2017-03-31",
+    "filing_date": "2017-08-14",
+    "accession": "0001193125-17-257387",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312517257387/d426597dncsra.htm",
+    "sha256": "6d03b6edb38f510693c96acd7204f166158aecb3f95cded2bbe2d92e930fefae",
+    "equity_positions": 30,
+    "equity_value_sum": 888687785.0,
+    "top5": [
+      {
+        "name": "NVIDIA Corp.",
+        "value": 73214467.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 71714512.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Broadcom Ltd.",
+        "value": 70803344.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 69245562.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 67962264.0,
+        "symbol": "INTC"
+      }
+    ]
+  },
+  {
+    "asof": "2017-06-30",
+    "filing_date": "2017-08-29",
+    "accession": "0001193125-17-271743",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312517271743/d438168dnq.htm",
+    "sha256": "fe04eff86e9c2d714ad0aba55dd08f6164faade7cc40bb19c74635ddaf045172",
+    "equity_positions": 30,
+    "equity_value_sum": 986779668.0,
+    "top5": [
+      {
+        "name": "NVIDIA Corp.",
+        "value": 83467788.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Broadcom Ltd.",
+        "value": 81109790.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 80363764.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 77877217.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 77729226.0,
+        "symbol": "TXN"
+      }
+    ]
+  },
+  {
+    "asof": "2017-09-30",
+    "filing_date": "2017-12-04",
+    "accession": "0001193125-17-359934",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312517359934/d462369dncsrs.htm",
+    "sha256": "69ff538f7404b948415a43d065104b1bc92ab53797d221f766362e764fdd237d",
+    "equity_positions": 30,
+    "equity_value_sum": 1252166094.0,
+    "top5": [
+      {
+        "name": "Intel Corp.",
+        "value": 103348892.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 103017425.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 100421187.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 94396648.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Broadcom Ltd.",
+        "value": 91580921.0,
+        "symbol": "AVGO"
+      }
+    ]
+  },
+  {
+    "asof": "2017-03-31",
+    "filing_date": "2018-01-12",
+    "accession": "0001193125-18-009766",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312518009766/d491396dncsra.htm",
+    "sha256": "99cd2fc8146843b77d4aa31a9636bd6ad41ad2c075bb6be2a145f0f3b5302538",
+    "equity_positions": 30,
+    "equity_value_sum": 888687785.0,
+    "top5": [
+      {
+        "name": "NVIDIA Corp.",
+        "value": 73214467.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 71714512.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Broadcom Ltd.",
+        "value": 70803344.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 69245562.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 67962264.0,
+        "symbol": "INTC"
+      }
+    ]
+  },
+  {
+    "asof": "2017-12-31",
+    "filing_date": "2018-02-28",
+    "accession": "0001193125-18-063612",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312518063612/d539192dnq.htm",
+    "sha256": "7f8ce5f32aa3e70707aed3ae961b9dd431f2cdaf7d233d02bd45528f98d0ab2c",
+    "equity_positions": 30,
+    "equity_value_sum": 1467121063.0,
+    "top5": [
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 128029132.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 122787954.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 115103927.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 114980796.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Broadcom Ltd.",
+        "value": 110228597.0,
+        "symbol": "AVGO"
+      }
+    ]
+  },
+  {
+    "asof": "2017-03-31",
+    "filing_date": "2018-05-04",
+    "accession": "0001193125-18-152961",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312518152961/d575725dncsra.htm",
+    "sha256": "50095b5639344e4033369cda0302687c75d91c1fb0855fcdb130633be6748df9",
+    "equity_positions": 30,
+    "equity_value_sum": 888687785.0,
+    "top5": [
+      {
+        "name": "NVIDIA Corp.",
+        "value": 73214467.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 71714512.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Broadcom Ltd.",
+        "value": 70803344.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 69245562.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 67962264.0,
+        "symbol": "INTC"
+      }
+    ]
+  },
+  {
+    "asof": "2017-09-30",
+    "filing_date": "2018-05-04",
+    "accession": "0001193125-18-152996",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312518152996/d577154dncsrsa.htm",
+    "sha256": "cc82cbacc52454eac1ac126522521d117df403c905c57bb95e2c8ff37a1669da",
+    "equity_positions": 30,
+    "equity_value_sum": 1252166094.0,
+    "top5": [
+      {
+        "name": "Intel Corp.",
+        "value": 103348892.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 103017425.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 100421187.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 94396648.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Broadcom Ltd.",
+        "value": 91580921.0,
+        "symbol": "AVGO"
+      }
+    ]
+  },
+  {
+    "asof": "2018-03-31",
+    "filing_date": "2018-06-07",
+    "accession": "0001193125-18-186572",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312518186572/d544791dncsr.htm",
+    "sha256": "32822494b315245417bdf65281936669ff64ffc094432a4e400aba8298066884",
+    "equity_positions": 30,
+    "equity_value_sum": 1628639848.0,
+    "top5": [
+      {
+        "name": "Intel Corp.",
+        "value": 141057690.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 128005778.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "NVIDIA Corp.b",
+        "value": 127758245.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Broadcom Ltd.",
+        "value": 127654668.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 113804549.0,
+        "symbol": "QCOM"
+      }
+    ]
+  },
+  {
+    "asof": "2018-06-30",
+    "filing_date": "2018-08-29",
+    "accession": "0001193125-18-261300",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312518261300/d577177dnq.htm",
+    "sha256": "03e5b331a2341162315a2b0f6f4ceb5618f39032d3c6bd644d850f8ee5471b8c",
+    "equity_positions": 30,
+    "equity_value_sum": 1503091066,
+    "top5": [
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 124320656,
+        "symbol": "TXN"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 121849035,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Broadcom Inc.",
+        "value": 121471893,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 118540970,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 113642230,
+        "symbol": "INTC"
+      }
+    ],
+    "extraction": "Manually checked SOXX investment schedule page 209, after generic parser rejected typography; all five values and equity/net-asset totals checked in exact hashed source"
+  },
+  {
+    "asof": "2018-09-30",
+    "filing_date": "2018-12-07",
+    "accession": "0001193125-18-344229",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312518344229/d586605dncsrs.htm",
+    "sha256": "4eca4d8db269ebb19a995b1c15f94ce017ac6fbf00882f10511e3adb58d2f5f0",
+    "equity_positions": 30,
+    "equity_value_sum": 1637362509.0,
+    "top5": [
+      {
+        "name": "Broadcom Inc.",
+        "value": 151457431.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 140950681.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 134615887.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 131288862.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 128340942.0,
+        "symbol": "TXN"
+      }
+    ]
+  },
+  {
+    "asof": "2018-12-31",
+    "filing_date": "2019-03-01",
+    "accession": "0001193125-19-059323",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312519059323/d655820dnq.htm",
+    "sha256": "3fc9262f3fd4c3f4dce9d47094488e8cb9bc9a9a499ff9848fed1140435cd9ab",
+    "equity_positions": 30,
+    "equity_value_sum": 1072730084.0,
+    "top5": [
+      {
+        "name": "Broadcom Inc.",
+        "value": 99194628.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 90549842.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 88155377.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 87668311.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 75690228.0,
+        "symbol": "NVDA"
+      }
+    ]
+  },
+  {
+    "asof": "2019-03-31",
+    "filing_date": "2019-06-07",
+    "accession": "0001193125-19-167652",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312519167652/d738391dncsr.htm",
+    "sha256": "4e6bbbfcae24a99ca3be537e2d554330978f821cc2be77a8d69b643302d47677",
+    "equity_positions": 30,
+    "equity_value_sum": 1061131206.0,
+    "top5": [
+      {
+        "name": "NVIDIA Corp.",
+        "value": 95473129.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Broadcom Inc.",
+        "value": 89571886.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 87613079.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 83167069.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 82245723.0,
+        "symbol": "TXN"
+      }
+    ]
+  },
+  {
+    "asof": "2019-09-30",
+    "filing_date": "2019-11-25",
+    "accession": "0001752724-19-177706",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272419177706/primary_doc.xml",
+    "sha256": "951d162d4e996b74a7e1818e13c4c118c348320a95e54a72a4158a20c88d0e73",
+    "equity_positions": 30,
+    "equity_value_sum": 1752690971.8600001,
+    "top5": [
+      {
+        "name": "Intel Corp",
+        "value": 147146852.21,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc",
+        "value": 141387913.8,
+        "symbol": "TXN"
+      },
+      {
+        "name": "NVIDIA Corp",
+        "value": 140683896.21,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "QUALCOMM Inc",
+        "value": 132788224.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Broadcom Inc",
+        "value": 132234769.3,
+        "symbol": "AVGO"
+      }
+    ]
+  },
+  {
+    "asof": "2019-09-30",
+    "filing_date": "2019-12-05",
+    "accession": "0001193125-19-306805",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000119312519306805/d787052dncsrs.htm",
+    "sha256": "cd63737bf6c1d6191fe398668c7e81ae19d57542f1686783e8492f1f7efe25ea",
+    "equity_positions": 30,
+    "equity_value_sum": 1784365628.0,
+    "top5": [
+      {
+        "name": "Intel Corp.",
+        "value": 149806109.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc.",
+        "value": 143942989.0,
+        "symbol": "TXN"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 143226537.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "QUALCOMM Inc.",
+        "value": 135188069.0,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Broadcom Inc.",
+        "value": 134624155.0,
+        "symbol": "AVGO"
+      }
+    ]
+  },
+  {
+    "asof": "2019-12-31",
+    "filing_date": "2020-02-27",
+    "accession": "0001752724-20-038669",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272420038669/primary_doc.xml",
+    "sha256": "ca61d60001cf3ec4eaabecad09b4a51655fe07ef917d0b946ef2e52438cf1bd4",
+    "equity_positions": 30,
+    "equity_value_sum": 2340643391.13,
+    "top5": [
+      {
+        "name": "NVIDIA Corp",
+        "value": 188952959.0,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Texas Instruments Inc",
+        "value": 185379434.87,
+        "symbol": "TXN"
+      },
+      {
+        "name": "QUALCOMM Inc",
+        "value": 183520341.06,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Intel Corp",
+        "value": 179363327.85,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Broadcom Inc",
+        "value": 173679535.68,
+        "symbol": "AVGO"
+      }
+    ]
+  },
+  {
+    "asof": "2020-03-31",
+    "filing_date": "2020-06-01",
+    "accession": "0001752724-20-112013",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272420112013/primary_doc.xml",
+    "sha256": "0543fea92ecbdf2a6342ad5acede276f79c116a3d9af1a6c8787c7bc5b9df8a7",
+    "equity_positions": 30,
+    "equity_value_sum": 2145650317.35,
+    "top5": [
+      {
+        "name": "NVIDIA Corp",
+        "value": 237334105.2,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Intel Corp",
+        "value": 181932335.64,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc",
+        "value": 162221765.22,
+        "symbol": "TXN"
+      },
+      {
+        "name": "QUALCOMM Inc",
+        "value": 158006654.85,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Broadcom Inc",
+        "value": 146322234.3,
+        "symbol": "AVGO"
+      }
+    ]
+  },
+  {
+    "asof": "2020-06-30",
+    "filing_date": "2020-08-27",
+    "accession": "0001752724-20-176975",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272420176975/primary_doc.xml",
+    "sha256": "c901df92fdedd6500bd9904af5bec5f7d05e8e25939396da2f8c8e25629bc69e",
+    "equity_positions": 30,
+    "equity_value_sum": 3096645902.05,
+    "top5": [
+      {
+        "name": "QUALCOMM Inc",
+        "value": 258564023.41,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Broadcom Inc",
+        "value": 248440932.97,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "NVIDIA Corp",
+        "value": 245355375.75,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Texas Instruments Inc",
+        "value": 245171959.68,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Intel Corp",
+        "value": 217985758.77,
+        "symbol": "INTC"
+      }
+    ]
+  },
+  {
+    "asof": "2020-09-30",
+    "filing_date": "2020-11-25",
+    "accession": "0001752724-20-247778",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272420247778/primary_doc.xml",
+    "sha256": "7ad3b348a5711d46eb04849334f2f2f78003a545ebe1620d48b97b829e6c2387",
+    "equity_positions": 30,
+    "equity_value_sum": 3679607182.85,
+    "top5": [
+      {
+        "name": "Broadcom Inc",
+        "value": 309847237.92,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "Intel Corp",
+        "value": 300054692.22,
+        "symbol": "INTC"
+      },
+      {
+        "name": "NVIDIA Corp",
+        "value": 298690117.26,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Texas Instruments Inc",
+        "value": 296574544.42,
+        "symbol": "TXN"
+      },
+      {
+        "name": "QUALCOMM Inc",
+        "value": 291725071.92,
+        "symbol": "QCOM"
+      }
+    ]
+  },
+  {
+    "asof": "2020-12-31",
+    "filing_date": "2021-02-25",
+    "accession": "0001752724-21-040706",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272421040706/primary_doc.xml",
+    "sha256": "b589d98b79c4a0bc1e8f3a105330eed58d6b1e8620d263f84e3631e6afd7e7da",
+    "equity_positions": 30,
+    "equity_value_sum": 4844254961.38,
+    "top5": [
+      {
+        "name": "Broadcom Inc",
+        "value": 403439806.35,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "QUALCOMM Inc",
+        "value": 383018559.9,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Intel Corp",
+        "value": 381269719.9,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments Inc",
+        "value": 376628454.48,
+        "symbol": "TXN"
+      },
+      {
+        "name": "NVIDIA Corp",
+        "value": 360453249.8,
+        "symbol": "NVDA"
+      }
+    ]
+  },
+  {
+    "asof": "2021-03-31",
+    "filing_date": "2021-05-27",
+    "accession": "0001752724-21-116396",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272421116396/primary_doc.xml",
+    "sha256": "1587b82078471a918eb0f6a85f7046a376238e5fa3f24fa0e9178053618833a5",
+    "equity_positions": 30,
+    "equity_value_sum": 6307969611.9,
+    "top5": [
+      {
+        "name": "Texas Instruments Inc",
+        "value": 543906983.33,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Intel Corp",
+        "value": 522053696.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Broadcom Inc",
+        "value": 489233630.96,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "QUALCOMM Inc",
+        "value": 482683022.62,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "NVIDIA Corp",
+        "value": 482545644.66,
+        "symbol": "NVDA"
+      }
+    ]
+  },
+  {
+    "asof": "2021-06-30",
+    "filing_date": "2021-08-26",
+    "accession": "0001752724-21-186189",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272421186189/primary_doc.xml",
+    "sha256": "c6ca63fc0af4830f1b820c44bdb3b307d829937bcb717b406e84fdaf510bde8f",
+    "equity_positions": 30,
+    "equity_value_sum": 6823041457.99,
+    "top5": [
+      {
+        "name": "NVIDIA Corp",
+        "value": 639695151.9,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Broadcom Inc",
+        "value": 524472024.44,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "Intel Corp",
+        "value": 510597622.78,
+        "symbol": "INTC"
+      },
+      {
+        "name": "QUALCOMM Inc",
+        "value": 379440558.9,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Texas Instruments Inc",
+        "value": 361833987.6,
+        "symbol": "TXN"
+      }
+    ]
+  },
+  {
+    "asof": "2021-09-30",
+    "filing_date": "2021-11-24",
+    "accession": "0001752724-21-255817",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272421255817/primary_doc.xml",
+    "sha256": "718e651a358b8595b058d6ff74e14085293e9cc60f9860f5950e2e0263c575c4",
+    "equity_positions": 30,
+    "equity_value_sum": 7163416222.72,
+    "top5": [
+      {
+        "name": "Intel Corp",
+        "value": 591144477.12,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Broadcom Inc",
+        "value": 584983667.18,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "NVIDIA Corp",
+        "value": 555077969.4,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Texas Instruments Inc",
+        "value": 430448720.91,
+        "symbol": "TXN"
+      },
+      {
+        "name": "QUALCOMM Inc",
+        "value": 375920206.76,
+        "symbol": "QCOM"
+      }
+    ]
+  },
+  {
+    "asof": "2021-12-31",
+    "filing_date": "2022-02-25",
+    "accession": "0001752724-22-046342",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272422046342/primary_doc.xml",
+    "sha256": "152f21fa26f944c56518308951ccefd7aa78e20fdb6a8678ee693cc2d7930a0e",
+    "equity_positions": 30,
+    "equity_value_sum": 9938092578.24,
+    "top5": [
+      {
+        "name": "Broadcom Inc",
+        "value": 927767854.8,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "QUALCOMM Inc",
+        "value": 781861782.22,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "NVIDIA Corp",
+        "value": 694847227.62,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Intel Corp",
+        "value": 579735397.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Advanced Micro Devices Inc",
+        "value": 503240460.6,
+        "symbol": "AMD"
+      }
+    ]
+  },
+  {
+    "asof": "2022-03-31",
+    "filing_date": "2022-05-26",
+    "accession": "0001752724-22-122864",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272422122864/primary_doc.xml",
+    "sha256": "86e91dfcbfe5a0ff09340deccbb8e754386495974b5abfe2864f074e0ee44c4e",
+    "equity_positions": 30,
+    "equity_value_sum": 8888984545.63,
+    "top5": [
+      {
+        "name": "NVIDIA Corp",
+        "value": 793030753.9,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Broadcom Inc",
+        "value": 759678065.68,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "Advanced Micro Devices Inc",
+        "value": 628272560.3,
+        "symbol": "AMD"
+      },
+      {
+        "name": "Intel Corp",
+        "value": 549926433.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "QUALCOMM Inc",
+        "value": 470293158.24,
+        "symbol": "QCOM"
+      }
+    ]
+  },
+  {
+    "asof": "2022-06-30",
+    "filing_date": "2022-08-25",
+    "accession": "0001752724-22-193694",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272422193694/primary_doc.xml",
+    "sha256": "a04e5192f680d6d72806e89c2b1439e6faee6478b4faf6ab55f89b0f89271bbc",
+    "equity_positions": 30,
+    "equity_value_sum": 6212685635.47,
+    "top5": [
+      {
+        "name": "Intel Corp",
+        "value": 509690599.68,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Broadcom Inc",
+        "value": 506766385.97,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "NVIDIA Corp",
+        "value": 491300612.97,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Texas Instruments Inc",
+        "value": 411251446.55,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Advanced Micro Devices Inc",
+        "value": 355119950.64,
+        "symbol": "AMD"
+      }
+    ]
+  },
+  {
+    "asof": "2022-09-30",
+    "filing_date": "2022-11-28",
+    "accession": "0001752724-22-268670",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272422268670/primary_doc.xml",
+    "sha256": "869d6e6597307b4ece7a22870665f3ec3a6da90554142fab1e2fdf8608da069f",
+    "equity_positions": 30,
+    "equity_value_sum": 5446604045.89,
+    "top5": [
+      {
+        "name": "Texas Instruments, Inc.",
+        "value": 479916749.64,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Broadcom, Inc.",
+        "value": 459924650.43,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 370708429.57,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "QUALCOMM, Inc.",
+        "value": 325528370.16,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Advanced Micro Devices, Inc.",
+        "value": 280321303.68,
+        "symbol": "AMD"
+      }
+    ]
+  },
+  {
+    "asof": "2022-12-31",
+    "filing_date": "2023-02-24",
+    "accession": "0001752724-23-039255",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272423039255/primary_doc.xml",
+    "sha256": "3b57c888aaae46335ca344aa33ee7bf5d0ad405b5be09252e831fb9f0639f9f8",
+    "equity_positions": 30,
+    "equity_value_sum": 5824494720.87,
+    "top5": [
+      {
+        "name": "Broadcom, Inc.",
+        "value": 527780140.03,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "Texas Instruments, Inc.",
+        "value": 476206997.2,
+        "symbol": "TXN"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 449165089.64,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "QUALCOMM, Inc.",
+        "value": 351831747.04,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Advanced Micro Devices, Inc.",
+        "value": 337737530.01,
+        "symbol": "AMD"
+      }
+    ]
+  },
+  {
+    "asof": "2023-03-31",
+    "filing_date": "2023-05-26",
+    "accession": "0001752724-23-123226",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272423123226/primary_doc.xml",
+    "sha256": "d7daf3a2079d6e3b1c62fa65d785a172900b919806001db80fc7d0e196cc0986",
+    "equity_positions": 30,
+    "equity_value_sum": 7747466165.46,
+    "top5": [
+      {
+        "name": "NVIDIA Corp.",
+        "value": 682578109.5,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Texas Instruments, Inc.",
+        "value": 618946600.91,
+        "symbol": "TXN"
+      },
+      {
+        "name": "Broadcom, Inc.",
+        "value": 615857229.18,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "Advanced Micro Devices, Inc.",
+        "value": 544771041.21,
+        "symbol": "AMD"
+      },
+      {
+        "name": "QUALCOMM, Inc.",
+        "value": 451092898.7,
+        "symbol": "QCOM"
+      }
+    ]
+  },
+  {
+    "asof": "2023-06-30",
+    "filing_date": "2023-08-25",
+    "accession": "0001752724-23-191474",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272423191474/primary_doc.xml",
+    "sha256": "796bad16f55796c2ba78da20575ee8c6f5990687c2b5d04b477d14aa76ef080c",
+    "equity_positions": 30,
+    "equity_value_sum": 8830331665.57,
+    "top5": [
+      {
+        "name": "NVIDIA Corp.",
+        "value": 741256676.94,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Broadcom, Inc.",
+        "value": 711761012.2,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "Advanced Micro Devices, Inc.",
+        "value": 638847945.87,
+        "symbol": "AMD"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 553895712.48,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments, Inc.",
+        "value": 539157379.72,
+        "symbol": "TXN"
+      }
+    ]
+  },
+  {
+    "asof": "2023-09-30",
+    "filing_date": "2023-11-22",
+    "accession": "0001752724-23-264274",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272423264274/primary_doc.xml",
+    "sha256": "97f9c3ac0b14ce7d9e2380665ad225866013dfb817fc722fc20deee4e10028db",
+    "equity_positions": 30,
+    "equity_value_sum": 8445354497.87,
+    "top5": [
+      {
+        "name": "Advanced Micro Devices, Inc.",
+        "value": 704983787.7,
+        "symbol": "AMD"
+      },
+      {
+        "name": "Broadcom, Inc.",
+        "value": 652364110.56,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 638861548.19,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 570674622.6,
+        "symbol": "INTC"
+      },
+      {
+        "name": "Texas Instruments, Inc.",
+        "value": 533716746.98,
+        "symbol": "TXN"
+      }
+    ]
+  },
+  {
+    "asof": "2023-12-31",
+    "filing_date": "2024-02-27",
+    "accession": "0001752724-24-043112",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272424043112/primary_doc.xml",
+    "sha256": "e249627944d96a2e0d4ec7ba66298cac40b6dfac0d0f2a425317c0171434d4e2",
+    "equity_positions": 30,
+    "equity_value_sum": 10260881540.3,
+    "top5": [
+      {
+        "name": "Advanced Micro Devices, Inc.",
+        "value": 889120661.97,
+        "symbol": "AMD"
+      },
+      {
+        "name": "Broadcom, Inc.",
+        "value": 881191191.25,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 773791154.4,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 659811042.0,
+        "symbol": "INTC"
+      },
+      {
+        "name": "QUALCOMM, Inc.",
+        "value": 657796186.53,
+        "symbol": "QCOM"
+      }
+    ]
+  },
+  {
+    "asof": "2024-03-31",
+    "filing_date": "2024-05-28",
+    "accession": "0001752724-24-123330",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272424123330/primary_doc.xml",
+    "sha256": "11068710a8ce7c033eb66691751d0aeaa9fd86f7387833cc013f1a0fb1f31bc6",
+    "equity_positions": 30,
+    "equity_value_sum": 12935373032.97,
+    "top5": [
+      {
+        "name": "NVIDIA Corp.",
+        "value": 1137842265.28,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Broadcom, Inc.",
+        "value": 1015940019.1,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "Advanced Micro Devices, Inc.",
+        "value": 934145848.9,
+        "symbol": "AMD"
+      },
+      {
+        "name": "QUALCOMM, Inc.",
+        "value": 834510851.2,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Intel Corp.",
+        "value": 798451814.3,
+        "symbol": "INTC"
+      }
+    ]
+  },
+  {
+    "asof": "2024-06-30",
+    "filing_date": "2024-08-27",
+    "accession": "0001752724-24-194376",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272424194376/primary_doc.xml",
+    "sha256": "98db46844c7aa7789542cf0ce314fe2966713dff047cd0c3b69c869a46b6f4c6",
+    "equity_positions": 30,
+    "equity_value_sum": 14935761206.75,
+    "top5": [
+      {
+        "name": "Broadcom, Inc.",
+        "value": 1371095325.99,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 1278479262.78,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Advanced Micro Devices, Inc.",
+        "value": 1102677139.77,
+        "symbol": "AMD"
+      },
+      {
+        "name": "Applied Materials, Inc.",
+        "value": 986104982.12,
+        "symbol": "AMAT"
+      },
+      {
+        "name": "QUALCOMM, Inc.",
+        "value": 877282135.42,
+        "symbol": "QCOM"
+      }
+    ]
+  },
+  {
+    "asof": "2024-09-30",
+    "filing_date": "2024-11-26",
+    "accession": "0001752724-24-269906",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272424269906/primary_doc.xml",
+    "sha256": "973dc6fd2502e1aa0ef8d4eacddd3edcfda09c275a2d8335b39b3cf46d587dc0",
+    "equity_positions": 30,
+    "equity_value_sum": 14871133456.33,
+    "top5": [
+      {
+        "name": "Advanced Micro Devices, Inc.",
+        "value": 1315258060.48,
+        "symbol": "AMD"
+      },
+      {
+        "name": "Broadcom, Inc.",
+        "value": 1261645680.0,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 1211500741.44,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "QUALCOMM, Inc.",
+        "value": 902146199.1,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Texas Instruments, Inc.",
+        "value": 896285127.01,
+        "symbol": "TXN"
+      }
+    ]
+  },
+  {
+    "asof": "2024-12-31",
+    "filing_date": "2025-02-27",
+    "accession": "0001752724-25-043848",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272425043848/primary_doc.xml",
+    "sha256": "886fe6167027b8778e8df912264cfe393cf23be414b32a1dc2a71d42419721e5",
+    "equity_positions": 30,
+    "equity_value_sum": 13778737696.78,
+    "top5": [
+      {
+        "name": "Broadcom, Inc.",
+        "value": 1583163025.92,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 1075090287.44,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Advanced Micro Devices, Inc.",
+        "value": 974591095.25,
+        "symbol": "AMD"
+      },
+      {
+        "name": "QUALCOMM, Inc.",
+        "value": 844434853.34,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Texas Instruments, Inc.",
+        "value": 812816847.92,
+        "symbol": "TXN"
+      }
+    ]
+  },
+  {
+    "asof": "2025-03-31",
+    "filing_date": "2025-05-27",
+    "accession": "0001752724-25-119804",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272425119804/primary_doc.xml",
+    "sha256": "4f246020f54ed1437a4ab910068a00d54ef183204c439eb1b9f510497e4bcf1f",
+    "equity_positions": 30,
+    "equity_value_sum": 10799953167.16,
+    "top5": [
+      {
+        "name": "Texas Instruments, Inc.",
+        "value": 879292406.1,
+        "symbol": "TXN"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 832024589.6,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Broadcom, Inc.",
+        "value": 805121143.29,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "Advanced Micro Devices, Inc.",
+        "value": 788442992.92,
+        "symbol": "AMD"
+      },
+      {
+        "name": "QUALCOMM, Inc.",
+        "value": 748982851.53,
+        "symbol": "QCOM"
+      }
+    ]
+  },
+  {
+    "asof": "2025-06-30",
+    "filing_date": "2025-08-28",
+    "accession": "0001752724-25-210398",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000175272425210398/primary_doc.xml",
+    "sha256": "17f4dd0357f3f97c758889ce4bc0a35d9c2091b62f4db549604ca5028d40ec9d",
+    "equity_positions": 30,
+    "equity_value_sum": 13525140487.28,
+    "top5": [
+      {
+        "name": "Advanced Micro Devices, Inc.",
+        "value": 1185161145.3,
+        "symbol": "AMD"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 1081089390.29,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Broadcom, Inc.",
+        "value": 1052808237.9,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "Texas Instruments, Inc.",
+        "value": 892764961.9,
+        "symbol": "TXN"
+      },
+      {
+        "name": "QUALCOMM, Inc.",
+        "value": 862566493.4,
+        "symbol": "QCOM"
+      }
+    ]
+  },
+  {
+    "asof": "2025-09-30",
+    "filing_date": "2025-11-26",
+    "accession": "0002071691-25-007653",
+    "url": "https://www.sec.gov/Archives/edgar/data/1100663/000207169125007653/primary_doc.xml",
+    "sha256": "18b46f7f48d62ffe21d01cf8ac8df62c96f1aa97a44984fbb90c6afff29ae9ff",
+    "equity_positions": 30,
+    "equity_value_sum": 14705582994.91,
+    "top5": [
+      {
+        "name": "Broadcom, Inc.",
+        "value": 1156728792.45,
+        "symbol": "AVGO"
+      },
+      {
+        "name": "NVIDIA Corp.",
+        "value": 1116940086.46,
+        "symbol": "NVDA"
+      },
+      {
+        "name": "Advanced Micro Devices, Inc.",
+        "value": 1037322085.86,
+        "symbol": "AMD"
+      },
+      {
+        "name": "QUALCOMM, Inc.",
+        "value": 805943663.36,
+        "symbol": "QCOM"
+      },
+      {
+        "name": "Micron Technology, Inc.",
+        "value": 732988930.52,
+        "symbol": "MU"
+      }
+    ]
+  }
+]
