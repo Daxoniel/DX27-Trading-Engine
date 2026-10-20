@@ -3,6 +3,7 @@ from datetime import timedelta
 import unittest
 
 from capture_replay_v2 import merge_rows
+from analyze_replay_v2 import benchmark, monthly_nav
 from example import fixture, intraday, bar
 from history_replay_v2 import Replay
 from prepare_replay_v2 import daily_exit_flags, normalized_actions
@@ -92,6 +93,24 @@ class ReplayV2Tests(unittest.TestCase):
         self.assertEqual(acts[0]['symbol'],'OLD')
         self.assertEqual(acts[0]['date'],'2025-06-01')
         self.assertEqual(acts[0]['kind'],'cash_dividend')
+
+    def test_benchmark_dividends_are_receivable_before_payment(self):
+        first=dict(start='2025-04-28',open=100)
+        last=dict(end='2025-12-31',close=110)
+        actions=[dict(date='2025-12-30',kind='cash_dividend',rate=1,payable_date='2026-01-02'),
+                 dict(date='2026-01-01',kind='cash_dividend',rate=1000,payable_date='2026-01-02')]
+        r=benchmark(first,last,actions,1000,0)
+        self.assertEqual(r['quantity'],10)
+        self.assertEqual(r['receivables'],10)
+        self.assertEqual(r['terminal_equity'],1110)
+        self.assertFalse(r['terminal_sale'])
+
+    def test_monthly_nav_uses_cash_account_equity_not_trade_win_rate(self):
+        nav=[dict(at='2025-04-28',equity=99000),dict(at='2025-04-30',equity=101000),
+             dict(at='2025-05-30',equity=90900)]
+        m=monthly_nav(nav)
+        self.assertAlmostEqual(m[0]['return_since_prior_observed_month'],.01)
+        self.assertAlmostEqual(m[1]['return_since_prior_observed_month'],-.1)
 
 
 if __name__=='__main__':unittest.main()
