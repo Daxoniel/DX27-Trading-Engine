@@ -1,0 +1,72 @@
+{
+  "version": "MLP3-FACTORIAL-1",
+  "date": "2026-10-20",
+  "hypothesis": "User-proposed 1-minute signals and same-day reentry; not claimed to be established Luk rules.",
+  "base_commit": "48a47cf906e8ad6d95a140922d0f664f548a09b4",
+  "period": [
+    "2025-04-28",
+    "2025-12-31"
+  ],
+  "initial_cash": 100000,
+  "cells": [
+    {
+      "name": "5m-single",
+      "signal_minutes": 5,
+      "reentry": false
+    },
+    {
+      "name": "1m-single",
+      "signal_minutes": 1,
+      "reentry": false
+    },
+    {
+      "name": "5m-reentry",
+      "signal_minutes": 5,
+      "reentry": true
+    },
+    {
+      "name": "1m-reentry",
+      "signal_minutes": 1,
+      "reentry": true
+    }
+  ],
+  "cost_bps_each_side": [
+    5,
+    25
+  ],
+  "primary_bps": 5,
+  "no_parameter_search": true,
+  "selection": "Frozen 7994 MLP2 candidate stock-days and daily support levels; no retuning or ticker exclusion.",
+  "signal": "Same support flush/recovery template on last 3 consecutive completed bars of chosen timeframe; 3 bars means 15m vs 3m. Same 0.3%-2.5%, half-ADR stop limits. Signal window first 2h; availability end+1s; 5min expiry fixed for both.",
+  "common_input_fix": "Only the 3 local bars need be contiguous; reset on a missing/invalid bar and require 3 actual fresh bars. Do not require an unbroken opening prefix or forward-fill missing minutes. Applied to all four new controls, which do not reproduce the prior PR81 baseline.",
+  "common_execution": "All groups use first later 1min OPEN strictly after signal availability, latest SIP quote at/before that instant, existing 60s/R/ask<=250/100-share-lot/displayed-size constraints and ask+cost<=limit. One quote attempt, residual cancelled. New quote execution grid is common, not an isolated signal factor.",
+  "reentry": "Single: one signal attempt per symbol/session including unfilled/capacity rejected. Reentry: no position or pending order, then 3 entirely new bars starting at/after last terminal order or observed flattening timestamp. No reuse of stopped-out candle or stale signal. Includes new setups after failed/unfilled attempts; report these separately from filled-position reentries. No arbitrary daily attempt cap; existing shared cash/sector/gross/open-risk limits and 2h window remain.",
+  "management": "Existing OHLC stop-first/3R partial/prior-daily EMA exit for all groups on common 5min bars. A position entered inside a 5min bucket uses subsequent 1min bars through that bucket end, never full pre-entry bucket OHLC; later uses 5min bars. Manage a completed interval only after end+1s. Daily-exit proxy proceeds become usable only when the opening bar is observed, not at an assumed future aggregate open.",
+  "event_order": "Minute open executes already-known intents; at open+1s process bars ending at that open, skip prefill intervals for new positions, then form signals and size orders. NAV after these known events. No use of later minute/5min OHLC to choose entry prices or same-time prior-bar cash.",
+  "source": "Supplement raw SIP 1Min for every candidate session opening through open+125min (entry bridge coverage); derive first 125min 5m bars from same minutes for all cells, audit mismatch with older 5m source. Rest of day and noncandidate held names use frozen 5m cache. No 2026 prices.",
+  "accounting": "One shared cash account, no leverage, old mechanical splits/dividend receivables/payable dates. Unsupported held actions/fractional entitlements halt. End holdings marked, no forced sale. No interest/contributions/tax withholding.",
+  "gaps": "Primary factorial is conditional OBSERVED_ONLY as in prior diagnosed runs, records held gaps/stale marks. Also report strict HALT completeness checks for all cells at 5bp. No certified full return after strict halt.",
+  "metrics": [
+    "return",
+    "observed drawdown",
+    "closed win rate",
+    "profit factor",
+    "fills",
+    "entry attempts",
+    "repeat attempts after unfilled vs filled exits",
+    "daily trade/loss counts",
+    "actual initial stop risk",
+    "realized R",
+    "exposure",
+    "missing-data counts"
+  ],
+  "limitations": [
+    "Retrospective exposed 2025 period, not independent out-of-sample",
+    "Fixed archived cohort/sector/source first availability not certified",
+    "Exit stop/partial fills still OHLC proxies; quote-checked entry is not guaranteed execution",
+    "Common clock and local-gap policy change control; differences vs old -9.95% are not attributed solely to signal timeframe",
+    "No conclusion that reentry or 1m improves performance before factorial outcomes"
+  ],
+  "actual_orders": 0,
+  "promotable": false
+}
