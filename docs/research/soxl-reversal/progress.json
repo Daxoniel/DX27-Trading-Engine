@@ -1,0 +1,11 @@
+{
+  "status": "SOXL_SIMPLE_GAP_RULE_NOT_PROMOTED",
+  "date": "2026-10-20",
+  "protocol_commit": "6fe48f181de7de6c59e7dc33aa62081b8b7cd5ec",
+  "report": "docs/reports/soxl-reversal/report.json",
+  "conclusion": "Primary 09:32 long-only net win rate 49.15%, mean -3.64bp/trade at 5bp/side; uncertainty spans zero; no high-win-rate edge established",
+  "coverage": "2016–2025 2016/2514 sessions; early years heavily selected; 2024–2025 full coverage",
+  "reserved": "2026 SOXL NY trading-day prices not fetched",
+  "next": "Separate evidence-driven candidate protocol or quote-level arrival/cost study; do not silently tune this rule",
+  "actual_orders": 0
+}

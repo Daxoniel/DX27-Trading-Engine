@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "checks": 363,
+  "all_64_case_trade_counts_win_rates_mean_returns_equity_and_drawdowns_recomputed": true,
+  "all_cost_scenarios_monotonic": true,
+  "numpy_lstsq_and_matrix_newey_west_match": true,
+  "private_artifacts_hash_verified": true,
+  "no_2026_soxl_evaluation_prices": true,
+  "no_strategy_engine_imported": true,
+  "execution_evidence": false
+}
