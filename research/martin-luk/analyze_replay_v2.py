@@ -26,6 +26,7 @@ def trade_statistics(closed, fills, cohort):
         key = cohort[t['symbol']]['sector']
         groups[key]['trades']+=1;groups[key]['wins']+=t['pnl']>0;groups[key]['pnl']+=t['pnl']
     pnl = [t['pnl'] for t in closed]
+    winners = sorted((t for t in closed if t['pnl']>0),key=lambda t:-t['pnl'])
     return dict(closed_trades=len(closed),mean_closed_trade_pnl=mean(pnl) if pnl else None,
         median_closed_trade_pnl=median(pnl) if pnl else None,
         mean_holding_calendar_days=mean(durations) if durations else None,
@@ -33,6 +34,9 @@ def trade_statistics(closed, fills, cohort):
         final_exit_reasons=dict(Counter(final[t['trade_id']]['reason'] for t in closed)),
         sectors=dict(groups),
         gross_closed_winners=sum(max(x,0) for x in pnl),gross_closed_losers=-sum(min(x,0) for x in pnl),
+        top_three_closed_winners=[dict(symbol=t['symbol'],pnl=t['pnl']) for t in winners[:3]],
+        top_two_fraction_of_net_closed_pnl=(sum(t['pnl'] for t in winners[:2])/sum(pnl)) if sum(pnl)>0 else None,
+        concentration_note='Attribution only; removing winners without rerunning account sizing is not a counterfactual return.',
         best_closed_trade_pnl=max(pnl) if pnl else None,worst_closed_trade_pnl=min(pnl) if pnl else None)
 
 
