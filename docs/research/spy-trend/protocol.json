@@ -1,0 +1,65 @@
+{
+  "contract": "SPY_MONTHLY_TREND_EXPLORATION:1",
+  "fixed_at": "2026-10-20T05:50:57.845798+00:00",
+  "authority": "USER_APPROVED_FIXED_10_MONTH_TREND_COMPARISON",
+  "scope": "Historical exploration only; no orders",
+  "arms": [
+    "HOLD",
+    "SMA10"
+  ],
+  "sma_months": 10,
+  "signal_series": "ADJUSTED_TOTAL_RETURN_CLOSE",
+  "sma_definition": "Mean of last 10 completed calendar-month-end adjusted closes, INCLUDING current signal month",
+  "timing": "Update at month-end close; execute first subsequent session open; no intramonth response",
+  "equality": "Retain prior target; initial warmup target cash until a strict crossing",
+  "warmup": "1998\u20131999 month ends; each window inherits last completed monthly signal before start, but fresh initial capital",
+  "initial_cash": 10000,
+  "monthly_contribution": 1000,
+  "contributions": "Same as prior study; monthly at first session open starting February; invest new cash only if target is long",
+  "allocation": "100% SPY or 100% cash, no shorting or leverage; fractionally modeled units",
+  "evaluation": [
+    "2000-01-01",
+    "2025-12-31"
+  ],
+  "cash_modes": [
+    "ZERO",
+    "TREASURY_PROXY"
+  ],
+  "costs_bps": [
+    0,
+    5
+  ],
+  "costs": "Apply stated adverse bps to BOTH purchases AND sales; zero commission and no taxes are project scenarios",
+  "cash_proxy": "Same lagged DGS3MO ACT/365 yield-accrual proxy as prior experiment; not actual bill returns or account yield",
+  "dividends": "Same current-vintage Yahoo adjusted OHLC total-return proxy; not exact pay-date DRIP",
+  "paper": {
+    "title": "A Quantitative Approach to Tactical Asset Allocation",
+    "author": "Mebane T. Faber",
+    "pdf_url": "https://mebfaber.com/wp-content/uploads/2016/05/SSRN-id962461.pdf",
+    "pdf_sha256": "f2dabb6d31b18901cb64a0f57cea86f32f514570dcb5840fbeaa4877f24bdd3f",
+    "pdf_self_reported_version": "February 2013 update; May 2006 working paper, Spring 2007 publication, February 2009 update also listed",
+    "pages": [
+      21,
+      22
+    ],
+    "difference": "Original states signal-day close execution and total-return series/cash T-bills; this uses next open, SPY instead of GFD index, yield proxy and contributions"
+  },
+  "outputs": [
+    "wealth and XIRR/TWR",
+    "unitized close drawdown",
+    "completed and censored peak-to-recovery durations in calendar days",
+    "cash weight",
+    "buy/sell and switches",
+    "annual returns",
+    "all 17 overlapping 10-year windows per cash mode"
+  ],
+  "source_sha256": {
+    "spy": "1b1ce892f469e9804dc45905bf0c78ac237cae2e81dc4fbdd6cd0592222520af",
+    "cash": "19df88069f35e0ebe777e18bf31c7784092c934fff9d2be543388909783772d9"
+  },
+  "baseline_guard": "All four main HOLD summaries and 34 overlapping-window HOLD wealth values must exactly match prior study",
+  "exposure": "Whole 2000\u20132025 source and prior outcomes already examined; no independent holdout claim",
+  "search": "None; no moving-average length, timing, band or combination search",
+  "result_policy": "Publish every scenario and loss. No automatic Paper or live deployment.",
+  "actual_orders_authorized": false
+}

@@ -1,0 +1,20 @@
+{
+  "updated_at": "2026-10-20T05:55:16.698320+00:00",
+  "status": "COMPLETE_EXPLORATORY_RISK_RETURN_TRADEOFF",
+  "fixed_model": "SPY monthly total-return SMA10, next-open execution",
+  "main_zero_cash_zero_friction": {
+    "hold_final_wealth": 1794983.0182823162,
+    "trend_final_wealth": 1104092.8718468966,
+    "hold_max_drawdown": 0.5518943835175306,
+    "trend_max_drawdown": 0.2563180026763673,
+    "hold_longest_completed_recovery_days": 2407,
+    "trend_longest_completed_recovery_days": 1257
+  },
+  "conclusion": "Lower historical drawdown and shorter longest recovery; materially lower final wealth. Not a dominant replacement.",
+  "independent_confirmation": false,
+  "automatic_paper_strategy_changed": false,
+  "paper_orders_submitted": 0,
+  "live_trading_enabled": false,
+  "evidence": "docs/reports/spy-trend/README.md",
+  "next_task": "Set the acceptable return/drawdown tradeoff before choosing a bounded prospective Paper comparator; no post-result length search."
+}

@@ -1,0 +1,35 @@
+{
+  "verified_at": "2026-10-20T05:54:00.209716+00:00",
+  "paper": {
+    "title": "A Quantitative Approach to Tactical Asset Allocation",
+    "author": "Mebane T. Faber",
+    "url": "https://mebfaber.com/wp-content/uploads/2016/05/SSRN-id962461.pdf",
+    "bytes": 945897,
+    "sha256": "f2dabb6d31b18901cb64a0f57cea86f32f514570dcb5840fbeaa4877f24bdd3f",
+    "pages": 70,
+    "self_reported_update": "February 2013",
+    "rules_pages": [
+      21,
+      22
+    ],
+    "verified_scope": "Full PDF obtained from author website; pp.21\u201322 rules checked in extracted text. Does not independently reproduce GFD returns or certify SSRN byte identity."
+  },
+  "primary_web_sources": [
+    {
+      "url": "https://mebfaber.com/2013/06/07/qtaa-paper-update-manage-your-risk-4/",
+      "scope": "Author reproduces monthly >/< SMA rule, signal-day close fills, total returns and 90-day T-bill cash assumptions."
+    },
+    {
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=962461",
+      "scope": "Bibliographic identity only; not used as return evidence."
+    }
+  ],
+  "market_data": "Reuse previous sealed Yahoo SPY and FRED DGS3MO sources; see ../spy-long-hold/sources.json",
+  "differences": [
+    "SPY ETF, not GFD index",
+    "next-open execution, not signal-day close",
+    "monthly contributions",
+    "yield-accrual cash proxy, not a tradable T-bill return series",
+    "explicit both-side trading-friction scenarios"
+  ]
+}
