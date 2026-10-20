@@ -35,8 +35,7 @@ def snapshot_for(session, prior, metadata, source, splits, common_prefilter=True
         if any(b is None for b in raw):
             excluded.append(dict(symbol=symbol, reason='MISSING_DAILY_HISTORY'))
             continue
-        adjusted = split_adjust(raw, session['date'], splits.get(symbol, []))
-        recent = adjusted[-20:]
+        recent = split_adjust(raw[-20:], session['date'], splits.get(symbol, []))
         if common_prefilter and len(recent) == 20:
             valid = all(type(b[k]) in (int,float) and math.isfinite(b[k]) and b[k] > 0
                         for b in recent for k in ('o','h','l','c','v'))
@@ -50,6 +49,7 @@ def snapshot_for(session, prior, metadata, source, splits, common_prefilter=True
                     or mean((b['h']-b['l'])/b['c'] for b in recent) < rules.min_adr):
                 excluded.append(dict(symbol=symbol, reason='COMMON_PRICE_LIQUIDITY_OR_ADR'))
                 continue
+        adjusted = split_adjust(raw, session['date'], splits.get(symbol, []))
         daily = [dict(start=s['open'], end=s['close'],
             # Synthetic knowledge clock for retrospective final daily records;
             # NOT a claim that the final correction arrived at this timestamp.
