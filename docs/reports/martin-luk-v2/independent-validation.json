@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "sessions_checked": 172,
+  "stock_sessions_accounted": 688344,
+  "checks": [
+    "plan_digests",
+    "identical_input_hashes",
+    "identical_universe_partition",
+    "no_duplicate_or_unaccounted_names",
+    "version_and_execution_flags",
+    "MLP2_sector_gate",
+    "session_uniqueness",
+    "reconstructed_summary"
+  ],
+  "summary_sha256": "c9bdd9ade736286aad433d0705396927240645b4cdcad82d8f817d0ffaab1e49",
+  "limitation": "Artifact accounting only; not independent market-source or profitability validation."
+}

@@ -1,0 +1,12 @@
+{
+  "stock_days": {
+    "incomplete_5m_count_stock_days": 669,
+    "complete_5m_count_stock_days": 6011,
+    "absent_stock_days": 1314
+  },
+  "symbols": 452,
+  "existing_cached_symbols": 322,
+  "common_candidate_stock_days": 17,
+  "MLP1_only_stock_days": 0,
+  "limitation": "Coverage inventory only, not an execution filter or validation of bars; intraday coverage must not be used to remove losing trades after the fact."
+}

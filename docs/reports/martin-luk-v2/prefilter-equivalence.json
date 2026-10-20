@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "date": "2025-04-28",
+      "version": "MLP1",
+      "identical_watchlist": true
+    },
+    {
+      "date": "2025-04-28",
+      "version": "MLP2",
+      "identical_watchlist": true
+    },
+    {
+      "date": "2025-08-29",
+      "version": "MLP1",
+      "identical_watchlist": true
+    },
+    {
+      "date": "2025-08-29",
+      "version": "MLP2",
+      "identical_watchlist": true
+    },
+    {
+      "date": "2025-12-31",
+      "version": "MLP1",
+      "identical_watchlist": true
+    },
+    {
+      "date": "2025-12-31",
+      "version": "MLP2",
+      "identical_watchlist": true
+    }
+  ],
+  "scope": "First, prespecified interior, and last sessions; full daily snapshot without common filter vs optimized output."
+}

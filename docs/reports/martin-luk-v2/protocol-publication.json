@@ -1,0 +1,7 @@
+{
+  "date": "2026-10-20T09:17:23Z",
+  "sha": "e514ecff9921e9582a0e376347826316f043c2cb",
+  "url": "https://github.com/Daxoniel/DX27-Trading-Engine/commit/e514ecff9921e9582a0e376347826316f043c2cb",
+  "protocol_sha256": "a5f5490b80cff58f5fa1df93bb93e5ea38fe86a71e415aa2f0c0dac46b0520a4",
+  "disclosure": "Rule protocol published before full coverage scan; 2025 returns already exposed by prior research; intermediate candidate counts visible during runner optimization."
+}
