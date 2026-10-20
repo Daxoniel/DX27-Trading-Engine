@@ -1,0 +1,22 @@
+name: Martin Luk pullback adaptation
+on:
+  pull_request:
+    paths: ['research/martin-luk/**', '.github/workflows/martin-luk.yml']
+  push:
+    branches: [main]
+    paths: ['research/martin-luk/**', '.github/workflows/martin-luk.yml']
+permissions:
+  contents: read
+jobs:
+  strategy:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/martin-luk -p "test_*.py" -v

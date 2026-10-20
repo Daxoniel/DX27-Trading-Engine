@@ -1,0 +1,33 @@
+{
+  "version": "MLP1",
+  "date": "2026-10-20",
+  "scope": "CROSS_SECTIONAL_US_COMMON_STOCK_LONG_PULLBACK",
+  "status": "IMPLEMENTED_OFFLINE_NOT_AUTO_DEPLOYED",
+  "rules": {
+    "version": "MLP1",
+    "minimum_history": 160,
+    "min_price": 5.0,
+    "min_dollar_volume": 20000000,
+    "min_adr": 0.05,
+    "min_momentum": 0.3,
+    "min_sector_peers": 2,
+    "support_tolerance": 0.005,
+    "max_stop": 0.025,
+    "min_stop": 0.003,
+    "risk_per_trade": 0.005,
+    "max_position": 0.25,
+    "max_sector": 0.5,
+    "max_gross": 1.0,
+    "max_open_risk": 0.02,
+    "partial_r": 3.0,
+    "partial_fraction": 0.15,
+    "adverse_bps": 5.0
+  },
+  "provenance": "Exact thresholds are DX27 implementation choices, not a full Martin Luk rulebook.",
+  "abandoned": [
+    "SOXL_OVERNIGHT_EARLY_REVERSAL",
+    "SOXX_EARNINGS_BLACKOUT_VARIANTS"
+  ],
+  "historical_profitability_verified": false,
+  "actual_orders": 0
+}
