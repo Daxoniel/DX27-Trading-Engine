@@ -1,0 +1,28 @@
+{
+  "version": "MLP2-QUOTE-OPEN-1",
+  "date": "2026-10-20",
+  "registered_after": "Observed OHLC-proxy outcomes and top-winner execution mismatches; this is a model correction, not a fresh holdout.",
+  "selection_rules_changed": false,
+  "underlying_sessions_sha256": "fd4eea9e7d4f0975a24250021177f48f3d072b80408b8eb0436749b7cc3f3bb7",
+  "entry": "At scheduled next 5m opening strictly after signal availability and before expiry, request latest historical SIP quote at or BEFORE that exact timestamp. No trade-bar open is used for entry.",
+  "quote_validity": "Latest quote within prior 60 seconds; regular R condition; finite positive bid<=ask, ask size positive; ask<=250 USD for supported 100-share round-lot assumption. No future quote, crossed/nonregular/unknown/stale quote, or missing quote may fill.",
+  "size": "Fill min(reserved whole-share quantity, displayed ask round lots*100); cancel remainder immediately. Do not assume hidden liquidity or refreshing depth.",
+  "price": "Ask*(1+adverse_bps/10000) must be <= intent limit and > protective stop. A quote below protection cancels entry BEFORE submitting modeled buy. No alternate quote or favorable future tick is selected.",
+  "costs_bps_each_side": [
+    5,
+    10,
+    25
+  ],
+  "signal_expiry": "Unchanged MLP2: 5 minutes from modeled signal availability; no same-session reentry expansion.",
+  "quote_capture": "GET /v2/stocks/quotes, symbols=one, feed=sip, asof=2025-04-25, start=open-60s,end=open inclusive,sort=desc,limit=1; cache/retry/rate-limit; only pending orders request quotes; cache seals recorded.",
+  "management": "Unchanged existing regular 5m stop-first/partial proxy, prior-daily EMA exit, mechanical actions, shared account. Thus exit execution remains unverified against quote/depth; gaps retain primary HALT and secondary OBSERVED_ONLY semantics.",
+  "no_ex_post_trade_deletion": "Rerun entire shared account with quote entry rules, including sizing, cash freed by partial entries, holdings, later signals and exits. Never subtract a few winning trades from the old result.",
+  "initial_cash": 100000,
+  "period": [
+    "2025-04-28",
+    "2025-12-31"
+  ],
+  "actual_orders": 0,
+  "promotable": false,
+  "no_parameter_search": true
+}
