@@ -1,0 +1,46 @@
+{
+  "records": 7260,
+  "parts": [
+    {
+      "path": "quote-sources/0000.json",
+      "sha256": "61f04b180e2f6615d29a49e607fcd19bcf748696f0764ac0b826a6dd85f37c20",
+      "records": 1000
+    },
+    {
+      "path": "quote-sources/0001.json",
+      "sha256": "26387a8b96fb2ef8cc36f0299881351be9feb382ed6806d00041cc604c0fd089",
+      "records": 1000
+    },
+    {
+      "path": "quote-sources/0002.json",
+      "sha256": "0a3174cd6343c38dbd5f7e02118c81ca6a1eb5eb7e714a431d5fde115c22ca28",
+      "records": 1000
+    },
+    {
+      "path": "quote-sources/0003.json",
+      "sha256": "4e5452fb916f92b5591e9bb431952fe999ea235df3b211be51d45541dd86135e",
+      "records": 1000
+    },
+    {
+      "path": "quote-sources/0004.json",
+      "sha256": "1dc288967af6307c0360a49d725447f434f556db5cccb338040439c284fb7ddb",
+      "records": 1000
+    },
+    {
+      "path": "quote-sources/0005.json",
+      "sha256": "15aba8dd182f36fa0eaa4f23161c809fd70fa1dafeaed1c99d8ab31ecac552d9",
+      "records": 1000
+    },
+    {
+      "path": "quote-sources/0006.json",
+      "sha256": "a809c4e3da344da8593f0d30a2a10fae2d3fe8c4e3150012ad6b0da65c76c8b0",
+      "records": 1000
+    },
+    {
+      "path": "quote-sources/0007.json",
+      "sha256": "d17d31dc803bf51a1f22571f64cacdf3243c973ec986a17657bfc1382c2fb4e3",
+      "records": 260
+    }
+  ],
+  "scope": "Cache inventory includes prior reused responses; per-case audits bind actual buys to exact raw requests."
+}

@@ -1,7 +1,9 @@
 """Aggregate the frozen 2x2 experiment after independent raw-window audits."""
 import argparse
 from collections import Counter, defaultdict
+from concurrent.futures import ProcessPoolExecutor
 from hashlib import sha256
+from itertools import repeat
 import json
 from pathlib import Path
 from statistics import mean, median
@@ -33,7 +35,13 @@ def describe(folder,manifest,quotes):
     modeled_cost=sum(f['quantity']*(f['price']-f['reference_ask']) if f['side']=='buy'
         else f['quantity']*(f['price']/(1-cost)-f['price']) for f in fills)
     stops=[(f['price']-f['stop_price'])/f['price'] for f in buys]
-    return dict(summary=s,independent_validation=validation,entries=len(buys),
+    winners=[t['pnl'] for t in closed if t['pnl']>0]
+    losers=[-t['pnl'] for t in closed if t['pnl']<0]
+    avg_win=mean(winners) if winners else None;avg_loss=mean(losers) if losers else None
+    complete=not s['halt'] and s['sessions_processed']==len(json.loads(Path(manifest).read_text())['sessions'])
+    return dict(summary=s,independent_validation=validation,full_period_complete=complete,
+        statistics_scope='FULL_PERIOD_CONDITIONAL' if complete else 'TRUNCATED_AT_HALT_NOT_COMPARABLE_FULL_PERIOD',
+        entries=len(buys),
         filled_same_day_reentries=sum(f['prior_fills_today']>0 for f in buys),
         first_fills_after_unfilled_attempts=sum(f['prior_fills_today']==0 and f['attempt_index']>1 for f in buys),
         repeat_signal_attempts=sum(e['attempt_index']>1 for e in attempts),
@@ -42,12 +50,16 @@ def describe(folder,manifest,quotes):
         max_entries_per_day=max(entries_per_day.values(),default=0),
         max_signal_attempts_per_day=max(attempts_per_day.values(),default=0),
         median_actual_initial_stop_fraction=median(stops) if stops else None,
+        mean_winning_closed_trade=avg_win,mean_losing_closed_trade_magnitude=avg_loss,
+        empirical_breakeven_win_rate=(avg_loss/(avg_win+avg_loss) if avg_win and avg_loss else None),
         mean_observed_exposure_fraction=mean(n['gross']/n['equity'] for n in nav) if nav else None,
         modeled_cost_for_realized_fill_path=modeled_cost,
         cost_note='Not a counterfactual cost-free return; higher-cost cells rerun eligibility and the full account.',
         worst_observed_session_return=min((d['return_since_previous_session'] for d in daily),default=None),
         closed_trade_groups=dict(groups),
         median_realized_r=median(t['realized_r'] for t in closed) if closed else None,
+        worst_closed_realized_r=min((t['realized_r'] for t in closed),default=None),
+        largest_closed_loss=min((t['pnl'] for t in closed),default=None),
         final_exit_reasons=dict(Counter(f['reason'] for f in fills if f['side']=='sell' and f['reason']!='PARTIAL_3R')),
         entry_rejections=dict(Counter(e['reason'] for e in events if e['kind']=='QUOTE_ENTRY_REJECTED')),
         daily_equity=daily,private_artifact_sha256={n:sha256((folder/(n+'.json')).read_bytes()).hexdigest()
@@ -58,12 +70,15 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--root',type=Path,required=True);p.add_argument('--manifest',type=Path,required=True)
     p.add_argument('--output',type=Path,required=True);a=p.parse_args();a.output.mkdir(parents=True,exist_ok=True)
-    runs={}
-    for bps in (5,25):
-        for cell in CELLS:
-            name=cell+f'-{bps}bp';runs[name]=describe(a.root/name,a.manifest,a.root/'quote-pages')
-            print('audited',name,flush=True)
-    strict={cell:describe(a.root/(cell+'-strict'),a.manifest,a.root/'quote-pages') for cell in CELLS}
+    names=[cell+f'-{bps}bp' for bps in (5,25) for cell in CELLS]+[cell+'-strict' for cell in CELLS]
+    # Audits read shared sealed inputs; each writes only its own report directory.
+    with ProcessPoolExecutor(max_workers=4) as pool:
+        descriptions=list(pool.map(describe,(a.root/name for name in names),
+            repeat(a.manifest),repeat(a.root/'quote-pages')))
+    audited=dict(zip(names,descriptions))
+    for name in names:print('audited',name,flush=True)
+    runs={name:audited[name] for name in names[:8]}
+    strict={cell:audited[cell+'-strict'] for cell in CELLS}
     contrasts={}
     for bps in (5,25):
         values={cell:runs[cell+f'-{bps}bp']['summary']['net_return'] for cell in CELLS}
