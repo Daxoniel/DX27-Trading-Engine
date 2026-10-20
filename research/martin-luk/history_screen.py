@@ -1,7 +1,9 @@
-"""Price-only necessary-condition prefilter for frozen MLP1.
+"""Conditional necessary-condition prefilter for frozen MLP1.
 
 Provider daily volume is an upper bound, not RTH volume. Do not use this output
 as final watchlists: final scan must use regular-session aggregation and volume.
+Exhaustiveness additionally requires price agreement; vendor daily OHLC and
+intraday aggregation are not presumed equivalent. See the published data gates.
 """
 from bisect import bisect_right
 from collections import Counter, defaultdict
