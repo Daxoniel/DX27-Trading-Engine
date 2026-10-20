@@ -1,0 +1,9 @@
+{
+  "daily_cash_and_holdings_reconstructed": true,
+  "monthly_targets_independently_checked": true,
+  "all_fills_next_month_after_signal": true,
+  "all_contributions_equal": true,
+  "annual_nav_products_match": true,
+  "all_sixteen_main_artifacts_verified": true,
+  "original_source_files_unchanged": 156
+}

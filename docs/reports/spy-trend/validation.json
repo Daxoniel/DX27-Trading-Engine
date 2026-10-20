@@ -1,0 +1,30 @@
+{
+  "status": "PASS_COMPLETE_FIXED_MONTHLY_TREND_EXPLORATION",
+  "checked_at": "2026-10-20T05:56:05.085807+00:00",
+  "tests": 134,
+  "new_tests": 11,
+  "price_rows": 7043,
+  "unchanged_original_source_files": 156,
+  "all_four_main_hold_baselines_exact": true,
+  "all_34_window_hold_baselines_exact": true,
+  "main_daily_and_fill_artifacts_verified": 16,
+  "independent_cash_holdings_and_signal_checks": true,
+  "original_paper_pdf_sha256": "f2dabb6d31b18901cb64a0f57cea86f32f514570dcb5840fbeaa4877f24bdd3f",
+  "independent_confirmation": false,
+  "orders_submitted": 0,
+  "files_sha256": {
+    "docs/reports/spy-trend/README.md": "e226e91669e4bb845455e0553c32f819b79f66d1ccc1cf0bc43c73457b837926",
+    "docs/reports/spy-trend/comparison.png": "a0b2dd87990048a359878de97032dd1955c30ff7e121444dca688cf312289de2",
+    "docs/reports/spy-trend/independent-validation.json": "3566109bf6908d25d5ec58b1acf9e59205840fe01359c95a9bd504a5f6ae1f0d",
+    "docs/reports/spy-trend/publication-before-run.json": "234c4625726d377ed60024ebe26c1572e7ff11cecacf31bef69288efdd08c775",
+    "docs/reports/spy-trend/report.json": "636ee2d701c240d45b651b3cf5b81702fb488d9d33ef3043b25c0f37eaeb0a3b",
+    "docs/reports/spy-trend/sources.json": "e4602254d92f5325db8afe17fdf7347bd7e959d2ac4a56301568bbd25e3cab45",
+    "docs/research/orb-literature/paper-study.md": "104e9c158ab48d953e35ae98d5d346ecd57d2e882adc55082eced03ddef02555",
+    "docs/research/spy-trend/progress.json": "b87dd7971d1c48f06af1fd611cfe880b411ba0b7457a00a20415d8cfeb03b237",
+    "docs/research/spy-trend/protocol.json": "03e331a27445c5840d997889e4d54cf6199b89ea79cf5be705d632fd50905ee7",
+    "research/orb-diagnostics/check_spy_trend.py": "707d7c1622c06194b4b2b1c8ab02f980f4eec9dbe3a6a7c04b0f9e271d05c593",
+    "research/orb-diagnostics/plot_spy_trend.py": "b78f241da2376907b3d64d41f62c919dcb224642c623077889bf3b89d7dd3e3c",
+    "research/orb-diagnostics/spy_trend.py": "60f5d3a9ff11f9c8073caedeaa86f35c728b5e91267caae56f9f1d602189768f",
+    "research/orb-diagnostics/test_spy_trend.py": "5b7ad73326744a74d1362c4a188e99760fa4f24f9cc61345cdd3df52cbe77ca6"
+  }
+}
