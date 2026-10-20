@@ -11,6 +11,18 @@ from strategy import Rules, allocate, manage, stamp, validate_bars
 from strategy_v2 import entry_signal
 
 
+class SupportPlan(dict):
+    """Copy only fields the frozen support adapter mutates, preserving JSON.
+
+    Its sole mutation is a watchlist member's scalar support. All other nested
+    fields are read-only. Avoid copying a whole audit list for every level/bar.
+    """
+    def __deepcopy__(self, memo):
+        out=dict(self)
+        out['watchlist']=[dict(c) for c in self['watchlist']]
+        return out
+
+
 class Replay:
     def __init__(self, cash=100_000, rules=Rules(version='MLP2'), gap_policy='HALT'):
         if not math.isfinite(cash) or cash<=0:raise ValueError('INVALID_INITIAL_CASH')
@@ -60,6 +72,7 @@ class Replay:
         self.receivables=[r for r in self.receivables if r['payable_date']>day]
 
     def session(self,plan,bars,daily_exit,actions=()):
+        plan=SupportPlan(plan)
         if self.halt:raise ValueError('HALTED_REPLAY_CANNOT_CONTINUE')
         opening,closing=stamp(plan['session_open']),stamp(plan['session_close'])
         day=opening.date().isoformat()
@@ -151,6 +164,8 @@ class Replay:
             signals=[]
             now=t+timedelta(minutes=5,seconds=1)
             for c in plan['watchlist']:
+                # Frozen entry_signal returns None outside this exact window.
+                if now>min(opening+timedelta(hours=2),closing):break
                 s=c['symbol'];key=(day,s)
                 if key in self.seen or s in self.positions or s in self.pending or not prefix_valid[s]:continue
                 signal=entry_signal(plan,s,prefix[s],now.isoformat())

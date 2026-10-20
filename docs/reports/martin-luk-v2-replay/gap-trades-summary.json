@@ -1,0 +1,17 @@
+{
+  "symbol": "SLNO",
+  "start": "2025-04-29T16:20:00Z",
+  "end": "2025-04-29T16:24:59.999999999Z",
+  "returned_trades": 26,
+  "has_more": false,
+  "condition_counts": {
+    "@": 26,
+    "I": 25,
+    "F": 5,
+    "4": 1,
+    "W": 1
+  },
+  "raw_response_sha256": "058425f477c2f7b3fc933ffef822ce712fd04bc5f79f76acc45cda769f4ef8df",
+  "interpretation": "The provider returns 26 trades, all tagged odd-lot (I) or average-price (W), despite no minute bar in this interval. Absence of an OHLC bar is not proof of no trading. This does not establish executable stop fills or certify the gap-carry diagnostic.",
+  "all_trades_odd_lot_or_average_price": true
+}

@@ -5,10 +5,10 @@ import unittest
 from capture_replay_v2 import merge_rows
 from analyze_replay_v2 import benchmark, monthly_nav
 from example import fixture, intraday, bar
-from history_replay_v2 import Replay
+from history_replay_v2 import Replay, SupportPlan
 from prepare_replay_v2 import daily_exit_flags, normalized_actions
 from strategy import stamp
-from strategy_v2 import scan
+from strategy_v2 import scan, entry_signal
 from test_history import tomorrow
 
 
@@ -95,6 +95,13 @@ class ReplayV2Tests(unittest.TestCase):
         self.assertEqual(merge_rows([b],[b]),[b])
         with self.assertRaisesRegex(ValueError,'OVERLAPPING_SOURCE_REVISION'):
             merge_rows([b],[dict(b,o=2)])
+
+    def test_optimized_plan_copy_preserves_signals_and_original_input(self):
+        p,bs=market();before=deepcopy(p)
+        for end in (3,8,24,25,78):
+            bars=bs['AAA'][:end];at=bars[-1]['available_at']
+            self.assertEqual(entry_signal(p,'AAA',bars,at),entry_signal(SupportPlan(p),'AAA',bars,at))
+        self.assertEqual(p,before)
 
     def test_action_aliases_preserve_effective_date(self):
         data=dict(name_changes=[dict(old_symbol='OLD',new_symbol='NEW')],

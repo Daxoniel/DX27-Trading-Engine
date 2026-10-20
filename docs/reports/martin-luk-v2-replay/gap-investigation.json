@@ -1,0 +1,9 @@
+{
+  "symbol": "SLNO",
+  "primary_halt_at_utc": "2025-04-29T16:20:00+00:00",
+  "probe": "SIP 1Min, 2025-04-29T16:15:00Z through 16:30:00Z",
+  "minute_bars_in_missing_5m_interval": 0,
+  "flanking_minute_bars": 6,
+  "private_probe_sha256": "84260ce814fd7d8e445dc281f6b6956271bff4665df4e4abec393ed61e3ca363",
+  "conclusion": "No eligible minute bars returned within the missing interval. Does not distinguish no qualifying prints, halt, or vendor data failure; primary HALT result retained. No fabricated bar or altered scanner threshold."
+}

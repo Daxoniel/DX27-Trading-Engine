@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "sessions": 5,
+  "all_cash_positions_fills_events_nav_identical": true,
+  "baseline_state_sha256": "abb3343a0e16450a5436510214637012bf690ba1183e1b0174396bb41df46b80",
+  "timing_seconds": {
+    "baseline": 10.664516138000181,
+    "optimized": 0.38226906600175425
+  },
+  "scope": "Execution optimization only; same frozen entry and risk rules, not parameter selection."
+}
