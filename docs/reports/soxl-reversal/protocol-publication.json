@@ -1,0 +1,8 @@
+{
+  "protocol_commit": "6fe48f181de7de6c59e7dc33aa62081b8b7cd5ec",
+  "github_blob_sha": "60354d33c69d418bc806a8b5175650644c21a233",
+  "protocol_sha256": "5f7e74dc1087528327b1f5edcf27462544e9fc72cc695578713451d2e1cb0f1d",
+  "public_bytes_verified": true,
+  "public_before_full_source_download_and_computation": true,
+  "results_not_prospective_holdout": true
+}

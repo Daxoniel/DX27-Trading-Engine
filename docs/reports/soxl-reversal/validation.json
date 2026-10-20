@@ -1,0 +1,23 @@
+{
+  "status": "PASS_LOCAL_INDEPENDENT_UBUNTU_WINDOWS",
+  "offline_unit_tests": 148,
+  "independent_checks": 363,
+  "original_src_files_checked": 156,
+  "original_src_hashes_unchanged": true,
+  "private_artifact_hashes_verified": true,
+  "source_pages_hash_verified": true,
+  "retrospective_not_independent_confirmation": true,
+  "missing_session_selection_not_a_realtime_filter": true,
+  "actual_paper_orders": 0,
+  "actual_live_orders": 0,
+  "ci": "PASS",
+  "report_sha256": "56fca56626504e5eca6fe54a2cc36ba9d7b974c8df4cb4cd595ce598f9a2857d",
+  "figure_sha256": "994b8c24ecfb321fccd5bc3eb3a09d783ae097e04ac4d0ed6e8ce66c22f5ba44",
+  "ci_run": 39380572601,
+  "ci_checked_head": "5cb6a04039ef7cfaf7e0a84d06b257bb0685bd9b",
+  "ci_scope": "Research source and 148 offline tests; closeout docs-only commit is also checked before exact-head merge",
+  "ci_platforms": [
+    "ubuntu-latest",
+    "windows-2022"
+  ]
+}
