@@ -1,0 +1,13 @@
+{
+  "status": "NO_PROMOTION_EARNINGS_FILTER_NOT_IMPROVED",
+  "date": "2026-10-20",
+  "primary": "ANNOUNCEMENT_AND_NEXT_SESSION",
+  "baseline_win_rate": 0.4915254237288136,
+  "filtered_win_rate": 0.4782016348773842,
+  "baseline_mean_trade_bps": -3.6411511395441876,
+  "filtered_mean_trade_bps": -9.675158127346709,
+  "retrospective": true,
+  "no_new_2026_soxl_prices": true,
+  "actual_orders": 0,
+  "report": "docs/reports/soxl-earnings/README.md"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "independent_checks": 506,
+  "all_48_filtered_case_win_rates_mean_returns_equity_drawdown_recomputed": true,
+  "blackout_dates_independently_rebuilt_with_bisect": true,
+  "removed_retained_trade_return_decomposition_matches": true,
+  "all_205_event_source_hashes_verified": true,
+  "all_49_snapshot_source_hashes_verified": true,
+  "original_156_src_hashes_unchanged": true,
+  "no_new_filter_engine_imported": true,
+  "point_in_time_future_earnings_schedule_proven": false,
+  "actual_orders": 0
+}

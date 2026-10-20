@@ -1,0 +1,10 @@
+{
+  "protocol_commit": "41e6efa9d5251dae0cc2bc50b2768ebdbb834632",
+  "sealed_input_commit": "e561612f7c0c34126fd11db1cbc34cd1fac89b0c",
+  "protocol_bytes_verified_at_public_commit": true,
+  "event_input_bytes_verified_before_computation": true,
+  "protocol_sha256": "d113db09f38e78e5f6b269c7ca7c8e1ec82937543145e882b53c7b9f61d06a79",
+  "inputs_audit_sha256": "1b5566eae3a53aaa18ebd86788d930d2c3cb461866a1c8cf439a02faa7235dd0",
+  "outcomes_already_exposed_from_prior_study": true,
+  "independent_holdout": false
+}
