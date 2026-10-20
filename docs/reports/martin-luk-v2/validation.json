@@ -1,0 +1,8 @@
+{
+  "strategy_history_tests": 46,
+  "existing_diagnostic_tests": 157,
+  "sealed_core_hashes_unchanged": 156,
+  "prefilter_equivalence": "PASS: full vs optimized daily watchlists for both scanners on 2025-04-28, 2025-08-29, 2025-12-31",
+  "actual_orders": 0,
+  "profitability_tested": false
+}
