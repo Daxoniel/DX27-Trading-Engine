@@ -1,0 +1,13 @@
+{
+  "version": "RC1",
+  "registry_sha256": "3a5a9dead6b004370235cf13574e2e9f5ce4bde1bd37fad20717c99daa379425",
+  "documentary_case_sha256": "69a59f8ec998ed981895c31f2d5bc5e87f8a8b92439ecc4344697eebd57e3d9e",
+  "documentary_sources_checked": 2,
+  "current_alias_asset_checked": true,
+  "metadata_aliases": 1,
+  "price_aliases": 0,
+  "universe_additions": 0,
+  "formation_ready_identities": 0,
+  "created_at": "2026-10-21T14:24:58.716132+00:00",
+  "orders": 0
+}
