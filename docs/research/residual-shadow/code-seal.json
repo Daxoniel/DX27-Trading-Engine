@@ -1,0 +1,10 @@
+{
+  "files": {
+    "ledger.py": "80d0167e8797e11621e71b914687d4008e945fd966bbce509c668272a05ec912",
+    "ledger_audit.py": "b7d41ab0dac6af314fe9da4a86a607afc993b86344848ab6568289bfc387c19a",
+    "ranking.py": "b587a77b3a3cad26df7da1b2181ab9ad3e34b61358352201274704ea92ef44a6",
+    "rehearse.py": "d3f8bf9c6097733b68a8899837e3bd17dc14065781e5ac26b7d48ee7b594b1dc",
+    "test_shadow.py": "5cf5184ff40156068ca7b5065ea1049fe309a903da55237ef74425c8ea7fbee6"
+  },
+  "protocol_sha256": "99efa58446ed571352d83dad211d36f8ef1eaf9df626d82294bec390cfca3dfd"
+}
