@@ -47,6 +47,30 @@ def join_forward(old, new):
     return result, checked
 
 
+def quarantine_forward(old, new, calendar, formations):
+    """RV1a: only nonparticipants proven ineligible from retained past gaps."""
+    filtered = dict(new); blocked = []; proof = []
+    for symbol in old:
+        old_has = any(day.startswith('2025-12') for day in old[symbol])
+        new_has = any(day.startswith('2025-12') for day in new.get(symbol,{}))
+        if old_has or not new_has:
+            continue
+        counts = []
+        for day in formations:
+            end = calendar.index(day); window = calendar[max(0,end-252):end+1]
+            missing = sum(d.startswith('2025-12') and d not in old[symbol] for d in window)
+            if len(window)!=253 or missing==0:
+                raise ValueError('QUARANTINE_COULD_CHANGE_ELIGIBILITY')
+            counts.append(missing)
+        if not formations:
+            raise ValueError('QUARANTINE_FORMATIONS_REQUIRED')
+        filtered[symbol] = {}; blocked.append(symbol); proof.append(counts)
+    aggregate = [dict(formation=day, quarantined_symbols=len(blocked),
+        minimum_old_missing_beta_window_sessions=min((row[i] for row in proof),default=0))
+        for i,day in enumerate(formations)]
+    return filtered, blocked, aggregate
+
+
 def read_factors(blob):
     with zipfile.ZipFile(io.BytesIO(blob)) as archive:
         names = [n for n in archive.namelist() if n.lower().endswith('.csv')]
@@ -112,8 +136,9 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--root', type=Path, required=True); a = p.parse_args()
     public = PROJECT/'docs/research/residual-validation'; protocol_path = public/'protocol.json'
-    rules = json.loads(protocol_path.read_text()); seal = json.loads((public/'code-seal.json').read_text())
-    for name, digest in seal.items():
+    rules = json.loads(protocol_path.read_text()); seal = json.loads((public/'code-seal-v2.json').read_text())
+    assert sha256((public/'input-amendment.json').read_bytes()).hexdigest()==seal['amendment_sha256']
+    for name, digest in seal['files'].items():
         assert sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()==digest
     parent_public = PROJECT/'docs/research/residual-momentum'
     parent_rules = json.loads((parent_public/'protocol.json').read_text())
@@ -133,6 +158,16 @@ def main():
     adj_new = {s: {r['t'][:10]:r['c'] for r in rows} for s, rows in adjusted.items()}
     # SPY has no old raw reference and is never in the stock liquidity universe.
     raw_new = {s: {r['t'][:10]:(r['c'],r['v']) for r in rows} for s, rows in fresh_raw.items() if s!='SPY'}
+    calendar_blob = (a.root/'calendar.json').read_bytes()
+    assert sha256(calendar_blob).hexdigest()==manifest['calendar_sha256']
+    expected = json.loads(calendar_blob)
+    proof_calendar = sorted(set(old_calendar)|set(expected))
+    formation_days = sorted({d[:7]:d for d in proof_calendar if rules['formation_start']<=d<=rules['formation_end']}.values())
+    assert len(formation_days)==9
+    adj_new, forward_blocked, quarantine_proof = quarantine_forward(adj,adj_new,proof_calendar,formation_days)
+    for symbol in forward_blocked:
+        raw_new[symbol] = {d:v for d,v in raw[symbol].items() if d.startswith('2025-12')}
+    (a.root/'quarantined-forward-identities.json').write_text(json.dumps(forward_blocked)+'\n')
     try:
         prices, adj_checks = join_forward(adj, adj_new)
         raw_prices, raw_checks = join_forward(raw, raw_new)
@@ -141,15 +176,12 @@ def main():
         receipt = dict(status='ABORTED_INPUT_VALIDATION', code=str(error), affected_symbols=len(error.details),
             details_sha256=sha256((a.root/'seam-failure-details.json').read_bytes()).hexdigest(),
             scores_computed=False, screen='INCOMPLETE', actual_orders=0)
-        (a.root/'integrity.json').write_text(json.dumps(receipt,indent=2)+'\n')
+        (a.root/'integrity-v2.json').write_text(json.dumps(receipt,indent=2)+'\n')
         print(json.dumps(receipt)); return
     history = read_batches(a.root, manifest['inputs']['history'])
     history, quarantined = rm.quarantine_unresolved(adj, history)
     prices, history_checks = rm.extend_prices(prices, history)
     (a.root/'quarantined-identities.json').write_text(json.dumps(quarantined)+'\n')
-    calendar_blob = (a.root/'calendar.json').read_bytes()
-    assert sha256(calendar_blob).hexdigest()==manifest['calendar_sha256']
-    expected = json.loads(calendar_blob)
     if [d for d in sorted(prices['SPY']) if d>='2025-12-01'] != expected:
         raise ValueError('FORWARD_BENCHMARK_CALENDAR_MISMATCH')
     calendar = sorted(prices['SPY']); factor_blob = (a.root/'ff3.zip').read_bytes()
@@ -166,6 +198,7 @@ def main():
     (a.root/'formations.json').write_text(json.dumps(formations,sort_keys=True)+'\n')
     (a.root/'matched-features.json').write_text(json.dumps(matched,sort_keys=True)+'\n')
     result = dict(scope=rules['scope'], coverage=coverage, independent_eligible_feature_checks=base_checks,
+        input_amendment='RV1a', quarantined_forward_symbols=len(forward_blocked), quarantine_proof=quarantine_proof,
         independent_score_checks=score_checks, adj_forward_overlap=adj_checks, raw_forward_overlap=raw_checks,
         history_overlap=history_checks, quarantined_history_symbols=len(quarantined),
         retained_factor_months=len(factors), runs={}, independent_case_audits={}, actual_orders=0,

@@ -1,0 +1,9 @@
+{
+  "status": "ABORTED_INPUT_VALIDATION",
+  "code": "FORWARD_OVERLAP_MISMATCH",
+  "affected_symbols": 8,
+  "details_sha256": "b4877301fa23abf9dbfcd038407b66316ca2105f45a079f273e2d030de5a3bdf",
+  "scores_computed": false,
+  "screen": "INCOMPLETE",
+  "actual_orders": 0
+}

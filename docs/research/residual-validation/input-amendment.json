@@ -1,0 +1,64 @@
+{
+  "version": "RV1a",
+  "stage": "PRE_SCORE_INPUT_AMENDMENT_AFTER_RETAINED_RV1_ABORT",
+  "original_protocol_sha256": "e3fcb6410aee7ab602d207ec558489cf9da348262711647b99e3e08450bda6b8",
+  "initial_abort_sha256": "8e7d49469769f48eeb0216d997fe5d57b0d988a21b15786dcfe4b24d9a1f5201",
+  "scores_or_returns_seen": false,
+  "rule": "Quarantine the ENTIRE newly fetched forward history only when the old adjusted Dec2025 month is wholly empty, the new month is nonempty, AND every one of the nine predetermined 253-close beta windows contains an old missing December session. Preserve old data and all cohort symbols. These symbols could not enter the original complete-history base/peer/eligible pool in this validation period. Any other seam mismatch still aborts.",
+  "raw_rule": "For the same quarantined symbols retain original raw history and add no new raw bars. Other common-stock raw seams remain exact. SPY raw is unused and had no old reference.",
+  "formation_window_proof": [
+    {
+      "formation": "2025-12-31",
+      "missing_parent_december_sessions_in_beta_window": 22
+    },
+    {
+      "formation": "2026-01-30",
+      "missing_parent_december_sessions_in_beta_window": 22
+    },
+    {
+      "formation": "2026-02-27",
+      "missing_parent_december_sessions_in_beta_window": 22
+    },
+    {
+      "formation": "2026-03-31",
+      "missing_parent_december_sessions_in_beta_window": 22
+    },
+    {
+      "formation": "2026-04-30",
+      "missing_parent_december_sessions_in_beta_window": 22
+    },
+    {
+      "formation": "2026-05-29",
+      "missing_parent_december_sessions_in_beta_window": 22
+    },
+    {
+      "formation": "2026-06-30",
+      "missing_parent_december_sessions_in_beta_window": 22
+    },
+    {
+      "formation": "2026-07-31",
+      "missing_parent_december_sessions_in_beta_window": 22
+    },
+    {
+      "formation": "2026-08-31",
+      "missing_parent_december_sessions_in_beta_window": 22
+    }
+  ],
+  "signal_dates_costs_gates_and_capital_changed": false,
+  "original_abort_retained": true,
+  "limits": "An input amendment after data capture; not an unmodified preregistration or certified blind trial. Public action examples illustrate identity risk, not certification of every problematic symbol.",
+  "sources": [
+    {
+      "url": "https://www.nasdaqtrader.com/TraderNews.aspx?id=ECA2025-467",
+      "read_scope": "Updated BRKL merger closure notice; company-level identity illustration only"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/105319/000119312526107176/ww-20251231.htm",
+      "read_scope": "Issuer 10-K indexed disclosure: old common shares canceled on emergence from Chapter 11 June 2025"
+    },
+    {
+      "url": "https://investors.westernmidstream.com/2025-10-15-WESTERN-MIDSTREAM-COMPLETES-ACQUISITION-OF-ARIS-WATER-SOLUTIONS",
+      "read_scope": "Issuer release confirming completed Aris acquisition October 15 2025"
+    }
+  ]
+}

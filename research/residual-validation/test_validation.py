@@ -9,7 +9,7 @@ import tempfile
 import unittest
 import zipfile
 
-from validation import IntegrityError, join_forward, read_batches, read_factors, rm, screen
+from validation import IntegrityError, join_forward, quarantine_forward, read_batches, read_factors, rm, screen
 
 
 def cases():
@@ -100,6 +100,24 @@ class ValidationTests(unittest.TestCase):
                 factors[month] = [10.,10.,10.,1.]
                 prices['A'][month+'-28'] *= 100
         self.assertEqual(before,rm.score('A','2026-01-28',prices,calendar,factors,rules))
+
+    def test_forward_quarantine_requires_past_ineligibility_for_every_formation(self):
+        from datetime import timedelta
+        calendar=[]; day=date(2025,1,1)
+        while day<=date(2027,2,1):
+            if day.weekday()<5:
+                calendar.append(day.isoformat())
+            day+=timedelta(days=1)
+        old={'A':{'2025-11-28':10.},'B':{'2025-12-31':20.}}
+        new={'A':{'2025-12-31':11.,'2026-01-02':12.},'B':{'2025-12-31':21.}}
+        filtered,blocked,proof=quarantine_forward(old,new,calendar,['2025-12-31','2026-08-31'])
+        self.assertEqual(blocked,['A']); self.assertEqual(filtered['A'],{})
+        self.assertTrue(all(r['minimum_old_missing_beta_window_sessions']>0 for r in proof))
+        self.assertEqual(old['A'],{'2025-11-28':10.})
+        with self.assertRaises(IntegrityError):
+            join_forward(old,filtered)  # B price mismatch is never waived.
+        with self.assertRaisesRegex(ValueError,'COULD_CHANGE_ELIGIBILITY'):
+            quarantine_forward(old,new,calendar,['2027-01-29'])
 
 
 if __name__=='__main__':
