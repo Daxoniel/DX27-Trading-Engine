@@ -1,0 +1,24 @@
+{
+  "version": "RS1",
+  "parent_commit": "db49fc3eeaeeadf0efc37fba8671cd62c5574611",
+  "scope": "OFFLINE_SHADOW_COMPONENTS_AND_HISTORICAL_REHEARSAL_NO_PROMOTION",
+  "signal": "Unchanged RM1a and original SM1 eligibility, same fixed cohort; independent Decimal OLS plus separate deterministic rank selection",
+  "budget": "Each selected name targets 1% of post-cost hypothetical account NAV; at most ten names and two per archived sector. Unused slots cash; no leverage, cash interest zero. Monthly targets, not drift caps.",
+  "initial_equity_usd": "100000",
+  "costs_bps_each_side": [5, 25],
+  "accounting": "Fractional adjusted-price proxy units, never broker shares; daily close marks. Self-financing absolute turnover costs, sales and purchases charged. No forced terminal sale. Missing held or target price halts, never fills forward. Corporate-action ambiguity blocks upstream; this ledger cannot value rights or cash entitlements.",
+  "event_store": "Exclusive append-only numbered events, previous-event SHA256 chain, replay verifies all hashes and recomputes every state. HALT terminal. Source receipt hash and rank-plan hash recorded per event; hashes bind evidence but do not certify source authenticity.",
+  "rehearsal": "Reuse previously exposed 2026 RV1a source snapshots and archived formations only; test selected targets and ledger against independent checks. Rehearsal is not a new backtest, no new return headline or parameter search.",
+  "prospective_activation": "Still blocked until RF1 missing inputs, identity/action checks, timestamped rank seal and closed formation requirements are satisfied. No prospective ingestion or scheduler enabled by this PR; old dates are always rehearsal.",
+  "prospective_evaluation_registration": {
+    "planned_formations": ["2026-10-30", "2026-11-30", "2026-12-31", "2027-01-29", "2027-02-26", "2027-03-31"],
+    "terminal_mark": "2027-04-30",
+    "execution_lag": "Second later XNYS session close; input/rank seal before that session opens. Calendar must be verified before activation.",
+    "comparators": "Parent ordinary, matched ordinary, matched relative, matched residual; each independent 100000 account with identical 10% budget and 5/25bp costs",
+    "incomplete": "Any skipped cycle, unresolved identity, missing factor/price, unsealed rank or ledger halt => INCOMPLETE; never extend dates to replace a skipped cycle",
+    "research_screen": "After all six cycles and terminal mark, at both costs residual net return >0 and >matched ordinary, daily account drawdown <=5% and <=matched ordinary. Report all four controls, including unrestricted parent; retain prior full-exposure FAIL. These administrative criteria are not significance tests or guaranteed risk limits.",
+    "stock_intervals": "Report positive gross stock intervals descriptively with repeated-name dependence; not broker win rate, no frequency pass gate",
+    "promotion": "No automatic Paper or live promotion even on PASS; operational identity/fill/account checks require separate review. Six cycles cannot establish durable alpha."
+  },
+  "restrictions": "All preexisting tracked files and 156 core files unchanged; raw prices, factors and per-name ledgers private work/; no SOXL, paid data, broker reads/writes, or orders."
+}
