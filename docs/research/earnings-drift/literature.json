@@ -1,0 +1,131 @@
+{
+  "as_of": "2026-10-21",
+  "status": "CONTESTED_NOT_A_VALIDATED_TRADING_EDGE",
+  "references": [
+    {
+      "id": "BT1989",
+      "authors": [
+        "Victor L. Bernard",
+        "Jacob K. Thomas"
+      ],
+      "year": 1989,
+      "title": "Post-Earnings-Announcement Drift: Delayed Price Response or Risk Premium?",
+      "venue": "Journal of Accounting Research 27 (Supplement), 1–36",
+      "doi": "10.2307/2491062",
+      "url": "https://www.jstor.org/stable/2491062",
+      "read_scope": "Bibliographic record only; full text not obtained. Do not import exact trading rules from this source.",
+      "role": "Historical motivation, not an executable replication specification."
+    },
+    {
+      "id": "BT1990",
+      "authors": [
+        "Victor L. Bernard",
+        "Jacob K. Thomas"
+      ],
+      "year": 1990,
+      "title": "Evidence that stock prices do not fully reflect the implications of current earnings for future earnings",
+      "venue": "Journal of Accounting and Economics 13(4), 305–340",
+      "doi": "10.1016/0165-4101(90)90008-R",
+      "url": "https://deepblue.lib.umich.edu/handle/2027.42/28288?show=full",
+      "read_scope": "Repository metadata and indexed abstract; attempted PDF returned HTML, not the article.",
+      "role": "Historical evidence concerning delayed response; not proof of present-day profitability."
+    },
+    {
+      "id": "LM2006",
+      "authors": [
+        "Joshua Livnat",
+        "Richard R. Mendenhall"
+      ],
+      "year": 2006,
+      "title": "Comparing the Post–Earnings Announcement Drift for Surprises Calculated from Analyst and Time Series Forecasts",
+      "venue": "Journal of Accounting Research 44(1), 177–205",
+      "doi": "10.1111/j.1475-679X.2006.00196.x",
+      "url": "https://doi.org/10.1111/j.1475-679X.2006.00196.x",
+      "read_scope": "Indexed publisher abstract; full methods not read.",
+      "finding": "Analyst-based and time-series-based surprises yield different drift estimates.",
+      "implication": "Replacing missing consensus with year-over-year EPS is a different hypothesis, not an interchangeable data repair."
+    },
+    {
+      "id": "CGSSS2009",
+      "authors": [
+        "Tarun Chordia",
+        "Amit Goyal",
+        "Gil Sadka",
+        "Ronnie Sadka",
+        "Lakshmanan Shivakumar"
+      ],
+      "year": 2009,
+      "title": "Liquidity and the Post-Earnings-Announcement Drift",
+      "venue": "Financial Analysts Journal 65(4), 18–32",
+      "url": "https://rpc.cfainstitute.org/research/financial-analysts-journal/2009/liquidity-and-the-post-earnings-announcement-drift",
+      "read_scope": "Publisher abstract; not a full-text replication.",
+      "finding": "Drift concentrates in illiquid stocks; estimated transaction costs consume 70–100% of the studied long-short paper profits.",
+      "implication": "A high-beta extension must separately test liquidity, costs and market impact; paper spreads are not retail long-only returns."
+    },
+    {
+      "id": "M2022",
+      "authors": [
+        "Charles Martineau"
+      ],
+      "year": 2022,
+      "title": "Rest in Peace Post-Earnings Announcement Drift",
+      "venue": "Critical Finance Review 11(3–4), 613–646",
+      "doi": "10.1561/104.00000122",
+      "url": "https://cfr.ivo-welch.org/published/papers/martineau2021rest.pdf",
+      "read_scope": "Downloaded 46-page CFR draft: introduction; sections 2.1–2.2; start of 3.1.2; sections 4 and 6. Publication metadata verified separately.",
+      "download_sha256": "11982c1859d4beeb3bc25e3fc7dad011402bd6a98f04c9192780e37ac13ffba3",
+      "finding": "Samples end in 2019. Analyst-surprise drift is absent in all-but-microcap stocks since 2006 and microcaps since 2016 in this study.",
+      "implication": "Strong adverse prior, not proof about every high-beta subset in 2025. Separate eras, microcaps and surprise definitions."
+    },
+    {
+      "id": "HPW2025",
+      "authors": [
+        "David Hirshleifer",
+        "Lin Peng",
+        "Qiguang Wang"
+      ],
+      "year": 2025,
+      "title": "News Diffusion in Social Networks and Stock Market Reactions",
+      "venue": "Review of Financial Studies 38(3), 883–937",
+      "doi": "10.1093/rfs/hhae025",
+      "url": "https://doi.org/10.1093/rfs/hhae025",
+      "working_version_url": "https://www.nber.org/system/files/working_papers/w30860/w30860.pdf",
+      "read_scope": "Published abstract and metadata; February 2024 NBER revision sections 2 and 3.1. Published full-text version not independently read.",
+      "download_sha256": "e8cc30686da266c4768b03c5c996356c2dbda506abcc49d0d3aefeaa9194020c",
+      "finding": "Greater social connectedness is associated with stronger immediate reaction and weaker later drift. The read working version uses seasonal time-series SUE and 1996–2017 data.",
+      "implication": "Positive conditional drift evidence deserves inclusion. It does not directly validate a current analyst-beat high-beta long-only strategy."
+    },
+    {
+      "id": "DJM2026",
+      "authors": [
+        "Alexander Dickerson",
+        "Christian Julliard",
+        "Philippe Mueller"
+      ],
+      "year": 2026,
+      "title": "The co-pricing factor zoo",
+      "venue": "Journal of Financial Economics 182, 104295",
+      "doi": "10.1016/j.jfineco.2026.104295",
+      "url": "https://wrap.warwick.ac.uk/id/eprint/199281/7/1-s2.0-S0304405X26000668-main.pdf",
+      "read_scope": "Published PDF: abstract/introduction; PEAD discussion and footnote 26; Appendix A.1 factor-source entry.",
+      "finding": "PEAD-related factors remain important in the joint stock/bond pricing exercise; the paper acknowledges reduced recent time-series predictability.",
+      "implication": "Priced-factor evidence is a different test from profitable delayed entry after positive consensus surprises. The reported combined-SDF Sharpe must not be assigned to PEAD alone."
+    },
+    {
+      "id": "S2026",
+      "authors": [
+        "Avanidhar Subrahmanyam"
+      ],
+      "year": 2026,
+      "title": "Keeping It Simple: How Post-earnings Return Drift Can Exist and Not Exist Simultaneously",
+      "venue": "Journal of Investment and Management 15(1), 1–4",
+      "doi": "10.11648/j.jim.20261501.11",
+      "url": "https://www.sciencepg.com/article/10.11648/j.jim.20261501.11",
+      "read_scope": "Primary HTML article, especially sections 2–3 and Table 1. No independent replication run here.",
+      "finding": "For the reconstructed announcement-return factor over February 2001–December 2024, excluding microcaps reduces the reported t-statistic from 2.18 to 1.43.",
+      "implication": "Examine universe and signal definitions before using significance claims. Nonsignificance is not proof of zero effect.",
+      "version_caveat": "This critique discusses earlier paper versions. DJM final publication appeared later in 2026; do not assume every criticism applies unchanged."
+    }
+  ],
+  "independent_paper_replications": 0
+}

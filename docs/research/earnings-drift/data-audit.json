@@ -1,0 +1,249 @@
+{
+  "status": "DATA_FEASIBILITY_NOT_ESTABLISHED",
+  "scope": "SCHEMA_PILOT_NOT_REPRESENTATIVE_SAMPLE",
+  "providers": {
+    "alpaca_news": {
+      "status": "COMPLETE_FOR_FIXED_SCHEMA_PILOT",
+      "pages": 2,
+      "records": 82,
+      "row_keys": [
+        "author",
+        "content",
+        "created_at",
+        "headline",
+        "id",
+        "images",
+        "source",
+        "summary",
+        "symbols",
+        "updated_at",
+        "url"
+      ],
+      "updated_after_creation": 58,
+      "structured_actual_eps_field_present": false,
+      "structured_consensus_field_present": false,
+      "historical_content_versions_verified": false,
+      "note": "News text may mention EPS; extraction, accounting basis and pre-release consensus vintage are not established."
+    },
+    "sec-submissions": {
+      "filing_metadata_fields": [
+        "acceptanceDateTime",
+        "accessionNumber",
+        "act",
+        "core_type",
+        "fileNumber",
+        "filingDate",
+        "filmNumber",
+        "form",
+        "isInlineXBRL",
+        "isXBRL",
+        "isXBRLNumeric",
+        "items",
+        "primaryDocDescription",
+        "primaryDocument",
+        "reportDate",
+        "size"
+      ],
+      "announcement_time_verified": false,
+      "analyst_consensus_present": false
+    },
+    "sec-eps": {
+      "fact_fields": [
+        "accn",
+        "end",
+        "filed",
+        "form",
+        "fp",
+        "frame",
+        "fy",
+        "start",
+        "val"
+      ],
+      "historical_periods": 120,
+      "periods_with_multiple_values_across_filings": 18,
+      "period_end_cutoff": "2025-12-31",
+      "records_filed_after_period_end_cutoff": 5,
+      "analyst_consensus_present": false,
+      "note": "Multiple values can reflect splits, differing disclosures or revisions; do not classify all as errors or choose the latest blindly."
+    },
+    "alphavantage-ibm-demo": {
+      "status": "DEMO_SCHEMA_ONLY",
+      "quarterly_rows": 122,
+      "reported_in_2025": 4,
+      "row_keys": [
+        "estimatedEPS",
+        "fiscalDateEnding",
+        "reportTime",
+        "reportedDate",
+        "reportedEPS",
+        "surprise",
+        "surprisePercentage"
+      ],
+      "pre_release_consensus_vintage_verified": false,
+      "eps_basis_verified": false,
+      "exact_release_timestamp_verified": false,
+      "broad_universe_access_verified": false
+    },
+    "alpaca-doc-index": {
+      "lines_matching_earnings": 0,
+      "note": "An index search is not proof that no provider product exists."
+    },
+    "existing_blackout_events": {
+      "records": 205,
+      "sha256": "5980ae5fcd207fc1c2489c39041bc29a1d58280201f70ecfb52e6d6c9410cc1a",
+      "unknown_release_times": 204,
+      "actual_eps_records": 0,
+      "consensus_eps_records": 0,
+      "note": "Blackout dates are not EPS-surprise observations."
+    }
+  },
+  "source_seals": [
+    {
+      "id": "alpaca-news",
+      "url": "https://data.alpaca.markets/v1beta1/news?symbols=NVDA&start=2025-05-28T00%3A00%3A00Z&end=2025-05-30T00%3A00%3A00Z&limit=50&sort=asc&include_content=true",
+      "retrieved_at": "2026-10-21T07:06:32.124243+00:00",
+      "http_status": 200,
+      "bytes": 316949,
+      "sha256": "c23a701a4ad35554dffa6b0514c68e82f01a5fecb4789b271384e205a4396883",
+      "content_type": "application/json",
+      "items": 50,
+      "top_keys": [
+        "news",
+        "next_page_token"
+      ],
+      "item_keys": [
+        "author",
+        "content",
+        "created_at",
+        "headline",
+        "id",
+        "images",
+        "source",
+        "summary",
+        "symbols",
+        "updated_at",
+        "url"
+      ],
+      "next_page": true
+    },
+    {
+      "id": "alpaca-news-001",
+      "url": "https://data.alpaca.markets/v1beta1/news?symbols=NVDA&start=2025-05-28T00%3A00%3A00Z&end=2025-05-30T00%3A00%3A00Z&limit=50&sort=asc&include_content=true&page_token=MTc0ODUxNzQxMjAwMDAwMDAwMHw0NTY2NTg2OQ%3D%3D",
+      "retrieved_at": "2026-10-21T07:07:52.512272+00:00",
+      "http_status": 200,
+      "bytes": 169974,
+      "sha256": "065d49dc3ac49221a94f265009fccfb2a7879068f3a4786189f3255ab838c574",
+      "items": 32,
+      "next_page": false
+    },
+    {
+      "id": "sec-submissions",
+      "url": "https://data.sec.gov/submissions/CIK0001045810.json",
+      "retrieved_at": "2026-10-21T07:06:32.763265+00:00",
+      "http_status": 200,
+      "bytes": 159761,
+      "sha256": "682c49d59116ae49b317eb4adddf3ef9142dfd97f59c5d8e5a5acad7f9058ab4",
+      "content_type": "application/json",
+      "top_keys": [
+        "addresses",
+        "category",
+        "cik",
+        "description",
+        "ein",
+        "entityType",
+        "exchanges",
+        "filings",
+        "fiscalYearEnd",
+        "flags",
+        "formerNames",
+        "insiderTransactionForIssuerExists",
+        "insiderTransactionForOwnerExists",
+        "investorWebsite",
+        "lei",
+        "name",
+        "ownerOrg",
+        "phone",
+        "sic",
+        "sicDescription",
+        "stateOfIncorporation",
+        "stateOfIncorporationDescription",
+        "tickers",
+        "website"
+      ],
+      "filing_fields": [
+        "acceptanceDateTime",
+        "accessionNumber",
+        "act",
+        "core_type",
+        "fileNumber",
+        "filingDate",
+        "filmNumber",
+        "form",
+        "isInlineXBRL",
+        "isXBRL",
+        "isXBRLNumeric",
+        "items",
+        "primaryDocDescription",
+        "primaryDocument",
+        "reportDate",
+        "size"
+      ]
+    },
+    {
+      "id": "sec-eps",
+      "url": "https://data.sec.gov/api/xbrl/companyconcept/CIK0001045810/us-gaap/EarningsPerShareDiluted.json",
+      "retrieved_at": "2026-10-21T07:06:33.089057+00:00",
+      "http_status": 200,
+      "bytes": 44731,
+      "sha256": "37b0d3d0359a2df943f80c4a4c3e959be3d6ec255ed39b8499364265d471759c",
+      "content_type": "application/json",
+      "top_keys": [
+        "cik",
+        "description",
+        "entityName",
+        "label",
+        "tag",
+        "taxonomy",
+        "units"
+      ],
+      "fact_fields": [
+        "accn",
+        "end",
+        "filed",
+        "form",
+        "fp",
+        "frame",
+        "fy",
+        "start",
+        "val"
+      ]
+    },
+    {
+      "id": "alphavantage-ibm-demo",
+      "url": "https://www.alphavantage.co/query?function=EARNINGS&symbol=IBM&apikey=demo",
+      "retrieved_at": "2026-10-21T07:05:18.881564+00:00",
+      "http_status": 200,
+      "final_url": "https://www.alphavantage.co/query?function=EARNINGS&symbol=IBM&apikey=demo",
+      "sha256": "c849fe15b70d74f324f226f65d55d1da033914b2a3e0e36f9d9c61d559782352",
+      "bytes": 39172,
+      "content_type": "application/json"
+    },
+    {
+      "id": "alpaca-doc-index",
+      "url": "https://docs.alpaca.markets/us/llms.txt",
+      "retrieved_at": "2026-10-21T07:05:18.881913+00:00",
+      "http_status": 200,
+      "final_url": "https://docs.alpaca.markets/us/llms.txt",
+      "sha256": "007ddf417e6e19fc997e658866229e8649147c1bf8818bdfe8b76529af73ef5d",
+      "bytes": 81881,
+      "content_type": "text/plain; charset=utf-8"
+    }
+  ],
+  "qualified_event_universe_constructed": false,
+  "historical_pit_event_count": null,
+  "ready_for_pit_backtest": false,
+  "returns_computed": false,
+  "actual_orders": 0,
+  "paid_access_purchased": false,
+  "source_authenticity_verified": false
+}

@@ -1,0 +1,36 @@
+{
+  "stage": "FEASIBILITY_ONLY_NOT_A_TRADING_PROTOCOL",
+  "primary_candidate": "POST_RELEASE_ANALYST_EPS_SURPRISE_IN_HIGH_BETA_STOCKS",
+  "required_event_evidence": [
+    "permanent issuer/security identity and fiscal period",
+    "release timestamp with timezone and primary-source evidence, or a documented conservative availability bound for a daily study; filing acceptance is a different timestamp",
+    "actual EPS and pre-release consensus on matching accounting, currency, quarter-vs-YTD duration and share/split basis",
+    "documented consensus vintage available strictly before release; current download time is not historical availability",
+    "actual EPS version available before the intended decision; exclude later revisions from earlier decisions",
+    "raw-source SHA256, immutable filing accession or vendor version identifier and retrieval timestamps"
+  ],
+  "required_universe_evidence": [
+    "historical eligibility including delisted names, not current survivors",
+    "market beta estimated from aligned pre-event stock and market returns; no post-event beta and no ADR substitution",
+    "point-in-time sectors, size/liquidity and corporate actions; no exclusion using later outcomes"
+  ],
+  "research_comparators": [
+    "matched high-beta universe without the earnings selection",
+    "ordinary price momentum as a separate comparator",
+    "unlevered passive market exposure with dividends"
+  ],
+  "design_requirements": [
+    "freeze sample dates, thresholds, holding period, primary statistic and costs before outcome inspection",
+    "separate analyst surprise, seasonal time-series SUE and announcement-return momentum",
+    "report recent eras, non-microcap and microcap samples separately; do not promote whichever subgroup wins",
+    "separate overlapping event studies from cash-funded account returns and handle issuer/date dependence",
+    "measure costs and executable entry/exit assumptions; never include the pre-entry announcement jump",
+    "report win rate, payoff distribution, drawdown, exposure and concentration; high beta does not imply high win rate"
+  ],
+  "trading_thresholds_frozen": false,
+  "holding_period_frozen": false,
+  "qualified_universe_constructed": false,
+  "data_access_decision": "DEFER_RETURN_BACKTEST_UNTIL_EVIDENCE_IS_AVAILABLE",
+  "paper_orders_authorized_by_this_artifact": false,
+  "reserved_2026_soxl_prices_used": false
+}

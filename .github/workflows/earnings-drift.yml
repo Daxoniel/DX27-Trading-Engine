@@ -1,0 +1,22 @@
+name: Earnings drift evidence audit
+on:
+  pull_request:
+    paths: ['research/earnings-drift/**', 'docs/research/earnings-drift/**', '.github/workflows/earnings-drift.yml']
+  push:
+    branches: [main]
+    paths: ['research/earnings-drift/**', 'docs/research/earnings-drift/**', '.github/workflows/earnings-drift.yml']
+permissions:
+  contents: read
+jobs:
+  evidence:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/earnings-drift -p "test_*.py" -v
