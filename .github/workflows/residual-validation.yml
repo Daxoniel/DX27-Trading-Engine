@@ -1,0 +1,24 @@
+name: Residual momentum temporal validation
+on:
+  pull_request:
+    paths: ['research/residual-validation/**', 'docs/research/residual-validation/**', '.github/workflows/residual-validation.yml']
+  push:
+    branches: [main]
+    paths: ['research/residual-validation/**', 'docs/research/residual-validation/**', '.github/workflows/residual-validation.yml']
+permissions:
+  contents: read
+jobs:
+  validation:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/residual-validation -p "test_*.py" -v
+      - run: python -m unittest discover -s research/residual-momentum -p "test_*.py" -v
+      - run: python -m unittest discover -s research/sector-momentum -p "test_*.py" -v
