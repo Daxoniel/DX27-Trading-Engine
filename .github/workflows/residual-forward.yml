@@ -1,0 +1,24 @@
+name: Residual forward preparation
+on:
+  push:
+    paths: ['research/residual-forward/**', 'docs/research/residual-forward/**', '.github/workflows/residual-forward.yml']
+  pull_request:
+    paths: ['research/residual-forward/**', 'docs/research/residual-forward/**', '.github/workflows/residual-forward.yml']
+jobs:
+  offline:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install exchange_calendars==4.13.2
+      - run: python -m unittest discover -s research/residual-forward -p "test_*.py" -v
+      - run: python -m unittest discover -s research/residual-validation -p "test_*.py" -v
+      - run: python -m unittest discover -s research/residual-momentum -p "test_*.py" -v
+      - run: python -m unittest discover -s research/sector-momentum -p "test_*.py" -v
+      - working-directory: research/residual-forward
+        run: python -c "from prepare import calendar_window; w=calendar_window(); assert w['formation']=='2026-10-30' and w['execution']=='2026-11-03', w"

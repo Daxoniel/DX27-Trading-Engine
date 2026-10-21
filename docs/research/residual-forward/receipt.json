@@ -1,0 +1,47 @@
+{
+  "version": "RF1",
+  "status": "BLOCKED_PREPARATION_ONLY",
+  "observed_at": "2026-10-21T12:30:09.016733+00:00",
+  "protocol_sha256": "68b1f9c54ca5bb8b560672fde779162a36c13d2bb50a9499867121e598a15186",
+  "calendar": {
+    "formation": "2026-10-30",
+    "execution": "2026-11-03",
+    "formation_close": "2026-10-30T20:00:00+00:00",
+    "execution_open": "2026-11-03T14:30:00+00:00",
+    "calendar_version": "4.13.2"
+  },
+  "factor_receipt": {
+    "source": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip",
+    "sha256": "593f4fbef03181bc0b22ff6292f217689dd1fb79355049ca905d95b262040a66",
+    "bytes": 13065,
+    "latest_month": "2026-08",
+    "missing_required_months": [
+      "2026-09"
+    ],
+    "receipt_is_not_original_publication_time": true
+  },
+  "blockers": [
+    "FRESH_PRICES_NOT_CAPTURED",
+    "IDENTITIES_AND_ACTIONS_NOT_VERIFIED",
+    "INDEPENDENT_RANK_AUDIT_NOT_RUN",
+    "SHADOW_LEDGER_NOT_IMPLEMENTED",
+    "EVALUATION_PROTOCOL_NOT_REGISTERED",
+    "FORMATION_NOT_CLOSED",
+    "FACTOR_MONTHS_MISSING"
+  ],
+  "illustrative_budget": {
+    "stock_budget_usd": "10000.00",
+    "target_notional_per_name_before_costs_usd": "1000.00",
+    "target_stock_notional_before_costs_usd": "0.00",
+    "cash_before_costs_usd": "100000.00",
+    "costs_included": false,
+    "executable": false
+  },
+  "stock_budget_fraction": "0.10",
+  "prior_screen": "FAIL_RETAINED",
+  "signal_computed": false,
+  "broker_accessed": false,
+  "orders_sent": 0,
+  "persistent_scheduler_installed": false,
+  "performance_evaluated": false
+}
