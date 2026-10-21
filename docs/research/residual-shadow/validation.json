@@ -1,0 +1,14 @@
+{
+  "protocol_commit": "b5f00e1",
+  "execution_seal_commit": "8aefea4",
+  "new_tests": 9,
+  "parent_tests": 36,
+  "source": "Retained private RV1a snapshots; no new market requests",
+  "sealed_core_unchanged": 156,
+  "all_preexisting_tracked_files_unchanged": true,
+  "full_rehearsal": "rehearsal.json",
+  "actual_orders": 0,
+  "additional_test_hashes": {
+    "test_durability.py": "99e34f0cbcb711313050c896fdf8e22ffb643ac15f950a4feab2528cce868026"
+  }
+}
