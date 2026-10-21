@@ -1,0 +1,28 @@
+{
+  "paper": {
+    "title": "Residual Momentum",
+    "authors": [
+      "David Blitz",
+      "Joop Huij",
+      "Martin Martens"
+    ],
+    "doi": "10.1016/j.jempfin.2011.01.003",
+    "url": "https://repub.eur.nl/pub/22252/ResidualMomentum-2011.pdf",
+    "version": "Unedited accepted manuscript; accepted 2011-01-11",
+    "read_scope": "Introduction; section 3 pp 9-13 including equation 1, alpha paragraph and footnotes; section 5.5 pp 34-35 (complete-history matched control). Other complete results/robustness not claimed read.",
+    "method_interpretation": "Intercept fitted in OLS, but factor-only subtraction for rank returns follows the explicit alpha paragraph; rank return differs from full regression error",
+    "replication_limit": "Original long-short CRSP deciles and multiple overlapping holding periods not reproduced; pure long high-beta constraints and factor lag are DX27 extensions"
+  },
+  "factor_sources": [
+    {
+      "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/f-f_factors.html",
+      "read_scope": "FF3 factor and RF definitions; RF source changes June 2024"
+    },
+    {
+      "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+      "read_scope": "2025 FIZ to CIZ switch; monthly dividend-reinvestment construction difference and CSV download link"
+    }
+  ],
+  "arithmetic_limits": "Paper prose does not fully specify machine arithmetic for summing adjusted returns or ddof; RM1 freezes additive sum and sample sd as an implementation convention, not a verified author-code replication.",
+  "claims": "Published long-short performance is not transferred to this study; score is not proven alpha and pure long portfolio is not factor neutral"
+}

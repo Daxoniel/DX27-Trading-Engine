@@ -1,0 +1,23 @@
+name: Lagged FF3 momentum extension
+on:
+  pull_request:
+    paths: ['research/residual-momentum/**', 'docs/research/residual-momentum/**', '.github/workflows/residual-momentum.yml']
+  push:
+    branches: [main]
+    paths: ['research/residual-momentum/**', 'docs/research/residual-momentum/**', '.github/workflows/residual-momentum.yml']
+permissions:
+  contents: read
+jobs:
+  residual:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/residual-momentum -p "test_*.py" -v
+      - run: python -m unittest discover -s research/sector-momentum -p "test_*.py" -v

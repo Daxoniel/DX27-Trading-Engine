@@ -1,0 +1,67 @@
+{
+  "version": "RM1",
+  "scope": "HIGH_BETA_PURE_LONG_LAGGED_FF3_MOMENTUM_EXTENSION_NOT_PAPER_REPLICATION",
+  "parent_commit": "c3f76d851e6633da9d79394b542790e2156c1cb3",
+  "parent_protocol_sha256": "a389c4f65a92cf1c8a0eeadd78f227045fcf14ec3e554c716da004ef08ee0b11",
+  "parent_manifest_sha256": "525cca22084edd20770ac0d6d7d10a57f6285e8090a3f9056629c90d89ae8573",
+  "parent_formations_sha256": "40944c4888a1fbdc207ae82ec3cb03c9aa1aea7efc979b1ec9430d6801278e38",
+  "capture_symbol_pool": "Union of the 346 existing SM1 eligible symbols plus SPY; capture union is not a common future-completeness selection rule",
+  "capture_start": "2022-03-01",
+  "capture_end": "2023-01-31T23:59:59Z",
+  "capture_adjustment": "all",
+  "capture_asof": "2025-04-25",
+  "overlap_check": "All January 2023 symbol-session closes must equal retained SM1 cache; no silent vintage splice",
+  "factor_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip",
+  "factors": [
+    "Mkt-RF",
+    "SMB",
+    "HML",
+    "RF"
+  ],
+  "factor_units": "Percent in source converted to decimal once; ignore annual rows and dates outside 2022-04 through 2025-10",
+  "factor_vintage": "Current retrospective French CIZ source, not historical publication snapshot",
+  "factor_lag": "Regression ends in calendar month immediately before formation month; full calendar month lag is a DX27 assumption, not proof of release availability",
+  "regression_months": 36,
+  "regression": "OLS monthly stock total-return proxy minus RF on intercept, Mkt-RF, SMB, HML; exact 36 consecutive months, no imputation or regularization",
+  "rank_adjusted_return": "u=y-beta_M*MktRF-beta_S*SMB-beta_H*HML; estimated intercept retained in fit but NOT subtracted when forming u; u=alpha+OLS_error",
+  "rank_window": "Last 11 regression months, ending formation_month minus 1; prior 2-12 stock-return convention retained",
+  "score": "sum(last_11_u)/sample_standard_deviation(last_11_u); additive aggregation and ddof=1 are explicit DX27 arithmetic conventions; no compounding fictitious investable residuals",
+  "numerics": {
+    "ols": "reorthogonalized modified Gram-Schmidt QR",
+    "rank_tolerance": 1e-12,
+    "score_sd_minimum": 1e-12
+  },
+  "selectors": [
+    "parent_ordinary",
+    "matched_ordinary",
+    "matched_relative",
+    "matched_residual"
+  ],
+  "matched_pool": "For each original formation separately: original high-beta eligible names with complete 36 monthly stock returns, valid factors/full-rank OLS and nonzero score-window dispersion; shared by all matched selectors",
+  "matched_relative": "Retain original archived sector-relative score and original peer pool; only restrict candidate list",
+  "primary": "5bp matched_residual minus matched_ordinary unannualized return and difference in gross positive stock holding-interval frequency; observed drawdown also report",
+  "controls": "Parent ordinary isolates additional-history sample restriction; matched relative is context; do not call same-gross portfolios risk matched",
+  "execution": "Parent SM1 ten 10% slots, max two per sector, monthly fixed targets entered at second later benchmark close; remainder zero-interest cash; no risk-budget overlay, leverage or shorting",
+  "costs_bps_per_side": [
+    5,
+    25
+  ],
+  "missing_held_price": "HALT_NO_FULL_PERIOD_RETURN; no excluding names using subsequent quote completeness",
+  "statistics": [
+    "proxy return",
+    "daily observed drawdown",
+    "gross stock interval positive count, not actual trade wins or independent trials",
+    "basket positive intervals",
+    "formation-weighted 252-day SPY beta",
+    "selection overlap",
+    "matched feature coverage and rejection reasons"
+  ],
+  "sample": "Same original eight formations April-November 2025 and marks through December 31; not an independent holdout",
+  "no_parameter_search": true,
+  "independent_out_of_sample": false,
+  "automatic_promotion": false,
+  "full_period_broad_control_available": false,
+  "actual_orders": 0,
+  "paid_data_purchases": 0,
+  "reserved_2026_soxl_prices_used": false
+}

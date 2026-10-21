@@ -1,0 +1,9 @@
+{
+  "files": {
+    "capture.py": "244b2f0b0b9b45aea232789e243d82ec4f6fb7cec7cbf7f56e5f786619bca8bc",
+    "features.py": "89c981555cdba49f08024d7fc0e9256d17df07eb6f1ec054df9f470a957ad585",
+    "audit.py": "95b9d9189193c69916217daacb01811c6f6814a361ce317e2357d2f192322c2b",
+    "runner.py": "267b5d10fbf40bedd744ff8a8dc6bcf63ad961d166e45929d0c8b412e5a81364"
+  },
+  "amendment_sha256": "4c77abaa7317f3cb4facaf0fe60b45fa4a982edc8060298dc47b3ab124c76259"
+}
