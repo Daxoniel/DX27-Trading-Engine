@@ -1,0 +1,22 @@
+{
+  "new_offline_tests": 8,
+  "original_offline_tests": 11,
+  "original_formations_recomputed": 8,
+  "source_response_pages_hash_verified": 4,
+  "sealed_core_files_unchanged": 156,
+  "all_preexisting_tracked_files_unchanged_from": "b45e6c403a843cae307cd70ac96edf8ec89a3d1d",
+  "original_halt_retained": true,
+  "full_period_control_return": null,
+  "actual_orders": 0,
+  "paid_data_purchases": 0,
+  "reserved_2026_soxl_prices_used": false,
+  "broker_receipt_verified": false,
+  "rights_fair_value_verified": false,
+  "promotable": false,
+  "review_code_sha256": {
+    "capture.py": "bd2ccdfcd21263b342fc6151a6aff7d97dda38277ef261b5187850ffc4bb0332",
+    "diagnose.py": "433ebd002f9fd5b94783f5b4ce287147d2d279f19915aec0c65c5587b45706a3",
+    "entitlement.py": "90080094c8712ad5c7f5826806fe3b890b5cb736c0b87054c5d16acfa0a03012",
+    "test_review.py": "9d748fa4ccbe94278db1845bf2c2b07d4b24481c3e5a55c26c75625c0311cceb"
+  }
+}
