@@ -1,0 +1,9 @@
+{
+  "files": {
+    "admission.py": "ea414aa0a14a9b955854707d14827a3ce2de79953f613dc7bfdf0d80d1ed819b",
+    "probe.py": "a6b48c2ce98bc71a026347091117223c14308bced4d6f676bf4d43e11f68882a",
+    "snapshots.py": "e35474acf1e26fc05b9f7ea5c8e7a5adb5e28b7e973bbf986a0c5449063b1bef",
+    "test_admission.py": "1cded27515fc092e8e09a0eab1397218ebe7bdb5b67277939a527bd19b28b75c"
+  },
+  "protocol_sha256": "62352cce9b41bb0ba05de53daa2b985a1024c003e73efe327cd8d4f92a00bc21"
+}
