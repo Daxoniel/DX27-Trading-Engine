@@ -1,0 +1,104 @@
+{
+  "scope": "RETROSPECTIVE_COVERAGE_AND_CORPORATE_ACTION_DIAGNOSIS",
+  "original_result_changed": false,
+  "original_full_period_control_return": null,
+  "planned_coverage": {
+    "ordinary": {
+      "planned_symbol_session_checks": 1750,
+      "gap_intervals": 0,
+      "unique_gap_securities": 0,
+      "missing_symbol_sessions": 0
+    },
+    "relative": {
+      "planned_symbol_session_checks": 1750,
+      "gap_intervals": 0,
+      "unique_gap_securities": 0,
+      "missing_symbol_sessions": 0
+    },
+    "broad": {
+      "planned_symbol_session_checks": 42495,
+      "gap_intervals": 1,
+      "unique_gap_securities": 1,
+      "missing_symbol_sessions": 4
+    },
+    "spy": {
+      "planned_symbol_session_checks": 168,
+      "gap_intervals": 0,
+      "unique_gap_securities": 0,
+      "missing_symbol_sessions": 0
+    }
+  },
+  "event_assessment": {
+    "identity_matches": true,
+    "terms_match": true,
+    "legal_effective_date": "2025-10-30",
+    "vendor_effective_date": "2025-11-03",
+    "vendor_process_date": "2025-11-03",
+    "vendor_payable_date": "2025-11-03",
+    "date_conflict": true,
+    "destination_is_tradable_stock": false,
+    "broker_receipt_verified": false,
+    "automatic_resume_allowed": false
+  },
+  "fresh_bars": {
+    "raw": {
+      "rows": 21,
+      "last_session": "2025-10-29",
+      "post_last_session_rows": 0
+    },
+    "all": {
+      "rows": 21,
+      "last_session": "2025-10-29",
+      "post_last_session_rows": 0
+    }
+  },
+  "source_manifest_sha256": "525cca22084edd20770ac0d6d7d10a57f6285e8090a3f9056629c90d89ae8573",
+  "formations_recomputed_and_unchanged": 8,
+  "actual_orders": 0,
+  "quote_or_broker_execution_verified": false,
+  "promotable": false,
+  "evidence_files": [
+    {
+      "path": "actions-all.json",
+      "sha256": "08bf2cdf09833722916fd28501ab3a54a0008a1e1f79620a08b8853762041496"
+    },
+    {
+      "path": "actions-complete.json",
+      "sha256": "08bf2cdf09833722916fd28501ab3a54a0008a1e1f79620a08b8853762041496"
+    },
+    {
+      "path": "bars-all.json",
+      "sha256": "0a0d54072be6fefdd624853e59d8c7c7ac5cc8ab81ee7f96e50a82e0ecb7cd78"
+    },
+    {
+      "path": "bars-raw.json",
+      "sha256": "0a0d54072be6fefdd624853e59d8c7c7ac5cc8ab81ee7f96e50a82e0ecb7cd78"
+    }
+  ],
+  "response_pages": [
+    {
+      "request_sha256": "09e228cc2bf35b88b06d055eee8d0bbe3a3552e27a4582b3d1f2dcd189ea1194",
+      "sha256": "970b4cd8c0910e71c43dec93cf8f49fe64f6bc21f27e4f637ee31c3e50c88035",
+      "bytes": 2254,
+      "retrieved_at": "2026-10-21T08:36:22.512591+00:00"
+    },
+    {
+      "request_sha256": "702270cf3b40c24af8ae1710d1137bd8ad3782d14fe7d78117d2cbe3fcf57734",
+      "sha256": "970b4cd8c0910e71c43dec93cf8f49fe64f6bc21f27e4f637ee31c3e50c88035",
+      "bytes": 2254,
+      "retrieved_at": "2026-10-21T08:36:22.387057+00:00"
+    },
+    {
+      "request_sha256": "afaf30b49bfc3b3bdc35dae7feaa79d818e8334152f39ae99ae8c11a5e25422f",
+      "sha256": "4bfbc75ce79f02da4ad9545d9d1391b16146c56ac25c04b74fb7847aa14e06b1",
+      "bytes": 371,
+      "retrieved_at": "2026-10-21T08:36:22.264033+00:00"
+    },
+    {
+      "request_sha256": "c0678e2a8348157f45396ce99c46d2c66d277f32a6ccb9f23cca3bded4e9720f",
+      "sha256": "4bfbc75ce79f02da4ad9545d9d1391b16146c56ac25c04b74fb7847aa14e06b1",
+      "bytes": 371,
+      "retrieved_at": "2026-10-21T08:36:22.131942+00:00"
+    }
+  ]
+}

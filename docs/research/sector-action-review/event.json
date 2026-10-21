@@ -1,0 +1,39 @@
+{
+  "symbol": "ETNB",
+  "issuer": "89bio, Inc.",
+  "cusip": "282559103",
+  "last_trading_date": "2025-10-29",
+  "legal_effective_date": "2025-10-30",
+  "exchange_suspension_date": "2025-10-31",
+  "cash_per_share": 14.5,
+  "rights_per_share": 1,
+  "right_maximum_future_undiscounted_cash_per_share": 6,
+  "right_tradable": false,
+  "right_cusip": "282CVR018",
+  "right_cusip_source": "Retained Alpaca corporate-action response; not independently certified by the cited legal filing",
+  "cash_receipt_date_verified": false,
+  "right_fair_value_verified": false,
+  "sources": [
+    {
+      "url": "https://nasdaqtrader.com/TraderNews.aspx?id=ECA2025-586",
+      "read_scope": "Updated action notice: last trading, merger closure before open, suspension, common-share CUSIP and consideration",
+      "caution": "Displayed header date is 2025-10-27 but the page includes a subsequent closure update; no archival evidence of when that update first appeared"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1785173/000119312525257616/d48446d8k.htm",
+      "read_scope": "Introductory Note and Item 2.01: completed merger, common shares canceled for cash entitlement plus CVR; not a holder-specific cash receipt"
+    },
+    {
+      "url": "https://www.roche.com/investors/updates/inv-update-2025-10-30",
+      "read_scope": "Dated issuer announcement: tender accepted, cash and CVR terms, planned later same-day merger; completion confirmed separately"
+    },
+    {
+      "url": "https://docs.alpaca.markets/us/reference/corporateactions-1",
+      "read_scope": "Endpoint, data-quality filters, process-date query semantics and explicit warning of availability delays"
+    }
+  ],
+  "evidence_status": "RETROSPECTIVE_DIAGNOSIS_NOT_POINT_IN_TIME_SIGNAL",
+  "provider_event_type": "stock_and_cash_mergers",
+  "provider_effective_process_payable_date": "2025-11-03",
+  "provider_date_conflicts_with_legal_effective_date": true
+}

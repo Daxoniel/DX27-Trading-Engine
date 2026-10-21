@@ -1,0 +1,23 @@
+name: Sector momentum action review
+on:
+  pull_request:
+    paths: ['research/sector-action-review/**', 'docs/research/sector-action-review/**', '.github/workflows/sector-action-review.yml']
+  push:
+    branches: [main]
+    paths: ['research/sector-action-review/**', 'docs/research/sector-action-review/**', '.github/workflows/sector-action-review.yml']
+permissions:
+  contents: read
+jobs:
+  review:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s research/sector-action-review -p "test_*.py" -v
+      - run: python -m unittest discover -s research/sector-momentum -p "test_*.py" -v
