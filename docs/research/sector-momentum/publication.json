@@ -1,0 +1,16 @@
+{
+  "protocol_commit": {
+    "sha": "9b10f29c55ba71afcfac9f2f7f94be8dc2686252",
+    "url": "https://github.com/Daxoniel/DX27-Trading-Engine/commit/9b10f29c55ba71afcfac9f2f7f94be8dc2686252",
+    "committer_date": "2026-10-21T07:49:44Z"
+  },
+  "execution_code_commit": {
+    "sha": "f3255fcf71bea4486457121ecb0b0477b67769aa",
+    "url": "https://github.com/Daxoniel/DX27-Trading-Engine/commit/f3255fcf71bea4486457121ecb0b0477b67769aa",
+    "committer_date": "2026-10-21T07:58:17Z"
+  },
+  "first_retained_data_retrieval": "2026-10-21T07:50:53.595985+00:00",
+  "first_local_result_file_time": "2026-10-21T07:58:36.486648+00:00",
+  "timestamp_note": "Git metadata and local filesystem times describe the workflow; not an independent trusted timestamp service.",
+  "independent_out_of_sample": false
+}

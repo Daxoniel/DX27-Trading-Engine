@@ -1,0 +1,118 @@
+{
+  "as_of": "2026-10-21",
+  "references": [
+    {
+      "id": "MG1999",
+      "title": "Do Industries Explain Momentum?",
+      "authors": [
+        "Tobias J. Moskowitz",
+        "Mark Grinblatt"
+      ],
+      "year": 1999,
+      "doi": "10.1111/0022-1082.00146",
+      "url": "https://www.aqr.com/Insights/Research/Journal-Article/Do-Industries-Explain-Momentum",
+      "read_scope": "Author-affiliated research summary and indexed publisher abstract; full journal text not read.",
+      "finding": "Industry return persistence explains an important part of intermediate-horizon momentum in the studied sample.",
+      "use": "Industry rotation motivation; not a validation of this within-sector high-beta long-only proxy."
+    },
+    {
+      "id": "APS2000",
+      "title": "Predicting Stock Returns Using Industry-Relative Firm Characteristics",
+      "authors": [
+        "Clifford S. Asness",
+        "R. Burt Porter",
+        "Ross L. Stevens"
+      ],
+      "year": 2000,
+      "status": "Working paper",
+      "url": "https://www.aqr.com/Insights/Research/Working-Paper/Predicting-Stock-Returns-Using-IndustryRelative-Firm-Characteristics",
+      "read_scope": "Author-affiliated working-paper summary and indexed SSRN abstract; no full-text replication.",
+      "finding": "Distinguishing within-industry firm characteristics from industry averages can improve prediction; intermediate-horizon within-industry momentum is distinct from industry momentum.",
+      "use": "Motivation for subtracting peer return; exact high-beta, liquidity, position count and timing rules are our choices."
+    },
+    {
+      "id": "BHM2011",
+      "title": "Residual Momentum",
+      "authors": [
+        "David Blitz",
+        "Joop Huij",
+        "Martin Martens"
+      ],
+      "year": 2011,
+      "doi": "10.1016/j.jempfin.2011.01.003",
+      "url": "https://repub.eur.nl/pub/22252/ResidualMomentum-2011.pdf",
+      "read_scope": "Accepted manuscript abstract and introduction, including discussion of factor exposures.",
+      "finding": "Factor-model residual rankings can reduce time-varying common-factor exposures in the studied long-short portfolios.",
+      "use": "Fama-French residual momentum is a separate hypothesis from subtracting a broad sector mean. We did not implement or claim to reproduce it."
+    },
+    {
+      "id": "DM2016",
+      "title": "Momentum crashes",
+      "authors": [
+        "Kent Daniel",
+        "Tobias J. Moskowitz"
+      ],
+      "year": 2016,
+      "doi": "10.1016/j.jfineco.2015.12.002",
+      "url": "https://www.nber.org/papers/w20439",
+      "working_version": "https://www.nber.org/system/files/working_papers/w20439/w20439.pdf",
+      "read_scope": "August 2014 NBER working version: abstract, introduction and section 2.1/portfolio construction; final publication metadata verified separately.",
+      "finding": "Large long-short momentum losses can occur during rebounds after market declines, driven especially by the short loser leg and changing beta.",
+      "use": "Estimate exposures only with past data. This mechanism is not identical to a high-beta long-only basket drawdown."
+    },
+    {
+      "id": "FFMOM",
+      "title": "Detail for Monthly Momentum Factor (Mom)",
+      "authors": [
+        "Kenneth R. French"
+      ],
+      "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library/det_mom_factor.html",
+      "read_scope": "Official construction and stock eligibility notes.",
+      "finding": "The monthly factor uses prior 2–12 returns and monthly formation.",
+      "use": "Supplies the one-month-skip lookback convention. Our equal-weight long-only high-beta portfolio is not the published size-sorted long-short factor."
+    },
+    {
+      "id": "LI2022",
+      "title": "Industry classification, industry momentum and short-term reversal",
+      "authors": [
+        "S. Li"
+      ],
+      "year": 2022,
+      "url": "https://www.sciencedirect.com/science/article/pii/S1544612322001490",
+      "read_scope": "Indexed publisher abstract only; full text not available in this review.",
+      "finding": "Industry classification and evolving market structure affect industry-momentum results.",
+      "use": "Treat archived broad-sector membership as a proxy and explicitly withhold historical SIC-industry replication claims."
+    },
+    {
+      "id": "MTV2025",
+      "title": "Explaining and Predicting Momentum Performance Shifts Across Time and Sectors",
+      "authors": [
+        "Konstantinos Mamais",
+        "Dimitrios Thomakos",
+        "Prodromos Vlamis"
+      ],
+      "year": 2025,
+      "doi": "10.1002/for.3232",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1002/for.3232",
+      "read_scope": "Publisher full HTML abstract/introduction and beginning of section 3; not all tables independently reproduced.",
+      "finding": "NASDAQ-sector momentum rankings and performance vary across economic subperiods in the study, including a later evaluation period.",
+      "use": "Modern evidence is related, not a test of our within-sector beta-filtered signal. Do not import retrospective regime labels or horizon selection as live signals."
+    },
+    {
+      "id": "BSC2015",
+      "title": "Momentum has its moments",
+      "authors": [
+        "Pedro Barroso",
+        "Pedro Santa-Clara"
+      ],
+      "year": 2015,
+      "doi": "10.1016/j.jfineco.2014.11.010",
+      "url": "https://novaresearch.unl.pt/en/publications/momentum-has-its-moments/",
+      "read_scope": "Author-university abstract and metadata only; full methods deferred for a separate risk study.",
+      "finding": "Managing time-varying momentum risk improves risk-adjusted performance in the studied portfolios.",
+      "use": "Candidate basis for a separately registered risk-budget experiment, not a promise that scaling this proxy will improve win rate or eliminate crashes."
+    }
+  ],
+  "independent_paper_replications": 0,
+  "exact_replication_claim": false
+}
