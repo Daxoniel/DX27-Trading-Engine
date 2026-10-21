@@ -1,0 +1,17 @@
+{
+  "version": "RA1",
+  "parent_commit": "60f55c4001fafcfa988c504d8aa3ff78b05b085e",
+  "scope": "TIMESTAMPED_READ_ONLY_SNAPSHOTS_AND_SHADOW_INPUT_ADMISSION_NO_ORDERS",
+  "unchanged": "RM1a signal, RF1 10% target budget, RS1 six-cycle evaluation and full-exposure FAIL",
+  "capture": "Exclusive new run directory; GET only, no redirects, bounded responses and pages. Exact request/response bytes hashed, UTC request-start and response-receipt timestamps retained. No cache relabeling. Errors leave an incomplete snapshot, never READY.",
+  "allowed": "French FF3 public ZIP; data.alpaca.markets /v2/stocks/bars and /v1/corporate-actions; paper-api.alpaca.markets /v2/assets/{single allowed common-stock symbol}. No account, orders, positions, live broker host, or unbounded dates.",
+  "reserved_symbol": "SOXL forbidden in requested and decoded inputs",
+  "current_probe": "Refresh French factors. Capture asset metadata and corporate-action pages for at most 40 names previously selected by the archived matched-residual candidate; no new ranks or stock prices. These observations are operational samples, not formation-ready evidence or a verified historical identity mapping.",
+  "corporate_action_query": "All types, data_quality=all, process-date start 2025-04-25 through actual UTC capture date for current probe; pagination exhausted. Empty result is not proof of no actions; Alpaca warns of delays. Any returned action blocks automatic identity acceptance pending evidence review.",
+  "identity": "Each required original-base participant, target and held symbol needs active tradable current US-equity metadata plus documented economic-identity continuity to the archived cohort and action review. A symbol, UUID, name similarity, ETF benchmark or empty corporate-action list alone is insufficient. Existing RV1a quarantine never rolls forward automatically.",
+  "admission": "Offline validator checks full-universe adjusted/raw snapshots and factor coverage, plan/audit bindings, identity evidence coverage and deadlines. Every observed input and rank seal must be after formation close and before execution-session open; no future rows, missing required fields, incomplete pages or silent rebasing. Input eligibility is not authorization to execute.",
+  "revisions": "New forward calculation requires a coherent full-window adjusted-price snapshot; do not splice current adjustments into old source prices. Original archived cohort and raw/adjusted capture semantics retained.",
+  "current_time": "Before formation close, keep BLOCKED without price requests or new rankings. Missed deadline is SKIP_CYCLE/INCOMPLETE, never shifted forward.",
+  "publication": "Only aggregate counts, hashes, source URLs and blockers public; all per-symbol raw responses, mapping evidence and prices private work/.",
+  "restrictions": "All prior tracked files and 156 core files unchanged; no paid data, stock price probe, scheduler, account mutation or orders in current run."
+}
