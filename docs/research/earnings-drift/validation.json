@@ -1,0 +1,16 @@
+{
+  "unit_tests": 7,
+  "sealed_core_files_unchanged": 156,
+  "all_preexisting_tracked_files_unchanged_from": "a40ccb42641692473676efea6e138eec57b6fa9e",
+  "sealed_data_responses": 6,
+  "data_audit_sha256": "21803daf665fa823a01e215d03a956a30733ac7b9bb6c6f2abe1e455ddba88ab",
+  "historical_price_api_requests": 0,
+  "paper_orders": 0,
+  "live_orders": 0,
+  "paid_data_purchases": 0,
+  "independent_paper_replications": 0,
+  "strategy_returns_computed": false,
+  "trading_thresholds_registered": false,
+  "qualified_event_universe_constructed": false,
+  "decision": "DEFER_PEAD_RETURN_BACKTEST"
+}
