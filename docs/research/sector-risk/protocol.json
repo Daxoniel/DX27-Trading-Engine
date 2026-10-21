@@ -1,0 +1,55 @@
+{
+  "version": "SR1",
+  "scope": "RETROSPECTIVE_SELECTED_BASKET_VOLATILITY_BUDGET_EXTENSION_NOT_PAPER_REPLICATION",
+  "parent_commit": "9752127efcd221e122abe1a7c66d65a28430a4ec",
+  "parent_protocol_sha256": "a389c4f65a92cf1c8a0eeadd78f227045fcf14ec3e554c716da004ef08ee0b11",
+  "input_manifest_sha256": "525cca22084edd20770ac0d6d7d10a57f6285e8090a3f9056629c90d89ae8573",
+  "signals": [
+    "ordinary",
+    "relative"
+  ],
+  "overlays": [
+    "unmanaged",
+    "fixed_initial",
+    "monthly_risk"
+  ],
+  "annual_volatility_target": 0.12,
+  "forecast_return_observations": 126,
+  "annualization_sessions": 252,
+  "maximum_scale": 1,
+  "forecast": "sqrt(252 * mean((sum(original_slot_weight * daily_adjusted_stock_return))**2)); 127 exact benchmark closes ending formation date; no demeaning",
+  "forecast_interpretation": "Hypothetical constant-weight returns of the currently selected basket, not the historical realized strategy return series used in the paper",
+  "scale": "min(1, .12/forecast); zero forecast means scale 1; no slots means cash",
+  "fixed_initial": "For each signal separately, compute first formation scale once and reuse at every formation; no full-period fitting",
+  "monthly_risk": "Recompute selected-basket forecast and scale on each of the eight original formation dates",
+  "unmanaged": "Scale 1; must reproduce the four corresponding original cost-case ledgers and NAVs",
+  "execution": "Original fixed basket targets times scale, entered at second later benchmark session close; no intervening risk trading",
+  "costs_bps_per_side": [
+    5,
+    25
+  ],
+  "cost_model": "Original self-financing post-cost equity solver on drifted stock notionals, including every change caused by scaling",
+  "cash": "Zero interest; no leverage, shorting or borrowing",
+  "original_strategy": "SM1 selectors, eligibility, eight dates and ten slots unchanged; monthly drift allowed",
+  "missing_inputs": "HALT/FAIL with no full-period return, no interpolation or selection using future completeness",
+  "primary_comparison": "For each signal at 5bp, monthly_risk versus unmanaged and fixed_initial: full-period return, observed drawdown; report 25bp stress too",
+  "secondary": [
+    "mean daily observed exposure",
+    "mean formation-weighted beta",
+    "actual notional turnover divided by initial capital",
+    "modeled costs",
+    "observed annualized daily standard deviation, descriptive not a guarantee",
+    "basket holding-interval positive counts, not independent trades or actual win rate"
+  ],
+  "sample": "Original 2025-04-30 signal through 2025-12-31 marks, first entry 2025-05-02",
+  "no_parameter_search": true,
+  "independent_out_of_sample": false,
+  "already_observed_parent_path": true,
+  "full_period_broad_control_available": false,
+  "source_prices": "Existing private retrospective vendor adjusted closes; not verified fills or broker accounting",
+  "literature": "Barroso/Santa-Clara author manuscript November 2013 section 4 equations 5-6 via transcript; 2015 publication metadata; author-linked published-equation-10 errata. Published full article and replication package not obtained.",
+  "research_choices": "Pure long high-beta basket backcast, unit scale cap, zero-interest cash, original two-session lag and fixed-initial-scale comparator are DX27 extensions",
+  "automatic_promotion": false,
+  "actual_orders": 0,
+  "reserved_2026_soxl_prices_used": false
+}

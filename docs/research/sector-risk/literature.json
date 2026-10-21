@@ -1,0 +1,50 @@
+{
+  "paper": {
+    "title": "Momentum has its moments",
+    "authors": [
+      "Pedro Barroso",
+      "Pedro Santa-Clara"
+    ],
+    "published_doi": "10.1016/j.jfineco.2014.11.010",
+    "published_metadata_url": "https://ciencia.ucp.pt/pt/publications/momentum-has-its-moments/",
+    "author_site": "https://sites.google.com/site/pedromsbarroso/",
+    "method_manuscript": {
+      "version": "November 2013; first version April 2012",
+      "url": "https://www.readkong.com/page/momentum-has-its-moments-cid-3-pedro-barrosoy-and-pedro-5988789",
+      "read_scope": "Introduction and section 4, especially equations 5-6 and footnotes 17-18; author text mirrored as a transcription, not authenticated author-hosted PDF",
+      "not_read": "Full published 2015 article, full tables, complete appendix"
+    },
+    "errata": {
+      "url": "https://drive.google.com/file/d/1G9zsx25zs7ijIdjf8VDmmgz7vPIcQSTW/view?usp=sharing",
+      "origin": "Linked from author homepage",
+      "read_scope": "Entire one-page erratum: corrected turnover uses absolute changes of scaled positions; note says related results already used corrected expression",
+      "retained_pdf": {
+        "url": "https://drive.google.com/uc?export=download&id=1G9zsx25zs7ijIdjf8VDmmgz7vPIcQSTW",
+        "final_url": "https://drive.usercontent.google.com/download?id=1G9zsx25zs7ijIdjf8VDmmgz7vPIcQSTW&export=download",
+        "sha256": "f1f0f9ea6e7855c459ee092a1499c698f57fc1de62d38c328c5f0d9c91c3ca90",
+        "bytes": 87353
+      }
+    },
+    "access_limits": [
+      "Publisher/SSRN/CiteSeer article PDF unavailable in this session",
+      "Author-linked replication download did not return a ZIP/PDF; not inspected or executed",
+      "No third-party replication used as method authority"
+    ]
+  },
+  "mapping": {
+    "adopted": [
+      "126 daily observations",
+      "squared returns without demeaning",
+      "inverse-volatility scaling",
+      "12 percent annualized reference target",
+      "costs computed from actual scaled position changes"
+    ],
+    "different": [
+      "Selected pure-long stock basket backcast instead of realized long-short WML history",
+      "Scale capped at one",
+      "Two-session delayed monthly trading",
+      "Fixed-initial-scale comparator and zero-interest cash"
+    ]
+  },
+  "promises": "No transfer of published performance or crash-elimination claims to DX27"
+}
