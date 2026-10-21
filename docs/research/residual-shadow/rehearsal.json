@@ -1,0 +1,154 @@
+{
+  "version": "RS1",
+  "status": "OFFLINE_COMPONENT_REHEARSAL_PASS",
+  "old_data_only": true,
+  "prospective_observations": 0,
+  "new_prices_captured": false,
+  "prior_full_exposure_screen": "FAIL_RETAINED",
+  "formations": 9,
+  "selectors": 4,
+  "independent_base_checks": 2958,
+  "independent_score_checks": 2790,
+  "archived_target_sets_matched": 36,
+  "cases": {
+    "parent_ordinary-5bp": {
+      "audit": {
+        "status": "PASS",
+        "independently_checked_marks": 188,
+        "rebalances": 9,
+        "halted": false,
+        "complete": true,
+        "source_authenticity_verified": false,
+        "broker_accounting_verified": false,
+        "orders": 0
+      },
+      "events": 189,
+      "tail_sha256": "c35d5e02dc12918b8a2338108e2a0fdf69044886be2640236b4ee280229f61e3",
+      "scheduled_rebalances": 9,
+      "source_snapshot_sha256": "eb4e4fa97698c2755ed937ec3f73ef0b2ccbdff9fb0151b351c12505a6fce000"
+    },
+    "parent_ordinary-25bp": {
+      "audit": {
+        "status": "PASS",
+        "independently_checked_marks": 188,
+        "rebalances": 9,
+        "halted": false,
+        "complete": true,
+        "source_authenticity_verified": false,
+        "broker_accounting_verified": false,
+        "orders": 0
+      },
+      "events": 189,
+      "tail_sha256": "1049c7f225d0bf04bb940d689d38ecb01813e958c1adfe42f24cb08b7b7879d2",
+      "scheduled_rebalances": 9,
+      "source_snapshot_sha256": "eb4e4fa97698c2755ed937ec3f73ef0b2ccbdff9fb0151b351c12505a6fce000"
+    },
+    "matched_ordinary-5bp": {
+      "audit": {
+        "status": "PASS",
+        "independently_checked_marks": 188,
+        "rebalances": 9,
+        "halted": false,
+        "complete": true,
+        "source_authenticity_verified": false,
+        "broker_accounting_verified": false,
+        "orders": 0
+      },
+      "events": 189,
+      "tail_sha256": "2b9e041d20fb761f6ac84d01dda69c38bbe940c73795b63636a66900385af33d",
+      "scheduled_rebalances": 9,
+      "source_snapshot_sha256": "eb4e4fa97698c2755ed937ec3f73ef0b2ccbdff9fb0151b351c12505a6fce000"
+    },
+    "matched_ordinary-25bp": {
+      "audit": {
+        "status": "PASS",
+        "independently_checked_marks": 188,
+        "rebalances": 9,
+        "halted": false,
+        "complete": true,
+        "source_authenticity_verified": false,
+        "broker_accounting_verified": false,
+        "orders": 0
+      },
+      "events": 189,
+      "tail_sha256": "bb446ae95818bb18cffeae61a5cf9ea59a820fdc32f8f75de4ca448f7fb010db",
+      "scheduled_rebalances": 9,
+      "source_snapshot_sha256": "eb4e4fa97698c2755ed937ec3f73ef0b2ccbdff9fb0151b351c12505a6fce000"
+    },
+    "matched_relative-5bp": {
+      "audit": {
+        "status": "PASS",
+        "independently_checked_marks": 188,
+        "rebalances": 9,
+        "halted": false,
+        "complete": true,
+        "source_authenticity_verified": false,
+        "broker_accounting_verified": false,
+        "orders": 0
+      },
+      "events": 189,
+      "tail_sha256": "7c6e7ea2bcc53c8264dd267e24880570c7d731b1452f5308d0b34e62029558c2",
+      "scheduled_rebalances": 9,
+      "source_snapshot_sha256": "eb4e4fa97698c2755ed937ec3f73ef0b2ccbdff9fb0151b351c12505a6fce000"
+    },
+    "matched_relative-25bp": {
+      "audit": {
+        "status": "PASS",
+        "independently_checked_marks": 188,
+        "rebalances": 9,
+        "halted": false,
+        "complete": true,
+        "source_authenticity_verified": false,
+        "broker_accounting_verified": false,
+        "orders": 0
+      },
+      "events": 189,
+      "tail_sha256": "9a76a381af8820bc70528cd06f277cd69487cb4403fe0b0754e42d9073d995a8",
+      "scheduled_rebalances": 9,
+      "source_snapshot_sha256": "eb4e4fa97698c2755ed937ec3f73ef0b2ccbdff9fb0151b351c12505a6fce000"
+    },
+    "matched_residual-5bp": {
+      "audit": {
+        "status": "PASS",
+        "independently_checked_marks": 188,
+        "rebalances": 9,
+        "halted": false,
+        "complete": true,
+        "source_authenticity_verified": false,
+        "broker_accounting_verified": false,
+        "orders": 0
+      },
+      "events": 189,
+      "tail_sha256": "c731e87e5f081f3d158dc28c815ad1557e7e8948f469911e4e173b8a94e37b2f",
+      "scheduled_rebalances": 9,
+      "source_snapshot_sha256": "eb4e4fa97698c2755ed937ec3f73ef0b2ccbdff9fb0151b351c12505a6fce000"
+    },
+    "matched_residual-25bp": {
+      "audit": {
+        "status": "PASS",
+        "independently_checked_marks": 188,
+        "rebalances": 9,
+        "halted": false,
+        "complete": true,
+        "source_authenticity_verified": false,
+        "broker_accounting_verified": false,
+        "orders": 0
+      },
+      "events": 189,
+      "tail_sha256": "2b9a1dddd495c35db7e6c1116daca2e3ef7e5a469f58fa05f6789b71ae998f9d",
+      "scheduled_rebalances": 9,
+      "source_snapshot_sha256": "eb4e4fa97698c2755ed937ec3f73ef0b2ccbdff9fb0151b351c12505a6fce000"
+    }
+  },
+  "maximum_float_reference_absolute_usd_difference": 4.3655745685100555e-11,
+  "actual_orders": 0,
+  "broker_accessed": false,
+  "prospective_ready": false,
+  "automatic_promotion": false,
+  "blockers": [
+    "RF1_FORMATION_AND_REQUIRED_INPUTS_PENDING",
+    "IDENTITY_AND_CORPORATE_ACTION_REVIEW_REQUIRED",
+    "PROSPECTIVE_CAPTURE_AND_ADMISSION_NOT_IMPLEMENTED",
+    "NO_PERSISTENT_SCHEDULER"
+  ]
+}
