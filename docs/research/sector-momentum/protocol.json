@@ -1,0 +1,70 @@
+{
+  "version": "SM1",
+  "scope": "FIXED_COHORT_HIGH_BETA_SECTOR_PROXY_SIGNAL_DIAGNOSTIC_NOT_EXECUTION_BACKTEST",
+  "formation_start": "2025-04-30",
+  "formation_end": "2025-11-30",
+  "mark_end": "2025-12-31",
+  "initial_proxy_capital": 100000,
+  "cohort_sha256": "eeadc8c0b4860640fd0a548301f9fb676cef7591168e04d10e98a479d6923d60",
+  "cohort_symbols": 4002,
+  "schedule_sha256": "1e94b70f077f9f5506a92db6ba425ad276d60c31468fbe5f601402f2a1cc3317",
+  "feature_capture_start": "2023-01-01",
+  "feature_capture_end": "2025-12-31T23:59:59Z",
+  "feature_adjustment": "all",
+  "feed": "sip",
+  "security_asof": "2025-04-25",
+  "momentum": "formation-month minus 12 month-end close to minus 1 month-end close: prior 2\u201312 returns, excluding formation month",
+  "beta": {
+    "benchmark": "SPY",
+    "daily_return_observations": 252,
+    "minimum": 1.5,
+    "method": "covariance(stock total-return proxy,market total-return proxy)/variance(market)",
+    "alignment": "exact benchmark sessions; no missing-return interpolation"
+  },
+  "eligibility": {
+    "raw_close_minimum": 5,
+    "raw_20_session_mean_dollar_volume_minimum": 20000000,
+    "minimum_other_sector_peers": 10
+  },
+  "sector_peer_pool": "All liquid/price-eligible names with complete beta and momentum inputs, including low-beta peers; archived sector labels, not historical SIC industries",
+  "primary_signal": "own 2\u201312 return minus equal-weight mean of other eligible names in same sector",
+  "comparator_signal": "own 2\u201312 return",
+  "position_count": 10,
+  "weight_per_slot": 0.1,
+  "maximum_names_per_sector": 2,
+  "tie_break": "symbol ascending",
+  "unused_slots": "zero-interest cash",
+  "positive_signal_filter": false,
+  "lag": "rebalance at second benchmark session close strictly after formation; fixed targets formed earlier",
+  "exit": "next scheduled rebalance; terminal holdings only marked, never forced sold",
+  "costs_bps_per_side": [
+    5,
+    25
+  ],
+  "cost_model": "solve post-cost equity = pre-cost equity minus rate times sum absolute change in stock notionals; targets use post-cost equity",
+  "controls": [
+    "ordinary momentum, same beta/liquidity/peer and sector caps",
+    "all eligible high-beta equal-weight, sector weights capped at 20%, uninvested remainder cash",
+    "SPY total-return proxy, same initial entry date"
+  ],
+  "primary_statistic": "5bp relative-minus-ordinary full-period proxy-return difference; withhold if either halts",
+  "secondary_statistics": [
+    "unannualized proxy return",
+    "daily marked drawdown",
+    "monthly interval positive frequency, not broker trade win rate",
+    "ex-ante beta, turnover, exposure, overlap and selection counts"
+  ],
+  "missing_held_prices": "HALT_WITH_NO_FULL_PERIOD_RETURN; do not select using future completeness",
+  "no_parameter_search": true,
+  "independent_out_of_sample": false,
+  "point_in_time_universe_certified": false,
+  "historical_sector_membership_certified": false,
+  "provider_vintage": "current retrospective vendor adjusted closes; not archived as-of publication",
+  "cash_dividend_assumption": "embedded adjusted-price return proxy, not a verified broker reinvestment account",
+  "source_rule_status": "12\u20132 convention and relative-return hypothesis are literature-motivated; all high-beta/liquidity/weight/lag choices are DX27 research choices",
+  "raw_prices_public": false,
+  "quotes_or_fills_validated": false,
+  "actual_orders": 0,
+  "automatic_promotion": false,
+  "changes_after_results": "No threshold/ticker/horizon changes; disclose halts and retain failed cases"
+}
