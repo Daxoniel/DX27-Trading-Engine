@@ -1,0 +1,16 @@
+{
+  "commits_before_new_calculation": {
+    "protocol": {
+      "sha": "a6ae7978d78f05d3cedb845ff50fde10eca05a65",
+      "committer_time": "2026-10-21T09:54:40Z",
+      "url": "https://github.com/Daxoniel/DX27-Trading-Engine/commit/a6ae7978d78f05d3cedb845ff50fde10eca05a65"
+    },
+    "execution_code": {
+      "sha": "79c5d4503149c4785d653e40a417f5e31f325542",
+      "committer_time": "2026-10-21T09:57:33Z",
+      "url": "https://github.com/Daxoniel/DX27-Trading-Engine/commit/79c5d4503149c4785d653e40a417f5e31f325542"
+    }
+  },
+  "first_retained_case_file_time": "2026-10-21T09:57:57.474415+00:00",
+  "limits": "Git and filesystem times are process evidence, not an independent trusted timestamp. Parent path was already observed; not an out-of-sample claim."
+}
