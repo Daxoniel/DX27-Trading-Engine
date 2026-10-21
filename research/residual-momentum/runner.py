@@ -45,6 +45,19 @@ def extend_prices(adj, extension):
     return result, checked
 
 
+def quarantine_unresolved(adj, extension):
+    """RM1a: discard new histories whose overlap exists only in the new query."""
+    retained = {}; excluded = []
+    for symbol, rows in extension.items():
+        old_has = any(day.startswith('2023-01') for day in adj.get(symbol, {}))
+        new_has = any(row['t'].startswith('2023-01') for row in rows)
+        if not old_has and new_has:
+            excluded.append(symbol)
+        else:
+            retained[symbol] = rows
+    return retained, excluded
+
+
 def matched_features(formations, prices, calendar, factors, rules):
     detailed = []; coverage = []; checks = 0
     for f in formations:
@@ -83,10 +96,13 @@ def main():
     a = p.parse_args(); public = PROJECT/'docs/research/residual-momentum'
     protocol_path = public/'protocol.json'; rules = json.loads(protocol_path.read_text())
     manifest_path = a.root/'input-manifest.json'; manifest = json.loads(manifest_path.read_text())
-    digest = sha256(manifest_path.read_bytes()).hexdigest(); seal = json.loads((public/'code-seal.json').read_text())
+    digest = sha256(manifest_path.read_bytes()).hexdigest(); seal = json.loads((public/'code-seal-v2.json').read_text())
+    amendment_path = public/'input-amendment.json'; amendment = json.loads(amendment_path.read_text())
+    assert sha256(amendment_path.read_bytes()).hexdigest() == seal['amendment_sha256']
+    assert amendment['original_protocol_sha256'] == sha256(protocol_path.read_bytes()).hexdigest()
     assert manifest['protocol_sha256'] == sha256(protocol_path.read_bytes()).hexdigest()
     assert manifest['parent_manifest_sha256'] == rules['parent_manifest_sha256']
-    for name, h in seal.items():
+    for name, h in seal['files'].items():
         assert sha256(Path(__file__).with_name(name).read_bytes()).hexdigest() == h
     old_path = PROJECT/'docs/research/sector-momentum/protocol.json'
     assert sha256(old_path.read_bytes()).hexdigest() == rules['parent_protocol_sha256']
@@ -108,6 +124,8 @@ def main():
             raise ValueError('DUPLICATE_EXTENSION_SYMBOL')
         extension.update(batch)
     assert set(extension) == {r['symbol'] for f in formations for r in f['eligible']}|{'SPY'}
+    extension, excluded = quarantine_unresolved(adj, extension)
+    (a.root/'quarantined-identities.json').write_text(json.dumps(excluded)+'\n')
     prices, overlap = extend_prices(adj, extension); calendar = sorted(prices['SPY'])
     factor_blob = (a.root/'ff3.zip').read_bytes()
     assert sha256(factor_blob).hexdigest() == manifest['factors']['sha256']
@@ -115,6 +133,7 @@ def main():
     matched, coverage, checks = matched_features(formations, prices, calendar, factors, rules)
     (a.root/'matched-features.json').write_text(json.dumps(matched, sort_keys=True)+'\n')
     result = dict(scope=rules['scope'], coverage=coverage, independent_score_checks=checks,
+        input_amendment=amendment['version'], quarantined_extension_symbols=len(excluded),
         seam_overlap_symbol_sessions=overlap, retained_factor_months=len(factors), runs={},
         independent_case_audits={}, input_manifest_sha256=digest, actual_orders=0,
         independent_out_of_sample=False, promotable=False)

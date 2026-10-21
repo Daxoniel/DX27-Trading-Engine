@@ -8,7 +8,7 @@ import zipfile
 
 from audit import independent_score, verify
 from features import fit_qr, month_shift, parse_factors, score
-from runner import adapt, extend_prices, parent
+from runner import adapt, extend_prices, quarantine_unresolved
 
 RULES = json.loads((Path(__file__).resolve().parents[2]/'docs/research/residual-momentum/protocol.json').read_text())
 
@@ -122,6 +122,20 @@ class ResidualTests(unittest.TestCase):
         self.assertEqual(original[0]['eligible'][0]['momentum'], 2.)
         self.assertEqual(len(adapt(original, matched, 'parent_ordinary')[0]['eligible']), 2)
         self.assertEqual(adapt(original, matched, 'matched_residual')[0]['eligible'][0]['momentum'], -1.)
+
+    def test_quarantine_keeps_old_gap_and_never_patches_unresolved_history(self):
+        old = {'A': {'2023-02-01': 10.}, 'B': {'2023-01-03': 20.}}
+        new = {'A': [{'t': '2022-12-30', 'c': 9.}, {'t': '2023-01-03', 'c': 9.5}],
+               'B': [{'t': '2022-12-30', 'c': 19.}, {'t': '2023-01-03', 'c': 20.}]}
+        filtered, excluded = quarantine_unresolved(old, new)
+        self.assertEqual(excluded, ['A'])
+        joined, count = extend_prices(old, filtered)
+        self.assertEqual(joined['A'], old['A']); self.assertEqual(count, 1)
+        self.assertEqual(joined['B']['2022-12-30'], 19.)
+        new['B'][1]['c'] = 21.
+        filtered, _ = quarantine_unresolved(old, new)
+        with self.assertRaisesRegex(ValueError, 'VINTAGE_OVERLAP'):
+            extend_prices(old, filtered)
 
     def test_independent_audit_rejects_score_or_window_tamper(self):
         prices, cal, factors = fixture()

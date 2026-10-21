@@ -1,0 +1,15 @@
+{
+  "version": "RM1a",
+  "stage": "PRE_SCORE_INPUT_VALIDATION_AMENDMENT",
+  "original_protocol_sha256": "9f1284ec598ffe6b6cf376de15d7ce1958f2efdf7d7e6d6fe6fe456fa857e29a",
+  "failed_execution_commit": "606b5f1",
+  "failure": "ADJUSTED_VINTAGE_OVERLAP_MISMATCH",
+  "score_or_portfolio_outcomes_computed_before_amendment": false,
+  "observed_empty_old_nonempty_new_overlap_symbols": 2,
+  "private_failure_receipt_sha256": "57c29d7e6ae16dab9feac6df3aceba96e0e0daf2733f0f071afe50e1e8143d67",
+  "quarantine_rule": "If the retained parent has no January 2023 bars for a symbol but the extension has January 2023 bars, discard that symbols ENTIRE new extension. Preserve original prices and missing months; apply unchanged complete-36-month eligibility. All retained overlapping observations must still match exactly; other mismatches still HALT.",
+  "reason": "Unresolved security identity/history-coverage difference across request spans. No claim that the extra earlier history belongs to the same economic equity.",
+  "hypothesis_score_dates_costs_and_selectors_changed": false,
+  "original_protocol_and_code_seal_retained": true,
+  "automatic_promotion": false
+}
