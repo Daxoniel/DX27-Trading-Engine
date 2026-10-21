@@ -1,0 +1,22 @@
+{
+  "commits": {
+    "protocol_and_screen": {
+      "sha": "d7625485ae63dbd4c2dc6710eb29b15d846a0749",
+      "committer_time": "2026-10-21T11:02:02Z",
+      "url": "https://github.com/Daxoniel/DX27-Trading-Engine/commit/d7625485ae63dbd4c2dc6710eb29b15d846a0749"
+    },
+    "initial_execution_before_input_abort": {
+      "sha": "e8d48ccc262ff4f47de2a065d2950b5fdea6ba80",
+      "committer_time": "2026-10-21T11:06:39Z",
+      "url": "https://github.com/Daxoniel/DX27-Trading-Engine/commit/e8d48ccc262ff4f47de2a065d2950b5fdea6ba80"
+    },
+    "input_amendment_and_v2_execution_before_scores": {
+      "sha": "e2fb55a105d1adfb9e7e6931fcb44acfae2a9b6e",
+      "committer_time": "2026-10-21T11:12:59Z",
+      "url": "https://github.com/Daxoniel/DX27-Trading-Engine/commit/e2fb55a105d1adfb9e7e6931fcb44acfae2a9b6e"
+    }
+  },
+  "first_retained_new_data_retrieval": "2026-10-21T11:02:50.962420+00:00",
+  "first_retained_scored_features_time": "2026-10-21T11:13:44.460805+00:00",
+  "limits": "Commit/file times document process, not independently trusted timestamps. Explicit pre-score input amendment followed retained abort; no certification of blind viewing or historical factor publication availability."
+}
