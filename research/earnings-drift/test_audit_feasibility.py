@@ -60,7 +60,7 @@ class EvidenceTests(unittest.TestCase):
         self.write('alpaca-doc-index',{})
         old=self.root/'events.json';old.write_text(json.dumps([dict(release_time='UNKNOWN',announcement_date='2025-01-30')]))
         result=audit(self.root,old)
-        self.assertFalse(result['backtest_permitted']);self.assertFalse(result['returns_computed'])
+        self.assertFalse(result['ready_for_pit_backtest']);self.assertFalse(result['returns_computed'])
         self.assertIsNone(result['historical_pit_event_count'])
         self.assertEqual(result['providers']['sec-eps']['periods_with_multiple_values_across_filings'],1)
         self.assertEqual(result['providers']['existing_blackout_events']['actual_eps_records'],0)

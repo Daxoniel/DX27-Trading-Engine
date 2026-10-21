@@ -107,7 +107,7 @@ def audit(root,old_events):
     # Coverage/authentication is not established by this plumbing pilot.
     return dict(status='DATA_FEASIBILITY_NOT_ESTABLISHED',scope='SCHEMA_PILOT_NOT_REPRESENTATIVE_SAMPLE',
         providers=out,source_seals=proofs,qualified_event_universe_constructed=False,
-        historical_pit_event_count=None,backtest_permitted=False,returns_computed=False,
+        historical_pit_event_count=None,ready_for_pit_backtest=False,returns_computed=False,
         actual_orders=0,paid_access_purchased=False,source_authenticity_verified=False)
 
 

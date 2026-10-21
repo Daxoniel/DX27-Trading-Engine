@@ -241,7 +241,7 @@
   ],
   "qualified_event_universe_constructed": false,
   "historical_pit_event_count": null,
-  "backtest_permitted": false,
+  "ready_for_pit_backtest": false,
   "returns_computed": false,
   "actual_orders": 0,
   "paid_access_purchased": false,

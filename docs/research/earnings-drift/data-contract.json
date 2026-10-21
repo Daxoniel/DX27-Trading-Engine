@@ -3,8 +3,8 @@
   "primary_candidate": "POST_RELEASE_ANALYST_EPS_SURPRISE_IN_HIGH_BETA_STOCKS",
   "required_event_evidence": [
     "permanent issuer/security identity and fiscal period",
-    "actual release timestamp with timezone and primary-source evidence; filing acceptance is a different timestamp",
-    "actual EPS and pre-release consensus on matching accounting, currency and share/split basis",
+    "release timestamp with timezone and primary-source evidence, or a documented conservative availability bound for a daily study; filing acceptance is a different timestamp",
+    "actual EPS and pre-release consensus on matching accounting, currency, quarter-vs-YTD duration and share/split basis",
     "documented consensus vintage available strictly before release; current download time is not historical availability",
     "actual EPS version available before the intended decision; exclude later revisions from earlier decisions",
     "raw-source SHA256, immutable filing accession or vendor version identifier and retrieval timestamps"
