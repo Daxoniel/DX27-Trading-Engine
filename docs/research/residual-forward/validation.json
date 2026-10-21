@@ -1,0 +1,11 @@
+{
+  "new_offline_tests": 4,
+  "parent_regression_tests": 32,
+  "calendar_verified": true,
+  "sealed_core_unchanged": 156,
+  "prior_files_unchanged": true,
+  "orders": 0,
+  "signal_computed": false,
+  "protocol_commit": "2601f48",
+  "capture_after_protocol": true
+}

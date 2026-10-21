@@ -1,0 +1,21 @@
+{
+  "version": "RF1",
+  "scope": "PROSPECTIVE_SHADOW_PREPARATION_NO_ORDERS",
+  "parent_commit": "7ca4994c6a89730cb7776bdad999923624bd0fbe",
+  "prior_full_exposure_screen": "FAIL_RETAINED",
+  "signal": "Frozen RM1a; no new ranks, parameters or universe changes in this stage",
+  "shadow_initial_equity_usd": "100000",
+  "stock_budget_fraction": "0.10",
+  "maximum_target_name_fraction_of_account": "0.01",
+  "maximum_target_sector_fraction_of_account": "0.02",
+  "budget_policy": "Administrative research allocation, not fitted to past returns, not a guaranteed drawdown cap. Cash earns zero in proxy. Monthly target caps only; drift is not capped.",
+  "first_formation": "2026-10-30",
+  "expected_second_later_session": "2026-11-03",
+  "required_factors": "2023-10 through 2026-09 inclusive; 36 months, previous calendar month endpoint",
+  "prospective_evidence": "Capture source bytes with actual UTC receipt time, immutable exclusive-create files and hashes. Historical revisions remain distinct snapshots. Never relabel retrospective values as known at formation.",
+  "deadline": "Inputs and independently audited ranks must be sealed after formation close and before second-later-session market open; otherwise skip cycle, do not delay or alter model lag",
+  "blocking_requirements": ["formation_closed", "factor_months_available", "fresh_price_snapshot", "identity_and_corporate_actions_verified", "independent_features_and_scores_audited", "holdings_and_cash_ledger_ready", "execution_session_not_missed"],
+  "future_evaluation": "Register evaluation horizon and promotion criteria before first simulated fill; this preparation stage cannot produce PASS or authorize orders",
+  "operational_scope": "No broker account reads or writes, no stock price capture, no scheduling service, no performance claim. Preparation readiness only.",
+  "data_restrictions": "No paid data; no SOXL access; private raw inputs stay in work/. Existing core and studies unchanged."
+}
