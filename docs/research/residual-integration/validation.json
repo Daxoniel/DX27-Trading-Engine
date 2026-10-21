@@ -1,0 +1,16 @@
+{
+  "protocol_commit": "ed26d2c",
+  "execution_seal_commit": "8e27491",
+  "new_tests": 8,
+  "parent_tests": 54,
+  "all_preexisting_tracked_files_unchanged": true,
+  "sealed_core_unchanged": 156,
+  "real_identity_sources_downloaded_and_inspected": 2,
+  "alias_asset_metadata_observed": true,
+  "synthetic_positive_path_only_substitution": "Cohort hash boundary",
+  "synthetic_transitions": 16,
+  "synthetic_daily_account_marks": 184,
+  "prior_full_exposure_screen": "FAIL_RETAINED",
+  "prospective_observations": 0,
+  "orders": 0
+}

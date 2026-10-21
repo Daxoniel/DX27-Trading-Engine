@@ -1,0 +1,10 @@
+{
+  "files": {
+    "fixture.py": "1491ec4278225c216b002cad34e5d46c6135fcbd16a0cb8e04458d178f3611fe",
+    "identity_case.py": "e134e9ca5da85ba509c1e285d35b56a2c9e12e349bc10e4b0cccc2d44abc32f4",
+    "rehearse.py": "38a71ba41d7deb2e18382514e97b93c878c9de1a3852a0e9b20d187383ecaf91",
+    "test_integration.py": "bae7f1a2e5bb3e58e97618e6f817d698ee2afa9dea1de46287f958d3f770851e",
+    "transition.py": "eea66ebff5fb930a13cae04460ad9053440eaafa0638e0f193083c8d1429878a"
+  },
+  "protocol_sha256": "adb5fbc85e9d02638ceba17741820ec9e1769228729ef5cf3dd425100b81c6cb"
+}
