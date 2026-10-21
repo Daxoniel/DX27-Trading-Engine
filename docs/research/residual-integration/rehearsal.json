@@ -1,0 +1,108 @@
+{
+  "version": "RI1",
+  "status": "NONEMPTY_SYNTHETIC_INTEGRATION_PASS",
+  "actual_rehearsal_completed_at": "2026-10-21T13:41:58.944219+00:00",
+  "data_origin": "DETERMINISTIC_SYNTHETIC_NOT_MARKET_DATA",
+  "clock_origin": "REGISTERED_FUTURE_DATES_USED_AS_TEST_CLOCKS_ONLY",
+  "synthetic_formations": 2,
+  "synthetic_common_stock_peers": 55,
+  "original_rules_and_rankings_used": true,
+  "eligible_features_checked": 110,
+  "unique_symbol_formation_score_checks": 110,
+  "successful_transitions": 2,
+  "case_transitions": 16,
+  "name_slots_per_account_per_cycle": 10,
+  "old_holdings_exited_across_selector_cost_cases": 70,
+  "final_account_audits": {
+    "parent_ordinary-5bp": {
+      "status": "PASS",
+      "independently_checked_marks": 23,
+      "rebalances": 2,
+      "halted": false,
+      "complete": false,
+      "source_authenticity_verified": false,
+      "broker_accounting_verified": false,
+      "orders": 0
+    },
+    "parent_ordinary-25bp": {
+      "status": "PASS",
+      "independently_checked_marks": 23,
+      "rebalances": 2,
+      "halted": false,
+      "complete": false,
+      "source_authenticity_verified": false,
+      "broker_accounting_verified": false,
+      "orders": 0
+    },
+    "matched_ordinary-5bp": {
+      "status": "PASS",
+      "independently_checked_marks": 23,
+      "rebalances": 2,
+      "halted": false,
+      "complete": false,
+      "source_authenticity_verified": false,
+      "broker_accounting_verified": false,
+      "orders": 0
+    },
+    "matched_ordinary-25bp": {
+      "status": "PASS",
+      "independently_checked_marks": 23,
+      "rebalances": 2,
+      "halted": false,
+      "complete": false,
+      "source_authenticity_verified": false,
+      "broker_accounting_verified": false,
+      "orders": 0
+    },
+    "matched_relative-5bp": {
+      "status": "PASS",
+      "independently_checked_marks": 23,
+      "rebalances": 2,
+      "halted": false,
+      "complete": false,
+      "source_authenticity_verified": false,
+      "broker_accounting_verified": false,
+      "orders": 0
+    },
+    "matched_relative-25bp": {
+      "status": "PASS",
+      "independently_checked_marks": 23,
+      "rebalances": 2,
+      "halted": false,
+      "complete": false,
+      "source_authenticity_verified": false,
+      "broker_accounting_verified": false,
+      "orders": 0
+    },
+    "matched_residual-5bp": {
+      "status": "PASS",
+      "independently_checked_marks": 23,
+      "rebalances": 2,
+      "halted": false,
+      "complete": false,
+      "source_authenticity_verified": false,
+      "broker_accounting_verified": false,
+      "orders": 0
+    },
+    "matched_residual-25bp": {
+      "status": "PASS",
+      "independently_checked_marks": 23,
+      "rebalances": 2,
+      "halted": false,
+      "complete": false,
+      "source_authenticity_verified": false,
+      "broker_accounting_verified": false,
+      "orders": 0
+    }
+  },
+  "independently_checked_daily_account_marks": 184,
+  "cohort_hash_substitution": "SYNTHETIC_COHORT_BOUNDARY_ONLY",
+  "other_positive_path_validators_mocked": false,
+  "live_prices_captured": false,
+  "real_formation_identities_approved": 0,
+  "new_live_signals": 0,
+  "prospective_observations": 0,
+  "orders": 0,
+  "automatic_promotion": false,
+  "prior_full_exposure_screen": "FAIL_RETAINED"
+}
