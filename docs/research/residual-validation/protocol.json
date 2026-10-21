@@ -1,0 +1,77 @@
+{
+  "version": "RV1",
+  "scope": "RETROSPECTIVE_TIME_SEPARATED_VALIDATION_NOT_PROSPECTIVE_BLIND_TRIAL",
+  "parent_commit": "62403e566beffe6f5ae6c264f70753f2dfe70cdf",
+  "parent_protocol_sha256": "9f1284ec598ffe6b6cf376de15d7ce1958f2efdf7d7e6d6fe6fe456fa857e29a",
+  "parent_manifest_sha256": "525cca22084edd20770ac0d6d7d10a57f6285e8090a3f9056629c90d89ae8573",
+  "cohort_sha256": "eeadc8c0b4860640fd0a548301f9fb676cef7591168e04d10e98a479d6923d60",
+  "cohort": "Same archived 4002 common stocks; no 2026 IPO additions or hindsight replacements. SPY benchmark only; SOXL explicitly prohibited.",
+  "formation_start": "2025-12-31",
+  "formation_end": "2026-08-31",
+  "mark_end": "2026-09-30",
+  "initial_proxy_capital": 100000,
+  "selectors": [
+    "parent_ordinary",
+    "matched_ordinary",
+    "matched_relative",
+    "matched_residual"
+  ],
+  "model": "Unchanged sealed RM1a QR, 36 monthly returns ending formation_month minus 1; u=excess return-beta*FF3 without subtracting fitted intercept; sum(last11 u)/sample sd",
+  "eligibility_and_allocation": "Unchanged SM1 raw price>=5, ADV20>=20M, 252-day SPY beta>=1.5, >=10 other original base peers, ten 10% targets, max two per archived sector, zero-interest cash, two-session delayed monthly closes, no risk overlay",
+  "factor_months": [
+    "2022-12",
+    "2026-07"
+  ],
+  "factor_file": "Reuse exact retained parent French ZIP; expand parser date range only. No factor vintage refresh, monthly rows only, percent converted once.",
+  "factor_file_sha256": "593f4fbef03181bc0b22ff6292f217689dd1fb79355049ca905d95b262040a66",
+  "factor_vintage": "Current retrospective CIZ; factor publication availability not historically certified despite calendar-month lag",
+  "capture_new": {
+    "start": "2025-12-01",
+    "end": "2026-09-30T23:59:59Z",
+    "adjustments": [
+      "all",
+      "raw"
+    ],
+    "asof": "2025-04-25",
+    "feed": "sip"
+  },
+  "capture_history": {
+    "start": "2022-11-01",
+    "end": "2023-01-31T23:59:59Z",
+    "adjustment": "all",
+    "asof": "2025-04-25"
+  },
+  "history_splice": "Same RM1a quarantine for old-Jan2023-empty/new-nonempty; all other January overlap exact; preserve original missing values.",
+  "new_splice": "December2025 date sets and adjusted closes/raw close-volume tuples must equal original cache for every symbol. Any mismatch aborts entire study before new scores; no tolerance relaxation or silent rebasing.",
+  "calendar": "Pinned exchange_calendars 4.13.2 XNYS; fresh SPY sessions must equal generated calendar for Dec2025-Sep2026",
+  "costs_bps_per_side": [
+    5,
+    25
+  ],
+  "missing_held_price": "Original HALT with no full-period return; keep partial audited path, no future quote-completeness selection",
+  "screen": {
+    "classification": "Research continuation screen, DX27 choices not paper-derived significance thresholds or automatic Paper approval",
+    "complete": "Both matched ordinary and matched residual full period at both costs",
+    "return_positive": "Matched residual return >0 at both costs",
+    "return_comparison": "Matched residual return > matched ordinary at both costs",
+    "drawdown": "Matched residual observed drawdown <=25% and <=matched ordinary at both costs",
+    "gross_interval_frequency": "Matched residual gross positive-stock holding-interval fraction >=50% and >=matched ordinary at both costs",
+    "pass": "All above conditions true",
+    "fail": "Complete but at least one condition false; no parameter or period search",
+    "incomplete": "Data integrity/coverage halt prevents complete primary comparison; not a successful or failed profitability verdict"
+  },
+  "secondary": [
+    "all four selectors",
+    "gross interval counts and basket counts, not actual trades or independent samples",
+    "beta, exposure, turnover, top-three positive-path contribution, drifted weights",
+    "same-history coverage and selection overlap"
+  ],
+  "exposure_audit_sha256": "a454ca8b2cd1abd4da253984c1429ecfb5e52a78a568d9b7d0bd008f8f6665f1",
+  "audit_limits": "Retained request metadata only; unlogged requests, Paper snapshots, external market knowledge and prior viewing cannot be certified. Existing current factor ZIP included later dates but parent score parser excluded them.",
+  "independent_out_of_sample_certified": false,
+  "no_parameter_search": true,
+  "automatic_promotion": false,
+  "actual_orders": 0,
+  "paid_data_purchases": 0,
+  "reserved_2026_soxl_prices_used": false
+}

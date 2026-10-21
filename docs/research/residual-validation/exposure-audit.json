@@ -1,0 +1,8 @@
+{
+  "metadata_files": 12892,
+  "stock_market_query_metadata": 12854,
+  "potential_2026_or_unbounded_queries": 0,
+  "unknown_metadata": 0,
+  "private_audit_sha256": "a454ca8b2cd1abd4da253984c1429ecfb5e52a78a568d9b7d0bd008f8f6665f1",
+  "limits": "Only retained request metadata scanned, no payloads; cannot certify all prior viewing, unlogged queries or outside knowledge."
+}
