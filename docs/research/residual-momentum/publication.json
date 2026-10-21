@@ -1,0 +1,21 @@
+{
+  "commits": {
+    "protocol": {
+      "sha": "e3f5b3d5dd7db9149bb97570961e6ea40b3f9b9b",
+      "committer_time": "2026-10-21T10:41:16Z",
+      "url": "https://github.com/Daxoniel/DX27-Trading-Engine/commit/e3f5b3d5dd7db9149bb97570961e6ea40b3f9b9b"
+    },
+    "first_execution_aborted_at_input_validation": {
+      "sha": "606b5f1e8ffaf17d73e1babcf93af746bf9ccdd7",
+      "committer_time": "2026-10-21T10:46:24Z",
+      "url": "https://github.com/Daxoniel/DX27-Trading-Engine/commit/606b5f1e8ffaf17d73e1babcf93af746bf9ccdd7"
+    },
+    "input_amendment_and_execution_v2": {
+      "sha": "79c1d9902a7ea0907e253d6eef8f89e50cc9f25e",
+      "committer_time": "2026-10-21T10:48:57Z",
+      "url": "https://github.com/Daxoniel/DX27-Trading-Engine/commit/79c1d9902a7ea0907e253d6eef8f89e50cc9f25e"
+    }
+  },
+  "first_retained_scored_features_file_time": "2026-10-21T10:49:44.109092+00:00",
+  "limits": "Repository and file times document process, not an independent trusted timestamp. Input amendment followed a failed overlap check before any new scores/results; parent path already observed, not out-of-sample."
+}
