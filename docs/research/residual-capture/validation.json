@@ -1,0 +1,17 @@
+{
+  "protocol_commit": "5c918cb",
+  "execution_seal_commit": "10c8f48",
+  "new_tests": 8,
+  "parent_tests": 62,
+  "existing_files_unchanged": true,
+  "sealed_core_unchanged": 156,
+  "real_registry_byte_and_asset_binding_checked": true,
+  "prepared_local_empty_journals": 8,
+  "actual_preflight_status": "BLOCKED_FORMATION_NOT_CLOSED",
+  "actual_source_requests": 0,
+  "new_live_rankings": 0,
+  "orders": 0,
+  "automatic_promotion": false,
+  "source_format": "RC1_NOT_LEGACY_RA1",
+  "identity_admission_complete": false
+}
