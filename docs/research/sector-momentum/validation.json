@@ -1,0 +1,95 @@
+{
+  "unit_tests": 11,
+  "independent_case_audits": {
+    "ordinary-5bp": {
+      "status": "PASS",
+      "checks": 622,
+      "rebalance_count": 8,
+      "source_authenticity_verified": false,
+      "executable_prices_verified": false,
+      "broker_accounting_verified": false,
+      "promotable": false
+    },
+    "relative-5bp": {
+      "status": "PASS",
+      "checks": 622,
+      "rebalance_count": 8,
+      "source_authenticity_verified": false,
+      "executable_prices_verified": false,
+      "broker_accounting_verified": false,
+      "promotable": false
+    },
+    "broad-5bp": {
+      "status": "PASS",
+      "checks": 1803,
+      "rebalance_count": 6,
+      "source_authenticity_verified": false,
+      "executable_prices_verified": false,
+      "broker_accounting_verified": false,
+      "promotable": false
+    },
+    "spy-5bp": {
+      "status": "PASS",
+      "checks": 515,
+      "rebalance_count": 1,
+      "source_authenticity_verified": false,
+      "executable_prices_verified": false,
+      "broker_accounting_verified": false,
+      "promotable": false
+    },
+    "ordinary-25bp": {
+      "status": "PASS",
+      "checks": 622,
+      "rebalance_count": 8,
+      "source_authenticity_verified": false,
+      "executable_prices_verified": false,
+      "broker_accounting_verified": false,
+      "promotable": false
+    },
+    "relative-25bp": {
+      "status": "PASS",
+      "checks": 622,
+      "rebalance_count": 8,
+      "source_authenticity_verified": false,
+      "executable_prices_verified": false,
+      "broker_accounting_verified": false,
+      "promotable": false
+    },
+    "broad-25bp": {
+      "status": "PASS",
+      "checks": 1803,
+      "rebalance_count": 6,
+      "source_authenticity_verified": false,
+      "executable_prices_verified": false,
+      "broker_accounting_verified": false,
+      "promotable": false
+    },
+    "spy-25bp": {
+      "status": "PASS",
+      "checks": 515,
+      "rebalance_count": 1,
+      "source_authenticity_verified": false,
+      "executable_prices_verified": false,
+      "broker_accounting_verified": false,
+      "promotable": false
+    }
+  },
+  "independent_eligible_feature_checks": 1944,
+  "adjusted_rows": 2935619,
+  "sealed_response_pages": 321,
+  "full_period_cases": 6,
+  "halted_cases": [
+    "broad-5bp",
+    "broad-25bp"
+  ],
+  "sealed_core_files_unchanged": 156,
+  "all_preexisting_tracked_files_unchanged_from": "04989883311d6665e0fc3718d6b96f0d487ad7da",
+  "execution_code_seals_verified": true,
+  "actual_orders": 0,
+  "paid_data_purchases": 0,
+  "reserved_2026_soxl_prices_used": false,
+  "executable_prices_verified": false,
+  "promotable": false,
+  "input_manifest_sha256": "525cca22084edd20770ac0d6d7d10a57f6285e8090a3f9056629c90d89ae8573",
+  "results_sha256": "9a86563b29a3890868ae240332e5d71e760146e51894269eab870313cfd80cbc"
+}
