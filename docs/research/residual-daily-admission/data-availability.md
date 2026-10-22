@@ -1,0 +1,5 @@
+# DE1 data availability amendment
+
+2026-10-22, before the sealed rehearsal or any real daily-source observations. The original protocol remains unchanged. A development fixture used 5 minutes after close; no actual provider query or prospective return was observed. Free delayed data can include an incomplete current-day daily bar immediately after market close.
+
+Add a conservative administrative wait: decision/capture time and each source request start must be at least 20 minutes after XNYS session close and strictly before the next session open. This buffer is not an optimized signal or entry time, proof of final official-close publication, or a paid entitlement claim. It changes data admission only. Retained adjusted-close proxies can still be revised later; the full continuous-holding history check blocks such changes rather than manufacturing returns. Synthetic future fixture times move to 25/26/27 minutes after close for source/review/decision. All other protocol rules remain in force.
