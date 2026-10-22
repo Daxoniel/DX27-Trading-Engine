@@ -1,0 +1,8 @@
+{
+  "files": {
+    "daily.py": "1ff2af5b693eadf7eef8c2daf28e74efb59587be5f02362b453f82ab508c8fe4",
+    "preflight.py": "6ce1581778b9c0f55e5b0c6686670a6e055ab0046120425d3c6b0b7f075b74ff",
+    "test_daily.py": "8ec5d7af390171c219a4e3f17f86546ed96dad90ceea11a26bcbfbe11f34f69e"
+  },
+  "protocol_sha256": "bc9ca4a32fac09850c1dc9987a0cb8c1205f3556f64f749426ba2c4edb0d6b8d"
+}
