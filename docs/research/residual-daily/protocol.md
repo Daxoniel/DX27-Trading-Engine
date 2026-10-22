@@ -1,0 +1,11 @@
+# RD1: synthetic daily adjusted-price transition safety
+
+Frozen before rehearsal on 2026-10-22. This increment is an offline synthetic harness, not a production source collector or an executable trading strategy. No network, provider credentials, orders, scheduler, live decisions or prospective returns. Earlier full-exposure drawdown failure remains unchanged.
+
+Use the registered RS1 XNYS sessions and second-session rebalance dates. Every one of eight selector/cost journals must have the same exact next session; observation must follow that XNYS close. Require expected heads and validate every projected transition before any journal write. Only synthetic inputs are accepted. Rank inputs are explicitly synthetic, not production AA1 authorization.
+
+For every held name, require the current packet's previous-session adjusted close to equal the prior journal's close numerically. Reject changed adjustment basis rather than inventing a split/dividend correction. Require exact held-plus-target close coverage, no unresolved corporate actions, no reserved SOXL keys, finite positive prices, and a positive explicit synthetic review marker. This is a conservative necessary check, not proof of vendor price continuity: old history can change away from the anchor. Production admission will need retained raw source receipts, fresh documentary action/identity review and an authenticated retained pre-open formation decision; RD1 cannot supply those.
+
+An exclusive operation directory contains prepared, per-case and complete receipts. Any interruption records partial status; block subsequent operations in that operation root pending manual investigation. No automatic retry or repair. Eight journals are not an atomic transaction. Detect duplicate/stale heads and require independent RS1 audit after each append. Concurrent writers remain unsupported; a single-writer deployment lock is required before production.
+
+Rehearse a scheduled entry followed by an ordinary held session. Test missing held prices, changed adjustment basis, unresolved actions, early/weekend/out-of-order sessions, stale heads, production-mode rejection and partial-write retry blocking. Synthetic clocks and prices are never presented as actual observations. Real current-clock preflight before formation must issue zero requests and change zero journals.
