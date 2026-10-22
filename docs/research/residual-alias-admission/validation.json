@@ -1,0 +1,17 @@
+{
+  "protocol_commit": "581f16d",
+  "execution_seal_commit": "4d462bd",
+  "new_tests": 9,
+  "parent_tests": 70,
+  "prior_tracked_files_unchanged": true,
+  "sealed_core_unchanged": 156,
+  "production_registry_anchor_verified": true,
+  "synthetic_aliases": 1,
+  "synthetic_scores_audited": 55,
+  "synthetic_identity_reviews": 55,
+  "synthetic_source_bodies_unchanged": 68,
+  "external_journals_unchanged": 8,
+  "actual_preflight_status": "BLOCKED_FORMATION_NOT_CLOSED",
+  "real_identity_approvals": 0,
+  "orders": 0
+}
