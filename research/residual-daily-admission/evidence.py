@@ -30,10 +30,12 @@ def inventory(root):
 def formation_seal(capture,reviews,aliases,observed_at):
     verify_parent();capture=Path(capture).resolve()
     manifest=json.loads((capture/'manifest.json').read_bytes());window=manifest['window']
+    before=inventory(capture)
     decision=gate.assess(capture,window,reviews,aliases,observed_at)
+    require(inventory(capture)==before,'FORMATION_CHANGED_DURING_SEAL')
     require(decision['status']=='SHADOW_INPUTS_ADMISSIBLE','FORMATION_NOT_ADMITTED')
     return dict(version='DE1_FORMATION',sealed_at=observed_at,window=window,capture=str(capture),
-                capture_files=inventory(capture),decision=decision,reviews=reviews,aliases=aliases,
+                capture_files=before,decision=decision,reviews=reviews,aliases=aliases,
                 parent_seal_sha256=sha256((ROOT/'docs/research/residual-alias-admission/code-seal.json').read_bytes()).hexdigest(),
                 clock_trust='LOCAL_ONLY_NO_EXTERNAL_ATTESTATION',orders=0)
 

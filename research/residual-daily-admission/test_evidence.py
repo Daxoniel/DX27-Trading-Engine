@@ -60,7 +60,14 @@ class EvidenceTests(unittest.TestCase):
             if ref['request']['kind'] in ('bars','actions'):self.assertNotIn('VSXY',ref['request']['params']['symbols'].split(','))
     def test_seal_evidence_and_known_hash_tampering(self):
         with self.assertRaisesRegex(ValueError,'FORMATION_SEAL_HASH'):e.validate_seal(self.record,'a'*64)
-        (self.f.capture/'SYNTHETIC-NOT-A-FILING.txt').write_bytes(b'tampered')
+        original=e.gate.assess
+        def racing(*args):
+            result=original(*args)
+            (self.f.capture/'SYNTHETIC-NOT-A-FILING.txt').write_bytes(b'tampered during seal')
+            return result
+        with patch.object(e.gate,'assess',racing):
+            with self.assertRaisesRegex(ValueError,'FORMATION_CHANGED_DURING_SEAL'):
+                e.formation_seal(self.f.capture,self.f.reviews,self.f.aliases,DECISION)
         with self.assertRaisesRegex(ValueError,'FORMATION_EVIDENCE_CHANGED'):e.validate_seal(self.record,self.h)
     def test_pending_and_missing_review(self):
         self.capture();out=prepare(self.out,self.root/'pending');self.assertEqual(out['approved_reviews'],0)
