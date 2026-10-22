@@ -2,10 +2,10 @@
   "files": {
     "capture.py": "c1aa005ea49543705aed01309a9263160c42db97eb0ffe1b94c42d23aa33b8f4",
     "cli.py": "8ca7507288f0e3102fec134ac0b3eb99dc6b939fd4229b71ea720cb2396cd765",
-    "evidence.py": "e0cddfbe0b1b19d24c442c5b6632fa811de76707826ed2f807fc49db140a123f",
+    "evidence.py": "6678e0cd74d35cdbc1c868761b8fe2a0b4676800b96de77c1bc1f8e45747718d",
     "pending.py": "ccd39638f620c1f136b0617ae594c0c7e7c77ae83276fca6fd79eb5925a9239b",
     "rehearse.py": "fbd0876203389a5e965b2e6e92a2d8e64417f758fd769b77585b073df7d960ed",
-    "test_evidence.py": "01141794775d7487035e00ec426eded7111c219625d506574bbf17a256894b23"
+    "test_evidence.py": "1e1bc36f06c1921ebcd8f02ba6fbf9fb8c3ccc7e4ff8a0f9fb62fca9d040c274"
   },
   "protocol_sha256": "fb4f5c210a3950da04a2c4611026724ee7cab3b7643ab0342ecc3b6d33dc168e",
   "data_availability_sha256": "5e3896e775621fc3c2eb9711fbf50cf597170a6eaf9421a7a7bee137417d5f10"

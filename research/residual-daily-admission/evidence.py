@@ -100,7 +100,10 @@ def context(record,expected_hash,bundle,day,now):
 
 
 def assess(root,record,expected_hash,reviews,observed_at):
-    root=Path(root);now=legacy.utc(observed_at);m=json.loads((root/'manifest.json').read_bytes());day=m['date']
+    now=legacy.utc(observed_at)
+    if now<legacy.utc(gate.collector.windows()[0]['formation_close']):
+        return dict(status='BLOCKED_FORMATION_NOT_CLOSED',network_requests=0,journal_writes=0,orders=0,execution_enabled=False)
+    root=Path(root);m=json.loads((root/'manifest.json').read_bytes());day=m['date']
     c=context(record,expected_hash,m['ledgers'],day,now)
     require(m['version']=='DE1_DAILY' and m['formation_seal_sha256']==expected_hash and m['cohort_sha256']==c['cohort_sha256'],'DAILY_SEAL_BINDING')
     require(m['start']==c['start'] and m['action_start']==c['previous'],'DAILY_QUERY_WINDOW')

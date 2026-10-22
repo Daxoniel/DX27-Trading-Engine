@@ -98,6 +98,8 @@ class EvidenceTests(unittest.TestCase):
         def forbidden(*a):self.fail('source opened')
         result=collect(self.root/'early',None,None,None,'2026-11-03',lambda:e.legacy.utc('2026-10-22T12:00:00+00:00'),forbidden)
         self.assertEqual(result['status'],'BLOCKED_FORMATION_NOT_CLOSED');self.assertFalse((self.root/'early').exists())
+        result=e.assess(self.root/'MISSING',None,None,None,'2026-10-22T12:00:00+00:00')
+        self.assertEqual(result['status'],'BLOCKED_FORMATION_NOT_CLOSED')
     def test_delayed_source_buffer_is_enforced_on_receipts(self):
         self.capture()
         for ref in self.m['source_refs']:
