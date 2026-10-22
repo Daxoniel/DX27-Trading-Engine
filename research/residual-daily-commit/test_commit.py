@@ -30,6 +30,7 @@ class CommitTests(unittest.TestCase):
     def test_eight_case_entry_then_held_day_with_receipt_ancestry(self):
         result=self.commit()
         self.assertEqual(result['journal_writes'],8);self.assertFalse((self.root/g.LOCK).exists())
+        self.assertEqual(result['next_ledger_bundle'],self.case.bundle())
         self.assertFalse(result['atomic_multi_account_transaction']);self.assertEqual(result['orders'],0)
         self.case.out=self.case.root/'held-day'
         self.case.capture('2026-11-04',g.e.legacy.utc('2026-11-04T21:25:00+00:00'))

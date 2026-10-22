@@ -79,6 +79,7 @@ def prior_operations(root,paths):
         require(complete['status']=='LOCAL_PROXY_MARK_COMPLETE' and complete['journal_writes']==8,'OPERATION_NOT_COMPLETE')
         require({p.name for p in out.iterdir()}=={'prepared.json','complete.json'}|{k+'.json' for k in paths},'OPERATION_FILES_CHANGED')
         require(e.inventory(prepared['capture'])==prepared['evidence_files'],'PAST_DAILY_EVIDENCE_CHANGED')
+        require(complete['next_ledger_bundle']['root']==str(root) and set(complete['next_ledger_bundle']['heads'])==set(paths),'NEXT_HEAD_BUNDLE')
         for key,path in paths.items():
             row=prepared['cases'][key];case,ch=read_receipt(out/(key+'.json'))
             require(row['path']==path and case['path']==path,'OPERATION_ACCOUNT_BINDING')
@@ -87,6 +88,7 @@ def prior_operations(root,paths):
                     and case['state_sha256']==e.digest(row['state'])
                     and case['mark_sha256']==e.digest(row['mark']),'CASE_PREDICTION_BINDING')
             require(case['audit']['status']=='PASS' and not case['audit']['halted'],'CASE_AUDIT')
+            require(complete['next_ledger_bundle']['heads'][key]==dict(path=path,head_sha256=case['after']),'NEXT_HEAD_BINDING')
             require(case['after'] in ancestors[key],'COMPLETED_HEAD_NOT_ANCESTOR')
 
 
@@ -154,13 +156,15 @@ def commit(capture,record,seal_hash,reviews,proposal,proposal_hash,clock=lambda:
             receipt=dict(path=row['path'],before=row['before'],after=head,request_sha256=e.digest(row['request']),
                          state_sha256=e.digest(state),mark_sha256=e.digest(event['mark']),audit=audit)
             case_hashes[key]=write_receipt(out/(key+'.json'),receipt);confirmed.append(key)
-        finished=checkpoint()
+        finished=checkpoint();after_heads={}
         for key,row in prepared.items():
-            state,_,_=e.ledger.Journal(root/row['path']).replay()
+            state,head,_=e.ledger.Journal(root/row['path']).replay()
             case,_=read_receipt(out/(key+'.json'))
-            require(e.ledger.Journal(root/row['path']).replay()[1]==case['after'] and state==row['state'],'FINAL_HEAD_CHANGED')
+            require(head==case['after'] and state==row['state'],'FINAL_HEAD_CHANGED')
+            after_heads[key]=dict(path=row['path'],head_sha256=head)
         result=dict(status='LOCAL_PROXY_MARK_COMPLETE',operation_sha256=operation,date=day,
-                    case_receipts=case_hashes,journal_writes=len(confirmed),finished_at=finished.isoformat(),
+                    case_receipts=case_hashes,next_ledger_bundle=dict(root=str(root),heads=after_heads),
+                    journal_writes=len(confirmed),finished_at=finished.isoformat(),
                     independently_audited=True,broker_execution_enabled=False,network_requests=0,orders=0,
                     atomic_multi_account_transaction=False,source_authenticity_attested=False)
         write_receipt(out/'complete.json',result);success=True
