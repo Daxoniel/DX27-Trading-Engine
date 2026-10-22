@@ -1,0 +1,9 @@
+{
+  "files": {
+    "guard.py": "e4b0d2896cff946f8e17e39c7ec34ef546d0a68a2dc95ad1bb1098110bb7ede5",
+    "rehearse.py": "cbecd46a8865f6e84842b4b357199b3341f7d5ae83c7e008906313447cca7271",
+    "run.py": "27fc8401ae6692e083eca7cb44d3176426beb20d8d22b41d1726f994acaa4b11",
+    "test_commit.py": "63b2045afa28cacaa161c2322cceb1fa52854cf5d9883934b7d0c8929550909d"
+  },
+  "protocol_sha256": "1e981c06ff7e9c594f3b3eadd1cc330c2607bcb4c5e6bac846760df378dbd44f"
+}
