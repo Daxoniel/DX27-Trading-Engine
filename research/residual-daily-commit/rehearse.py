@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from unittest.mock import patch
 import guard as g
-from test_commit import CommitTests, CLOCK
+from test_commit import CLOCK
 from test_evidence import EvidenceTests, AliasScenario, DECISION
 
 

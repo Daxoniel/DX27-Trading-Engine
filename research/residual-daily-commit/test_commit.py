@@ -6,14 +6,14 @@ import shutil
 import unittest
 from unittest.mock import patch
 import guard as g
-from test_evidence import EvidenceTests, NOW, DECIDE
+import test_evidence as fixtures
 
 CLOCK=g.e.legacy.utc('2026-11-03T21:28:00+00:00')
 
 
 class CommitTests(unittest.TestCase):
     def setUp(self):
-        self.case=EvidenceTests('test_native_preopen_to_daily_is_read_only_and_alias_preserved')
+        self.case=fixtures.EvidenceTests('test_native_preopen_to_daily_is_read_only_and_alias_preserved')
         self.case.setUp();self.addCleanup(self.case.doCleanups)
         self.case.capture();self.reviews=self.case.reviews();self.proposal=self.case.assess(self.reviews)
         self.root=self.case.s.root;self.original=self.case.bundle()
@@ -129,6 +129,13 @@ class CommitTests(unittest.TestCase):
         value=json.loads(path.read_bytes());value['data']['after']='a'*64;path.write_bytes(g.e.canonical(value))
         with self.assertRaisesRegex(ValueError,'RECEIPT_HASH'):self.commit()
         self.assertEqual(after,self.case.bundle())
+    def test_lost_completed_event_blocks_even_when_remaining_journal_replays(self):
+        self.commit()
+        journal=next(iter(self.case.s.journals.values()))
+        last=sorted(journal.root.iterdir())[-1];last.unlink()
+        journal.replay() # A valid shorter journal alone cannot certify completed writes.
+        with self.assertRaisesRegex(ValueError,'COMPLETED_HEAD_NOT_ANCESTOR'):self.commit()
+        self.assertFalse((self.root/g.LOCK).exists())
     def test_early_clock_never_reads_supplied_inputs_or_creates_lock(self):
         result=g.commit(None,None,None,None,None,None,lambda:g.e.legacy.utc('2026-10-22T12:00:00+00:00'))
         self.assertEqual(result['status'],'BLOCKED_FORMATION_NOT_CLOSED')
