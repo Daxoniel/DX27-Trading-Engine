@@ -1,0 +1,11 @@
+{
+  "files": {
+    "alias_fixture.py": "adaadabe4c77fb9c40ef8ee166b8195d87154cc885d7559be24f22ae666fa4cf",
+    "checklist.py": "efc0990a97ee1ce3f4ba2cd26957f0495972c8520574d78e7e327f7ce5055ff2",
+    "decide.py": "a0244cbe3ae8054b9cc73c72eef9842b5675aaf6a42e09a47727c5e5ec96132e",
+    "gate.py": "191968481b9f1e2c5fc747689360544c6bd191a2b34678a1f072e5a3ce4026dd",
+    "rehearse.py": "a9f91a7eb0f0588b0b7b574948df3bcf2e3607b23eac52fcb308aaceb19c26c1",
+    "test_alias_gate.py": "cff1f8971384305101e65ed6af88e27c2a062f75f50abb2a94682317cdc1ea4e"
+  },
+  "protocol_sha256": "7157fb346affc227de21a66a446944a79addffb4e8f9b0f6855f3292a5bc78aa"
+}
