@@ -1,4 +1,5 @@
 """DE1 read-only formation receipts and daily evidence verification."""
+from decimal import Decimal
 from datetime import timedelta
 from hashlib import sha256
 import json
@@ -108,14 +109,14 @@ def assess(root,record,expected_hash,reviews,observed_at):
     require(m['version']=='DE1_DAILY' and m['formation_seal_sha256']==expected_hash and m['cohort_sha256']==c['cohort_sha256'],'DAILY_SEAL_BINDING')
     require(m['start']==c['start'] and m['action_start']==c['previous'],'DAILY_QUERY_WINDOW')
     allowed=c['required'];aliases=record['aliases'];metadata=allowed|{r['lookup'] for r in aliases.values()}
-    refs=m['source_refs'];bodies=[];paths=set()
+    refs=m['source_refs'];bodies=[];exact_bodies={};paths=set()
     for ref in refs:
         require(ref['path'] not in paths,'DUPLICATE_SOURCE');paths.add(ref['path'])
         require(ref['request']['kind'] in ('bars','actions','asset'),'DAILY_SOURCE_KIND')
         blob=read_ref(root/'sources',ref,metadata,now)
         require(c['close']+timedelta(minutes=20)<=legacy.utc(ref['request_started_at'])<=legacy.utc(ref['received_at'])<c['deadline'],'DAILY_SOURCE_TIME')
         if ref['request']['kind']!='asset':require(set(ref['request']['params']['symbols'].split(','))<=allowed,'CANONICAL_QUERY_ONLY')
-        bodies.append(json.loads(blob))
+        bodies.append(json.loads(blob));exact_bodies[ref['path']]=json.loads(blob,parse_float=Decimal)
     prices={};sessions={d.date().isoformat() for d in xc.get_calendar('XNYS').sessions_in_range(c['start'],day)}
     for adjustment in ('all','raw'):
         chosen=[(r,b) for r,b in zip(refs,bodies) if r['request']['kind']=='bars' and r['request']['params']['adjustment']==adjustment]
@@ -125,6 +126,13 @@ def assess(root,record,expected_hash,reviews,observed_at):
         data,coverage=gate.admission.pages_complete([r for r,b in chosen],[b for r,b in chosen],allowed,'bars')
         require(coverage==allowed and set(data)==allowed,'PRICE_COVERAGE')
         require(all(set(rows)==sessions for rows in data.values()),'PRICE_SESSION_COVERAGE')
+        # Validate schema/pagination using the sealed parent, then retain the
+        # original decimal token for money/vintage checks rather than binary float.
+        for r,b in chosen:
+            for symbol,rows in exact_bodies[r['path']].get('bars',{}).items():
+                for row in rows:
+                    date=legacy.utc(row['t']).date().isoformat()
+                    data[symbol][date]=(str(row['c']),data[symbol][date][1])
         prices[adjustment]=data
     actions=[(r,b) for r,b in zip(refs,bodies) if r['request']['kind']=='actions']
     if allowed:

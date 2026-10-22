@@ -134,7 +134,22 @@ class EvidenceTests(unittest.TestCase):
         self.assertTrue(all('targets' not in r for r in good['requests'].values()))
         i=next(i for i,r in enumerate(self.m['source_refs']) if r['request']['kind']=='bars' and r['request']['params']['adjustment']=='all')
         body=json.loads((self.out/'sources'/self.m['source_refs'][i]['path']).read_bytes());symbol=next(iter(body['bars']))
+        original=deepcopy(body)
         body['bars'][symbol][0]['c']*=.5;self.rewrite_ref(i,body)
+        with self.assertRaisesRegex(ValueError,'HELD_PRICE_VINTAGE_CHANGED'):
+            self.assess(self.reviews('2026-11-05T21:26:00+00:00'),'2026-11-05T21:27:00+00:00')
+        self.rewrite_ref(i,original)
+        # A provider decimal restatement smaller than binary-float resolution
+        # must still fail the exact retained-price policy.
+        from decimal import Decimal,localcontext
+        token=json.dumps(original['bars'][symbol][0]['c'])
+        with localcontext() as ctx:
+            ctx.prec=65;changed=format(Decimal(token)+Decimal('1e-35'),'f')
+        self.assertEqual(float(token),float(changed))
+        ref=self.m['source_refs'][i];path=self.out/'sources'/ref['path']
+        blob=path.read_bytes().replace(('\"c\":'+token).encode(),('\"c\":'+changed).encode(),1)
+        path.write_bytes(blob);ref['bytes']=len(blob);ref['response_sha256']=e.sha256(blob).hexdigest()
+        (self.out/'manifest.json').write_bytes(e.canonical(self.m))
         with self.assertRaisesRegex(ValueError,'HELD_PRICE_VINTAGE_CHANGED'):
             self.assess(self.reviews('2026-11-05T21:26:00+00:00'),'2026-11-05T21:27:00+00:00')
 
